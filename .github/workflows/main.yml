@@ -29,4 +29,4 @@ jobs:
           username: ${{ secrets.ALIYUN_USER }}
           password: ${{ secrets.ALIYUN_PASSWORD }}
           source: "./public"
-          target: "../www/webroot/www.yqqy.top"
+          target: "../www/webroot/www.yqqy.top/"
