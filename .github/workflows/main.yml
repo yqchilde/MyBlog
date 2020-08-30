@@ -12,7 +12,7 @@ jobs:
     
     steps:
       - name: Check Out
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
           
       - name: SSH Remote Commands
         uses: appleboy/ssh-action@master
