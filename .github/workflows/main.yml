@@ -20,7 +20,7 @@ jobs:
           host: ${{ secrets.ALIYUN_HOST }}
           username: ${{ secrets.ALIYUN_USER }}
           password: ${{ secrets.ALIYUN_PASSWORD }}
-          script: bash /root/blog_del.sh
+          # script: bash /root/blog_del.sh
           
       - name: SCP Files to aliyun
         uses: appleboy/scp-action@master
@@ -28,5 +28,6 @@ jobs:
           host: ${{ secrets.ALIYUN_HOST }}
           username: ${{ secrets.ALIYUN_USER }}
           password: ${{ secrets.ALIYUN_PASSWORD }}
-          source: "./public"
-          target: "../www/webroot/www.yqqy.top/"
+          rm: 1
+          source: "/public/"
+          target: "../www/webroot/www.yqqy.top/public"
