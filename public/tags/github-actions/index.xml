@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>GitHub Actions - 标签 - Yq&#39;s Blog</title>
+        <link>https://ssr.yqqy.top/tags/github-actions/</link>
+        <description>GitHub Actions - 标签 - Yq&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 30 Aug 2020 19:58:27 &#43;0800</lastBuildDate><atom:link href="https://ssr.yqqy.top/tags/github-actions/" rel="self" type="application/rss+xml" /><item>
+    <title>使用GitHub Actions部署Hugo到阿里云</title>
+    <link>https://ssr.yqqy.top/hugo-github-actions-aliyun/</link>
+    <pubDate>Sun, 30 Aug 2020 19:58:27 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://ssr.yqqy.top/hugo-github-actions-aliyun/</guid>
+    <description><![CDATA[博客更换到了静态Hugo生成的网页，为了部署方便，所以使用GitHub Actions来自动化部署]]></description>
+</item></channel>
+</rss>

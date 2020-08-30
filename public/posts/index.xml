@@ -4,7 +4,14 @@
         <link>https://ssr.yqqy.top/posts/</link>
         <description>所有文章 | Yq&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 05 Jul 2020 13:22:44 &#43;0000</lastBuildDate><atom:link href="https://ssr.yqqy.top/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 30 Aug 2020 19:58:27 &#43;0800</lastBuildDate><atom:link href="https://ssr.yqqy.top/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>使用GitHub Actions部署Hugo到阿里云</title>
+    <link>https://ssr.yqqy.top/hugo-github-actions-aliyun/</link>
+    <pubDate>Sun, 30 Aug 2020 19:58:27 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://ssr.yqqy.top/hugo-github-actions-aliyun/</guid>
+    <description><![CDATA[博客更换到了静态Hugo生成的网页，为了部署方便，所以使用GitHub Actions来自动化部署]]></description>
+</item><item>
     <title>Git常用命令速查表</title>
     <link>https://ssr.yqqy.top/git-command-quick-check/</link>
     <pubDate>Sun, 05 Jul 2020 13:22:44 &#43;0000</pubDate>
@@ -67,12 +74,5 @@
     <author>作者</author>
     <guid>https://ssr.yqqy.top/golang-trie/</guid>
     <description><![CDATA[Trie又称字典树，是N叉树的一种特殊形式。是一种存储大量字符串的树形数据结构，相当于`HashMap`，在存储单词中又比`HashMap`节省了很多的内存空间。`trie`树的根节点不存储内容，内容都在孩子节点上。]]></description>
-</item><item>
-    <title>Golang-Duck&amp;Typing</title>
-    <link>https://ssr.yqqy.top/golang-duck-typing/</link>
-    <pubDate>Tue, 24 Mar 2020 14:52:28 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://ssr.yqqy.top/golang-duck-typing/</guid>
-    <description><![CDATA[在鸭子类型中，关注点在于对象的行为，能作什么；而不是关注对象所属的类型。]]></description>
 </item></channel>
 </rss>
