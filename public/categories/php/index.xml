@@ -1,0 +1,71 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>PHP - 分类 - Yq&#39;s Blog</title>
+        <link>https://ssr.yqqy.top/categories/php/</link>
+        <description>PHP - 分类 - Yq&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 19 Sep 2019 12:34:09 &#43;0000</lastBuildDate><atom:link href="https://ssr.yqqy.top/categories/php/" rel="self" type="application/rss+xml" /><item>
+    <title>PHPMailer6.0.7如何在类中被调用</title>
+    <link>https://ssr.yqqy.top/use-phpmailer/</link>
+    <pubDate>Thu, 19 Sep 2019 12:34:09 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://ssr.yqqy.top/use-phpmailer/</guid>
+    <description><![CDATA[在写发送邮件时发现移植过来的PHPMailer是旧版的（是没有namespace）的，在后面的版本官方才更新过来，于是我在github下载到最新的版本准备写一个发送邮件]]></description>
+</item><item>
+    <title>php多维数组降维记载</title>
+    <link>https://ssr.yqqy.top/php-array/</link>
+    <pubDate>Tue, 20 Aug 2019 07:47:23 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://ssr.yqqy.top/php-array/</guid>
+    <description><![CDATA[php多维数组降维记载]]></description>
+</item><item>
+    <title>php在foreach里面合并数组</title>
+    <link>https://ssr.yqqy.top/php-foreach-merge/</link>
+    <pubDate>Mon, 19 Aug 2019 09:57:49 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://ssr.yqqy.top/php-foreach-merge/</guid>
+    <description><![CDATA[PHP如何在foreach中合并数组呢？]]></description>
+</item><item>
+    <title></title>
+    <link>https://ssr.yqqy.top/php-js-timestamp/</link>
+    <pubDate>Fri, 09 Aug 2019 00:50:43 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://ssr.yqqy.top/php-js-timestamp/</guid>
+    <description><![CDATA[众所周知php的 `time` 函数生成的是10位的时间戳，为了方便与js进行处理，js是13位时间戳，记录下转换方法]]></description>
+</item><item>
+    <title>php利用foreach给数组指定键值添加内容</title>
+    <link>https://ssr.yqqy.top/php-foreach-push/</link>
+    <pubDate>Thu, 01 Aug 2019 08:44:17 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://ssr.yqqy.top/php-foreach-push/</guid>
+    <description><![CDATA[PHP利用foreach给指定数组根据键去添加内容]]></description>
+</item><item>
+    <title>PHP的三种内置函数生成随机数的方法</title>
+    <link>https://ssr.yqqy.top/php-three-generate-random/</link>
+    <pubDate>Mon, 06 May 2019 01:02:35 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://ssr.yqqy.top/php-three-generate-random/</guid>
+    <description><![CDATA[记载PHP三种内置函数生成随机数的方法]]></description>
+</item><item>
+    <title>PHP防止表单重复提交策略</title>
+    <link>https://ssr.yqqy.top/php-form-repeat-submit/</link>
+    <pubDate>Sat, 04 May 2019 04:02:13 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://ssr.yqqy.top/php-form-repeat-submit/</guid>
+    <description><![CDATA[在开发过程中，经常会出现表单出错而返回页面的时候填写的信息全部丢失的情况。正好碰到帮别人写表单多次提交之后，返回时候提示确认重新提交表单，一句代码解决]]></description>
+</item><item>
+    <title>解决PHP5.6版本“No input file specified”</title>
+    <link>https://ssr.yqqy.top/php-no-input-file-specified/</link>
+    <pubDate>Tue, 23 Apr 2019 14:13:16 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://ssr.yqqy.top/php-no-input-file-specified/</guid>
+    <description><![CDATA[使用TP框架做项目时，在启用REWRITE的伪静态功能的时候，首页可以访问，但是访问其它页面的时候，就提示：“No input file specified.”]]></description>
+</item><item>
+    <title>小作品-知识管理系统</title>
+    <link>https://ssr.yqqy.top/my-php-first-project/</link>
+    <pubDate>Fri, 05 Apr 2019 12:23:36 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://ssr.yqqy.top/my-php-first-project/</guid>
+    <description><![CDATA[学习之余做的简单知识管理系统，使用MVC架构编写，写法较为简单，适合小白阅读，前后端采用引导布局，前台是使用jQuery的进行前台验证，操作表单等操作，使用Ajax的验证后台数据，适合学习。]]></description>
+</item></channel>
+</rss>

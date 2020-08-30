@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Golang实现软件设计模式 - Yq&#39;s Blog</title><meta name="Description" content="Golang复习软件设计模式，通过设计模式学习其设计思想，无他，唯手熟尔。"><meta property="og:title" content="Golang实现软件设计模式" />
+<meta property="og:description" content="Golang复习软件设计模式，通过设计模式学习其设计思想，无他，唯手熟尔。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ssr.yqqy.top/golang-design-pattern/" />
+<meta property="og:image" content="https://ssr.yqqy.top"/>
+<meta property="article:published_time" content="2020-04-21T15:00:16+00:00" />
+<meta property="article:modified_time" content="2020-04-21T15:00:16+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://ssr.yqqy.top"/>
+
+<meta name="twitter:title" content="Golang实现软件设计模式"/>
+<meta name="twitter:description" content="Golang复习软件设计模式，通过设计模式学习其设计思想，无他，唯手熟尔。"/>
+<meta name="application-name" content="Yq&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="Yq&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="https://pic.yqqy.top/blog/yqqy/logo.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://ssr.yqqy.top/golang-design-pattern/" /><link rel="prev" href="https://ssr.yqqy.top/golang-binary-calculation/" /><link rel="next" href="https://ssr.yqqy.top/mysql-score-exercises/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Golang实现软件设计模式",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/ssr.yqqy.top\/golang-design-pattern\/"
+        },"genre": "posts","keywords": "Golang","wordcount":  5134 ,
+        "url": "https:\/\/ssr.yqqy.top\/golang-design-pattern\/","datePublished": "2020-04-21T15:00:16+00:00","dateModified": "2020-04-21T15:00:16+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Yqchilde"},"author": {
+                "@type": "Person",
+                "name": "Yqchilde"
+            },"description": "Golang复习软件设计模式，通过设计模式学习其设计思想，无他，唯手熟尔。"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Yq&#39;s Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Yq&#39;s Blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/links/"> 友链 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/yqchilde" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Yq&#39;s Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Yq&#39;s Blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/links/" title="">友链</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/yqchilde" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Golang实现软件设计模式</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/golang/"><i class="far fa-folder fa-fw"></i>Golang</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-04-21">2020-04-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5134 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 11 分钟&nbsp;<span id="/golang-design-pattern/" class="leancloud_visitors" data-flag-title="Golang实现软件设计模式">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#六大原则">六大原则</a>
+      <ul>
+        <li><a href="#开闭原则">开闭原则</a></li>
+        <li><a href="#里氏代换原则">里氏代换原则</a></li>
+        <li><a href="#单一职责原则">单一职责原则</a></li>
+        <li><a href="#依赖倒置原则">依赖倒置原则</a></li>
+        <li><a href="#接口隔离原则">接口隔离原则</a></li>
+        <li><a href="#迪米特法则">迪米特法则</a></li>
+      </ul>
+    </li>
+    <li><a href="#创建型">创建型</a>
+      <ul>
+        <li><a href="#创建者模式">创建者模式</a></li>
+        <li><a href="#工厂模式">工厂模式</a></li>
+        <li><a href="#抽象工厂">抽象工厂</a></li>
+      </ul>
+    </li>
+    <li><a href="#结构型">结构型</a>
+      <ul>
+        <li><a href="#装饰者模式">装饰者模式</a></li>
+      </ul>
+    </li>
+    <li><a href="#行为型">行为型</a>
+      <ul>
+        <li><a href="#迭代器模式">迭代器模式</a></li>
+        <li><a href="#命令模式">命令模式</a></li>
+        <li><a href="#责任链模式">责任链模式</a></li>
+        <li><a href="#观察者模式">观察者模式</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pic.yqqy.top/blog/20200406232406.png?imageMogr2/format/webp/interlace/1"
+        data-srcset="https://pic.yqqy.top/blog/20200406232406.png?imageMogr2/format/webp/interlace/1, https://pic.yqqy.top/blog/20200406232406.png?imageMogr2/format/webp/interlace/1 1.5x, https://pic.yqqy.top/blog/20200406232406.png?imageMogr2/format/webp/interlace/1 2x"
+        data-sizes="auto"
+        alt="https://pic.yqqy.top/blog/20200406232406.png?imageMogr2/format/webp/interlace/1"
+        title="img" /></p>
+<p>虽然设计模式存在于面向对象的语言中，Golang并不是一门OOP的语言，但是这并代表不能实现设计模式。</p>
+<h2 id="六大原则">六大原则</h2>
+<h3 id="开闭原则">开闭原则</h3>
+<p>一个软件实体，如类、模块和函数应该对扩展开放，对修改关闭。在软件的生命周期内，因变化、升级、和维护对原有代码进行修改，可能会引入错误，所以当软件需要变化时，通过扩展软件实体的行为来实现变化，而不是修改原有代码。</p>
+<h3 id="里氏代换原则">里氏代换原则</h3>
+<p>任何基类可以出现的地方，子类一定可以出现。里氏代换原则是继承复用的基石，只有当衍生类可以替换掉基类，软件单位的功能不受到影响时，基类才能真正被复用，而衍生类也能够在基类的基础上增加新的行为。里氏代换原则是对“开闭”原则的补充。实现“开闭”原则的关键步骤就是抽象化。而基类与子类的继承关系就是抽象化的具体实现，所以里氏代换原则是对实现抽象化的具体步骤的规范。通俗的说就是：子类可以扩展父类的功能，但不能改变父类原有的功能。</p>
+<h3 id="单一职责原则">单一职责原则</h3>
+<p>一个类只负责一项职责。</p>
+<h3 id="依赖倒置原则">依赖倒置原则</h3>
+<p>高层模块不应该依赖低层模块，二者都应该依赖其抽象；抽象不应该依赖细节；细节应该依赖抽象。通俗的说：多用抽象的接口来描述相同的动作，降低实现这个动作的人和物之前的耦合度。</p>
+<h3 id="接口隔离原则">接口隔离原则</h3>
+<p>客户端不应该依赖它不需要的接口；一个类对另一个类的依赖应该建立在最小的接口上。</p>
+<h3 id="迪米特法则">迪米特法则</h3>
+<p>一个对象应该对其他对象保持最少的了解。类与类之间的关系越密切，耦合度越大，当一个类发生改变时，对另一个类的影响也越大。</p>
+<table>
+<thead>
+<tr>
+<th align="center">创建型</th>
+<th align="center">结构型</th>
+<th align="center">行为型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><a href="#%e5%88%9b%e5%bb%ba%e8%80%85%e6%a8%a1%e5%bc%8f" rel="">创建者模式</a></td>
+<td align="center"><a href="#%e8%a3%85%e9%a5%b0%e8%80%85%e6%a8%a1%e5%bc%8f" rel="">装饰者模式</a></td>
+<td align="center"><a href="#%e8%bf%ad%e4%bb%a3%e5%99%a8%e6%a8%a1%e5%bc%8f" rel="">迭代器模式</a></td>
+</tr>
+<tr>
+<td align="center"><a href="#%e5%b7%a5%e5%8e%82%e6%a8%a1%e5%bc%8f" rel="">工厂模式</a></td>
+<td align="center">适配器模式</td>
+<td align="center"><a href="#%e5%91%bd%e4%bb%a4%e6%a8%a1%e5%bc%8f" rel="">命令模式</a></td>
+</tr>
+<tr>
+<td align="center"><a href="#%e6%8a%bd%e8%b1%a1%e5%b7%a5%e5%8e%82" rel="">抽象工厂模式</a></td>
+<td align="center">代理模式</td>
+<td align="center"><a href="#%e8%b4%a3%e4%bb%bb%e9%93%be%e6%a8%a1%e5%bc%8f" rel="">责任链模式</a></td>
+</tr>
+<tr>
+<td align="center">单例模式</td>
+<td align="center">外观模式</td>
+<td align="center"><a href="#%e8%a7%82%e5%af%9f%e8%80%85%e6%a8%a1%e5%bc%8f" rel="">观察者模式</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="创建型">创建型</h2>
+<h3 id="创建者模式">创建者模式</h3>
+<blockquote>
+<p>wiki解释</p>
+</blockquote>
+<p>创建者模式（也可称为生成器模式 / 建造模式），是一种对象构建模式。它可以将复杂对象的建造过程抽象出来（抽象类别），使这个抽象过程的不同实现方法可以构造出不同表现（属性）的对象。</p>
+<blockquote>
+<p>建造者模式的主要角色</p>
+</blockquote>
+<ul>
+<li>Product：产品角色。它是包含多个组成部件的复杂对象和属性，是一个模型。</li>
+<li>Builder：抽象建造者。它是一个包含创建产品各个子部件的抽象方法的接口或者抽象类，通常还包含一个返回复杂产品的方法 ，该方法一般是抽象并且返回值类型是产品角色（Product）。理解为它在调用生成方法。</li>
+<li>ConcreteBuilder：具体建造者。实现 Builder 接口或者继承Builder 抽象类，完成复杂产品的各个部件的具体创建方法。</li>
+<li>Director：指挥者。它调用建造者（Builder）中的部件构造与装配方法完成复杂对象的创建，不设计产品具体构建细节。</li>
+</ul>
+<blockquote>
+<p>主要作用</p>
+</blockquote>
+<ul>
+<li>用户不用关心对象的建造过程就可以创建复杂对象</li>
+<li>方便用户创建很多类似或者有相同属性的对象</li>
+<li>代码复用性高，且用封装性</li>
+</ul>
+<blockquote>
+<p>Golang实现</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">builder</span>
+
+<span class="c1">// 为创建一个Product对象的各个部件指定抽象接口
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Builder</span> <span class="kd">interface</span> <span class="p">{</span>
+	<span class="nf">Build</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="c1">// 实现Builder的接口以构造和装配该产品的各个部件
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">ConcreteBuilder</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">built</span> <span class="kt">bool</span>
+<span class="p">}</span>
+
+<span class="c1">// 构造一个使用Builder接口的对象
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Director</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">builder</span> <span class="nx">Builder</span>
+<span class="p">}</span>
+
+<span class="c1">// 表示被构造的复杂对象
+</span><span class="c1">// ConcreteBuilder创建该产品的内部表示并定义它的装配过程
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Product</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Build</span> <span class="kt">bool</span>
+<span class="p">}</span>
+
+<span class="c1">// 实例化Director对象
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">NewDirector</span><span class="p">(</span><span class="nx">b</span> <span class="nx">Builder</span><span class="p">)</span> <span class="nx">Director</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">Director</span><span class="p">{</span><span class="nx">builder</span><span class="p">:</span> <span class="nx">b</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 实例化ConcreteBuilder对象
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">NewConcreteBuilder</span><span class="p">()</span> <span class="nx">ConcreteBuilder</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">ConcreteBuilder</span><span class="p">{</span><span class="nx">built</span><span class="p">:</span> <span class="kc">false</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// ConcreteBuilder实现了 Builder 接口的 Build 方法
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">ConcreteBuilder</span><span class="p">)</span> <span class="nf">Build</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">c</span><span class="p">.</span><span class="nx">built</span> <span class="p">=</span> <span class="kc">true</span>
+<span class="p">}</span>
+
+<span class="c1">// 构造了一个使用Builder接口的对象
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">Director</span><span class="p">)</span> <span class="nf">Construct</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">d</span><span class="p">.</span><span class="nx">builder</span><span class="p">.</span><span class="nf">Build</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="c1">// 通过ConcreteBuilder 获取 Product 的结果
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">ConcreteBuilder</span><span class="p">)</span> <span class="nf">GetResult</span><span class="p">()</span> <span class="nx">Product</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">Product</span><span class="p">{</span><span class="nx">Build</span><span class="p">:</span> <span class="nx">c</span><span class="p">.</span><span class="nx">built</span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>单元测试</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">builder</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;testing&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">TestConcreteBuilder_GetResult</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+	<span class="c1">// 具体建造者，实现一个完成Builder接口的对象
+</span><span class="c1"></span>	<span class="nx">builder</span> <span class="o">:=</span> <span class="nf">NewConcreteBuilder</span><span class="p">()</span>
+	<span class="c1">// 指挥具体建造者操作
+</span><span class="c1"></span>	<span class="nx">director</span> <span class="o">:=</span> <span class="nf">NewDirector</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">builder</span><span class="p">)</span>
+	<span class="c1">// 指挥具体建造者去做建造工作
+</span><span class="c1"></span>	<span class="nx">director</span><span class="p">.</span><span class="nf">Construct</span><span class="p">()</span>
+	<span class="c1">// 建造完成的结果
+</span><span class="c1"></span>	<span class="nx">result</span> <span class="o">:=</span> <span class="nx">builder</span><span class="p">.</span><span class="nf">GetResult</span><span class="p">()</span>
+
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">Build</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// result
+</span><span class="c1"></span><span class="o">==</span><span class="p">=</span> <span class="nx">RUN</span>   <span class="nx">TestConcreteBuilder_GetResult</span>
+<span class="kc">true</span>
+<span class="o">---</span> <span class="nx">PASS</span><span class="p">:</span> <span class="nf">TestConcreteBuilder_GetResult</span> <span class="p">(</span><span class="mf">0.00</span><span class="nx">s</span><span class="p">)</span>
+<span class="nx">PASS</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="工厂模式">工厂模式</h3>
+<p><strong>简单工程模式</strong></p>
+<blockquote>
+<p>wiki解释</p>
+</blockquote>
+<p>普通的工厂方法模式通常伴随着对象的具体类型与工厂具体类型的一一对应，客户端代码根据需要选择合适的具体类型工厂使用。然而，这种选择可能包含复杂的逻辑，这时，可以创建一个单一的工厂类，用以包含这种选择逻辑，根据参数的不同选择实现不同的具体对象。这个工厂类不需要由每个具体产品实现一个自己的具体的工厂类。</p>
+<blockquote>
+<p>白话理解</p>
+</blockquote>
+<p>即单独创建一个单一的工厂类，只做相关的实现，避免复杂的创建过程</p>
+<blockquote>
+<p>Golang实现</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">simple_factory</span>
+
+<span class="c1">// 实现接口
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">API</span> <span class="kd">interface</span> <span class="p">{</span>
+	<span class="nf">say</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">string</span>
+<span class="p">}</span>
+
+<span class="kd">type</span> <span class="nx">Chinese</span> <span class="kd">struct</span><span class="p">{}</span>
+<span class="kd">type</span> <span class="nx">English</span> <span class="kd">struct</span><span class="p">{}</span>
+
+<span class="c1">// 实现方法
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">NewAPI</span><span class="p">(</span><span class="nx">lang</span> <span class="kt">string</span><span class="p">)</span> <span class="nx">API</span> <span class="p">{</span>
+	<span class="k">switch</span> <span class="nx">lang</span> <span class="p">{</span>
+	<span class="k">case</span> <span class="s">&#34;ch&#34;</span><span class="p">:</span>
+		<span class="k">return</span> <span class="o">&amp;</span><span class="nx">Chinese</span><span class="p">{}</span>
+	<span class="k">case</span> <span class="s">&#34;en&#34;</span><span class="p">:</span>
+		<span class="k">return</span> <span class="o">&amp;</span><span class="nx">English</span><span class="p">{}</span>
+	<span class="k">default</span><span class="p">:</span>
+		<span class="k">return</span> <span class="kc">nil</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="o">*</span><span class="nx">Chinese</span><span class="p">)</span> <span class="nf">say</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="s">&#34;你好&#34;</span> <span class="o">+</span> <span class="nx">name</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="o">*</span><span class="nx">English</span><span class="p">)</span> <span class="nf">say</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="s">&#34;Hello&#34;</span> <span class="o">+</span> <span class="nx">name</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>单元测试</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">simple_factory</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;testing&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">TestNewAPI</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">apiCh</span> <span class="o">:=</span> <span class="nf">NewAPI</span><span class="p">(</span><span class="s">&#34;ch&#34;</span><span class="p">)</span>
+	<span class="nx">say1</span> <span class="o">:=</span> <span class="nx">apiCh</span><span class="p">.</span><span class="nf">say</span><span class="p">(</span><span class="s">&#34;张&#34;</span><span class="p">)</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">say1</span><span class="p">)</span>
+
+	<span class="nx">apiEn</span> <span class="o">:=</span> <span class="nf">NewAPI</span><span class="p">(</span><span class="s">&#34;en&#34;</span><span class="p">)</span>
+	<span class="nx">say2</span> <span class="o">:=</span> <span class="nx">apiEn</span><span class="p">.</span><span class="nf">say</span><span class="p">(</span><span class="s">&#34;Tom&#34;</span><span class="p">)</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">say2</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// result
+</span><span class="c1"></span><span class="o">==</span><span class="p">=</span> <span class="nx">RUN</span>   <span class="nx">TestNewAPI</span>
+<span class="nx">你好张</span>
+<span class="nx">HelloTom</span>
+<span class="o">---</span> <span class="nx">PASS</span><span class="p">:</span> <span class="nf">TestNewAPI</span> <span class="p">(</span><span class="mf">0.00</span><span class="nx">s</span><span class="p">)</span>
+<span class="nx">PASS</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>复杂工厂模式</strong></p>
+<blockquote>
+<p>白话理解</p>
+</blockquote>
+<p>当我们需要实现数据固定，实现不同操作的时候，就可以扩展操作来实现新加入的方法不影响之前的代码，就比如下面的代码，实现了一个接口，让接口实现设置、计算方法，设计一个减法工厂，使其实现减法，如果我们需要再实现一个加法工厂，只需要单独在创建一个加法的，在项目中，往往这些需要抽离在单独的文件中。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">factory</span>
+
+<span class="kd">type</span> <span class="nx">Operator</span> <span class="kd">interface</span> <span class="p">{</span>
+	<span class="nf">SetLeft</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+	<span class="nf">SetRight</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+	<span class="nf">Result</span><span class="p">()</span> <span class="kt">int</span>
+<span class="p">}</span>
+
+<span class="c1">// factory pattern
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">OperatorFactory</span> <span class="kd">interface</span> <span class="p">{</span>
+	<span class="nf">Create</span><span class="p">()</span> <span class="nx">Operator</span>
+<span class="p">}</span>
+
+<span class="c1">// operator base
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">OperatorBase</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">left</span><span class="p">,</span> <span class="nx">right</span> <span class="kt">int</span>
+<span class="p">}</span>
+
+<span class="c1">// 赋值
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">o</span> <span class="o">*</span><span class="nx">OperatorBase</span><span class="p">)</span> <span class="nf">SetLeft</span><span class="p">(</span><span class="nx">left</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">o</span><span class="p">.</span><span class="nx">left</span> <span class="p">=</span> <span class="nx">left</span>
+<span class="p">}</span>
+
+<span class="c1">// 赋值
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">o</span> <span class="o">*</span><span class="nx">OperatorBase</span><span class="p">)</span> <span class="nf">SetRight</span><span class="p">(</span><span class="nx">right</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">o</span><span class="p">.</span><span class="nx">right</span> <span class="p">=</span> <span class="nx">right</span>
+<span class="p">}</span>
+
+<span class="c1">// 操作数
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">SubOperator</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="o">*</span><span class="nx">OperatorBase</span>
+<span class="p">}</span>
+
+<span class="c1">// 减法工厂
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">SubOperatorFactory</span> <span class="kd">struct</span><span class="p">{}</span>
+
+<span class="c1">// 实际操作
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">o</span> <span class="nx">SubOperator</span><span class="p">)</span> <span class="nf">Result</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">o</span><span class="p">.</span><span class="nx">left</span> <span class="o">-</span> <span class="nx">o</span><span class="p">.</span><span class="nx">right</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">o</span> <span class="nx">SubOperatorFactory</span><span class="p">)</span> <span class="nf">Create</span><span class="p">()</span> <span class="nx">Operator</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">SubOperator</span><span class="p">{</span>
+		<span class="o">&amp;</span><span class="nx">OperatorBase</span><span class="p">{},</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>单元测试</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">factory</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;testing&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">TestSubOperator_Result</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">fac</span> <span class="nx">OperatorFactory</span>
+	<span class="nx">fac</span> <span class="p">=</span> <span class="nx">SubOperatorFactory</span><span class="p">{}</span>
+
+	<span class="nx">op</span> <span class="o">:=</span> <span class="nx">fac</span><span class="p">.</span><span class="nf">Create</span><span class="p">()</span>
+	<span class="nx">op</span><span class="p">.</span><span class="nf">SetLeft</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+	<span class="nx">op</span><span class="p">.</span><span class="nf">SetRight</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">op</span><span class="p">.</span><span class="nf">Result</span><span class="p">())</span>
+<span class="p">}</span>
+<span class="c1">// result
+</span><span class="c1"></span><span class="o">==</span><span class="p">=</span> <span class="nx">RUN</span>   <span class="nx">TestSubOperator_Result</span>
+<span class="o">-</span><span class="mi">10</span>
+<span class="o">---</span> <span class="nx">PASS</span><span class="p">:</span> <span class="nf">TestSubOperator_Result</span> <span class="p">(</span><span class="mf">0.00</span><span class="nx">s</span><span class="p">)</span>
+<span class="nx">PASS</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="抽象工厂">抽象工厂</h3>
+<h2 id="结构型">结构型</h2>
+<h3 id="装饰者模式">装饰者模式</h3>
+<blockquote>
+<p>wiki解释</p>
+</blockquote>
+<p>修饰模式，是面向对象编程领域中，一种动态地往一个类中添加新的行为的设计模式。就功能而言，修饰模式相比生成子类更为灵活，这样可以给某个对象而不是整个类添加一些功能。</p>
+<p>通过使用修饰模式，可以在运行时扩充一个类的功能。原理是：增加一个修饰类包裹原来的类，包裹的方式一般是通过在将原来的对象作为修饰类的构造函数的参数。装饰类实现新的功能，但是，在不需要用到新功能的地方，它可以直接调用原来的类中的方法。修饰类必须和原来的类有相同的接口。</p>
+<blockquote>
+<p>白话</p>
+</blockquote>
+<p>做一个修饰方法，他的参数是要修饰的函数的参数，他的返回值是我们想要得到的结果，动态地给一个对象添加一些额外的职责。比如我们要实现一个记录每个函数执行时间的方法，如果我们手动在每个函数添加记录执行时间的函数，在函数很多的情况下，要花费大量时间且不易维护，所以就需要修饰模式来帮我们修饰一个方法，得到特定的结果。</p>
+<blockquote>
+<p>Golang实现</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">decorator</span>
+
+<span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+
+<span class="c1">// 定义一个组件接口带有一个计算属性
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Component</span> <span class="kd">interface</span> <span class="p">{</span>
+	<span class="nf">Calc</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="kd">interface</span><span class="p">{}</span>
+<span class="p">}</span>
+
+<span class="c1">// 定义一个计算正方形面积组件模型
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">SquareAreaComponent</span> <span class="kd">struct</span><span class="p">{}</span>
+
+<span class="c1">// 计算面积
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">SquareAreaComponent</span><span class="p">)</span> <span class="nf">Calc</span><span class="p">(</span><span class="nx">sideLen</span> <span class="kt">int</span><span class="p">)</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">sideLen</span> <span class="o">*</span> <span class="nx">sideLen</span>
+<span class="p">}</span>
+
+<span class="c1">// 定义修饰器
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">SignDecorator</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">component</span> <span class="nx">Component</span>
+<span class="p">}</span>
+
+<span class="c1">// 实例修饰器
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">WarpMulDecorator</span><span class="p">(</span><span class="nx">c</span> <span class="nx">Component</span><span class="p">)</span> <span class="nx">Component</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">SignDecorator</span><span class="p">{</span><span class="nx">component</span><span class="p">:</span> <span class="nx">c</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 用修饰器返回特定内容
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">SignDecorator</span><span class="p">)</span> <span class="nf">Calc</span><span class="p">(</span><span class="nx">sideLen</span> <span class="kt">int</span><span class="p">)</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;边长为 %v 的正方形面积为 %v&#34;</span><span class="p">,</span> <span class="nx">sideLen</span><span class="p">,</span> <span class="nx">sideLen</span><span class="o">*</span><span class="nx">sideLen</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>单元测试</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">decorator</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;testing&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">TestCall</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 普通方法
+</span><span class="c1"></span>	<span class="nx">s</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">SquareAreaComponent</span><span class="p">{}</span>
+	<span class="nx">ret</span> <span class="o">:=</span> <span class="nx">s</span><span class="p">.</span><span class="nf">Calc</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">ret</span><span class="p">)</span>
+
+    <span class="c1">// 用修饰器调用
+</span><span class="c1"></span>	<span class="nx">decorator</span> <span class="o">:=</span> <span class="nf">WarpMulDecorator</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">decorator</span><span class="p">.</span><span class="nf">Calc</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="p">}</span>
+<span class="c1">// result
+</span><span class="c1"></span><span class="o">==</span><span class="p">=</span> <span class="nx">RUN</span>   <span class="nx">TestCall</span>
+<span class="mi">100</span>
+<span class="nx">边长为</span> <span class="mi">10</span> <span class="nx">的正方形面积为</span> <span class="mi">100</span>
+<span class="o">---</span> <span class="nx">PASS</span><span class="p">:</span> <span class="nf">TestCall</span> <span class="p">(</span><span class="mf">0.00</span><span class="nx">s</span><span class="p">)</span>
+<span class="nx">PASS</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="行为型">行为型</h2>
+<h3 id="迭代器模式">迭代器模式</h3>
+<blockquote>
+<p>wiki解释</p>
+</blockquote>
+<p>在面向对象的编程里，<strong>迭代器模式</strong>是一种设计模式，是一种最简单也最常见的设计模式。他可以让用户透过特定的接口寻访容器中的每一个元素而不用了解底层的实现。</p>
+<blockquote>
+<p>白话解释   推荐这篇文章，真的是白话解释</p>
+</blockquote>
+<p><a href="https://segmentfault.com/a/1190000007208388" target="_blank" rel="noopener noreffer">白话解释迭代器</a></p>
+<blockquote>
+<p>Golang实现</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">iterator</span>
+
+<span class="kd">type</span> <span class="nx">Iterator</span> <span class="kd">interface</span> <span class="p">{</span>
+	<span class="nf">Idx</span><span class="p">()</span> <span class="kt">int</span>         <span class="c1">// 索引
+</span><span class="c1"></span>	<span class="nf">Val</span><span class="p">()</span> <span class="kd">interface</span><span class="p">{}</span> <span class="c1">// 值
+</span><span class="c1"></span>	<span class="nf">HasNext</span><span class="p">()</span> <span class="kt">bool</span>    <span class="c1">// 是否还有下一个值
+</span><span class="c1"></span>	<span class="nf">Next</span><span class="p">()</span>            <span class="c1">// 下一个
+</span><span class="c1"></span><span class="p">}</span>
+
+<span class="kd">type</span> <span class="nx">ArrayIterator</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">array</span> <span class="p">[]</span><span class="kd">interface</span><span class="p">{}</span>
+	<span class="nx">index</span> <span class="o">*</span><span class="kt">int</span>
+<span class="p">}</span>
+
+<span class="c1">// return idx
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="o">*</span><span class="nx">ArrayIterator</span><span class="p">)</span> <span class="nf">Idx</span><span class="p">()</span> <span class="o">*</span><span class="kt">int</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">a</span><span class="p">.</span><span class="nx">index</span>
+<span class="p">}</span>
+
+<span class="c1">// return val
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="o">*</span><span class="nx">ArrayIterator</span><span class="p">)</span> <span class="nf">Val</span><span class="p">()</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">a</span><span class="p">.</span><span class="nx">array</span><span class="p">[</span><span class="o">*</span><span class="nx">a</span><span class="p">.</span><span class="nx">index</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="c1">// return is next
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="o">*</span><span class="nx">ArrayIterator</span><span class="p">)</span> <span class="nf">HasNext</span><span class="p">()</span> <span class="kt">bool</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">array</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="o">*</span><span class="nx">a</span><span class="p">.</span><span class="nx">index</span><span class="o">+</span><span class="mi">1</span>
+<span class="p">}</span>
+
+<span class="c1">// return next
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="o">*</span><span class="nx">ArrayIterator</span><span class="p">)</span> <span class="nf">Next</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="nx">a</span><span class="p">.</span><span class="nf">HasNext</span><span class="p">()</span> <span class="p">{</span>
+		<span class="o">*</span><span class="nx">a</span><span class="p">.</span><span class="nx">index</span><span class="o">++</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>单元测试</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">iterator</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;testing&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">TestArrayIterator</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">arr</span> <span class="o">:=</span> <span class="p">[]</span><span class="kd">interface</span><span class="p">{}{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">}</span>
+	<span class="nx">idx</span> <span class="o">:=</span> <span class="mi">0</span>
+	<span class="nx">interator</span> <span class="o">:=</span> <span class="nx">ArrayIterator</span><span class="p">{</span><span class="nx">array</span><span class="p">:</span> <span class="nx">arr</span><span class="p">,</span> <span class="nx">index</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">idx</span><span class="p">}</span>
+	<span class="k">for</span> <span class="nx">it</span> <span class="o">:=</span> <span class="nx">interator</span><span class="p">;</span> <span class="nx">it</span><span class="p">.</span><span class="nf">HasNext</span><span class="p">();</span> <span class="nx">it</span><span class="p">.</span><span class="nf">Next</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">idx</span><span class="p">,</span> <span class="nx">val</span> <span class="o">:=</span> <span class="nx">it</span><span class="p">.</span><span class="nf">Idx</span><span class="p">(),</span> <span class="nx">it</span><span class="p">.</span><span class="nf">Val</span><span class="p">().(</span><span class="kt">int</span><span class="p">)</span>
+		<span class="k">for</span> <span class="nx">val</span> <span class="o">!=</span> <span class="nx">arr</span><span class="p">[</span><span class="o">*</span><span class="nx">idx</span><span class="p">]</span> <span class="p">{</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;err&#34;</span><span class="p">)</span>
+		<span class="p">}</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="o">*</span><span class="nx">idx</span><span class="p">,</span> <span class="nx">val</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// result
+</span><span class="c1"></span><span class="o">==</span><span class="p">=</span> <span class="nx">RUN</span>   <span class="nx">TestArrayIterator</span>
+<span class="mi">0</span> <span class="mi">1</span>
+<span class="mi">1</span> <span class="mi">3</span>
+<span class="mi">2</span> <span class="mi">5</span>
+<span class="mi">3</span> <span class="mi">7</span>
+<span class="mi">4</span> <span class="mi">9</span>
+<span class="o">---</span> <span class="nx">PASS</span><span class="p">:</span> <span class="nf">TestArrayIterator</span> <span class="p">(</span><span class="mf">0.00</span><span class="nx">s</span><span class="p">)</span>
+<span class="nx">PASS</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="命令模式">命令模式</h3>
+<blockquote>
+<p>wiki解释</p>
+</blockquote>
+<p>在面向对象编程的范畴中，命令模式是一种设计模式，它尝试以对象来代表实际行动。命令对象可以把行动及其参数封装起来，于是这些行动可以被：</p>
+<ul>
+<li>重复多次</li>
+<li>取消（如果该对象有实现的话）</li>
+<li>取消后又再重做</li>
+</ul>
+<blockquote>
+<p>Golang实现</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">command</span>
+
+<span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+
+<span class="c1">// 定义一个Person，他有名字，他有动作且可以传递
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Person</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">name</span> <span class="kt">string</span>
+	<span class="nx">cmd</span>  <span class="nx">Command</span>
+<span class="p">}</span>
+
+<span class="c1">// 定义一个动作，他有执行者的名字，有具体操作的方法
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Command</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">person</span> <span class="o">*</span><span class="nx">Person</span>
+	<span class="nx">method</span> <span class="kd">func</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="c1">// 实例化动作
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">NewCommand</span><span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Person</span><span class="p">,</span> <span class="nx">method</span> <span class="kd">func</span><span class="p">())</span> <span class="nx">Command</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">Command</span><span class="p">{</span>
+		<span class="nx">person</span><span class="p">:</span> <span class="nx">p</span><span class="p">,</span>
+		<span class="nx">method</span><span class="p">:</span> <span class="nx">method</span><span class="p">,</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// execute
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Command</span><span class="p">)</span> <span class="nf">Execute</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">c</span><span class="p">.</span><span class="nf">method</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="c1">// 实例化Person
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">NewPerson</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">cmd</span> <span class="nx">Command</span><span class="p">)</span> <span class="nx">Person</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">Person</span><span class="p">{</span>
+		<span class="nx">name</span><span class="p">:</span> <span class="nx">name</span><span class="p">,</span>
+		<span class="nx">cmd</span><span class="p">:</span>  <span class="nx">cmd</span><span class="p">,</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="nf">Buy</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%s is buying&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">name</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="nf">Cook</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%s is cooking&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">name</span><span class="p">))</span>
+	<span class="nx">p</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nf">Execute</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="nf">Wash</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%s is washing&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">name</span><span class="p">))</span>
+	<span class="nx">p</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nf">Execute</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="nf">Listen</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%s is Listening&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">name</span><span class="p">))</span>
+	<span class="nx">p</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nf">Execute</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="nf">Talk</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%s is Talking&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">name</span><span class="p">))</span>
+	<span class="nx">p</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nf">Execute</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>单元测试</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">command</span>
+
+<span class="kn">import</span> <span class="s">&#34;testing&#34;</span>
+
+<span class="kd">func</span> <span class="nf">TestCommand_Execute</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 依次调用
+</span><span class="c1"></span>	<span class="nx">zhangsan</span> <span class="o">:=</span> <span class="nf">NewPerson</span><span class="p">(</span><span class="s">&#34;zhangsan&#34;</span><span class="p">,</span> <span class="nf">NewCommand</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="kc">nil</span><span class="p">))</span>
+	<span class="nx">lisi</span> <span class="o">:=</span> <span class="nf">NewPerson</span><span class="p">(</span><span class="s">&#34;lisi&#34;</span><span class="p">,</span> <span class="nf">NewCommand</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">zhangsan</span><span class="p">,</span> <span class="nx">zhangsan</span><span class="p">.</span><span class="nx">Buy</span><span class="p">))</span>
+	<span class="nx">wangwu</span> <span class="o">:=</span> <span class="nf">NewPerson</span><span class="p">(</span><span class="s">&#34;wangwu&#34;</span><span class="p">,</span> <span class="nf">NewCommand</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lisi</span><span class="p">,</span> <span class="nx">lisi</span><span class="p">.</span><span class="nx">Cook</span><span class="p">))</span>
+	<span class="nx">zhaoliu</span> <span class="o">:=</span> <span class="nf">NewPerson</span><span class="p">(</span><span class="s">&#34;zhaoliu&#34;</span><span class="p">,</span> <span class="nf">NewCommand</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">wangwu</span><span class="p">,</span> <span class="nx">wangwu</span><span class="p">.</span><span class="nx">Listen</span><span class="p">))</span>
+	<span class="nx">sunqi</span> <span class="o">:=</span> <span class="nf">NewPerson</span><span class="p">(</span><span class="s">&#34;sunqi&#34;</span><span class="p">,</span> <span class="nf">NewCommand</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">zhaoliu</span><span class="p">,</span> <span class="nx">zhaoliu</span><span class="p">.</span><span class="nx">Wash</span><span class="p">))</span>
+
+	<span class="nx">sunqi</span><span class="p">.</span><span class="nf">Talk</span><span class="p">()</span>
+<span class="p">}</span>
+<span class="c1">// result
+</span><span class="c1"></span><span class="o">==</span><span class="p">=</span> <span class="nx">RUN</span>   <span class="nx">TestCommand_Execute</span>
+<span class="nx">sunqi</span> <span class="nx">is</span> <span class="nx">Talking</span>
+<span class="nx">zhaoliu</span> <span class="nx">is</span> <span class="nx">washing</span>
+<span class="nx">wangwu</span> <span class="nx">is</span> <span class="nx">Listening</span>
+<span class="nx">lisi</span> <span class="nx">is</span> <span class="nx">cooking</span>
+<span class="nx">zhangsan</span> <span class="nx">is</span> <span class="nx">buying</span>
+<span class="o">---</span> <span class="nx">PASS</span><span class="p">:</span> <span class="nf">TestCommand_Execute</span> <span class="p">(</span><span class="mf">0.00</span><span class="nx">s</span><span class="p">)</span>
+<span class="nx">PASS</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="责任链模式">责任链模式</h3>
+<blockquote>
+<p>wiki解释</p>
+</blockquote>
+<p>责任链模式在面向对象程式设计里是一种软件设计模式，它包含了一些命令对象和一系列的处理对象。每一个处理对象决定它能处理哪些命令对象，它也知道如何将它不能处理的命令对象传递给该链中的下一个处理对象。</p>
+<blockquote>
+<p>白话讲</p>
+<p>我个人理解就是如果一件事情，多个人要去做，就比如请假来说，小于3天的班主任可以请，大于3天小于5天的级部主任可以请，大于5天小于10天的只能教务校长请，其他的不给请，在传统模式中写代码需要写一堆的<code>if</code>  <code>else if</code>  <code>else</code>，这会使得代码臃肿、耦合度高。那么就需要使用<strong>责任链模式</strong>，通过接口暴露出一个方法，每个人只需要做到方法里面的事即可，如果自己处理不了，那就交给上一级处理。</p>
+</blockquote>
+<blockquote>
+<p>Golang实现</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">Responsibillity_Chain</span>
+
+<span class="kn">import</span> <span class="s">&#34;strconv&#34;</span>
+
+<span class="c1">// 定义一个接口 里面是处理方法
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Handler</span> <span class="kd">interface</span> <span class="p">{</span>
+	<span class="nf">Handler</span><span class="p">(</span><span class="nx">handlerID</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">string</span>
+<span class="p">}</span>
+
+<span class="c1">// 这个处理方法有一些参数，例如执行者的名字，ID以及他可以管理的下级
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">handler</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">name</span>      <span class="kt">string</span>
+	<span class="nx">next</span>      <span class="nx">Handler</span>
+	<span class="nx">handlerId</span> <span class="kt">int</span>
+<span class="p">}</span>
+
+<span class="c1">// 实例化这个处理方法
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">NewHandler</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">next</span> <span class="nx">Handler</span><span class="p">,</span> <span class="nx">handlerID</span> <span class="kt">int</span><span class="p">)</span> <span class="o">*</span><span class="nx">handler</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">handler</span><span class="p">{</span>
+		<span class="nx">name</span><span class="p">:</span>      <span class="nx">name</span><span class="p">,</span>
+		<span class="nx">next</span><span class="p">:</span>      <span class="nx">next</span><span class="p">,</span>
+		<span class="nx">handlerId</span><span class="p">:</span> <span class="nx">handlerID</span><span class="p">,</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 定义处理方法
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">h</span> <span class="o">*</span><span class="nx">handler</span><span class="p">)</span> <span class="nf">Handler</span><span class="p">(</span><span class="nx">handlerID</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+	<span class="c1">// 如果是自己执行，是可以的
+</span><span class="c1"></span>	<span class="k">if</span> <span class="nx">h</span><span class="p">.</span><span class="nx">handlerId</span> <span class="o">==</span> <span class="nx">handlerID</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">h</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s">&#34; handled &#34;</span> <span class="o">+</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">Itoa</span><span class="p">(</span><span class="nx">handlerID</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="c1">// 如果自己已经是一串责任链中的最后一个人，即代表后面没有，那就返回
+</span><span class="c1"></span>	<span class="k">if</span> <span class="nx">h</span><span class="p">.</span><span class="nx">next</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="s">&#34;&#34;</span>
+	<span class="p">}</span>
+	<span class="c1">// 否则就继续给下个人执行
+</span><span class="c1"></span>	<span class="k">return</span> <span class="nx">h</span><span class="p">.</span><span class="nx">next</span><span class="p">.</span><span class="nf">Handler</span><span class="p">(</span><span class="nx">handlerID</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>单元测试</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">Responsibillity_Chain</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;testing&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">TestHandler_Handle</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+	<span class="c1">// 李四是大领导 张三是小领导 李四管着张三
+</span><span class="c1"></span>	<span class="nx">zhangsan</span> <span class="o">:=</span> <span class="nf">NewHandler</span><span class="p">(</span><span class="s">&#34;zhangsan&#34;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+	<span class="nx">lisi</span> <span class="o">:=</span> <span class="nf">NewHandler</span><span class="p">(</span><span class="s">&#34;lisi&#34;</span><span class="p">,</span> <span class="nx">zhangsan</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+	<span class="c1">// 李四可以自己处理，当然也可以叫下级处理
+</span><span class="c1"></span>	<span class="nx">task</span> <span class="o">:=</span> <span class="nx">lisi</span><span class="p">.</span><span class="nf">Handler</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+	<span class="c1">//task := lisi.Handler(1)
+</span><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">task</span><span class="p">)</span>
+	<span class="c1">// 张三只能处理自己的，处理不了的还需要给上级
+</span><span class="c1"></span>	<span class="nx">task</span> <span class="p">=</span> <span class="nx">zhangsan</span><span class="p">.</span><span class="nf">Handler</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">task</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// result
+</span><span class="c1"></span><span class="o">==</span><span class="p">=</span> <span class="nx">RUN</span>   <span class="nx">TestHandler_Handle</span>
+<span class="nx">lisi</span> <span class="nx">handled</span> <span class="mi">2</span>
+<span class="nx">zhangsan</span> <span class="nx">handled</span> <span class="mi">1</span>
+<span class="o">---</span> <span class="nx">PASS</span><span class="p">:</span> <span class="nf">TestHandler_Handle</span> <span class="p">(</span><span class="mf">0.00</span><span class="nx">s</span><span class="p">)</span>
+<span class="nx">PASS</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="观察者模式">观察者模式</h3>
+<blockquote>
+<p>wiki解释</p>
+</blockquote>
+<p>观察者模式是软件设计模式的一种，在此种模式中，一个目标对象管理所有相依于它的观察者对象，并且在它本身的状态改变时主动发出通知。这通常透过呼叫各观察者所提供的方法来实现，此种模式通常被用来实时事件处理系统。</p>
+<blockquote>
+<p>白话</p>
+</blockquote>
+<p>添加一个事件监听，可以用来监听改变转态等等</p>
+<blockquote>
+<p>Golang实现</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">Observer</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;sync&#34;</span>
+	<span class="s">&#34;time&#34;</span>
+<span class="p">)</span>
+
+<span class="c1">// 定义事件，用于通知
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Event</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Data</span> <span class="kt">int</span>
+<span class="p">}</span>
+
+<span class="c1">// 定义观察者接口，通知回馈
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Observer</span> <span class="kd">interface</span> <span class="p">{</span>
+	<span class="nf">NotifyCallback</span><span class="p">(</span><span class="nx">event</span> <span class="nx">Event</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// 定义主题接口，实现添加监听，移除监听，通知三个方法
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Subject</span> <span class="kd">interface</span> <span class="p">{</span>
+	<span class="nf">AddListener</span><span class="p">(</span><span class="nx">observer</span> <span class="nx">Observer</span><span class="p">)</span>
+	<span class="nf">RemoveListener</span><span class="p">(</span><span class="nx">observer</span> <span class="nx">Observer</span><span class="p">)</span>
+	<span class="nf">Notify</span><span class="p">(</span><span class="nx">event</span> <span class="nx">Event</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// 确保观察者唯一
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">eventObserver</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">ID</span>   <span class="kt">int</span>
+	<span class="nx">Time</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span>
+<span class="p">}</span>
+
+<span class="c1">// 方法体
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">eventSubject</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Observers</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">Map</span>
+<span class="p">}</span>
+
+<span class="c1">// NotifyCallback
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">eventObserver</span><span class="p">)</span> <span class="nf">NotifyCallback</span><span class="p">(</span><span class="nx">event</span> <span class="nx">Event</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Recieved: %d after %v\n&#34;</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Data</span><span class="p">,</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Since</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">Time</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="c1">// AddListener
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">eventSubject</span><span class="p">)</span> <span class="nf">AddListener</span><span class="p">(</span><span class="nx">obs</span> <span class="nx">Observer</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">e</span><span class="p">.</span><span class="nx">Observers</span><span class="p">.</span><span class="nf">Store</span><span class="p">(</span><span class="nx">obs</span><span class="p">,</span> <span class="kd">struct</span><span class="p">{}{})</span>
+<span class="p">}</span>
+
+<span class="c1">// RemoveListener
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">eventSubject</span><span class="p">)</span> <span class="nf">RemoveListener</span><span class="p">(</span><span class="nx">obs</span> <span class="nx">Observer</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">e</span><span class="p">.</span><span class="nx">Observers</span><span class="p">.</span><span class="nf">Delete</span><span class="p">(</span><span class="nx">obs</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// Notify
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">eventSubject</span><span class="p">)</span> <span class="nf">Notify</span><span class="p">(</span><span class="nx">event</span> <span class="nx">Event</span><span class="p">)</span> <span class="p">{</span>
+	<span class="c1">// 范围依次调用映射中的每个键和值，如果f返回false，则range停止迭代
+</span><span class="c1"></span>	<span class="nx">e</span><span class="p">.</span><span class="nx">Observers</span><span class="p">.</span><span class="nf">Range</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span> <span class="kd">interface</span><span class="p">{})</span> <span class="kt">bool</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="nx">key</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="kc">false</span>
+		<span class="p">}</span>
+		<span class="nx">key</span><span class="p">.(</span><span class="nx">Observer</span><span class="p">).</span><span class="nf">NotifyCallback</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span>
+		<span class="k">return</span> <span class="kc">true</span>
+	<span class="p">})</span>
+<span class="p">}</span>
+
+<span class="c1">// 输出fib序列数
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">Fib</span><span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">)</span> <span class="kd">chan</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="nx">out</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">)</span>
+	<span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">defer</span> <span class="nb">close</span><span class="p">(</span><span class="nx">out</span><span class="p">)</span>
+		<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="p">=</span> <span class="nx">i</span><span class="o">+</span><span class="nx">j</span><span class="p">,</span> <span class="nx">i</span> <span class="p">{</span>
+			<span class="nx">out</span> <span class="o">&lt;-</span> <span class="nx">i</span>
+		<span class="p">}</span>
+	<span class="p">}()</span>
+	<span class="k">return</span> <span class="nx">out</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>单元测试</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">Observer</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;sync&#34;</span>
+	<span class="s">&#34;testing&#34;</span>
+	<span class="s">&#34;time&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">TestFib</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+	<span class="c1">// 实例化主题对象
+</span><span class="c1"></span>	<span class="nx">subject</span> <span class="o">:=</span> <span class="nx">eventSubject</span><span class="p">{</span><span class="nx">Observers</span><span class="p">:</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">Map</span><span class="p">{}}</span>
+	<span class="c1">// 绑定观察者ID
+</span><span class="c1"></span>	<span class="nx">obs1</span> <span class="o">:=</span> <span class="nx">eventObserver</span><span class="p">{</span><span class="nx">ID</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">Time</span><span class="p">:</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">()}</span>
+	<span class="nx">obs2</span> <span class="o">:=</span> <span class="nx">eventObserver</span><span class="p">{</span><span class="nx">ID</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">Time</span><span class="p">:</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">()}</span>
+	<span class="c1">// 添加监听
+</span><span class="c1"></span>	<span class="nx">subject</span><span class="p">.</span><span class="nf">AddListener</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">obs1</span><span class="p">)</span>
+	<span class="nx">subject</span><span class="p">.</span><span class="nf">AddListener</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">obs2</span><span class="p">)</span>
+
+	<span class="k">for</span> <span class="nx">k</span> <span class="o">:=</span> <span class="k">range</span> <span class="nf">Fib</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">subject</span><span class="p">.</span><span class="nf">Notify</span><span class="p">(</span><span class="nx">Event</span><span class="p">{</span><span class="nx">Data</span><span class="p">:</span> <span class="nx">k</span><span class="p">})</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// result
+</span><span class="c1"></span><span class="o">==</span><span class="p">=</span> <span class="nx">RUN</span>   <span class="nx">TestFib</span>
+<span class="nx">Recieved</span><span class="p">:</span> <span class="mi">0</span> <span class="nx">after</span> <span class="mi">0</span><span class="nx">s</span>
+<span class="nx">Recieved</span><span class="p">:</span> <span class="mi">0</span> <span class="nx">after</span> <span class="mi">0</span><span class="nx">s</span>
+<span class="nx">Recieved</span><span class="p">:</span> <span class="mi">1</span> <span class="nx">after</span> <span class="mi">0</span><span class="nx">s</span>
+<span class="nx">Recieved</span><span class="p">:</span> <span class="mi">1</span> <span class="nx">after</span> <span class="mi">0</span><span class="nx">s</span>
+<span class="nx">Recieved</span><span class="p">:</span> <span class="mi">1</span> <span class="nx">after</span> <span class="mi">0</span><span class="nx">s</span>
+<span class="nx">Recieved</span><span class="p">:</span> <span class="mi">1</span> <span class="nx">after</span> <span class="mi">0</span><span class="nx">s</span>
+<span class="nx">Recieved</span><span class="p">:</span> <span class="mi">2</span> <span class="nx">after</span> <span class="mi">0</span><span class="nx">s</span>
+<span class="nx">Recieved</span><span class="p">:</span> <span class="mi">2</span> <span class="nx">after</span> <span class="mi">0</span><span class="nx">s</span>
+<span class="nx">Recieved</span><span class="p">:</span> <span class="mi">3</span> <span class="nx">after</span> <span class="mi">0</span><span class="nx">s</span>
+<span class="nx">Recieved</span><span class="p">:</span> <span class="mi">3</span> <span class="nx">after</span> <span class="mi">0</span><span class="nx">s</span>
+<span class="nx">Recieved</span><span class="p">:</span> <span class="mi">5</span> <span class="nx">after</span> <span class="mf">962.3</span><span class="nx">µs</span>
+<span class="nx">Recieved</span><span class="p">:</span> <span class="mi">5</span> <span class="nx">after</span> <span class="mf">962.3</span><span class="nx">µs</span>
+<span class="nx">Recieved</span><span class="p">:</span> <span class="mi">8</span> <span class="nx">after</span> <span class="mf">962.3</span><span class="nx">µs</span>
+<span class="nx">Recieved</span><span class="p">:</span> <span class="mi">8</span> <span class="nx">after</span> <span class="mf">962.3</span><span class="nx">µs</span>
+<span class="o">---</span> <span class="nx">PASS</span><span class="p">:</span> <span class="nf">TestFib</span> <span class="p">(</span><span class="mf">0.00</span><span class="nx">s</span><span class="p">)</span>
+<span class="nx">PASS</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="参考">参考</h2>
+<ul>
+<li>WIKI百科</li>
+<li><a href="https://space.bilibili.com/375038855/dynamic" target="_blank" rel="noopener noreffer">Bilibili</a></li>
+<li><a href="https://github.com/senghoo/golang-design-pattern" target="_blank" rel="noopener noreffer">github</a></li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2020-04-21</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/golang-design-pattern/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://ssr.yqqy.top/golang-design-pattern/" data-title="Golang实现软件设计模式"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/golang/">Golang</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/golang-binary-calculation/" class="prev" rel="prev" title="Golang实现进制计算两种方法"><i class="fas fa-angle-left fa-fw"></i>Golang实现进制计算两种方法</a>
+            <a href="/mysql-score-exercises/" class="next" rel="next" title="MySQL常考学生成绩查询练习题">MySQL常考学生成绩查询练习题<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.74.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"valine":{"appId":"kRdzczL0inU57oCl9a4thIUN-gzGzoHsz","appKey":"yq4N8FJfqgrqwC4jBw8ifyyK","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-CN","pageSize":10,"placeholder":"请您理智发言，共建美好社会！","recordIP":true,"serverURLs":"https://line.yqqy.top","visitor":true}},"search":{"algoliaAppID":"CQ9IB2P7OM","algoliaIndex":"search","algoliaSearchKey":"0b8ac695d9473a1134af4c32c85d5194","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

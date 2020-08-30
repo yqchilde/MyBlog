@@ -1,0 +1,29 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Android - 标签 - Yq&#39;s Blog</title>
+        <link>https://ssr.yqqy.top/tags/android/</link>
+        <description>Android - 标签 - Yq&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 24 May 2019 00:54:05 &#43;0000</lastBuildDate><atom:link href="https://ssr.yqqy.top/tags/android/" rel="self" type="application/rss+xml" /><item>
+    <title>Android学习RecyclerView笔记三</title>
+    <link>https://ssr.yqqy.top/android-learning-recycleview-third/</link>
+    <pubDate>Fri, 24 May 2019 00:54:05 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://ssr.yqqy.top/android-learning-recycleview-third/</guid>
+    <description><![CDATA[记载RecyclerView的瀑布流布局]]></description>
+</item><item>
+    <title>Android学习RecyclerView笔记二</title>
+    <link>https://ssr.yqqy.top/android-learning-recycleview-second/</link>
+    <pubDate>Thu, 23 May 2019 03:32:11 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://ssr.yqqy.top/android-learning-recycleview-second/</guid>
+    <description><![CDATA[记载RecycleView的水平滚动布局和网格布局]]></description>
+</item><item>
+    <title>Android学习RecyclerView笔记一</title>
+    <link>https://ssr.yqqy.top/android-learning-recycleview-first/</link>
+    <pubDate>Wed, 22 May 2019 07:51:56 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://ssr.yqqy.top/android-learning-recycleview-first/</guid>
+    <description><![CDATA[记载RecyclerView的列表布局]]></description>
+</item></channel>
+</rss>

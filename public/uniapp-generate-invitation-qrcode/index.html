@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Uni-App生成邀请二维码 - Yq&#39;s Blog</title><meta name="Description" content="介绍了如何用Uni-App生成邀请二维码并画出来"><meta property="og:title" content="Uni-App生成邀请二维码" />
+<meta property="og:description" content="介绍了如何用Uni-App生成邀请二维码并画出来" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ssr.yqqy.top/uniapp-generate-invitation-qrcode/" />
+<meta property="og:image" content="https://ssr.yqqy.top"/>
+<meta property="article:published_time" content="2019-07-22T14:36:55+00:00" />
+<meta property="article:modified_time" content="2019-07-22T14:36:55+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://ssr.yqqy.top"/>
+
+<meta name="twitter:title" content="Uni-App生成邀请二维码"/>
+<meta name="twitter:description" content="介绍了如何用Uni-App生成邀请二维码并画出来"/>
+<meta name="application-name" content="Yq&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="Yq&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="https://pic.yqqy.top/blog/yqqy/logo.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://ssr.yqqy.top/uniapp-generate-invitation-qrcode/" /><link rel="prev" href="https://ssr.yqqy.top/uniapp-generate-random-verification-code/" /><link rel="next" href="https://ssr.yqqy.top/jdk1.8-config/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Uni-App生成邀请二维码",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/ssr.yqqy.top\/uniapp-generate-invitation-qrcode\/"
+        },"genre": "posts","keywords": "Uni-App","wordcount":  1956 ,
+        "url": "https:\/\/ssr.yqqy.top\/uniapp-generate-invitation-qrcode\/","datePublished": "2019-07-22T14:36:55+00:00","dateModified": "2019-07-22T14:36:55+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Yqchilde"},"author": {
+                "@type": "Person",
+                "name": "Yqchilde"
+            },"description": "介绍了如何用Uni-App生成邀请二维码并画出来"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Yq&#39;s Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Yq&#39;s Blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/links/"> 友链 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/yqchilde" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Yq&#39;s Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Yq&#39;s Blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/links/" title="">友链</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/yqchilde" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Uni-App生成邀请二维码</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/uni-app/"><i class="far fa-folder fa-fw"></i>Uni-App</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2019-07-22">2019-07-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1956 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/uniapp-generate-invitation-qrcode/" class="leancloud_visitors" data-flag-title="Uni-App生成邀请二维码">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#先看效果图">先看效果图</a></li>
+        <li><a href="#引入插件">引入插件</a></li>
+        <li><a href="#配置背景图片">配置背景图片</a></li>
+        <li><a href="#前台页面">前台页面</a></li>
+        <li><a href="#扩展知识">扩展知识</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="先看效果图">先看效果图</h3>
+<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/2017unishengchengqr.gif?imageMogr2/format/webp" title="mark" data-thumbnail="https://pic.yqqy.top/blog/2017unishengchengqr.gif?imageMogr2/format/webp" data-sub-html="<h2>效果图</h2><p>mark</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://pic.yqqy.top/blog/2017unishengchengqr.gif?imageMogr2/format/webp"
+            data-srcset="https://pic.yqqy.top/blog/2017unishengchengqr.gif?imageMogr2/format/webp, https://pic.yqqy.top/blog/2017unishengchengqr.gif?imageMogr2/format/webp 1.5x, https://pic.yqqy.top/blog/2017unishengchengqr.gif?imageMogr2/format/webp 2x"
+            data-sizes="auto"
+            alt="https://pic.yqqy.top/blog/2017unishengchengqr.gif?imageMogr2/format/webp" />
+    </a><figcaption class="image-caption">效果图</figcaption>
+    </figure></p>
+<h3 id="引入插件">引入插件</h3>
+<p>插件源地址： <a href="https://dwz.cn/YbQ9718O" target="_blank" rel="noopener noreffer">https://dwz.cn/YbQ9718O</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">_app</span> <span class="nx">from</span> <span class="s1">&#39;@/commons/QS-SharePoster/app.js&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">getSharePoster</span> <span class="nx">from</span> <span class="s1">&#39;@/commons/QS-SharePoster/QS-SharePoster.js&#39;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="配置背景图片">配置背景图片</h3>
+<p>在 <code>插件中app.js</code> 里面写 <code>getPosterUrl</code> 方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">getPosterUrl</span><span class="p">(</span><span class="nx">objs</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 后端获取背景图的url路径方法
+</span><span class="c1"></span>		<span class="kd">let</span> <span class="p">{</span>
+			<span class="nx">backgroundImage</span><span class="p">,</span>
+			<span class="nx">type</span>
+		<span class="p">}</span> <span class="o">=</span> <span class="nx">objs</span><span class="p">;</span>
+		<span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">rs</span><span class="p">,</span> <span class="nx">rj</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span><span class="c1">//resolve 和 reject
+</span><span class="c1"></span>			<span class="kd">let</span> <span class="nx">image</span><span class="p">;</span>
+			<span class="k">if</span> <span class="p">(</span><span class="nx">backgroundImage</span><span class="p">)</span>
+				<span class="nx">image</span> <span class="o">=</span> <span class="nx">backgroundImage</span><span class="p">;</span>
+			<span class="k">else</span>
+				<span class="k">switch</span> <span class="p">(</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//根据type获取背景图, 一般要改成request获取
+</span><span class="c1"></span>					<span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+						<span class="nx">image</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+						<span class="k">break</span><span class="p">;</span>
+					<span class="k">default</span><span class="o">:</span>
+						<span class="nx">image</span> <span class="o">=</span> <span class="s1">&#39;https://ae01.alicdn.com/kf/HTB1iTw3a8r0gK0jSZFn762RRXXaM.png&#39;</span><span class="p">;</span>
+						<span class="k">break</span><span class="p">;</span>
+				<span class="p">}</span>
+			<span class="k">if</span><span class="p">(</span><span class="nx">image</span><span class="p">)</span>
+				<span class="nx">rs</span><span class="p">(</span><span class="nx">image</span><span class="p">);</span> <span class="c1">// resolve图片的路径
+</span><span class="c1"></span>			<span class="k">else</span>
+				<span class="nx">rj</span><span class="p">(</span><span class="s1">&#39;背景图片路径不存在&#39;</span><span class="p">);</span>
+		<span class="p">})</span>
+	<span class="p">},</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>此处会在前台调用，然后返回image给QS整合，地址可以写给后端返回Api接口用request请求获取，我开始也是这样，后来改了，因为在目前功能够用了</strong></p>
+<h3 id="前台页面">前台页面</h3>
+<ul>
+<li>先调起js方法，template代码如下：</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">view</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;classBtn&#34;</span><span class="p">&gt;</span>
+	<span class="p">&lt;</span><span class="nt">text</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;cuIcon-forwardfill&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">text</span><span class="p">&gt;</span>
+	<span class="p">&lt;</span><span class="nt">text</span> <span class="err">@</span><span class="na">tap</span><span class="o">=</span><span class="s">&#34;shareFc(index)&#34;</span><span class="p">&gt;</span>邀请<span class="p">&lt;/</span><span class="nt">text</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">view</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>@tap点击事件，我给了一个参数，是为了方便我记录点击的是列表中的哪一个</p>
+<ul>
+<li>要展示的图片放在view里面</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- 邀请二维码 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">view</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;flex_row_c_c modalView&#34;</span> <span class="na">:class</span><span class="o">=</span><span class="s">&#34;qrShow?&#39;show&#39;:&#39;&#39;&#34;</span> <span class="err">@</span><span class="na">tap</span><span class="o">=</span><span class="s">&#34;hideQr()&#34;</span><span class="p">&gt;</span>
+	<span class="p">&lt;</span><span class="nt">view</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;flex_column&#34;</span><span class="p">&gt;</span>
+		<span class="p">&lt;</span><span class="nt">view</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;backgroundColor-white padding1vh border_radius_10px&#34;</span><span class="p">&gt;</span>
+			<span class="p">&lt;</span><span class="nt">image</span> <span class="na">:src</span><span class="o">=</span><span class="s">&#34;poster.finalPath&#34;</span> <span class="na">mode</span><span class="o">=</span><span class="s">&#34;widthFix&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;posterImage&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">image</span><span class="p">&gt;</span>
+		<span class="p">&lt;/</span><span class="nt">view</span><span class="p">&gt;</span>
+		<span class="p">&lt;</span><span class="nt">view</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;flex_row marginTop2vh&#34;</span><span class="p">&gt;</span>
+			<span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;primary&#34;</span> <span class="na">size</span><span class="o">=</span><span class="s">&#34;mini&#34;</span> <span class="err">@</span><span class="na">tap</span><span class="err">.</span><span class="na">prevent</span><span class="err">.</span><span class="na">stop</span><span class="o">=</span><span class="s">&#34;saveImage()&#34;</span><span class="p">&gt;</span>保存图片<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+			<span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;primary&#34;</span> <span class="na">size</span><span class="o">=</span><span class="s">&#34;mini&#34;</span> <span class="err">@</span><span class="na">tap</span><span class="err">.</span><span class="na">prevent</span><span class="err">.</span><span class="na">stop</span><span class="o">=</span><span class="s">&#34;share()&#34;</span><span class="p">&gt;</span>分享图片<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+		<span class="p">&lt;/</span><span class="nt">view</span><span class="p">&gt;</span>
+	<span class="p">&lt;/</span><span class="nt">view</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">view</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">view</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;hideCanvasView&#34;</span><span class="p">&gt;</span>
+	<span class="p">&lt;</span><span class="nt">canvas</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;hideCanvas&#34;</span> <span class="na">canvas-id</span><span class="o">=</span><span class="s">&#34;ShareCanvasId&#34;</span> <span class="na">:style</span><span class="o">=</span><span class="s">&#34;{width: (poster.width||0) + &#39;px&#39;, height: (poster.height||0) + &#39;px&#39;}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">canvas</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">view</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>生成图片展示modal的css样式</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="c">/* 邀请二维码 */</span>
+<span class="p">.</span><span class="nc">hideCanvasView</span> <span class="p">{</span>
+	<span class="k">position</span><span class="p">:</span> <span class="kc">relative</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">hideCanvas</span> <span class="p">{</span>
+	<span class="k">position</span><span class="p">:</span> <span class="kc">fixed</span><span class="p">;</span>
+	<span class="k">top</span><span class="p">:</span> <span class="mi">-99999</span><span class="n">upx</span><span class="p">;</span>
+	<span class="k">left</span><span class="p">:</span> <span class="mi">-99999</span><span class="n">upx</span><span class="p">;</span>
+	<span class="k">z-index</span><span class="p">:</span> <span class="mi">-99999</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">flex_row_c_c</span> <span class="p">{</span>
+	<span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
+	<span class="k">flex-direction</span><span class="p">:</span> <span class="kc">row</span><span class="p">;</span>
+	<span class="k">justify-content</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+	<span class="k">align-items</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">modalView</span> <span class="p">{</span>
+	<span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+	<span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+	<span class="k">position</span><span class="p">:</span> <span class="kc">fixed</span><span class="p">;</span>
+	<span class="k">top</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="k">left</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="k">right</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="k">bottom</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="k">opacity</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="k">outline</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="k">transform</span><span class="p">:</span> <span class="nb">scale</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+	<span class="k">perspective</span><span class="p">:</span> <span class="mi">2500</span><span class="n">upx</span><span class="p">;</span>
+	<span class="k">background</span><span class="p">:</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">);</span>
+	<span class="k">transition</span><span class="p">:</span> <span class="kc">all</span> <span class="mf">.3</span><span class="kt">s</span> <span class="kc">ease</span><span class="o">-</span><span class="n">in-out</span><span class="p">;</span>
+	<span class="n">pointer-events</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
+	<span class="k">backface-visibility</span><span class="p">:</span> <span class="kc">hidden</span><span class="p">;</span>
+	<span class="k">z-index</span><span class="p">:</span> <span class="mi">999</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">modalView</span><span class="p">.</span><span class="nc">show</span> <span class="p">{</span>
+	<span class="k">opacity</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="k">transform</span><span class="p">:</span> <span class="nb">scale</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+	<span class="n">pointer-events</span><span class="p">:</span> <span class="kc">auto</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">flex_column</span> <span class="p">{</span>
+	<span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
+	<span class="k">flex-direction</span><span class="p">:</span> <span class="kc">column</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">backgroundColor-white</span> <span class="p">{</span>
+	<span class="k">background-color</span><span class="p">:</span> <span class="kc">white</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">border_radius_10px</span> <span class="p">{</span>
+	<span class="k">border-radius</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">padding1vh</span> <span class="p">{</span>
+	<span class="k">padding</span><span class="p">:</span> <span class="mi">1</span><span class="kt">vh</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">posterImage</span> <span class="p">{</span>
+	<span class="k">width</span><span class="p">:</span> <span class="mi">60</span><span class="kt">vw</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">flex_row</span> <span class="p">{</span>
+	<span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
+	<span class="k">flex-direction</span><span class="p">:</span> <span class="kc">row</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">marginTop2vh</span> <span class="p">{</span>
+	<span class="k">margin-top</span><span class="p">:</span> <span class="mi">2</span><span class="kt">vh</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>在 <code>script</code> 先设置data值</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">data</span> <span class="p">()</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="p">{</span>
+		<span class="nx">poster</span><span class="o">:</span> <span class="p">{},</span>
+		<span class="nx">qrShow</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+		<span class="nx">canvasId</span><span class="o">:</span> <span class="s1">&#39;ShareCanvasId&#39;</span><span class="p">,</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>此处的canvasId值固定，用一个canvasId来在画板上绘画</p>
+<ul>
+<li>利用 <code>async + await</code> 写同步请求，因为uni.request是封装的异步请求，此处需要同时渲染页面</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span><span class="lnt">90
+</span><span class="lnt">91
+</span><span class="lnt">92
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">async</span> <span class="nx">shareFc</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//分享邀请二维码，参数index是列表点击的索引
+</span><span class="c1"></span>	<span class="k">if</span> <span class="p">(</span><span class="nx">uni</span><span class="p">.</span><span class="nx">getStorageSync</span><span class="p">(</span><span class="s1">&#39;tmpIndex&#39;</span><span class="p">)</span> <span class="o">===</span> <span class="nx">index</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//判断临时索引是否是点击的索引
+</span><span class="c1"></span>		<span class="k">this</span><span class="p">.</span><span class="nx">qrShow</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="k">try</span><span class="p">{</span>
+			<span class="nx">uni</span><span class="p">.</span><span class="nx">setStorageSync</span><span class="p">(</span><span class="s1">&#39;tmpIndex&#39;</span><span class="p">,</span> <span class="nx">index</span><span class="p">);</span> <span class="c1">//将点击的索引绑定给本地sync，作为临时索引
+</span><span class="c1"></span>			<span class="kd">let</span> <span class="nx">d</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">getSharePoster</span><span class="p">({</span> <span class="c1">//传入两个await参数，一个是类型，一个是canvasID
+</span><span class="c1"></span>				<span class="c1">// type: [this.classList[index].userid,this.classList[index].classid],
+</span><span class="c1"></span>				<span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;testShareType&#39;</span><span class="p">,</span>
+				<span class="nx">posterCanvasId</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">canvasId</span><span class="p">,</span>
+				<span class="nx">qrCodeArray</span><span class="o">:</span> <span class="p">(</span><span class="nx">bgObj</span><span class="p">,</span> <span class="nx">type</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+					<span class="k">return</span> <span class="p">[{</span>
+						<span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;二维码内容暂时不写&#39;</span><span class="p">,</span> <span class="c1">//后期可以传入相关的二维码参数，以便于扫码时获取
+</span><span class="c1"></span>						<span class="c1">// image: &#39;https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1559644434957&amp;di=0db394a4ae41b6cff704fa3d4cbd997b&amp;imgtype=0&amp;src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201806%2F30%2F20180630233629_GueV4.thumb.700_0.jpeg&#39;,
+</span><span class="c1"></span>						<span class="nx">size</span><span class="o">:</span> <span class="mi">580</span><span class="p">,</span> <span class="c1">//二维码大小
+</span><span class="c1"></span>						<span class="nx">dx</span><span class="o">:</span> <span class="p">(</span><span class="nx">bgObj</span><span class="p">.</span><span class="nx">width</span><span class="o">-</span><span class="mi">580</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="c1">//x坐标
+</span><span class="c1"></span>						<span class="nx">dy</span><span class="o">:</span> <span class="nx">bgObj</span><span class="p">.</span><span class="nx">height</span><span class="o">-</span><span class="mi">1200</span> <span class="c1">//y坐标
+</span><span class="c1"></span>					<span class="p">}]</span>
+				<span class="p">},</span>
+				<span class="nx">imagesArray</span><span class="o">:</span> <span class="p">(</span><span class="nx">bgObj</span><span class="p">,</span> <span class="nx">type</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="c1">//接收的第一个参数为背景图片的信息, 第二个参数是自定义标识（感觉这里用不到）, 图片为示例图片
+</span><span class="c1"></span>					<span class="k">return</span> <span class="p">[{</span>
+						<span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1314428097,3858988978&amp;fm=26&amp;gp=0.jpg&#39;</span><span class="p">,</span>
+						<span class="nx">dx</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+						<span class="nx">dy</span><span class="o">:</span> <span class="nx">bgObj</span><span class="p">.</span><span class="nx">height</span> <span class="o">-</span> <span class="mi">300</span><span class="p">,</span>
+						<span class="nx">circleSet</span><span class="o">:</span> <span class="p">{</span> <span class="c1">// 圆形图片
+</span><span class="c1"></span>							<span class="nx">circle</span><span class="o">:</span> <span class="kc">true</span>
+						<span class="p">},</span>
+						<span class="nx">infoCallBack</span><span class="p">(</span><span class="nx">imageInfo</span><span class="p">)</span> <span class="p">{</span>
+							<span class="kd">let</span> <span class="nx">scale</span> <span class="o">=</span> <span class="mi">200</span><span class="o">/</span><span class="nx">imageInfo</span><span class="p">.</span><span class="nx">height</span><span class="p">;</span>
+							<span class="k">return</span> <span class="p">{</span>
+								<span class="nx">dWidth</span><span class="o">:</span> <span class="nx">imageInfo</span><span class="p">.</span><span class="nx">width</span><span class="o">*</span><span class="nx">scale</span><span class="p">,</span>
+								<span class="nx">dHeight</span><span class="o">:</span> <span class="mi">200</span>
+							<span class="p">}</span>
+						<span class="p">}</span>
+					<span class="p">}]</span>
+				<span class="p">},</span>
+				<span class="nx">setCanvasWH</span><span class="o">:</span> <span class="p">(</span><span class="nx">bgObj</span><span class="p">,</span> <span class="nx">type</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="c1">// 为动态设置画布宽高的方法，
+</span><span class="c1"></span>					<span class="k">this</span><span class="p">.</span><span class="nx">poster</span> <span class="o">=</span> <span class="nx">bgObj</span><span class="p">;</span>
+				<span class="p">},</span>
+				<span class="nx">setDraw</span><span class="o">:</span> <span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+					<span class="kd">let</span> <span class="p">{</span>
+						<span class="nx">Context</span><span class="p">,</span>
+						<span class="nx">bgObj</span><span class="p">,</span>
+						<span class="nx">type</span>
+					<span class="p">}</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">;</span>
+					<span class="nx">Context</span><span class="p">.</span><span class="nx">setFillStyle</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
+					<span class="nx">Context</span><span class="p">.</span><span class="nx">setGlobalAlpha</span><span class="p">(</span><span class="mf">0.3</span><span class="p">);</span>
+					<span class="nx">Context</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">bgObj</span><span class="p">.</span><span class="nx">height</span> <span class="o">-</span> <span class="mi">400</span><span class="p">,</span> <span class="nx">bgObj</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="mi">400</span><span class="p">);</span>
+					<span class="nx">Context</span><span class="p">.</span><span class="nx">setGlobalAlpha</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+					<span class="nx">Context</span><span class="p">.</span><span class="nx">setFillStyle</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">);</span>
+					<span class="nx">Context</span><span class="p">.</span><span class="nx">setFontSize</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+					<span class="c1">//输出姓名
+</span><span class="c1"></span>					<span class="kd">let</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">uni</span><span class="p">.</span><span class="nx">getStorageSync</span><span class="p">(</span><span class="s1">&#39;realName&#39;</span><span class="p">);</span>
+					<span class="nx">Context</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="nx">text</span><span class="p">,</span> <span class="nx">bgObj</span><span class="p">.</span><span class="nx">width</span> <span class="o">-</span> <span class="nx">text</span><span class="p">.</span><span class="nx">length</span> <span class="o">*</span> <span class="mi">50</span> <span class="o">-</span> <span class="mi">160</span><span class="p">,</span> <span class="nx">bgObj</span><span class="p">.</span><span class="nx">height</span> <span class="o">-</span> <span class="mi">175</span><span class="p">);</span>
+					<span class="c1">//输出班级
+</span><span class="c1"></span>					<span class="nx">Context</span><span class="p">.</span><span class="nx">setFillStyle</span><span class="p">(</span><span class="s1">&#39;orange&#39;</span><span class="p">);</span>
+					<span class="nx">Context</span><span class="p">.</span><span class="nx">setFontSize</span><span class="p">(</span><span class="mi">110</span><span class="p">);</span>
+					<span class="kd">let</span> <span class="nx">textTitle</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">classList</span><span class="p">[</span><span class="nx">index</span><span class="p">].</span><span class="nx">classname</span><span class="p">;</span>
+					<span class="nx">Context</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="nx">textTitle</span><span class="p">,</span> <span class="p">(</span><span class="nx">bgObj</span><span class="p">.</span><span class="nx">width</span> <span class="o">-</span> <span class="nx">textTitle</span><span class="p">.</span><span class="nx">length</span> <span class="o">*</span> <span class="mi">110</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="nx">bgObj</span><span class="p">.</span><span class="nx">height</span> <span class="o">-</span> <span class="mi">430</span><span class="p">);</span>
+				<span class="p">}</span>
+			<span class="p">});</span>
+			<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;海报生成成功， 临时路径: &#39;</span> <span class="o">+</span> <span class="nx">d</span><span class="p">.</span><span class="nx">poster</span><span class="p">.</span><span class="nx">tempFilePath</span><span class="p">)</span>
+			<span class="k">this</span><span class="p">.</span><span class="nx">poster</span><span class="p">.</span><span class="nx">finalPath</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">poster</span><span class="p">.</span><span class="nx">tempFilePath</span><span class="p">;</span>
+			<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">poster</span><span class="p">.</span><span class="nx">finalPath</span><span class="p">);</span>
+			<span class="k">this</span><span class="p">.</span><span class="nx">qrShow</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+		<span class="p">}</span><span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+			<span class="nx">_app</span><span class="p">.</span><span class="nx">hideLoading</span><span class="p">();</span>
+			<span class="nx">_app</span><span class="p">.</span><span class="nx">showToast</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">e</span><span class="p">));</span>
+			<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">e</span><span class="p">));</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">},</span>
+	<span class="nx">saveImage</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">uni</span><span class="p">.</span><span class="nx">saveImageToPhotosAlbum</span><span class="p">({</span>
+			<span class="nx">filePath</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">poster</span><span class="p">.</span><span class="nx">finalPath</span><span class="p">,</span>
+			<span class="nx">success</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+				<span class="nx">_app</span><span class="p">.</span><span class="nx">showToast</span><span class="p">(</span><span class="s1">&#39;保存成功&#39;</span><span class="p">);</span>
+			<span class="p">}</span>
+		<span class="p">})</span>
+	<span class="p">},</span>
+		<span class="nx">share</span><span class="p">()</span> <span class="p">{</span>
+			<span class="c1">// #ifdef APP-PLUS
+</span><span class="c1"></span>			<span class="nx">_app</span><span class="p">.</span><span class="nx">getShare</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">poster</span><span class="p">.</span><span class="nx">finalPath</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+			<span class="c1">// #endif
+</span><span class="c1"></span>
+			<span class="c1">// #ifndef APP-PLUS
+</span><span class="c1"></span>			<span class="nx">_app</span><span class="p">.</span><span class="nx">showToast</span><span class="p">(</span><span class="s1">&#39;分享了&#39;</span><span class="p">);</span>
+			<span class="c1">// #endif
+</span><span class="c1"></span>		<span class="p">},</span>
+			<span class="nx">hideQr</span><span class="p">()</span> <span class="p">{</span>
+				<span class="k">this</span><span class="p">.</span><span class="nx">qrShow</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+			<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="扩展知识">扩展知识</h3>
+<p><strong>ES6的解构赋值</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="p">{</span><span class="nx">msg</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">}</span> <span class="o">=</span> <span class="nx">jsonData</span><span class="p">;</span>
+<span class="nx">想调用</span> <span class="sb">`msg`</span> <span class="nx">就是</span> <span class="nx">jsonData</span><span class="p">.</span><span class="nx">msg</span><span class="p">;</span>
+<span class="nx">这就是ES6的新语法糖</span>
+
+<span class="kd">var</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">rest</span><span class="p">;</span>
+<span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// 10
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span> <span class="c1">// 20
+</span><span class="c1">//直接交换位置
+</span><span class="c1"></span>
+<span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="p">...</span><span class="nx">rest</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// 10
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span> <span class="c1">// 20
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rest</span><span class="p">);</span> <span class="c1">// [30, 40, 50]
+</span><span class="c1">// ...将剩余数组赋值给一个变量
+</span><span class="c1"></span>
+<span class="p">({</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="p">}</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">a</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">b</span><span class="o">:</span> <span class="mi">20</span> <span class="p">});</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// 10
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span> <span class="c1">// 20
+</span><span class="c1"></span>
+
+<span class="c1">// Stage 4（已完成）提案中的特性
+</span><span class="c1"></span><span class="p">({</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="p">...</span><span class="nx">rest</span><span class="p">}</span> <span class="o">=</span> <span class="p">{</span><span class="nx">a</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">b</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> <span class="nx">c</span><span class="o">:</span> <span class="mi">30</span><span class="p">,</span> <span class="nx">d</span><span class="o">:</span> <span class="mi">40</span><span class="p">});</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// 10
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span> <span class="c1">// 20
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rest</span><span class="p">);</span> <span class="c1">// {c: 30, d: 40}
+</span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>解析从函数中返回的数组</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">f</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">;</span> 
+<span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">]</span> <span class="o">=</span> <span class="nx">f</span><span class="p">();</span> 
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// 1
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span> <span class="c1">// 2
+</span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>也可以忽略掉返回值</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">f</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="p">,</span> <span class="nx">b</span><span class="p">]</span> <span class="o">=</span> <span class="nx">f</span><span class="p">();</span> <span class="c1">//也可以全部忽略 [,,]
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// 1
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span> <span class="c1">// 3
+</span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>举个例子，比如正则表达式验证</li>
+</ul>
+<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20200111/4e6HB9OIhlir.png?imageslim" title="mark" data-thumbnail="https://pic.yqqy.top/blog/20200111/4e6HB9OIhlir.png?imageslim" data-sub-html="<h2>正则</h2><p>mark</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://pic.yqqy.top/blog/20200111/4e6HB9OIhlir.png?imageslim"
+            data-srcset="https://pic.yqqy.top/blog/20200111/4e6HB9OIhlir.png?imageslim, https://pic.yqqy.top/blog/20200111/4e6HB9OIhlir.png?imageslim 1.5x, https://pic.yqqy.top/blog/20200111/4e6HB9OIhlir.png?imageslim 2x"
+            data-sizes="auto"
+            alt="https://pic.yqqy.top/blog/20200111/4e6HB9OIhlir.png?imageslim" />
+    </a><figcaption class="image-caption">正则</figcaption>
+    </figure></p>
+<p>数组中有6个，我们只想要第一个怎么办？</p>
+<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20200111/M8J8ONE2V90Y.png?imageMogr2/format/webp/interlace/1" title="mark" data-thumbnail="https://pic.yqqy.top/blog/20200111/M8J8ONE2V90Y.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>选择合适的</h2><p>mark</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://pic.yqqy.top/blog/20200111/M8J8ONE2V90Y.png?imageMogr2/format/webp/interlace/1"
+            data-srcset="https://pic.yqqy.top/blog/20200111/M8J8ONE2V90Y.png?imageMogr2/format/webp/interlace/1, https://pic.yqqy.top/blog/20200111/M8J8ONE2V90Y.png?imageMogr2/format/webp/interlace/1 1.5x, https://pic.yqqy.top/blog/20200111/M8J8ONE2V90Y.png?imageMogr2/format/webp/interlace/1 2x"
+            data-sizes="auto"
+            alt="https://pic.yqqy.top/blog/20200111/M8J8ONE2V90Y.png?imageMogr2/format/webp/interlace/1" />
+    </a><figcaption class="image-caption">选择合适的</figcaption>
+    </figure></p>
+<p>只需要省略掉其他的参数就行</p>
+<ul>
+<li>解构对象</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="nx">p</span><span class="o">:</span> <span class="mi">42</span><span class="p">,</span> <span class="nx">q</span><span class="o">:</span> <span class="kc">true</span><span class="p">};</span>
+<span class="kd">var</span> <span class="p">{</span><span class="nx">p</span><span class="p">,</span> <span class="nx">q</span><span class="p">}</span> <span class="o">=</span> <span class="nx">o</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span> <span class="c1">// 42
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">q</span><span class="p">);</span> <span class="c1">// true
+</span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>无需申明变量即可赋值</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">({</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">}</span> <span class="o">=</span> <span class="p">{</span><span class="nx">a</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">b</span><span class="o">:</span> <span class="mi">2</span><span class="p">});</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// 1
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span> <span class="c1">// 2
+</span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>给新的变量换名</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="nx">p</span><span class="o">:</span> <span class="mi">42</span><span class="p">,</span> <span class="nx">q</span><span class="o">:</span> <span class="kc">true</span><span class="p">};</span>
+<span class="kd">var</span> <span class="p">{</span><span class="nx">p</span><span class="o">:</span> <span class="nx">foo</span><span class="p">,</span> <span class="nx">q</span><span class="o">:</span> <span class="nx">bar</span><span class="p">}</span> <span class="o">=</span> <span class="nx">o</span><span class="p">;</span>
+ 
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">);</span> <span class="c1">// 42 
+</span><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">bar</span><span class="p">);</span> <span class="c1">// true
+</span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2019-07-22</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/uniapp-generate-invitation-qrcode/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://ssr.yqqy.top/uniapp-generate-invitation-qrcode/" data-title="Uni-App生成邀请二维码"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/uni-app/">Uni-App</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/uniapp-generate-random-verification-code/" class="prev" rel="prev" title="uniapp生成随机验证码&amp;php合成验证码图片"><i class="fas fa-angle-left fa-fw"></i>uniapp生成随机验证码&amp;php合成验证码图片</a>
+            <a href="/jdk1.8-config/" class="next" rel="next" title="JDK1.8的环境变量配置">JDK1.8的环境变量配置<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.74.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"valine":{"appId":"kRdzczL0inU57oCl9a4thIUN-gzGzoHsz","appKey":"yq4N8FJfqgrqwC4jBw8ifyyK","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-CN","pageSize":10,"placeholder":"请您理智发言，共建美好社会！","recordIP":true,"serverURLs":"https://line.yqqy.top","visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"CQ9IB2P7OM","algoliaIndex":"search","algoliaSearchKey":"0b8ac695d9473a1134af4c32c85d5194","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

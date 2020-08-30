@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Rebirth为什么推荐使用svg图片作为logo - Yq&#39;s Blog</title><meta name="Description" content="讲解了我制作的WordPress主题中logo为什么推荐使用svg图片"><meta property="og:title" content="Rebirth为什么推荐使用svg图片作为logo" />
+<meta property="og:description" content="讲解了我制作的WordPress主题中logo为什么推荐使用svg图片" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ssr.yqqy.top/tips/848/" />
+<meta property="og:image" content="https://ssr.yqqy.top"/>
+<meta property="article:published_time" content="2020-02-27T09:44:18+00:00" />
+<meta property="article:modified_time" content="2020-02-27T09:44:18+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://ssr.yqqy.top"/>
+
+<meta name="twitter:title" content="Rebirth为什么推荐使用svg图片作为logo"/>
+<meta name="twitter:description" content="讲解了我制作的WordPress主题中logo为什么推荐使用svg图片"/>
+<meta name="application-name" content="Yq&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="Yq&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="https://pic.yqqy.top/blog/yqqy/logo.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://ssr.yqqy.top/tips/848/" /><link rel="prev" href="https://ssr.yqqy.top/golang-base64captcha/" /><link rel="next" href="https://ssr.yqqy.top/wordpress-rocket/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Rebirth为什么推荐使用svg图片作为logo",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/ssr.yqqy.top\/tips\/848\/"
+        },"genre": "posts","keywords": "Rebirth","wordcount":  432 ,
+        "url": "https:\/\/ssr.yqqy.top\/tips\/848\/","datePublished": "2020-02-27T09:44:18+00:00","dateModified": "2020-02-27T09:44:18+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Yqchilde"},"author": {
+                "@type": "Person",
+                "name": "Yqchilde"
+            },"description": "讲解了我制作的WordPress主题中logo为什么推荐使用svg图片"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Yq&#39;s Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Yq&#39;s Blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/links/"> 友链 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/yqchilde" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Yq&#39;s Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Yq&#39;s Blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/links/" title="">友链</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/yqchilde" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Rebirth为什么推荐使用svg图片作为logo</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/tips/"><i class="far fa-folder fa-fw"></i>Tips</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-02-27">2020-02-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 432 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/tips/848/" class="leancloud_visitors" data-flag-title="Rebirth为什么推荐使用svg图片作为logo">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#为了什么">为了什么</a>
+          <ul>
+            <li><a href="#使用了svg效果">使用了svg效果</a></li>
+            <li><a href="#制作方法">制作方法</a></li>
+            <li><a href="#举个栗子">举个栗子</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="为了什么">为了什么</h3>
+<p>本文是为了制作的wordpress主题rebirth的logo设置</p>
+<p>主题 repo: <a href="https://github.com/yqchilde/rebirth" target="_blank" rel="noopener noreffer">Rebirth</a></p>
+<h4 id="使用了svg效果">使用了svg效果</h4>
+<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20200227180134.png?imageMogr2/format/webp/interlace/1" title="https://pic.yqqy.top/blog/20200227180134.png?imageMogr2/format/webp/interlace/1" data-thumbnail="https://pic.yqqy.top/blog/20200227180134.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>效果图1</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://pic.yqqy.top/blog/20200227180134.png?imageMogr2/format/webp/interlace/1"
+            data-srcset="https://pic.yqqy.top/blog/20200227180134.png?imageMogr2/format/webp/interlace/1, https://pic.yqqy.top/blog/20200227180134.png?imageMogr2/format/webp/interlace/1 1.5x, https://pic.yqqy.top/blog/20200227180134.png?imageMogr2/format/webp/interlace/1 2x"
+            data-sizes="auto"
+            alt="https://pic.yqqy.top/blog/20200227180134.png?imageMogr2/format/webp/interlace/1" />
+    </a><figcaption class="image-caption">效果图1</figcaption>
+    </figure></p>
+<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20200227180222.png?imageMogr2/format/webp/interlace/1" title="https://pic.yqqy.top/blog/20200227180222.png?imageMogr2/format/webp/interlace/1" data-thumbnail="https://pic.yqqy.top/blog/20200227180222.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>效果图2</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://pic.yqqy.top/blog/20200227180222.png?imageMogr2/format/webp/interlace/1"
+            data-srcset="https://pic.yqqy.top/blog/20200227180222.png?imageMogr2/format/webp/interlace/1, https://pic.yqqy.top/blog/20200227180222.png?imageMogr2/format/webp/interlace/1 1.5x, https://pic.yqqy.top/blog/20200227180222.png?imageMogr2/format/webp/interlace/1 2x"
+            data-sizes="auto"
+            alt="https://pic.yqqy.top/blog/20200227180222.png?imageMogr2/format/webp/interlace/1" />
+    </a><figcaption class="image-caption">效果图2</figcaption>
+    </figure></p>
+<p>我们可以看出来，效果就是在页面滑动之后会改变填充色，（并不是所有的svg图片都是，下面就说编辑方法）</p>
+<h4 id="制作方法">制作方法</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;svg</span> <span class="na">viewBox=</span><span class="s">&#34;0 0 1024 1024&#34;</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.w3.org/2000/svg&#34;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;g</span> <span class="na">style=</span><span class="s">&#34;isolation:isolate&#34;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;g</span> <span class="na">fill=</span><span class="s">&#34;#000000&#34;</span><span class="nt">&gt;</span>
+            
+            这里放置你的 `path` 标签
+            
+        <span class="nt">&lt;/g&gt;</span>
+    <span class="nt">&lt;/g&gt;</span>
+<span class="nt">&lt;/svg&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="举个栗子">举个栗子</h4>
+<p>去<a href="https://www.iconfont.cn/" target="_blank" rel="noopener noreffer">阿里icon矢量库</a>，找一个图，并复制svg代码</p>
+<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20200227182608.png?imageMogr2/format/webp/interlace/1" title="https://pic.yqqy.top/blog/20200227182608.png?imageMogr2/format/webp/interlace/1" data-thumbnail="https://pic.yqqy.top/blog/20200227182608.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>矢量库图标</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://pic.yqqy.top/blog/20200227182608.png?imageMogr2/format/webp/interlace/1"
+            data-srcset="https://pic.yqqy.top/blog/20200227182608.png?imageMogr2/format/webp/interlace/1, https://pic.yqqy.top/blog/20200227182608.png?imageMogr2/format/webp/interlace/1 1.5x, https://pic.yqqy.top/blog/20200227182608.png?imageMogr2/format/webp/interlace/1 2x"
+            data-sizes="auto"
+            alt="https://pic.yqqy.top/blog/20200227182608.png?imageMogr2/format/webp/interlace/1" />
+    </a><figcaption class="image-caption">矢量库图标</figcaption>
+    </figure></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;svg</span> <span class="na">t=</span><span class="s">&#34;1582799138465&#34;</span> <span class="na">class=</span><span class="s">&#34;icon&#34;</span> <span class="na">viewBox=</span><span class="s">&#34;0 0 1267 1024&#34;</span> <span class="na">version=</span><span class="s">&#34;1.1&#34;</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.w3.org/2000/svg&#34;</span> <span class="na">p-id=</span><span class="s">&#34;23300&#34;</span> <span class="na">width=</span><span class="s">&#34;64&#34;</span> <span class="na">height=</span><span class="s">&#34;64&#34;</span><span class="nt">&gt;&lt;path</span> <span class="na">d=</span><span class="s">&#34;M318.82629556 133.78803087C-133.08757287 392.20264631 164.67345974 699.80401596 508.2092303 657.19988601c422.53471382 49.0598287 601.5273088-308.81087989 270.72125986-500.4436034-123.34018755-57.77029413-212.92358917-50.7173058-460.1041946-22.97074138z&#34;</span> <span class="na">fill=</span><span class="s">&#34;#2c2c2c&#34;</span> <span class="na">p-id=</span><span class="s">&#34;23301&#34;</span><span class="nt">&gt;&lt;/path&gt;&lt;path</span> <span class="na">d=</span><span class="s">&#34;M214.90297937 222.368485l54.69674405-224.25466126 103.92331621 177.7631744zM701.6985288 197.75519893l106.65591319-194.16871362 62.89951436 322.70282623zM510.26241218 657.19988601s-16.41051715 257.07071626-51.96414705 281.68151403c-35.55114165 24.61328606 180.49826105 71.10477156 232.45991845 21.87820079 95.3621735-81.27610719-75.53217667-248.9600287-95.71805762-311.76497203-62.38435165-195.77392864-84.77771378 8.20525858-84.77771378 8.20525721z&#34;</span> <span class="na">fill=</span><span class="s">&#34;#2c2c2c&#34;</span> <span class="na">p-id=</span><span class="s">&#34;23302&#34;</span><span class="nt">&gt;&lt;/path&gt;&lt;path</span> <span class="na">d=</span><span class="s">&#34;M687.54526663 901.81463786s148.42632737-11.95573548 201.76423982-119.54740309c53.34040074-107.58917793 20.87276364-193.66101849 32.47012538-227.13409135 11.59487344-33.47307423 67.25474708-167.36287878 201.76423983-90.85512978 134.50949276 76.51023728 122.91461933 188.88021755 62.61580129 217.57248946-60.29632977 28.68978363-166.02644443 25.01147914-97.40291128 0 66.2517982-24.14541025 151.23607471-66.54795404 55.65987362-150.62634235-73.5810334-64.72622317-102.08665291-65.3135569-160.02120218-14.34489113-69.96743372 61.55312413 36.17331813 214.64328419-97.40291126 334.72575757-123.36009791 110.89666592-204.086201 74.11610369-204.08619963 74.11610507z&#34;</span> <span class="na">fill=</span><span class="s">&#34;#2c2c2c&#34;</span> <span class="na">p-id=</span><span class="s">&#34;23303&#34;</span><span class="nt">&gt;&lt;/path&gt;&lt;path</span> <span class="na">d=</span><span class="s">&#34;&#34;</span> <span class="na">fill=</span><span class="s">&#34;#2c2c2c&#34;</span> <span class="na">p-id=</span><span class="s">&#34;23304&#34;</span><span class="nt">&gt;&lt;/path&gt;&lt;path</span> <span class="na">d=</span><span class="s">&#34;&#34;</span> <span class="na">fill=</span><span class="s">&#34;#2c2c2c&#34;</span> <span class="na">p-id=</span><span class="s">&#34;23305&#34;</span><span class="nt">&gt;&lt;/path&gt;&lt;path</span> <span class="na">d=</span><span class="s">&#34;&#34;</span> <span class="na">fill=</span><span class="s">&#34;#2c2c2c&#34;</span> <span class="na">p-id=</span><span class="s">&#34;23306&#34;</span><span class="nt">&gt;&lt;/path&gt;&lt;path</span> <span class="na">d=</span><span class="s">&#34;&#34;</span> <span class="na">fill=</span><span class="s">&#34;#2c2c2c&#34;</span> <span class="na">p-id=</span><span class="s">&#34;23307&#34;</span><span class="nt">&gt;&lt;/path&gt;&lt;path</span> <span class="na">d=</span><span class="s">&#34;&#34;</span> <span class="na">fill=</span><span class="s">&#34;#2c2c2c&#34;</span> <span class="na">p-id=</span><span class="s">&#34;23308&#34;</span><span class="nt">&gt;&lt;/path&gt;&lt;/svg&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>保留所有的 <code>&lt;path&gt;&lt;/path&gt;</code>，并去掉 <code>path</code> 里面的 <code>p-id</code> 内容是这样</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-svg" data-lang="svg"><span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">&#34;M318.82629556 133.78803087C-133.08757287 392.20264631 164.67345974 699.80401596 508.2092303 657.19988601c422.53471382 49.0598287 601.5273088-308.81087989 270.72125986-500.4436034-123.34018755-57.77029413-212.92358917-50.7173058-460.1041946-22.97074138z&#34;</span> <span class="na">fill=</span><span class="s">&#34;#2c2c2c&#34;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/path&gt;</span>
+<span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">&#34;M214.90297937 222.368485l54.69674405-224.25466126 103.92331621 177.7631744zM701.6985288 197.75519893l106.65591319-194.16871362 62.89951436 322.70282623zM510.26241218 657.19988601s-16.41051715 257.07071626-51.96414705 281.68151403c-35.55114165 24.61328606 180.49826105 71.10477156 232.45991845 21.87820079 95.3621735-81.27610719-75.53217667-248.9600287-95.71805762-311.76497203-62.38435165-195.77392864-84.77771378 8.20525858-84.77771378 8.20525721z&#34;</span> <span class="na">fill=</span><span class="s">&#34;#2c2c2c&#34;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/path&gt;</span>
+<span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">&#34;M687.54526663 901.81463786s148.42632737-11.95573548 201.76423982-119.54740309c53.34040074-107.58917793 20.87276364-193.66101849 32.47012538-227.13409135 11.59487344-33.47307423 67.25474708-167.36287878 201.76423983-90.85512978 134.50949276 76.51023728 122.91461933 188.88021755 62.61580129 217.57248946-60.29632977 28.68978363-166.02644443 25.01147914-97.40291128 0 66.2517982-24.14541025 151.23607471-66.54795404 55.65987362-150.62634235-73.5810334-64.72622317-102.08665291-65.3135569-160.02120218-14.34489113-69.96743372 61.55312413 36.17331813 214.64328419-97.40291126 334.72575757-123.36009791 110.89666592-204.086201 74.11610369-204.08619963 74.11610507z&#34;</span> <span class="na">fill=</span><span class="s">&#34;#2c2c2c&#34;</span><span class="nt">&gt;&lt;/path&gt;</span>
+<span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">&#34;&#34;</span> <span class="na">fill=</span><span class="s">&#34;#2c2c2c&#34;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/path&gt;</span>
+<span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">&#34;&#34;</span> <span class="na">fill=</span><span class="s">&#34;#2c2c2c&#34;</span><span class="nt">&gt;&lt;/path&gt;&lt;path</span> <span class="na">d=</span><span class="s">&#34;&#34;</span> <span class="na">fill=</span><span class="s">&#34;#2c2c2c&#34;</span><span class="nt">&gt;&lt;/path&gt;</span>
+<span class="nt">&lt;path</span> <span class="na">d=</span><span class="s">&#34;&#34;</span> <span class="na">fill=</span><span class="s">&#34;#2c2c2c&#34;</span><span class="nt">&gt;&lt;/path&gt;&lt;path</span> <span class="na">d=</span><span class="s">&#34;&#34;</span> <span class="na">fill=</span><span class="s">&#34;#2c2c2c&#34;</span><span class="nt">&gt;&lt;/path&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>将这段代码全部复制到上面那个代码块中就好了。</p></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2020-02-27</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/tips/848/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://ssr.yqqy.top/tips/848/" data-title="Rebirth为什么推荐使用svg图片作为logo"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/rebirth/">Rebirth</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/golang-base64captcha/" class="prev" rel="prev" title="Golang验证码–base64Captcha库1.3.0版本构建实例"><i class="fas fa-angle-left fa-fw"></i>Golang验证码–base64Captcha库1.3.0版本构建实例</a>
+            <a href="/wordpress-rocket/" class="next" rel="next" title="正确配置rocket-nginx，加速你的wordpress">正确配置rocket-nginx，加速你的wordpress<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.74.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"valine":{"appId":"kRdzczL0inU57oCl9a4thIUN-gzGzoHsz","appKey":"yq4N8FJfqgrqwC4jBw8ifyyK","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-CN","pageSize":10,"placeholder":"请您理智发言，共建美好社会！","recordIP":true,"serverURLs":"https://line.yqqy.top","visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"CQ9IB2P7OM","algoliaIndex":"search","algoliaSearchKey":"0b8ac695d9473a1134af4c32c85d5194","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

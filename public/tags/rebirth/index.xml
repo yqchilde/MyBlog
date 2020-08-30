@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Rebirth - 标签 - Yq&#39;s Blog</title>
+        <link>https://ssr.yqqy.top/tags/rebirth/</link>
+        <description>Rebirth - 标签 - Yq&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 27 Feb 2020 09:44:18 &#43;0000</lastBuildDate><atom:link href="https://ssr.yqqy.top/tags/rebirth/" rel="self" type="application/rss+xml" /><item>
+    <title>Rebirth为什么推荐使用svg图片作为logo</title>
+    <link>https://ssr.yqqy.top/tips/848/</link>
+    <pubDate>Thu, 27 Feb 2020 09:44:18 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://ssr.yqqy.top/tips/848/</guid>
+    <description><![CDATA[讲解了我制作的WordPress主题中logo为什么推荐使用svg图片]]></description>
+</item></channel>
+</rss>

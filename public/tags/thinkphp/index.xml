@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>ThinkPHP - 标签 - Yq&#39;s Blog</title>
+        <link>https://ssr.yqqy.top/tags/thinkphp/</link>
+        <description>ThinkPHP - 标签 - Yq&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 23 Apr 2019 14:13:16 &#43;0000</lastBuildDate><atom:link href="https://ssr.yqqy.top/tags/thinkphp/" rel="self" type="application/rss+xml" /><item>
+    <title>解决PHP5.6版本“No input file specified”</title>
+    <link>https://ssr.yqqy.top/php-no-input-file-specified/</link>
+    <pubDate>Tue, 23 Apr 2019 14:13:16 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://ssr.yqqy.top/php-no-input-file-specified/</guid>
+    <description><![CDATA[使用TP框架做项目时，在启用REWRITE的伪静态功能的时候，首页可以访问，但是访问其它页面的时候，就提示：“No input file specified.”]]></description>
+</item></channel>
+</rss>
