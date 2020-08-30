@@ -30,4 +30,4 @@ jobs:
           password: ${{ secrets.ALIYUN_PASSWORD }}
           rm: 1
           source: "/public/"
-          target: "../www/webroot/www.yqqy.top/public"
+          target: "../www/wwwroot/www.yqqy.top/public/"
