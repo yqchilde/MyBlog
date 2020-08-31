@@ -32,7 +32,7 @@ jobs:
           target: ${{ secrets.ALIYUN_PATH }}
           
       - name: algolia push
-      - uses: darrenjennings/algolia-docsearch-action@master
+        uses: darrenjennings/algolia-docsearch-action@master
         with:
           algolia_application_id: 'CQ9IB2P7OM'
           algolia_api_key: '0b8ac695d9473a1134af4c32c85d5194'
