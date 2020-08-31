@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Notes - 分类 - Yq&#39;s Blog</title>
-        <link>https://ssr.yqqy.top/categories/notes/</link>
+        <link>https://yqqy.top/categories/notes/</link>
         <description>Notes - 分类 - Yq&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 22 Mar 2020 13:45:11 &#43;0000</lastBuildDate><atom:link href="https://ssr.yqqy.top/categories/notes/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 22 Mar 2020 13:45:11 &#43;0000</lastBuildDate><atom:link href="https://yqqy.top/categories/notes/" rel="self" type="application/rss+xml" /><item>
     <title>Valine-Admin、1Password、荣耀平板5谷歌三件套</title>
-    <link>https://ssr.yqqy.top/valine-admin-1password-google/</link>
+    <link>https://yqqy.top/valine-admin-1password-google/</link>
     <pubDate>Sun, 22 Mar 2020 13:45:11 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://ssr.yqqy.top/valine-admin-1password-google/</guid>
+    <guid>https://yqqy.top/valine-admin-1password-google/</guid>
     <description><![CDATA[周末灌水，上午修补Valine-Admin，中午白嫖1Password，下午处理荣耀平板5的谷歌三件套，Valine-Admin: 不能每日邮件遗漏补发，原因：函数写半个？荣耀平板5最新系统9.1.0.175无法获取谷歌服务？]]></description>
 </item></channel>
 </rss>

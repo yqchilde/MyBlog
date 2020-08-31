@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>WordPress - 标签 - Yq&#39;s Blog</title>
-        <link>https://ssr.yqqy.top/tags/wordpress/</link>
+        <link>https://yqqy.top/tags/wordpress/</link>
         <description>WordPress - 标签 - Yq&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 08 Mar 2020 11:15:56 &#43;0000</lastBuildDate><atom:link href="https://ssr.yqqy.top/tags/wordpress/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 08 Mar 2020 11:15:56 &#43;0000</lastBuildDate><atom:link href="https://yqqy.top/tags/wordpress/" rel="self" type="application/rss+xml" /><item>
     <title>正确配置rocket-nginx，加速你的wordpress</title>
-    <link>https://ssr.yqqy.top/wordpress-rocket/</link>
+    <link>https://yqqy.top/wordpress-rocket/</link>
     <pubDate>Sun, 08 Mar 2020 11:15:56 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://ssr.yqqy.top/wordpress-rocket/</guid>
+    <guid>https://yqqy.top/wordpress-rocket/</guid>
     <description><![CDATA[前提是需要先获得`wp-rocket`插件，该插件是收费插件，如果有能力请支持正版，这里不提供下载地址，擅于利用搜索引擎或万能的某宝。本文是基于自己用宝塔配置rocket-nginx的教程，因为网上目前搜到的所有配置都是直接翻译github的README.md( 😒 )，不过还是推荐看最新的文档，没准啥时候就变动了，操作步骤如下]]></description>
 </item></channel>
 </rss>

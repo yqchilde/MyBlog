@@ -1,36 +1,36 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Android - 分类 - Yq&#39;s Blog</title>
-        <link>https://ssr.yqqy.top/categories/android/</link>
+        <link>https://yqqy.top/categories/android/</link>
         <description>Android - 分类 - Yq&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 24 Jul 2019 14:34:15 &#43;0000</lastBuildDate><atom:link href="https://ssr.yqqy.top/categories/android/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 24 Jul 2019 14:34:15 &#43;0000</lastBuildDate><atom:link href="https://yqqy.top/categories/android/" rel="self" type="application/rss+xml" /><item>
     <title>JDK1.8的环境变量配置</title>
-    <link>https://ssr.yqqy.top/jdk1.8-config/</link>
+    <link>https://yqqy.top/jdk1.8-config/</link>
     <pubDate>Wed, 24 Jul 2019 14:34:15 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://ssr.yqqy.top/jdk1.8-config/</guid>
+    <guid>https://yqqy.top/jdk1.8-config/</guid>
     <description><![CDATA[本来是配置好的环境，但是一直没发现在控制台，只有java可以用，javac却不能用]]></description>
 </item><item>
     <title>Android学习RecyclerView笔记三</title>
-    <link>https://ssr.yqqy.top/android-learning-recycleview-third/</link>
+    <link>https://yqqy.top/android-learning-recycleview-third/</link>
     <pubDate>Fri, 24 May 2019 00:54:05 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://ssr.yqqy.top/android-learning-recycleview-third/</guid>
+    <guid>https://yqqy.top/android-learning-recycleview-third/</guid>
     <description><![CDATA[记载RecyclerView的瀑布流布局]]></description>
 </item><item>
     <title>Android学习RecyclerView笔记二</title>
-    <link>https://ssr.yqqy.top/android-learning-recycleview-second/</link>
+    <link>https://yqqy.top/android-learning-recycleview-second/</link>
     <pubDate>Thu, 23 May 2019 03:32:11 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://ssr.yqqy.top/android-learning-recycleview-second/</guid>
+    <guid>https://yqqy.top/android-learning-recycleview-second/</guid>
     <description><![CDATA[记载RecycleView的水平滚动布局和网格布局]]></description>
 </item><item>
     <title>Android学习RecyclerView笔记一</title>
-    <link>https://ssr.yqqy.top/android-learning-recycleview-first/</link>
+    <link>https://yqqy.top/android-learning-recycleview-first/</link>
     <pubDate>Wed, 22 May 2019 07:51:56 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://ssr.yqqy.top/android-learning-recycleview-first/</guid>
+    <guid>https://yqqy.top/android-learning-recycleview-first/</guid>
     <description><![CDATA[记载RecyclerView的列表布局]]></description>
 </item></channel>
 </rss>

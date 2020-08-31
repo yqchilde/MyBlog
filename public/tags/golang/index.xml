@@ -1,78 +1,78 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Golang - 标签 - Yq&#39;s Blog</title>
-        <link>https://ssr.yqqy.top/tags/golang/</link>
+        <link>https://yqqy.top/tags/golang/</link>
         <description>Golang - 标签 - Yq&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 16 May 2020 13:41:00 &#43;0000</lastBuildDate><atom:link href="https://ssr.yqqy.top/tags/golang/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 16 May 2020 13:41:00 &#43;0000</lastBuildDate><atom:link href="https://yqqy.top/tags/golang/" rel="self" type="application/rss+xml" /><item>
     <title>Golang之json序列化</title>
-    <link>https://ssr.yqqy.top/golang-json-serialization/</link>
+    <link>https://yqqy.top/golang-json-serialization/</link>
     <pubDate>Sat, 16 May 2020 13:41:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://ssr.yqqy.top/golang-json-serialization/</guid>
+    <guid>https://yqqy.top/golang-json-serialization/</guid>
     <description><![CDATA[Golang解析Json数组的一些技巧，奇怪的知识又增加了！]]></description>
 </item><item>
     <title>Golang之学习Context</title>
-    <link>https://ssr.yqqy.top/golang-learning-context/</link>
+    <link>https://yqqy.top/golang-learning-context/</link>
     <pubDate>Fri, 15 May 2020 16:07:35 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://ssr.yqqy.top/golang-learning-context/</guid>
+    <guid>https://yqqy.top/golang-learning-context/</guid>
     <description><![CDATA[Context包是什么很强大的包，他可用户web处理多个goroutine数据间关系，亦可处理超时控制和上下文控制，总之，要好好理解一下了。]]></description>
 </item><item>
     <title>终于理解了Slice扩容机制</title>
-    <link>https://ssr.yqqy.top/golang-slice-expand-capacity/</link>
+    <link>https://yqqy.top/golang-slice-expand-capacity/</link>
     <pubDate>Fri, 08 May 2020 15:48:29 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://ssr.yqqy.top/golang-slice-expand-capacity/</guid>
+    <guid>https://yqqy.top/golang-slice-expand-capacity/</guid>
     <description><![CDATA[写了很久的slice却没有去想过他的扩容机制，近期面试，去了解了一下，这次也算是彻底明白了，之前只是简单的看了看文章]]></description>
 </item><item>
     <title>Golang实现软件设计模式</title>
-    <link>https://ssr.yqqy.top/golang-design-pattern/</link>
+    <link>https://yqqy.top/golang-design-pattern/</link>
     <pubDate>Tue, 21 Apr 2020 15:00:16 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://ssr.yqqy.top/golang-design-pattern/</guid>
+    <guid>https://yqqy.top/golang-design-pattern/</guid>
     <description><![CDATA[Golang复习软件设计模式，通过设计模式学习其设计思想，无他，唯手熟尔。]]></description>
 </item><item>
     <title>Golang实现进制计算两种方法</title>
-    <link>https://ssr.yqqy.top/golang-binary-calculation/</link>
+    <link>https://yqqy.top/golang-binary-calculation/</link>
     <pubDate>Thu, 02 Apr 2020 08:07:56 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://ssr.yqqy.top/golang-binary-calculation/</guid>
+    <guid>https://yqqy.top/golang-binary-calculation/</guid>
     <description><![CDATA[Golang实现进制计算两种方法，逐位计算和位操作，了解丰富的math/big包]]></description>
 </item><item>
     <title>Golang数据结构</title>
-    <link>https://ssr.yqqy.top/golang-data-structure/</link>
+    <link>https://yqqy.top/golang-data-structure/</link>
     <pubDate>Tue, 31 Mar 2020 15:53:11 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://ssr.yqqy.top/golang-data-structure/</guid>
+    <guid>https://yqqy.top/golang-data-structure/</guid>
     <description><![CDATA[复习数据结构，使用Golang写一下]]></description>
 </item><item>
     <title>Golang之Trie写法 &amp;&amp; sort.Interface使用</title>
-    <link>https://ssr.yqqy.top/golang-trie/</link>
+    <link>https://yqqy.top/golang-trie/</link>
     <pubDate>Sat, 28 Mar 2020 11:20:13 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://ssr.yqqy.top/golang-trie/</guid>
+    <guid>https://yqqy.top/golang-trie/</guid>
     <description><![CDATA[Trie又称字典树，是N叉树的一种特殊形式。是一种存储大量字符串的树形数据结构，相当于`HashMap`，在存储单词中又比`HashMap`节省了很多的内存空间。`trie`树的根节点不存储内容，内容都在孩子节点上。]]></description>
 </item><item>
     <title>Golang-Duck&amp;Typing</title>
-    <link>https://ssr.yqqy.top/golang-duck-typing/</link>
+    <link>https://yqqy.top/golang-duck-typing/</link>
     <pubDate>Tue, 24 Mar 2020 14:52:28 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://ssr.yqqy.top/golang-duck-typing/</guid>
+    <guid>https://yqqy.top/golang-duck-typing/</guid>
     <description><![CDATA[在鸭子类型中，关注点在于对象的行为，能作什么；而不是关注对象所属的类型。]]></description>
 </item><item>
     <title>Golang验证码–base64Captcha库1.3.0版本构建实例</title>
-    <link>https://ssr.yqqy.top/golang-base64captcha/</link>
+    <link>https://yqqy.top/golang-base64captcha/</link>
     <pubDate>Fri, 07 Feb 2020 08:21:06 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://ssr.yqqy.top/golang-base64captcha/</guid>
+    <guid>https://yqqy.top/golang-base64captcha/</guid>
     <description><![CDATA[这个库烦了我两天，我能接触到的例子都是旧版的，新版简直就是大改版哦，构建函数简直和旧版出入太大，函数参数及返回值皆不一样，记录一下最新版的字符验证码的完整实例，（数字验证码、计算验证码、汉字验证码以及语音验证码构建方法举一反三）]]></description>
 </item><item>
     <title>golang写的web程序如何简单的部署到宝塔面板中</title>
-    <link>https://ssr.yqqy.top/golang-web-baota/</link>
+    <link>https://yqqy.top/golang-web-baota/</link>
     <pubDate>Sat, 14 Dec 2019 11:25:02 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://ssr.yqqy.top/golang-web-baota/</guid>
+    <guid>https://yqqy.top/golang-web-baota/</guid>
     <description><![CDATA[golang web程序部署到宝塔面板中，并常驻后台的方法]]></description>
 </item></channel>
 </rss>

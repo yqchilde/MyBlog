@@ -61,4 +61,4 @@ Disallow: /
 User-agent: ZoominfoBot
 Disallow: /
 
-Sitemap: https://ssr.yqqy.top/sitemap.xml
+Sitemap: https://yqqy.top/sitemap.xml

@@ -1,78 +1,78 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>所有文章 - Yq&#39;s Blog</title>
-        <link>https://ssr.yqqy.top/posts/</link>
+        <link>https://yqqy.top/posts/</link>
         <description>所有文章 | Yq&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 30 Aug 2020 19:58:27 &#43;0800</lastBuildDate><atom:link href="https://ssr.yqqy.top/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 30 Aug 2020 19:58:27 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/posts/" rel="self" type="application/rss+xml" /><item>
     <title>使用GitHub Actions部署Hugo到阿里云</title>
-    <link>https://ssr.yqqy.top/hugo-github-actions-aliyun/</link>
+    <link>https://yqqy.top/hugo-github-actions-aliyun/</link>
     <pubDate>Sun, 30 Aug 2020 19:58:27 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://ssr.yqqy.top/hugo-github-actions-aliyun/</guid>
+    <guid>https://yqqy.top/hugo-github-actions-aliyun/</guid>
     <description><![CDATA[博客更换到了静态Hugo生成的网页，为了部署方便，所以使用GitHub Actions来自动化部署]]></description>
 </item><item>
     <title>Git常用命令速查表</title>
-    <link>https://ssr.yqqy.top/git-command-quick-check/</link>
+    <link>https://yqqy.top/git-command-quick-check/</link>
     <pubDate>Sun, 05 Jul 2020 13:22:44 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://ssr.yqqy.top/git-command-quick-check/</guid>
+    <guid>https://yqqy.top/git-command-quick-check/</guid>
     <description><![CDATA[周末整理了一下Git常用命令速查表，虽然现在有可视化的工具帮助，但是基础命令要知道]]></description>
 </item><item>
     <title>Golang之json序列化</title>
-    <link>https://ssr.yqqy.top/golang-json-serialization/</link>
+    <link>https://yqqy.top/golang-json-serialization/</link>
     <pubDate>Sat, 16 May 2020 13:41:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://ssr.yqqy.top/golang-json-serialization/</guid>
+    <guid>https://yqqy.top/golang-json-serialization/</guid>
     <description><![CDATA[Golang解析Json数组的一些技巧，奇怪的知识又增加了！]]></description>
 </item><item>
     <title>Golang之学习Context</title>
-    <link>https://ssr.yqqy.top/golang-learning-context/</link>
+    <link>https://yqqy.top/golang-learning-context/</link>
     <pubDate>Fri, 15 May 2020 16:07:35 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://ssr.yqqy.top/golang-learning-context/</guid>
+    <guid>https://yqqy.top/golang-learning-context/</guid>
     <description><![CDATA[Context包是什么很强大的包，他可用户web处理多个goroutine数据间关系，亦可处理超时控制和上下文控制，总之，要好好理解一下了。]]></description>
 </item><item>
     <title>终于理解了Slice扩容机制</title>
-    <link>https://ssr.yqqy.top/golang-slice-expand-capacity/</link>
+    <link>https://yqqy.top/golang-slice-expand-capacity/</link>
     <pubDate>Fri, 08 May 2020 15:48:29 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://ssr.yqqy.top/golang-slice-expand-capacity/</guid>
+    <guid>https://yqqy.top/golang-slice-expand-capacity/</guid>
     <description><![CDATA[写了很久的slice却没有去想过他的扩容机制，近期面试，去了解了一下，这次也算是彻底明白了，之前只是简单的看了看文章]]></description>
 </item><item>
     <title>MySQL常考学生成绩查询练习题</title>
-    <link>https://ssr.yqqy.top/mysql-score-exercises/</link>
+    <link>https://yqqy.top/mysql-score-exercises/</link>
     <pubDate>Fri, 08 May 2020 09:22:31 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://ssr.yqqy.top/mysql-score-exercises/</guid>
+    <guid>https://yqqy.top/mysql-score-exercises/</guid>
     <description><![CDATA[假设现在学校目前只开设了语文、数学、英语三门课，后期还可开设其他门课，请尽量合理的设计班级、学生、考生成绩的数据库表结构并写出查询语句。]]></description>
 </item><item>
     <title>Golang实现软件设计模式</title>
-    <link>https://ssr.yqqy.top/golang-design-pattern/</link>
+    <link>https://yqqy.top/golang-design-pattern/</link>
     <pubDate>Tue, 21 Apr 2020 15:00:16 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://ssr.yqqy.top/golang-design-pattern/</guid>
+    <guid>https://yqqy.top/golang-design-pattern/</guid>
     <description><![CDATA[Golang复习软件设计模式，通过设计模式学习其设计思想，无他，唯手熟尔。]]></description>
 </item><item>
     <title>Golang实现进制计算两种方法</title>
-    <link>https://ssr.yqqy.top/golang-binary-calculation/</link>
+    <link>https://yqqy.top/golang-binary-calculation/</link>
     <pubDate>Thu, 02 Apr 2020 08:07:56 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://ssr.yqqy.top/golang-binary-calculation/</guid>
+    <guid>https://yqqy.top/golang-binary-calculation/</guid>
     <description><![CDATA[Golang实现进制计算两种方法，逐位计算和位操作，了解丰富的math/big包]]></description>
 </item><item>
     <title>Golang数据结构</title>
-    <link>https://ssr.yqqy.top/golang-data-structure/</link>
+    <link>https://yqqy.top/golang-data-structure/</link>
     <pubDate>Tue, 31 Mar 2020 15:53:11 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://ssr.yqqy.top/golang-data-structure/</guid>
+    <guid>https://yqqy.top/golang-data-structure/</guid>
     <description><![CDATA[复习数据结构，使用Golang写一下]]></description>
 </item><item>
     <title>Golang之Trie写法 &amp;&amp; sort.Interface使用</title>
-    <link>https://ssr.yqqy.top/golang-trie/</link>
+    <link>https://yqqy.top/golang-trie/</link>
     <pubDate>Sat, 28 Mar 2020 11:20:13 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://ssr.yqqy.top/golang-trie/</guid>
+    <guid>https://yqqy.top/golang-trie/</guid>
     <description><![CDATA[Trie又称字典树，是N叉树的一种特殊形式。是一种存储大量字符串的树形数据结构，相当于`HashMap`，在存储单词中又比`HashMap`节省了很多的内存空间。`trie`树的根节点不存储内容，内容都在孩子节点上。]]></description>
 </item></channel>
 </rss>

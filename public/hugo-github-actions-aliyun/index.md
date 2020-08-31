@@ -105,4 +105,43 @@ fi
 
 ![img](https://pic.yqqy.top/blog/20200830205650.png?imageMogr2/format/webp/interlace/1 "运行日志")
 
+## 补充
 
+> 2020/09/01 补充 Algolia搜索的自动同步
+
+本站搜索用的是`Algolia`搜索，由于每次需要手动将Hugo生成的要搜索的json数据手动同步到 `Algolia`比较麻烦，所以研究了下继续使用 `GitHub Actions`，这样在上面一系列操作后面添加即可。
+
+**引用库来自：** [https://github.com/chrisdmacrae/atomic-algolia](https://github.com/chrisdmacrae/atomic-algolia)
+
+贴一下代码，在上面的 `yml配置文件中后面跟着添加`
+
+```yml
+- name: Use Node.js
+  uses: actions/setup-node@v1
+  with:
+  node-version: '12.x'
+
+- name: Install automic-algolia
+  run: | 
+  npm install atomic-algolia
+  npm run algolia
+  env:
+  ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+  ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
+  ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
+  ALGOLIA_INDEX_FILE: "./public/index.json"
+```
+
+{{< admonition tip >}}
+
+其中的 `ALGOLIA_ADMIN_KEY` 是ADMIN_KEY，而不是SEARCH_KEY
+
+`ALGOLIA_INDEX_FILE` 这里写自己GitHub仓库中相对要上传的文件的地址 
+
+{{< /admonition >}}
+
+![img](https://pic.yqqy.top/blog/20200901074049.png?imageMogr2/format/webp/interlace/1 "完美执行")
+
+## 结束
+
+至此，每次只需要在本地写文章并推送到GitHub，其他的事情就交给GitHub Actions做就可以了
