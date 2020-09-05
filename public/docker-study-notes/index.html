@@ -5,35 +5,35 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>php在foreach里面合并数组 - Yq&#39;s Blog</title><meta name="Description" content="PHP如何在foreach中合并数组呢？"><meta property="og:title" content="php在foreach里面合并数组" />
-<meta property="og:description" content="PHP如何在foreach中合并数组呢？" />
+        <title>Docker学习笔记 - Yq&#39;s Blog</title><meta name="Description" content="Docker无疑是云原生时代不可缺少的知识技能，我将一点一点学Docker，循序渐进，本文作为自己学习Docker的笔记"><meta property="og:title" content="Docker学习笔记" />
+<meta property="og:description" content="Docker无疑是云原生时代不可缺少的知识技能，我将一点一点学Docker，循序渐进，本文作为自己学习Docker的笔记" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://yqqy.top/php-foreach-merge/" />
+<meta property="og:url" content="https://yqqy.top/docker-study-notes/" />
 <meta property="og:image" content="https://yqqy.top"/>
-<meta property="article:published_time" content="2019-08-19T09:57:49+00:00" />
-<meta property="article:modified_time" content="2019-08-19T09:57:49+00:00" />
+<meta property="article:published_time" content="2020-09-05T23:36:56+08:00" />
+<meta property="article:modified_time" content="2020-09-05T23:36:56+08:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://yqqy.top"/>
 
-<meta name="twitter:title" content="php在foreach里面合并数组"/>
-<meta name="twitter:description" content="PHP如何在foreach中合并数组呢？"/>
+<meta name="twitter:title" content="Docker学习笔记"/>
+<meta name="twitter:description" content="Docker无疑是云原生时代不可缺少的知识技能，我将一点一点学Docker，循序渐进，本文作为自己学习Docker的笔记"/>
 <meta name="application-name" content="Yq&#39;s Blog">
-<meta name="apple-mobile-web-app-title" content="Yq&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="https://pic.yqqy.top/blog/yqqy/logo.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://yqqy.top/php-foreach-merge/" /><link rel="prev" href="https://yqqy.top/php-js-timestamp/" /><link rel="next" href="https://yqqy.top/php-array/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+<meta name="apple-mobile-web-app-title" content="Yq&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="https://pic.yqqy.top/blog/yqqy/logo.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://yqqy.top/docker-study-notes/" /><link rel="prev" href="https://yqqy.top/hugo-github-actions-aliyun/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "php在foreach里面合并数组",
+        "headline": "Docker学习笔记",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/yqqy.top\/php-foreach-merge\/"
-        },"genre": "posts","keywords": "PHP","wordcount":  118 ,
-        "url": "https:\/\/yqqy.top\/php-foreach-merge\/","datePublished": "2019-08-19T09:57:49+00:00","dateModified": "2019-08-19T09:57:49+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/yqqy.top\/docker-study-notes\/"
+        },"genre": "posts","keywords": "Docker","wordcount":  722 ,
+        "url": "https:\/\/yqqy.top\/docker-study-notes\/","datePublished": "2020-09-05T23:36:56+08:00","dateModified": "2020-09-05T23:36:56+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Yqchilde"},"author": {
                 "@type": "Person",
                 "name": "Yqchilde"
-            },"description": "PHP如何在foreach中合并数组呢？"
+            },"description": "Docker无疑是云原生时代不可缺少的知识技能，我将一点一点学Docker，循序渐进，本文作为自己学习Docker的笔记"
     }
     </script></head>
     <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -99,76 +99,138 @@
     <div id="search-dropdown-mobile"></div>
 </div>
 <main class="main">
-                <div class="container"><article class="page single"><h1 class="single-title animated flipInX">php在foreach里面合并数组</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/php/"><i class="far fa-folder fa-fw"></i>PHP</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2019-08-19">2019-08-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 118 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/php-foreach-merge/" class="leancloud_visitors" data-flag-title="php在foreach里面合并数组">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Docker学习笔记</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/docker/"><i class="far fa-folder fa-fw"></i>Docker</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-09-05">2020-09-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 722 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/docker-study-notes/" class="leancloud_visitors" data-flag-title="Docker学习笔记">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
-        </div><div class="content" id="content"><h3 id="用到的函数-array_merge-call_user_func_array">用到的函数 <code>array_merge()</code> <code>call_user_func_array</code></h3>
-<p>如果直接两个数组合并，那十分简单，如下</p>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#安装">安装</a></li>
+    <li><a href="#启动">启动</a></li>
+    <li><a href="#容器原理技术">容器原理技术</a>
+      <ul>
+        <li><a href="#chroot">Chroot</a></li>
+        <li><a href="#namespace">Namespace</a>
+          <ul>
+            <li><a href="#pid-namespace">Pid Namespace</a></li>
+            <li><a href="#net-namespace">Net Namespace</a></li>
+            <li><a href="#mnt-namespace">Mnt Namespace</a></li>
+            <li><a href="#ipc-namespace">Ipc Namespace</a></li>
+            <li><a href="#uts-namespace">Uts Namespace</a></li>
+          </ul>
+        </li>
+        <li><a href="#cgroup">Cgroup</a></li>
+        <li><a href="#联合文件系统">联合文件系统</a></li>
+      </ul>
+    </li>
+    <li><a href="#镜像">镜像</a></li>
+    <li><a href="#容器">容器</a></li>
+    <li><a href="#docker-重要组件">Docker 重要组件</a>
+      <ul>
+        <li><a href="#runc">RunC</a></li>
+        <li><a href="#containerd">Containerd</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="安装">安装</h2>
+<p>首先在安装Docker之前，需要添加Docker安装源</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">$a1=array(&#34;red&#34;,&#34;green&#34;);
-$a2=array(&#34;blue&#34;,&#34;yellow&#34;);
-print_r(array_merge($a1,$a2));
-// 结果如下
-// Array ( [0] =&gt; red [1] =&gt; green [2] =&gt; blue [3] =&gt; yellow )
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo yum-config-manager<span class="se">\
+</span><span class="se"></span>	-add-repo<span class="se">\
+</span><span class="se"></span>	https://download.docker.com/linux/centos/docker-ce-repo
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="如何在foreach里面合并相同的-内容-为数组">如何在foreach里面合并相同的 “内容” 为数组</h3>
+</div><p><strong>安装最新版本docker</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">foreach ($array as $k =&gt; $v) {
-	$array[] = $db-&gt;where(&#39;classid = ?&#39;, array($v[&#39;cid&#39;]))-&gt;fetchAll();
-}
-$result = call_user_func_array(&#39;array_merge&#39;, $array);
-print_r($result);
-// 这样就是有几条就连接起来了
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo yum install docker-ce docker-ce-cli containerd.io
 </code></pre></td></tr></table>
 </div>
-</div></div><div class="post-footer" id="post-footer">
+</div><h2 id="启动">启动</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo systemctl start docker
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="容器原理技术">容器原理技术</h2>
+<h3 id="chroot">Chroot</h3>
+<p><code>chroot</code> 是在Unix和Linux系统的一个操作，针对正在运行的软件行程和它的子进程，改变它外显的根目录。一个运行在这个环境下，经由<code>chroot</code> 设置根目录的程序，他不能够对这个指定根目录之外的文件进行访问动作，不能读取，也不能更改它的内容。</p>
+<h3 id="namespace">Namespace</h3>
+<p>Namespace对内核资源进行隔离，使得容器中的进程都可以在单独的命名空间中运行并且只可以访问当前容器命名空间的资源。</p>
+<p>Namesapce可以隔离进程ID、主机名、用户ID、文件名、网络访问和进程间通信等相关资源。</p>
+<p>Docker用到以下五种命名空间</p>
+<h4 id="pid-namespace">Pid Namespace</h4>
+<p>用于隔离进程ID</p>
+<h4 id="net-namespace">Net Namespace</h4>
+<p>用于隔离网络接口，使用户拥有独立的IP、路由、端口等</p>
+<h4 id="mnt-namespace">Mnt Namespace</h4>
+<p>用于文件系统挂载点隔离</p>
+<h4 id="ipc-namespace">Ipc Namespace</h4>
+<p>用于信号量、消息队列和共享内存的隔离</p>
+<h4 id="uts-namespace">Uts Namespace</h4>
+<p>用于主机名和域名的隔离</p>
+<h3 id="cgroup">Cgroup</h3>
+<p><code>Cgroup</code> 是一种Linux内核功能，可以限制和隔离进程的资源使用情况（CPU、内存、磁盘I/O、网络等）</p>
+<h3 id="联合文件系统">联合文件系统</h3>
+<p><code>联合文件系统</code> 又叫 <code>UnionFS</code> ，是一种通过创建文件层进程操作的文件系统，常用的联合文件系统有AUFS、Overlay和Devicemapper等</p>
+<h2 id="镜像">镜像</h2>
+<p>镜像是容器不可或缺的使用条件，是以只读的文件和文件夹组合，是Docker 容器启动的先决条件</p>
+<h2 id="容器">容器</h2>
+<p>容器是镜像的运行实体，容器运行着真正的应用进程，容器有初建、运行、停止、暂停和删除五种状态。</p>
+<p>在容器内部，无法看到主机上的进程、环境变量、网络等信息</p>
+<h2 id="docker-重要组件">Docker 重要组件</h2>
+<h3 id="runc">RunC</h3>
+<p><code>runC</code> 是用来运行容器的轻量级工具，是真正用来运行容器的</p>
+<h3 id="containerd">Containerd</h3>
+<p><code>containerd</code> 是通过 <code>containerd-shim</code> 启动并管理 <code>runC</code>，是从Docker中剥离出来的，是真正管理了Docker生命周期的重要组件</p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2019-08-19</span>
+                <span>更新于 2020-09-05</span>
             </div>
             <div class="post-info-license"></div>
         </div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/php-foreach-merge/index.md" target="_blank">阅读原始文档</a>
+                            <a class="link-to-markdown" href="/docker-study-notes/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://yqqy.top/php-foreach-merge/" data-title="php在foreach里面合并数组"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://yqqy.top/docker-study-notes/" data-title="Docker学习笔记"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/php/">PHP</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/docker/">Docker</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/php-js-timestamp/" class="prev" rel="prev" title="php与js的时间戳相关问题"><i class="fas fa-angle-left fa-fw"></i>php与js的时间戳相关问题</a>
-            <a href="/php-array/" class="next" rel="next" title="php多维数组降维记载">php多维数组降维记载<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/hugo-github-actions-aliyun/" class="prev" rel="prev" title="使用GitHub Actions部署Hugo到阿里云"><i class="fas fa-angle-left fa-fw"></i>使用GitHub Actions部署Hugo到阿里云</a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.

@@ -4,9 +4,16 @@
         <link>https://yqqy.top/</link>
         <description>一名Gopher,热爱技术,中度强迫症,熬夜达人</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 30 Aug 2020 19:58:27 &#43;0800</lastBuildDate>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 05 Sep 2020 23:36:56 &#43;0800</lastBuildDate>
             <atom:link href="https://yqqy.top/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Docker学习笔记</title>
+    <link>https://yqqy.top/docker-study-notes/</link>
+    <pubDate>Sat, 05 Sep 2020 23:36:56 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yqqy.top/docker-study-notes/</guid>
+    <description><![CDATA[Docker无疑是云原生时代不可缺少的知识技能，我将一点一点学Docker，循序渐进，本文作为自己学习Docker的笔记]]></description>
+</item><item>
     <title>使用GitHub Actions部署Hugo到阿里云</title>
     <link>https://yqqy.top/hugo-github-actions-aliyun/</link>
     <pubDate>Sun, 30 Aug 2020 19:58:27 &#43;0800</pubDate>
@@ -69,12 +76,5 @@
     <author>作者</author>
     <guid>https://yqqy.top/golang-data-structure/</guid>
     <description><![CDATA[复习数据结构，使用Golang写一下]]></description>
-</item><item>
-    <title>Golang之Trie写法 &amp;&amp; sort.Interface使用</title>
-    <link>https://yqqy.top/golang-trie/</link>
-    <pubDate>Sat, 28 Mar 2020 11:20:13 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/golang-trie/</guid>
-    <description><![CDATA[Trie又称字典树，是N叉树的一种特殊形式。是一种存储大量字符串的树形数据结构，相当于`HashMap`，在存储单词中又比`HashMap`节省了很多的内存空间。`trie`树的根节点不存储内容，内容都在孩子节点上。]]></description>
 </item></channel>
 </rss>
