@@ -25,7 +25,7 @@ license: ""
 ---
 <!--more-->
 
-![img](https://pic.yqqy.top/blog/20200508234639.png?imageMogr2/format/webp/interlace/1)
+![img](https://pic.yqqy.top/blog/20200508234639.png?imageMogr2/format/webp/interlace/1 "Slice")
 
 > 写了很久的slice却没有去想过他的扩容机制，近期面试，去了解了一下，这次也算是彻底明白了，之前只是简单的看了看文章
 
