@@ -23,14 +23,13 @@ jobs:
           script: bash /root/blog_del.sh
           
       - name: SCP Files to aliyun
-        uses: garygrossgarten/github-action-scp@release
+        uses: appleboy/scp-action@v0.1.1
         with:
           host: ${{ secrets.ALIYUN_HOST }}
           username: ${{ secrets.ALIYUN_USER }}
           password: ${{ secrets.ALIYUN_PASSWORD }}
-          concurrency: 16
-          local: "./public"
-          remote: ${{ secrets.ALIYUN_PATH }}
+          source: "./public"
+          target: ${{ secrets.ALIYUN_PATH }}
           
       - name: Use Node.js
         uses: actions/setup-node@v1
