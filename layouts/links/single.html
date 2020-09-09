@@ -1,0 +1,45 @@
+{{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
+
+{{- define "content" -}}
+{{- $params := .Scratch.Get "params" -}}
+<div class="page single special">
+    {{- /* Title */ -}}
+    <h1 class="single-title animated pulse faster">
+        {{- .Title -}}
+    </h1>
+    {{- /* Subtitle */ -}}
+    {{- with $params.subtitle -}}
+    <h2 class="single-subtitle">{{ . }}</h2>
+    {{- end -}}
+
+    {{- /* Links */ -}}
+    <div class="container-sm">
+        <div class="row">
+            <article class="post-content custom-links-template">
+                <p>您好，我的朋友！ </p>
+                <hr>
+                <ul class="row mx-0">
+                    {{ range $k, $v := .Params.links }}
+                    <li class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-4">
+                        <div class="shadow px-3 links-item-wrapper">
+                            <div class="links-item-wrapper-header">
+                                <a target="_blank" href="{{ $v.url }}"><img src="{{ $v.avatar }}" class="border links-item-wrapper-header-avatar" alt="{{ $v.name }}"></a>
+                            </div>
+                            <div class="links-item-wrapper-content">
+                                <div class="links-item-wrapper-content-name">
+                                    <a target="_blank" href="{{ $v.url }}">{{ $v.name }}</a>
+                                </div>
+                                <div class="links-item-wrapper-content-desc">{{ $v.desc }}</div>
+                            </div>
+                        </div>
+                    </li>
+                    {{ end }}
+                </ul>
+            </article>
+        </div>
+    </div>
+
+    {{- /* Comment */ -}}
+    {{- partial "comment.html" . -}}
+</div>
+{{- end -}}

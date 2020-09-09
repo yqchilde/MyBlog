@@ -1,0 +1,78 @@
+{{- define "title" }}
+{{- T "pageNotFound" | printf "404 %v" }} - {{ .Site.Title -}}
+{{- end -}}
+
+{{- define "content" -}}
+
+{{ .Content }}
+
+<div class="page" id="content-404">
+    <style>
+        .error-code {
+            margin-bottom: .5rem;
+            font-weight: 500;
+            line-height: 1.2;
+            margin: 0 0 10px;
+            font-size: 50px;
+            display: inline-block;
+        }
+
+        .vline {
+            font-size: 70px;
+            font-weight: 100;
+            -webkit-animation: type .5s infinite alternate;
+            animation: type .5s infinite alternate
+        }
+
+        .error-description {
+            font-size: 20px;
+            margin-top: 20px;
+            margin-bottom: 1rem;
+            line-height: 0%;
+        }
+
+        .error-link {
+            font-size: 20px;
+            color: #2d96bd;
+        }
+
+        [theme=dark] .error-link {
+            font-size: 20px;
+            color: #2d96bd;
+        }
+
+        @-webkit-keyframes type {
+            0% {
+                opacity: 0;
+            }
+
+            49% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes type {
+            0% {
+                opacity: 0;
+            }
+
+            49% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+    </style>
+    <h1 class="error-code">Error 404</h1><span class="vline">|</span>
+    <p class="error-description">Page not found</p>
+    <a class="error-link" href="javascript:void(0);" title="{{ T `back` }}" onclick=" window.history.back();">返回</a>
+</div>
+
+
+{{- end -}}
