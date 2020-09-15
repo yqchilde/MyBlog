@@ -4,7 +4,14 @@
         <link>https://yqqy.top/tags/golang/</link>
         <description>Golang - 标签 - Yq&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 16 May 2020 13:41:00 &#43;0000</lastBuildDate><atom:link href="https://yqqy.top/tags/golang/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 15 Sep 2020 23:02:44 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/tags/golang/" rel="self" type="application/rss+xml" /><item>
+    <title>Golang一个简单的密码强度验证</title>
+    <link>https://yqqy.top/regex-lookground-verify-passowrd/</link>
+    <pubDate>Tue, 15 Sep 2020 23:02:44 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yqqy.top/regex-lookground-verify-passowrd/</guid>
+    <description><![CDATA[了解正则表达式环视的使用方法，知道Golang为什么不支持该功能，实现一个简单的密码强度验证。]]></description>
+</item><item>
     <title>Golang之json序列化</title>
     <link>https://yqqy.top/golang-json-serialization/</link>
     <pubDate>Sat, 16 May 2020 13:41:00 &#43;0000</pubDate>
@@ -67,12 +74,5 @@
     <author>作者</author>
     <guid>https://yqqy.top/golang-base64captcha/</guid>
     <description><![CDATA[这个库烦了我两天，我能接触到的例子都是旧版的，新版简直就是大改版哦，构建函数简直和旧版出入太大，函数参数及返回值皆不一样，记录一下最新版的字符验证码的完整实例，（数字验证码、计算验证码、汉字验证码以及语音验证码构建方法举一反三）]]></description>
-</item><item>
-    <title>golang写的web程序如何简单的部署到宝塔面板中</title>
-    <link>https://yqqy.top/golang-web-baota/</link>
-    <pubDate>Sat, 14 Dec 2019 11:25:02 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/golang-web-baota/</guid>
-    <description><![CDATA[golang web程序部署到宝塔面板中，并常驻后台的方法]]></description>
 </item></channel>
 </rss>

@@ -4,9 +4,16 @@
         <link>https://yqqy.top/</link>
         <description>一名Gopher,热爱技术,中度强迫症,熬夜达人</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 05 Sep 2020 23:36:56 &#43;0800</lastBuildDate>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 15 Sep 2020 23:02:44 &#43;0800</lastBuildDate>
             <atom:link href="https://yqqy.top/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Golang一个简单的密码强度验证</title>
+    <link>https://yqqy.top/regex-lookground-verify-passowrd/</link>
+    <pubDate>Tue, 15 Sep 2020 23:02:44 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yqqy.top/regex-lookground-verify-passowrd/</guid>
+    <description><![CDATA[了解正则表达式环视的使用方法，知道Golang为什么不支持该功能，实现一个简单的密码强度验证。]]></description>
+</item><item>
     <title>Docker学习笔记</title>
     <link>https://yqqy.top/docker-study-notes/</link>
     <pubDate>Sat, 05 Sep 2020 23:36:56 &#43;0800</pubDate>
@@ -69,12 +76,5 @@
     <author>作者</author>
     <guid>https://yqqy.top/golang-binary-calculation/</guid>
     <description><![CDATA[Golang实现进制计算两种方法，逐位计算和位操作，了解丰富的math/big包]]></description>
-</item><item>
-    <title>Golang数据结构</title>
-    <link>https://yqqy.top/golang-data-structure/</link>
-    <pubDate>Tue, 31 Mar 2020 15:53:11 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/golang-data-structure/</guid>
-    <description><![CDATA[复习数据结构，使用Golang写一下]]></description>
 </item></channel>
 </rss>
