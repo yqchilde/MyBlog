@@ -13,15 +13,7 @@ jobs:
     steps:
       - name: Check Out
         uses: actions/checkout@v2
-          
-      - name: SSH Remote Commands
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.ALIYUN_HOST }}
-          username: ${{ secrets.ALIYUN_USER }}
-          password: ${{ secrets.ALIYUN_PASSWORD }}
-          script: bash /root/blog_del.sh
-          
+        
       - name: SCP Files to aliyun
         uses: appleboy/scp-action@v0.1.1
         with:
@@ -30,6 +22,14 @@ jobs:
           password: ${{ secrets.ALIYUN_PASSWORD }}
           source: "./public"
           target: ${{ secrets.ALIYUN_PATH }}
+          
+      - name: SSH Remote Commands
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.ALIYUN_HOST }}
+          username: ${{ secrets.ALIYUN_USER }}
+          password: ${{ secrets.ALIYUN_PASSWORD }}
+          script: bash /root/blog_develop.sh
           
       - name: Use Node.js
         uses: actions/setup-node@v1
