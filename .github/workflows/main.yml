@@ -14,14 +14,21 @@ jobs:
       - name: Check Out
         uses: actions/checkout@v2
         
-      - name: SCP Files to aliyun
-        uses: appleboy/scp-action@v0.1.1
+      - name: rsync deployments
+        uses: contention/rsync-deployments@v1.0.0
+        env:
+          DEPLOY_KEY: ${{ secrets.ALIYUN_KEY }}
         with:
-          host: ${{ secrets.ALIYUN_HOST }}
-          username: ${{ secrets.ALIYUN_USER }}
-          password: ${{ secrets.ALIYUN_PASSWORD }}
-          source: "./public"
-          target: ${{ secrets.ALIYUN_PATH }}
+          args: "-avzr --delete ${{ secrets.ALIYUN_USER }}@${{ secrets.ALIYUN_HOST }}:${{ secrets.ALIYUN_PATH }}"
+        
+#       - name: SCP Files to aliyun
+#         uses: appleboy/scp-action@v0.1.1
+#         with:
+#           host: ${{ secrets.ALIYUN_HOST }}
+#           username: ${{ secrets.ALIYUN_USER }}
+#           password: ${{ secrets.ALIYUN_PASSWORD }}
+#           source: "./public"
+#           target: ${{ secrets.ALIYUN_PATH }}
           
       - name: SSH Remote Commands
         uses: appleboy/ssh-action@master
