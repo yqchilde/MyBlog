@@ -22,15 +22,6 @@ jobs:
           flags: '-avzr --delete'
           src: 'public/'
           dest: '${{ secrets.ALIYUN_USER }}@${{ secrets.ALIYUN_HOST }}:${{ secrets.ALIYUN_PATH }}'
-        
-#       - name: SCP Files to aliyun
-#         uses: appleboy/scp-action@v0.1.1
-#         with:
-#           host: ${{ secrets.ALIYUN_HOST }}
-#           username: ${{ secrets.ALIYUN_USER }}
-#           password: ${{ secrets.ALIYUN_PASSWORD }}
-#           source: "./public"
-#           target: ${{ secrets.ALIYUN_PATH }}
           
       - name: SSH Remote Commands
         uses: appleboy/ssh-action@master
