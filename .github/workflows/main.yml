@@ -15,11 +15,13 @@ jobs:
         uses: actions/checkout@v2
         
       - name: rsync deployments
-        uses: contention/rsync-deployments@v1.0.0
+        uses: Pendect/action-rsyncer@v1.1.0
         env:
           DEPLOY_KEY: ${{ secrets.ALIYUN_KEY }}
         with:
-          args: "-avzr --delete --include public/ --exclude /* ${{ secrets.ALIYUN_USER }}@${{ secrets.ALIYUN_HOST }}:${{ secrets.ALIYUN_PATH }}"
+          flags: '-avzr --delete'
+          src: 'public/'
+          dest: '${{ secrets.ALIYUN_USER }}@${{ secrets.ALIYUN_HOST }}:${{ secrets.ALIYUN_PATH }}'
         
 #       - name: SCP Files to aliyun
 #         uses: appleboy/scp-action@v0.1.1
