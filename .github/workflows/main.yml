@@ -19,7 +19,7 @@ jobs:
         env:
           DEPLOY_KEY: ${{ secrets.ALIYUN_KEY }}
         with:
-          args: "-avzr --delete --exclude /public ${{ secrets.ALIYUN_USER }}@${{ secrets.ALIYUN_HOST }}:${{ secrets.ALIYUN_PATH }}"
+          args: "-avzr --delete --include 'public/' --exclude '/*' /public ${{ secrets.ALIYUN_USER }}@${{ secrets.ALIYUN_HOST }}:${{ secrets.ALIYUN_PATH }}"
         
 #       - name: SCP Files to aliyun
 #         uses: appleboy/scp-action@v0.1.1
