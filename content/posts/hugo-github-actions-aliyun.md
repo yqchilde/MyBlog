@@ -2,7 +2,7 @@
 title: "使用GitHub Actions部署Hugo到阿里云"
 subtitle: ""
 date: 2020-08-30T19:58:27+08:00
-lastmod: 2020-09-01T07:30:26+08:00
+lastmod: 2020-09-16T07:30:26+08:00
 author: ""
 authorLink: ""
 description: "博客更换到了静态Hugo生成的网页，为了部署方便，所以使用GitHub Actions来自动化部署"
@@ -164,6 +164,93 @@ fi
 {{< /admonition >}}
 
 ![img](https://pic.yqqy.top/blog/20200901074049.png?imageMogr2/format/webp/interlace/1 "完美执行")
+
+> 2020/09/016补充 放弃SCP，使用RSync
+
+用了一段时间随着生成文件的越来越多，SCP是真的太慢了，在Github Actions 上我往往需要花费10多分钟才能完成部署
+
+用到的Rsync库是 [https://github.com/marketplace/actions/rsyncer-action](https://github.com/marketplace/actions/rsyncer-action)，配置的一些参数看给出的文档就可以
+
+这里贴出来我重新配置的yml
+
+{{< admonition tip >}}
+
+这次为了几乎很快的部署衔接，显示同步了文件，后来才去执行脚本删除，之前那种会因为先删除，而由于没有同步完成文件，网站处于无法访问的情况，当然那是出现在SCP中，经测试，Rsync还是很让我满意的
+
+{{< /admonition >}}
+
+```yaml
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Check Out
+        uses: actions/checkout@v2
+        
+      - name: rsync deployments
+        uses: Pendect/action-rsyncer@v1.1.0
+        env:
+          DEPLOY_KEY: ${{ secrets.ALIYUN_KEY }}
+        with:
+          flags: '-avzr --delete'
+          src: 'public/'
+          dest: '${{ secrets.ALIYUN_USER }}@${{ secrets.ALIYUN_HOST }}:${{ secrets.ALIYUN_PATH }}'
+          
+      - name: SSH Remote Commands
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.ALIYUN_HOST }}
+          username: ${{ secrets.ALIYUN_USER }}
+          password: ${{ secrets.ALIYUN_PASSWORD }}
+          script: bash /root/blog_develop.sh
+          
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - name: Install automic-algolia
+        run: | 
+          npm install atomic-algolia
+          npm run algolia
+        env:
+          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
+          ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
+          ALGOLIA_INDEX_FILE: "./public/index.json"
+
+```
+
+需要用到的 `blog_develop.sh`
+
+```bash
+# 删除项目目录
+if [ ! -d "远端目录" ]; then
+echo "原项目文件不存在"
+else
+rm -rf 远端目录
+fi
+
+if [ ! -d "新的临时文件目录，比如 远端目录temp" ]; then
+echo "临时项目文件不存在"
+else
+# 重命名文件夹
+mv 远端目录temp 远端目录
+fi
+
+echo "publish success!"
+```
+
+![img](https://pic.yqqy.top/blog/20200916082539.png?imageMogr2/format/webp/interlace/1 "效果图")
 
 ## 结束
 
