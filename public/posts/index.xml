@@ -4,7 +4,21 @@
         <link>https://yqqy.top/posts/</link>
         <description>所有文章 | Yq&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 08 Nov 2020 18:40:25 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 11 Nov 2020 08:11:30 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Ubuntu启动Docker报没有权限</title>
+    <link>https://yqqy.top/ubuntu-docker-permission-denied/</link>
+    <pubDate>Wed, 11 Nov 2020 08:11:30 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yqqy.top/ubuntu-docker-permission-denied/</guid>
+    <description><![CDATA[解决Ubuntu启动Docker 'Got permission denied while trying to connect to the Docker daemon socket' 问题。]]></description>
+</item><item>
+    <title>Ubuntu安装MySQL后没有初始密码之解决方案</title>
+    <link>https://yqqy.top/ubuntu-mysql-lost-passowrd/</link>
+    <pubDate>Tue, 10 Nov 2020 23:39:25 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yqqy.top/ubuntu-mysql-lost-passowrd/</guid>
+    <description><![CDATA[在Ubuntu系统中安装了MySQL之后,不知道密码是什么无法登录，本文记录解决方案。]]></description>
+</item><item>
     <title>win10企业版缺失Microsoft Store及一键切换版本</title>
     <link>https://yqqy.top/win10-missing-microsoftstore/</link>
     <pubDate>Sun, 08 Nov 2020 18:40:25 &#43;0800</pubDate>
@@ -60,19 +74,5 @@
     <author>作者</author>
     <guid>https://yqqy.top/golang-slice-expand-capacity/</guid>
     <description><![CDATA[写了很久的slice却没有去想过他的扩容机制，近期面试，去了解了一下，这次也算是彻底明白了，之前只是简单的看了看文章]]></description>
-</item><item>
-    <title>MySQL常考学生成绩查询练习题</title>
-    <link>https://yqqy.top/mysql-score-exercises/</link>
-    <pubDate>Fri, 08 May 2020 09:22:31 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/mysql-score-exercises/</guid>
-    <description><![CDATA[假设现在学校目前只开设了语文、数学、英语三门课，后期还可开设其他门课，请尽量合理的设计班级、学生、考生成绩的数据库表结构并写出查询语句。]]></description>
-</item><item>
-    <title>Golang实现软件设计模式</title>
-    <link>https://yqqy.top/golang-design-pattern/</link>
-    <pubDate>Tue, 21 Apr 2020 15:00:16 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/golang-design-pattern/</guid>
-    <description><![CDATA[Golang复习软件设计模式，通过设计模式学习其设计思想，无他，唯手熟尔。]]></description>
 </item></channel>
 </rss>

@@ -4,7 +4,14 @@
         <link>https://yqqy.top/tags/mysql/</link>
         <description>MySQL - 标签 - Yq&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 08 May 2020 09:22:31 &#43;0000</lastBuildDate><atom:link href="https://yqqy.top/tags/mysql/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 10 Nov 2020 23:39:25 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/tags/mysql/" rel="self" type="application/rss+xml" /><item>
+    <title>Ubuntu安装MySQL后没有初始密码之解决方案</title>
+    <link>https://yqqy.top/ubuntu-mysql-lost-passowrd/</link>
+    <pubDate>Tue, 10 Nov 2020 23:39:25 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yqqy.top/ubuntu-mysql-lost-passowrd/</guid>
+    <description><![CDATA[在Ubuntu系统中安装了MySQL之后,不知道密码是什么无法登录，本文记录解决方案。]]></description>
+</item><item>
     <title>MySQL常考学生成绩查询练习题</title>
     <link>https://yqqy.top/mysql-score-exercises/</link>
     <pubDate>Fri, 08 May 2020 09:22:31 &#43;0000</pubDate>

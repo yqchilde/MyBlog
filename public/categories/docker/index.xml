@@ -4,7 +4,14 @@
         <link>https://yqqy.top/categories/docker/</link>
         <description>Docker - 分类 - Yq&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 05 Sep 2020 23:36:56 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/categories/docker/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 11 Nov 2020 08:11:30 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/categories/docker/" rel="self" type="application/rss+xml" /><item>
+    <title>Ubuntu启动Docker报没有权限</title>
+    <link>https://yqqy.top/ubuntu-docker-permission-denied/</link>
+    <pubDate>Wed, 11 Nov 2020 08:11:30 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yqqy.top/ubuntu-docker-permission-denied/</guid>
+    <description><![CDATA[解决Ubuntu启动Docker 'Got permission denied while trying to connect to the Docker daemon socket' 问题。]]></description>
+</item><item>
     <title>Docker学习笔记</title>
     <link>https://yqqy.top/docker-study-notes/</link>
     <pubDate>Sat, 05 Sep 2020 23:36:56 &#43;0800</pubDate>
