@@ -4,7 +4,14 @@
         <link>https://yqqy.top/tags/golang/</link>
         <description>Golang - 标签 - Yq&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 15 Sep 2020 23:02:44 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/tags/golang/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 19 Dec 2020 13:56:15 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/tags/golang/" rel="self" type="application/rss+xml" /><item>
+    <title>Golang Request Body Reuse</title>
+    <link>https://yqqy.top/golang-request-body-reuse/</link>
+    <pubDate>Sat, 19 Dec 2020 13:56:15 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yqqy.top/golang-request-body-reuse/</guid>
+    <description><![CDATA[在写路由中间件时有一个需求，去获取Request携带的参数然后去拦截是否合法，这时候在下游的Controller层再次去获取body竟然发现结果为空，特此记录原因和解决方案]]></description>
+</item><item>
     <title>Golang一个简单的密码强度验证</title>
     <link>https://yqqy.top/regex-lookground-verify-passowrd/</link>
     <pubDate>Tue, 15 Sep 2020 23:02:44 &#43;0800</pubDate>
@@ -67,12 +74,5 @@
     <author>作者</author>
     <guid>https://yqqy.top/golang-duck-typing/</guid>
     <description><![CDATA[在鸭子类型中，关注点在于对象的行为，能作什么；而不是关注对象所属的类型。]]></description>
-</item><item>
-    <title>Golang验证码–base64Captcha库1.3.0版本构建实例</title>
-    <link>https://yqqy.top/golang-base64captcha/</link>
-    <pubDate>Fri, 07 Feb 2020 08:21:06 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/golang-base64captcha/</guid>
-    <description><![CDATA[这个库烦了我两天，我能接触到的例子都是旧版的，新版简直就是大改版哦，构建函数简直和旧版出入太大，函数参数及返回值皆不一样，记录一下最新版的字符验证码的完整实例，（数字验证码、计算验证码、汉字验证码以及语音验证码构建方法举一反三）]]></description>
 </item></channel>
 </rss>
