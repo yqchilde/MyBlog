@@ -1,5 +1,5 @@
 ---
-title: "Golang Request Body Reuse"
+title: "Golang之Request.Body复用"
 subtitle: ""
 date: 2020-12-19T13:56:15+08:00
 lastmod: 2020-12-19T13:56:15+08:00
@@ -24,8 +24,6 @@ lightgallery: true
 license: ""
 ---
 <!--more-->
-
-# Golang之Request.Body复用
 
 > 在写路由中间件时有一个需求，去获取Request携带的参数然后去拦截是否合法，这时候在下游的Controller层再次去获取body竟然发现结果为空，特此记录原因和解决方案
 

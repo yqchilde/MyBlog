@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>Golang Request Body Reuse - Yq&#39;s Blog</title><meta name="Description" content="在写路由中间件时有一个需求，去获取Request携带的参数然后去拦截是否合法，这时候在下游的Controller层再次去获取body竟然发现结果为空，特此记录原因和解决方案"><meta property="og:title" content="Golang Request Body Reuse" />
+        <title>Golang之Request.Body复用 - Yq&#39;s Blog</title><meta name="Description" content="在写路由中间件时有一个需求，去获取Request携带的参数然后去拦截是否合法，这时候在下游的Controller层再次去获取body竟然发现结果为空，特此记录原因和解决方案"><meta property="og:title" content="Golang之Request.Body复用" />
 <meta property="og:description" content="在写路由中间件时有一个需求，去获取Request携带的参数然后去拦截是否合法，这时候在下游的Controller层再次去获取body竟然发现结果为空，特此记录原因和解决方案" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yqqy.top/golang-request-body-reuse/" />
@@ -15,19 +15,19 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://yqqy.top"/>
 
-<meta name="twitter:title" content="Golang Request Body Reuse"/>
+<meta name="twitter:title" content="Golang之Request.Body复用"/>
 <meta name="twitter:description" content="在写路由中间件时有一个需求，去获取Request携带的参数然后去拦截是否合法，这时候在下游的Controller层再次去获取body竟然发现结果为空，特此记录原因和解决方案"/>
 <meta name="application-name" content="Yq&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Yq&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="https://pic.yqqy.top/blog/yqqy/logo.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://yqqy.top/golang-request-body-reuse/" /><link rel="prev" href="https://yqqy.top/ubuntu-docker-permission-denied/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Golang Request Body Reuse",
+        "headline": "Golang之Request.Body复用",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/yqqy.top\/golang-request-body-reuse\/"
-        },"genre": "posts","keywords": "Golang","wordcount":  498 ,
+        },"genre": "posts","keywords": "Golang","wordcount":  477 ,
         "url": "https:\/\/yqqy.top\/golang-request-body-reuse\/","datePublished": "2020-12-19T13:56:15+08:00","dateModified": "2020-12-19T13:56:15+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Yqchilde"},"author": {
@@ -102,10 +102,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">Golang Request Body Reuse</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animated flipInX">Golang之Request.Body复用</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/golang/"><i class="far fa-folder fa-fw"></i>Golang</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-19">2020-12-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 498 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/golang-request-body-reuse/" class="leancloud_visitors" data-flag-title="Golang Request Body Reuse">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-19">2020-12-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 477 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/golang-request-body-reuse/" class="leancloud_visitors" data-flag-title="Golang之Request.Body复用">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -120,8 +120,7 @@
     <li><a href="#源码分析">源码分析</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="golang之requestbody复用">Golang之Request.Body复用</h1>
-<blockquote>
+            </div><div class="content" id="content"><blockquote>
 <p>在写路由中间件时有一个需求，去获取Request携带的参数然后去拦截是否合法，这时候在下游的Controller层再次去获取body竟然发现结果为空，特此记录原因和解决方案</p>
 </blockquote>
 <p>由于<code>http.Request.Body</code>是<code>io.ReadCloser</code>类型，所以需要带有无操作close方法的ReadCloser去复制</p>
@@ -161,7 +160,7 @@
                             <a class="link-to-markdown" href="/golang-request-body-reuse/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://yqqy.top/golang-request-body-reuse/" data-title="Golang Request Body Reuse"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://yqqy.top/golang-request-body-reuse/" data-title="Golang之Request.Body复用"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
