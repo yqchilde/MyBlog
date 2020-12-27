@@ -4,7 +4,28 @@
         <link>https://yqqy.top/tags/golang/</link>
         <description>Golang - 标签 - Yq&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 19 Dec 2020 13:56:15 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/tags/golang/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 27 Dec 2020 21:00:29 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/tags/golang/" rel="self" type="application/rss+xml" /><item>
+    <title>Zinx学习之Router模块</title>
+    <link>https://yqqy.top/zinx-frame-v3/</link>
+    <pubDate>Sun, 27 Dec 2020 21:00:29 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yqqy.top/zinx-frame-v3/</guid>
+    <description><![CDATA[Zinx是一个轻量级TCP服务框架，会跟着课程开始做一些笔记，Router模块主要封装了Request接口和Router接口，用于实现通过路由请求数据，并且通过路由调用链接功能，v3是单路由模式。]]></description>
+</item><item>
+    <title>Zinx学习之基础链接封装和业务绑定模块</title>
+    <link>https://yqqy.top/zinx-frame-v2/</link>
+    <pubDate>Sun, 27 Dec 2020 21:00:23 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yqqy.top/zinx-frame-v2/</guid>
+    <description><![CDATA[Zinx是一个轻量级TCP服务框架，会跟着课程开始做一些笔记，基础链接封装和业务绑定模块模块是将v1中直接在start方法中的功能抽象出一个Connection，该Connection又有业务绑定功能。]]></description>
+</item><item>
+    <title>Zinx学习之基础Server模块</title>
+    <link>https://yqqy.top/zinx-frame-v1/</link>
+    <pubDate>Sun, 27 Dec 2020 21:00:09 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yqqy.top/zinx-frame-v1/</guid>
+    <description><![CDATA[Zinx是一个轻量级TCP服务框架，会跟着课程开始做一些笔记，Server模块是快速实现Zinx最小版本的一个基础模块。]]></description>
+</item><item>
     <title>Golang之Request.Body复用</title>
     <link>https://yqqy.top/golang-request-body-reuse/</link>
     <pubDate>Sat, 19 Dec 2020 13:56:15 &#43;0800</pubDate>
@@ -53,26 +74,5 @@
     <author>作者</author>
     <guid>https://yqqy.top/golang-binary-calculation/</guid>
     <description><![CDATA[Golang实现进制计算两种方法，逐位计算和位操作，了解丰富的math/big包]]></description>
-</item><item>
-    <title>Golang数据结构</title>
-    <link>https://yqqy.top/golang-data-structure/</link>
-    <pubDate>Tue, 31 Mar 2020 15:53:11 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/golang-data-structure/</guid>
-    <description><![CDATA[复习数据结构，使用Golang写一下]]></description>
-</item><item>
-    <title>Golang之Trie写法 &amp;&amp; sort.Interface使用</title>
-    <link>https://yqqy.top/golang-trie/</link>
-    <pubDate>Sat, 28 Mar 2020 11:20:13 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/golang-trie/</guid>
-    <description><![CDATA[Trie又称字典树，是N叉树的一种特殊形式。是一种存储大量字符串的树形数据结构，相当于`HashMap`，在存储单词中又比`HashMap`节省了很多的内存空间。`trie`树的根节点不存储内容，内容都在孩子节点上。]]></description>
-</item><item>
-    <title>Golang-Duck&amp;Typing</title>
-    <link>https://yqqy.top/golang-duck-typing/</link>
-    <pubDate>Tue, 24 Mar 2020 14:52:28 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/golang-duck-typing/</guid>
-    <description><![CDATA[在鸭子类型中，关注点在于对象的行为，能作什么；而不是关注对象所属的类型。]]></description>
 </item></channel>
 </rss>

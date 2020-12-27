@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Zinx学习之Router模块 - Yq&#39;s Blog</title><meta name="Description" content="Zinx是一个轻量级TCP服务框架，会跟着课程开始做一些笔记，Router模块主要封装了Request接口和Router接口，用于实现通过路由请求数据，并且通过路由调用链接功能，v3是单路由模式。"><meta property="og:title" content="Zinx学习之Router模块" />
+<meta property="og:description" content="Zinx是一个轻量级TCP服务框架，会跟着课程开始做一些笔记，Router模块主要封装了Request接口和Router接口，用于实现通过路由请求数据，并且通过路由调用链接功能，v3是单路由模式。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yqqy.top/zinx-frame-v3/" />
+<meta property="og:image" content="https://yqqy.top"/>
+<meta property="article:published_time" content="2020-12-27T21:00:29+08:00" />
+<meta property="article:modified_time" content="2020-12-27T21:00:29+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://yqqy.top"/>
+
+<meta name="twitter:title" content="Zinx学习之Router模块"/>
+<meta name="twitter:description" content="Zinx是一个轻量级TCP服务框架，会跟着课程开始做一些笔记，Router模块主要封装了Request接口和Router接口，用于实现通过路由请求数据，并且通过路由调用链接功能，v3是单路由模式。"/>
+<meta name="application-name" content="Yq&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="Yq&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="https://pic.yqqy.top/blog/yqqy/logo.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://yqqy.top/zinx-frame-v3/" /><link rel="prev" href="https://yqqy.top/zinx-frame-v2/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Zinx学习之Router模块",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/yqqy.top\/zinx-frame-v3\/"
+        },"genre": "posts","keywords": "Golang, Zinx","wordcount":  2099 ,
+        "url": "https:\/\/yqqy.top\/zinx-frame-v3\/","datePublished": "2020-12-27T21:00:29+08:00","dateModified": "2020-12-27T21:00:29+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Yqchilde"},"author": {
+                "@type": "Person",
+                "name": "Yqchilde"
+            },"description": "Zinx是一个轻量级TCP服务框架，会跟着课程开始做一些笔记，Router模块主要封装了Request接口和Router接口，用于实现通过路由请求数据，并且通过路由调用链接功能，v3是单路由模式。"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Yq&#39;s Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Yq&#39;s Blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/links/"> 友链 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/yqchilde" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Yq&#39;s Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Yq&#39;s Blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/links/" title="">友链</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/yqchilde" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Zinx学习之Router模块</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/golang/"><i class="far fa-folder fa-fw"></i>Golang</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-27">2020-12-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2099 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;<span id="/zinx-frame-v3/" class="leancloud_visitors" data-flag-title="Zinx学习之Router模块">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#创建抽象irequest层">创建抽象IRequest层</a></li>
+        <li><a href="#创建实体request层">创建实体Request层</a></li>
+        <li><a href="#创建抽象的irouter层">创建抽象的IRouter层</a></li>
+        <li><a href="#创建实体router层">创建实体Router层</a></li>
+        <li><a href="#iserver-添加路由添加功能">IServer 添加路由添加功能</a></li>
+        <li><a href="#server中添加router成员">Server中添加Router成员</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20201227213134.png?imageMogr2/format/webp/interlace/1" title="img" data-thumbnail="https://pic.yqqy.top/blog/20201227213134.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>Router模块脑图</h2><p>img</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://pic.yqqy.top/blog/20201227213134.png?imageMogr2/format/webp/interlace/1"
+            data-srcset="https://pic.yqqy.top/blog/20201227213134.png?imageMogr2/format/webp/interlace/1, https://pic.yqqy.top/blog/20201227213134.png?imageMogr2/format/webp/interlace/1 1.5x, https://pic.yqqy.top/blog/20201227213134.png?imageMogr2/format/webp/interlace/1 2x"
+            data-sizes="auto"
+            alt="https://pic.yqqy.top/blog/20201227213134.png?imageMogr2/format/webp/interlace/1" />
+    </a><figcaption class="image-caption">Router模块脑图</figcaption>
+    </figure></p>
+<p>现在我们需要给用户一个自定的Conn处理业务的接口，需要用户传入所需要处理的业务，而不是写死的回显方法。我们需要定义一些 <code>interface{}</code> 来让用户填写任意格式的连接处理业务方法。
+那么，很显然func不能满足我们的需求，接下来就是定义抽象的接口类。
+我们需要把客户端请求的连接信息和请求的数据，放在一个 <code>Request</code> 的结构体里，这样的好处是我们可以从Request里面得到全部客户端的请求信息，也为我们之后扩展框架有一定的作用，一旦客户端有额外的含义的数据信息，都可以放在这个Request中。可以理解为每次客户端的全部请求数据，Zinx都会把它们放在一个Request结构体中。</p>
+<h3 id="创建抽象irequest层">创建抽象IRequest层</h3>
+<p>在 <code>ziface</code> 下创建 <code>irequest.go</code> </p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// IRequest 接口
+</span><span class="c1">// 实际上是把客户端请求的链接信息和请求的数据包装到一个request中
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">IRequest</span> <span class="kd">interface</span> <span class="p">{</span>
+	<span class="c1">// 得到当前链接
+</span><span class="c1"></span>	<span class="nf">GetConnection</span><span class="p">()</span> <span class="nx">IConnection</span>
+	<span class="c1">// 得到请求的消息数据
+</span><span class="c1"></span>	<span class="nf">GetData</span><span class="p">()</span> <span class="p">[]</span><span class="kt">byte</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="创建实体request层">创建实体Request层</h3>
+<p>在 <code>znet</code> 下创建 <code>request.go</code> </p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">Request</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="c1">// 已经和客户端建立好的链接
+</span><span class="c1"></span>	<span class="nx">conn</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IConnection</span>
+
+	<span class="c1">// 客户端请求的数据
+</span><span class="c1"></span>	<span class="nx">data</span> <span class="p">[]</span><span class="kt">byte</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">r</span> <span class="o">*</span><span class="nx">Request</span><span class="p">)</span> <span class="nf">GetConnection</span><span class="p">()</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IConnection</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">r</span><span class="p">.</span><span class="nx">conn</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">r</span> <span class="o">*</span><span class="nx">Request</span><span class="p">)</span> <span class="nf">GetData</span><span class="p">()</span> <span class="p">[]</span><span class="kt">byte</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">r</span><span class="p">.</span><span class="nx">data</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>request</code> 相关的封装好了，接下来是配置 <code>Router</code> 层，目的是为了在router里面携带服务要处理的业务</p>
+<h3 id="创建抽象的irouter层">创建抽象的IRouter层</h3>
+<p>在 <code>ziface</code> 下创建 <code>irouter.go</code> 
+我们知道 <strong>router</strong> 实际上的作用就是，服务端应用可以给 <strong>Zinx</strong> 框架配置当前链接的处理业务方法，之前是写死的回显方法，有了router就可以通过router携带，并且会定义三个方法，且支持方法重写。</p>
+<ul>
+<li>PreHandle:  在处理conn业务之前的钩子方法Hook</li>
+<li>Handle:       在处理conn业务的主方法Hook</li>
+<li>PostHandle: 在处理conn业务之后的钩子方法Hook</li>
+</ul>
+<p>每个方法的形参就是上面封装的 <code>IRequest</code> 对象，用来告知我们所要连的链接以及请求数据，作为我们业务方法的输入数据。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// IRouter 路由抽象接口
+</span><span class="c1">// 路由里的数据都是IRequest
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">IRouter</span> <span class="kd">interface</span> <span class="p">{</span>
+	<span class="c1">// 在处理conn业务之前的钩子方法Hook
+</span><span class="c1"></span>	<span class="nf">PreHandle</span><span class="p">(</span><span class="nx">request</span> <span class="nx">IRequest</span><span class="p">)</span>
+
+	<span class="c1">// 在处理conn业务的主方法Hook
+</span><span class="c1"></span>	<span class="nf">Handle</span><span class="p">(</span><span class="nx">request</span> <span class="nx">IRequest</span><span class="p">)</span>
+
+	<span class="c1">// 在处理conn业务之后的钩子方法Hook
+</span><span class="c1"></span>	<span class="nf">PostHandle</span><span class="p">(</span><span class="nx">request</span> <span class="nx">IRequest</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="创建实体router层">创建实体Router层</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">BaseRouter</span> <span class="kd">struct</span><span class="p">{}</span>
+
+<span class="c1">// PreHandle 在处理conn业务之前的钩子方法Hook
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">br</span> <span class="o">*</span><span class="nx">BaseRouter</span><span class="p">)</span> <span class="nf">PreHandle</span><span class="p">(</span><span class="nx">request</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRequest</span><span class="p">)</span> <span class="p">{</span>
+
+<span class="p">}</span>
+
+<span class="c1">// Handle 在处理conn业务的主方法Hook
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">br</span> <span class="o">*</span><span class="nx">BaseRouter</span><span class="p">)</span> <span class="nf">Handle</span><span class="p">(</span><span class="nx">request</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRequest</span><span class="p">)</span> <span class="p">{</span>
+
+<span class="p">}</span>
+
+<span class="c1">// PostHandle 在处理conn业务之后的钩子方法Hook
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">br</span> <span class="o">*</span><span class="nx">BaseRouter</span><span class="p">)</span> <span class="nf">PostHandle</span><span class="p">(</span><span class="nx">request</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRequest</span><span class="p">)</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>我们注意到了，在实体的Router层里我们写了空的结构体 <code>BaseRouter</code> ，这里讲一下目的。在实现router时，我们要基于 <code>BaseRouter</code> ，也就是面向对象中的继承基类，继承之后就可以对这个基类的方法进行重写。
+举个例子，有的router没有前置或后置处理业务，在继承基类后，有需要写的就直接重写方法即可，不需要的直接忽略即可。</p>
+<h3 id="iserver-添加路由添加功能">IServer 添加路由添加功能</h3>
+<p>我们需要给 <code>IServer</code> 结构体中添加一个方法 <code>AddRouter</code> ，目的是让框架使用者自定义一个Router处理业务方法。
+在 <code>zinx/ziface/iserver.go</code> 修改如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">IServer</span> <span class="kd">interface</span> <span class="p">{</span>
+	<span class="c1">// 启动
+</span><span class="c1"></span>	<span class="nf">Start</span><span class="p">()</span>
+	<span class="c1">// 结束
+</span><span class="c1"></span>	<span class="nf">Stop</span><span class="p">()</span>
+	<span class="c1">// 运行
+</span><span class="c1"></span>	<span class="nf">Serve</span><span class="p">()</span>
+	<span class="c1">// 路由功能，给当前的服务注册一个路由方法
+</span><span class="c1"></span>	<span class="nf">AddRouter</span><span class="p">(</span><span class="nx">router</span> <span class="nx">IRouter</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="server中添加router成员">Server中添加Router成员</h3>
+<p>在 <code>zinx/znet/server.go</code> 修改如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">Server</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Name</span>      <span class="kt">string</span>
+	<span class="nx">IPVersion</span> <span class="kt">string</span>
+	<span class="nx">IP</span>        <span class="kt">string</span>
+	<span class="nx">Port</span>      <span class="kt">int</span>
+
+	<span class="c1">// 给当前的Server添加一个router，Server注册的链接对应的处理业务
+</span><span class="c1"></span>	<span class="nx">Router</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRouter</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在初始化 <code>NewServer()</code> 方法中也要添加一个初始化成员</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">NewServer</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IServer</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">Server</span><span class="p">{</span>
+		<span class="nx">Name</span><span class="p">:</span>      <span class="nx">name</span><span class="p">,</span>
+		<span class="nx">IPVersion</span><span class="p">:</span> <span class="s">&#34;tcp4&#34;</span><span class="p">,</span>
+		<span class="nx">IP</span><span class="p">:</span>        <span class="s">&#34;0.0.0.0&#34;</span><span class="p">,</span>
+		<span class="nx">Port</span><span class="p">:</span>      <span class="mi">8999</span><span class="p">,</span>
+		<span class="nx">Router</span><span class="p">:</span>    <span class="kc">nil</span><span class="p">,</span> <span class="c1">// 初始化为nil
+</span><span class="c1"></span>	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>还记得在之前临时在 <code>Connection</code> 中添加了一个 <code>handleAPI ziface.HandleFunc</code> ，目的是为了直接在业务处理方法，如今我们封装了Router，就是为了在Router中携带业务方法，所以可以删掉了，然后添加处理的 <code>Router</code> 对象，如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// 链接模块
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Connection</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="c1">// 当前链接的socket TCP套接字
+</span><span class="c1"></span>	<span class="nx">Conn</span> <span class="o">*</span><span class="nx">net</span><span class="p">.</span><span class="nx">TCPConn</span>
+	<span class="c1">// 链接的ID
+</span><span class="c1"></span>	<span class="nx">ConnID</span> <span class="kt">uint32</span>
+	<span class="c1">// 当前的链接状态
+</span><span class="c1"></span>	<span class="nx">isClosed</span> <span class="kt">bool</span>
+	<span class="c1">// 告知当前链接已经退出/停止的 channel
+</span><span class="c1"></span>	<span class="nx">ExitChan</span> <span class="kd">chan</span> <span class="kt">bool</span>
+	<span class="c1">// 该链接处理的方法Router
+</span><span class="c1"></span>	<span class="nx">Router</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRouter</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>然后去实现接口中的 <code>AddRouter</code> 方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">Server</span><span class="p">)</span> <span class="nf">AddRouter</span><span class="p">(</span><span class="nx">r</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRouter</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">s</span><span class="p">.</span><span class="nx">Router</span> <span class="p">=</span> <span class="nx">r</span>
+	<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Add router success!&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>同样在初始化 <code>NewConnection</code> 中添加router</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// 初始化链接模块的方法
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">NewConnection</span><span class="p">(</span><span class="nx">conn</span> <span class="o">*</span><span class="nx">net</span><span class="p">.</span><span class="nx">TCPConn</span><span class="p">,</span> <span class="nx">connID</span> <span class="kt">uint32</span><span class="p">,</span> <span class="nx">router</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRouter</span><span class="p">)</span> <span class="o">*</span><span class="nx">Connection</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">Connection</span><span class="p">{</span>
+		<span class="nx">Conn</span><span class="p">:</span>     <span class="nx">conn</span><span class="p">,</span>
+		<span class="nx">ConnID</span><span class="p">:</span>   <span class="nx">connID</span><span class="p">,</span>
+		<span class="nx">isClosed</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+		<span class="nx">Router</span><span class="p">:</span>   <span class="nx">router</span><span class="p">,</span>
+		<span class="nx">ExitChan</span><span class="p">:</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">bool</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>接下来当然是去处理之前在 <code>StartReader()</code> 中写的调用 <code>HandleFunc</code> 方法
+删掉：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nf">handleAPI</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">Conn</span><span class="p">,</span> <span class="nx">buf</span><span class="p">,</span> <span class="nx">cnt</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+    <span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;ConnID = &#34;</span><span class="p">,</span> <span class="nx">c</span><span class="p">.</span><span class="nx">ConnID</span><span class="p">,</span> <span class="s">&#34;Handle is error: &#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+    <span class="k">break</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>添加：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// 从路由中，找到注册绑定的Conn对应的router调用
+</span><span class="c1"></span><span class="nx">req</span> <span class="o">:=</span> <span class="nx">Request</span><span class="p">{</span>
+    <span class="nx">conn</span><span class="p">:</span> <span class="nx">c</span><span class="p">,</span>
+    <span class="nx">data</span><span class="p">:</span> <span class="nx">buf</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="c1">// 执行注册的路由方法
+</span><span class="c1"></span><span class="k">go</span> <span class="kd">func</span><span class="p">(</span><span class="nx">request</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRequest</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">c</span><span class="p">.</span><span class="nx">Router</span><span class="p">.</span><span class="nf">PreHandle</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span>
+    <span class="nx">c</span><span class="p">.</span><span class="nx">Router</span><span class="p">.</span><span class="nf">Handle</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span>
+    <span class="nx">c</span><span class="p">.</span><span class="nx">Router</span><span class="p">.</span><span class="nf">PostHandle</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span>
+<span class="p">}(</span><span class="o">&amp;</span><span class="nx">req</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<p>以上完成了Zinx的路由模块功能，接下来是测试了。
+拷贝之前的 v2 测试包重命名为 v3。修改 <code>Server.go</code> ，我们实现一个 <code>IRouter</code> ，并重写里面的三个方法，如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">PingRouter</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">znet</span><span class="p">.</span><span class="nx">BaseRouter</span>
+<span class="p">}</span>
+
+<span class="c1">// PreHandle 在处理conn业务之前的钩子方法Hook
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">PingRouter</span><span class="p">)</span> <span class="nf">PreHandle</span><span class="p">(</span><span class="nx">request</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRequest</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Call Router PreHandle&#34;</span><span class="p">)</span>
+	<span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">request</span><span class="p">.</span><span class="nf">GetConnection</span><span class="p">().</span><span class="nf">GetTCPConnection</span><span class="p">().</span><span class="nf">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&#34;before.ping...\n&#34;</span><span class="p">))</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;before ping error is &#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Handle 在处理conn业务的主方法Hook
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">PingRouter</span><span class="p">)</span> <span class="nf">Handle</span><span class="p">(</span><span class="nx">request</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRequest</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Call Router Handle&#34;</span><span class="p">)</span>
+	<span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">request</span><span class="p">.</span><span class="nf">GetConnection</span><span class="p">().</span><span class="nf">GetTCPConnection</span><span class="p">().</span><span class="nf">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&#34;ping...\n&#34;</span><span class="p">))</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;ping error is &#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// PostHandle 在处理conn业务之后的钩子方法Hook
+</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">PingRouter</span><span class="p">)</span> <span class="nf">PostHandle</span><span class="p">(</span><span class="nx">request</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRequest</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Call Router PostHandle&#34;</span><span class="p">)</span>
+	<span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">request</span><span class="p">.</span><span class="nf">GetConnection</span><span class="p">().</span><span class="nf">GetTCPConnection</span><span class="p">().</span><span class="nf">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&#34;after.ping...\n&#34;</span><span class="p">))</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;after ping error is &#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在 <code>main</code> 方法中添加 <code>Router</code> </p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">server</span> <span class="o">:=</span> <span class="nx">znet</span><span class="p">.</span><span class="nf">NewServer</span><span class="p">(</span><span class="s">&#34;Zinx v3&#34;</span><span class="p">)</span>
+
+	<span class="c1">// 添加自定义router
+</span><span class="c1"></span>	<span class="nx">server</span><span class="p">.</span><span class="nf">AddRouter</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">PingRouter</span><span class="p">{})</span>
+
+	<span class="nx">server</span><span class="p">.</span><span class="nf">Serve</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>测试结果如下图：（可以看出三个方法按照链式进行）</p>
+<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20201227213249.png?imageMogr2/format/webp/interlace/1" title="image" data-thumbnail="https://pic.yqqy.top/blog/20201227213249.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>测试结果</h2><p>image</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://pic.yqqy.top/blog/20201227213249.png?imageMogr2/format/webp/interlace/1"
+            data-srcset="https://pic.yqqy.top/blog/20201227213249.png?imageMogr2/format/webp/interlace/1, https://pic.yqqy.top/blog/20201227213249.png?imageMogr2/format/webp/interlace/1 1.5x, https://pic.yqqy.top/blog/20201227213249.png?imageMogr2/format/webp/interlace/1 2x"
+            data-sizes="auto"
+            alt="https://pic.yqqy.top/blog/20201227213249.png?imageMogr2/format/webp/interlace/1" />
+    </a><figcaption class="image-caption">测试结果</figcaption>
+    </figure></p>
+<p>现在Zinx框架的路由只是单路由结构，后续会增加多路由功能</p></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2020-12-27</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zinx-frame-v3/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://yqqy.top/zinx-frame-v3/" data-title="Zinx学习之Router模块"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/golang/">Golang</a>,&nbsp;<a href="/tags/zinx/">Zinx</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/zinx-frame-v2/" class="prev" rel="prev" title="Zinx学习之基础链接封装和业务绑定模块"><i class="fas fa-angle-left fa-fw"></i>Zinx学习之基础链接封装和业务绑定模块</a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.74.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"valine":{"appId":"kRdzczL0inU57oCl9a4thIUN-gzGzoHsz","appKey":"yq4N8FJfqgrqwC4jBw8ifyyK","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-CN","pageSize":10,"placeholder":"阅读完全文后请发表100字以上小作文...","recordIP":true,"serverURLs":"https://line.yqqy.top","visitor":true}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"CQ9IB2P7OM","algoliaIndex":"search","algoliaSearchKey":"0b8ac695d9473a1134af4c32c85d5194","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
