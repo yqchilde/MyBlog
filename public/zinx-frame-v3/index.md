@@ -2,7 +2,7 @@
 
 <!--more-->
 
-![img](https://pic.yqqy.top/blog/20201227213134.png?imageMogr2/format/webp/interlace/1 "Router模块脑图")
+![img](https://pic.yqqy.top/blog/20201227215212.png?imageMogr2/format/webp/interlace/1 "Router模块脑图")
 
 现在我们需要给用户一个自定的Conn处理业务的接口，需要用户传入所需要处理的业务，而不是写死的回显方法。我们需要定义一些 `interface{}` 来让用户填写任意格式的连接处理业务方法。
 那么，很显然func不能满足我们的需求，接下来就是定义抽象的接口类。
@@ -266,6 +266,6 @@ func main() {
 
 测试结果如下图：（可以看出三个方法按照链式进行）
 
-![image](https://pic.yqqy.top/blog/20201227213249.png?imageMogr2/format/webp/interlace/1 "测试结果")
+![image](https://pic.yqqy.top/blog/20201227215250.png?imageMogr2/format/webp/interlace/1 "测试结果")
 
 现在Zinx框架的路由只是单路由结构，后续会增加多路由功能
