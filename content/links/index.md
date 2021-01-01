@@ -40,7 +40,7 @@ links:
 
   - name: VIERNES
     desc: TODAY IS THE LAST DAY
-    url: https://viernes.cn
+    url: https://ehak.cn
     avatar: https://dn-qiniu-avatar.qbox.me/avatar/820f82e09366f6da46996dc1443c83e3?size=500
 
   - name: 阿斌运维日记
@@ -52,10 +52,5 @@ links:
     desc: 萝莉有三好，身娇腰柔易推倒!
     url: https://ackerven.com
     avatar: https://sdn.geekzu.org/avatar/0d137a98c842e6144ebbe2b65a3ba2f7?s=96&amp;d=mm&amp;r=g
-
-  - name: Leoの小站
-    desc: 可能是个技术博客？
-    url: https://hylpq.com
-    avatar: https://hylpq.com/favicon.ico
 ---
 
