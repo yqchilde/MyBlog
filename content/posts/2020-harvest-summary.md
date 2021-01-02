@@ -5,7 +5,7 @@ date: 2021-01-01T00:58:47+08:00
 lastmod: 2021-01-01T00:58:47+08:00
 author: ""
 authorLink: ""
-description: "2020结束啦，第一次正式总结。"
+description: "2020结束啦，第一次正式总结，祝大家新年快乐！"
 
 tags: ["mood"]
 categories: ["Notes"]
