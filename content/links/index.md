@@ -34,8 +34,8 @@ links:
     avatar: https://pic.yqqy.top/blog/20200516222433.jpg?imageMogr2/format/webp/interlace/1
 
   - name: 絷缘的小站
-    desc: 不忘初心，方得始终
-    url: http://www.zyblog.xyz
+    desc: 如兄如师如友，可解惑可交心
+    url: https://zhiyuandnc.github.io
     avatar: https://dn-qiniu-avatar.qbox.me/avatar/3ecc178be38e9b8e03958aaf0dd94682
 
   - name: VIERNES
@@ -47,10 +47,5 @@ links:
     desc: 一个运维大佬
     url: https://www.qiqios.cn
     avatar: https://dn-qiniu-avatar.qbox.me/avatar/
-
-  - name: Ackerven Sagiri
-    desc: 萝莉有三好，身娇腰柔易推倒!
-    url: https://ackerven.com
-    avatar: https://sdn.geekzu.org/avatar/0d137a98c842e6144ebbe2b65a3ba2f7?s=96&amp;d=mm&amp;r=g
 ---
 
