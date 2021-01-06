@@ -3,7 +3,7 @@
 
 ### 简介
 
-男，98年双鱼座伪文艺程序员，吾辈愚钝身无长物，仅所依凭，唯手熟耳。
+男，98年双鱼座死宅，吾辈愚钝身无长物，仅所依凭，唯手熟耳。
 
 职业：Gopher🐒。
 
@@ -15,7 +15,7 @@ Gayhub：[https://github.com/yqchilde](https://github.com/yqchilde)
 
 ### 有趣的工具
 
-短链生成(t.cn)：[https://t.cn/A6hvLzaD](https://t.cn/A6hvLzaD) (抽空修😿)
+短链生成(t.cn)：(放弃更新)
 
 科学上✈：(放弃更新)
 
@@ -25,7 +25,7 @@ Gayhub：[https://github.com/yqchilde](https://github.com/yqchilde)
 
 ### 关于Rebirth
 
-WordPress的Rebirth主题我已不维护,已转Hugo,大爱Hugo
+WordPress的[Rebirth](https://github.com/yqchilde/rebirth)主题我已不维护,已转Hugo,大爱Hugo
 
 ### 联系
 
