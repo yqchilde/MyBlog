@@ -13,11 +13,25 @@
 
 Gayhub：[https://github.com/yqchilde](https://github.com/yqchilde)
 
+### Hey
+
+---
+
+{{< typeit code=go >}}
+func main() {
+    fmt.Println("👋 Hey! Nice to meet you!")
+}
+{{< /typeit >}}
+
+---
+
 ### 有趣的工具
 
-短链生成(t.cn)：(放弃更新)
+CheckInAssistant：[[https://github.com/yqchilde/CheckInAssistant](https://github.com/yqchilde/CheckInAssistant)]^(🤡是我参加山东省大学生软件设计大赛一等奖作品，也是我毕设答辩优秀作品)
 
-科学上✈：(放弃更新)
+短链生成(t.cn)：(放弃维护)
+
+科学上✈：(放弃维护)
 
 ### 感谢
 
@@ -25,13 +39,13 @@ Gayhub：[https://github.com/yqchilde](https://github.com/yqchilde)
 
 ### 关于Rebirth
 
-WordPress的[Rebirth](https://github.com/yqchilde/rebirth)主题我已不维护,已转Hugo,大爱Hugo
+WordPress的[Rebirth](https://github.com/yqchilde/rebirth)主题我已不维，已转Hugo，大爱Hugo
 
 ### 联系
 
 <yqchilde@gmail.com>
 
-24小时在线，有事请联系
+大多数在线，有事请联系
 
 ### 声明
 
