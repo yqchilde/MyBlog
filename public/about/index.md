@@ -39,13 +39,13 @@ CheckInAssistant：[[https://github.com/yqchilde/CheckInAssistant](https://githu
 
 ### 关于Rebirth
 
-WordPress的[Rebirth](https://github.com/yqchilde/rebirth)主题我已不维，已转Hugo，大爱Hugo
+WordPress的[Rebirth](https://github.com/yqchilde/rebirth)主题我已放弃维护，已转Hugo，大爱Hugo
 
 ### 联系
 
 <yqchilde@gmail.com>
 
-大多数在线，有事请联系
+大多数时间在线，有事请联系
 
 ### 声明
 
