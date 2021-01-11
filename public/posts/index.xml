@@ -10,7 +10,7 @@
     <pubDate>Mon, 11 Jan 2021 23:43:21 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://yqqy.top/golang-race/</guid>
-    <description><![CDATA[]]></description>
+    <description><![CDATA[很多时候，当我们写出一个程序时，我们并不知道这个程序在并发情况下会不会出现什么问题。所以在本质上说，goroutine的使用增加了函数的危险系数。比如一个全局变量，如果没有加上锁，我们写一个比较庞大的项目下来，根本不知道这个变量是不是会引起多个goroutine竞争，race参数就是提前帮我们检查是否存在竞争。]]></description>
 </item><item>
     <title>Zinx学习之消息封装模块</title>
     <link>https://yqqy.top/zinx-frame-v5/</link>
