@@ -5,35 +5,35 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>Golang中的Race检测 - Yq&#39;s Blog</title><meta name="Description" content="很多时候，当我们写出一个程序时，我们并不知道这个程序在并发情况下会不会出现什么问题。所以在本质上说，goroutine的使用增加了函数的危险系数。比如一个全局变量，如果没有加上锁，我们写一个比较庞大的项目下来，根本不知道这个变量是不是会引起多个goroutine竞争，race参数就是提前帮我们检查是否存在竞争。"><meta property="og:title" content="Golang中的Race检测" />
-<meta property="og:description" content="很多时候，当我们写出一个程序时，我们并不知道这个程序在并发情况下会不会出现什么问题。所以在本质上说，goroutine的使用增加了函数的危险系数。比如一个全局变量，如果没有加上锁，我们写一个比较庞大的项目下来，根本不知道这个变量是不是会引起多个goroutine竞争，race参数就是提前帮我们检查是否存在竞争。" />
+        <title>Docker安装MySQL后无法登录 - Yq&#39;s Blog</title><meta name="Description" content="用docker跑了一个mysql容器后，发现进入容器却无法成功登录，记录一下解决方案。"><meta property="og:title" content="Docker安装MySQL后无法登录" />
+<meta property="og:description" content="用docker跑了一个mysql容器后，发现进入容器却无法成功登录，记录一下解决方案。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://yqqy.top/golang-race/" />
+<meta property="og:url" content="https://yqqy.top/docker-mysql-login-failed/" />
 <meta property="og:image" content="https://yqqy.top"/>
-<meta property="article:published_time" content="2021-01-11T23:43:21+08:00" />
-<meta property="article:modified_time" content="2021-01-11T23:43:21+08:00" />
+<meta property="article:published_time" content="2021-02-11T15:52:21+08:00" />
+<meta property="article:modified_time" content="2021-02-11T15:52:21+08:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://yqqy.top"/>
 
-<meta name="twitter:title" content="Golang中的Race检测"/>
-<meta name="twitter:description" content="很多时候，当我们写出一个程序时，我们并不知道这个程序在并发情况下会不会出现什么问题。所以在本质上说，goroutine的使用增加了函数的危险系数。比如一个全局变量，如果没有加上锁，我们写一个比较庞大的项目下来，根本不知道这个变量是不是会引起多个goroutine竞争，race参数就是提前帮我们检查是否存在竞争。"/>
+<meta name="twitter:title" content="Docker安装MySQL后无法登录"/>
+<meta name="twitter:description" content="用docker跑了一个mysql容器后，发现进入容器却无法成功登录，记录一下解决方案。"/>
 <meta name="application-name" content="Yq&#39;s Blog">
-<meta name="apple-mobile-web-app-title" content="Yq&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="https://pic.yqqy.top/blog/yqqy/logo.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://yqqy.top/golang-race/" /><link rel="prev" href="https://yqqy.top/zinx-frame-v5/" /><link rel="next" href="https://yqqy.top/docker-mysql-login-failed/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+<meta name="apple-mobile-web-app-title" content="Yq&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="https://pic.yqqy.top/blog/yqqy/logo.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://yqqy.top/docker-mysql-login-failed/" /><link rel="prev" href="https://yqqy.top/golang-race/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Golang中的Race检测",
+        "headline": "Docker安装MySQL后无法登录",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/yqqy.top\/golang-race\/"
-        },"genre": "posts","keywords": "Golang","wordcount":  835 ,
-        "url": "https:\/\/yqqy.top\/golang-race\/","datePublished": "2021-01-11T23:43:21+08:00","dateModified": "2021-01-11T23:43:21+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/yqqy.top\/docker-mysql-login-failed\/"
+        },"genre": "posts","keywords": "Docker","wordcount":  686 ,
+        "url": "https:\/\/yqqy.top\/docker-mysql-login-failed\/","datePublished": "2021-02-11T15:52:21+08:00","dateModified": "2021-02-11T15:52:21+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Yqchilde"},"author": {
                 "@type": "Person",
                 "name": "Yqchilde"
-            },"description": "很多时候，当我们写出一个程序时，我们并不知道这个程序在并发情况下会不会出现什么问题。所以在本质上说，goroutine的使用增加了函数的危险系数。比如一个全局变量，如果没有加上锁，我们写一个比较庞大的项目下来，根本不知道这个变量是不是会引起多个goroutine竞争，race参数就是提前帮我们检查是否存在竞争。"
+            },"description": "用docker跑了一个mysql容器后，发现进入容器却无法成功登录，记录一下解决方案。"
     }
     </script></head>
     <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -102,10 +102,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">Golang中的Race检测</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/golang/"><i class="far fa-folder fa-fw"></i>Golang</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-01-11">2021-01-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 835 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/golang-race/" class="leancloud_visitors" data-flag-title="Golang中的Race检测">
+        </div><article class="page single"><h1 class="single-title animated flipInX">Docker安装MySQL后无法登录</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/docker/"><i class="far fa-folder fa-fw"></i>Docker</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-02-11">2021-02-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 686 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/docker-mysql-login-failed/" class="leancloud_visitors" data-flag-title="Docker安装MySQL后无法登录">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -115,13 +115,33 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#了解race">了解Race</a></li>
-    <li><a href="#参考资料">参考资料</a></li>
+    <li><a href="#mysql-run">MySQL-Run</a></li>
+    <li><a href="#发现错误">发现错误</a></li>
+    <li><a href="#解决问题">解决问题</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="了解race">了解Race</h2>
-<p>  很多时候，当我们写出一个程序时，我们并不知道这个程序在并发情况下会不会出现什么问题。所以在本质上说，goroutine的使用增加了函数的危险系数。比如一个全局变量，如果没有加上锁，我们写一个比较庞大的项目下来，根本不知道这个变量是不是会引起多个goroutine竞争。
-官网的文章 <a href="http://blog.golang.org/race-detector" target="_blank" rel="noopener noreffer">Introducing the Go Race Detector</a> 给出的例子就说明了这点：</p>
+            </div><div class="content" id="content"><h2 id="mysql-run">MySQL-Run</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker run --name mysql -p 3306:3306 -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>*** -d -v ~/data/docker/mysql:/var/lib/mysql mysql:5.6
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="发现错误">发现错误</h2>
+<ol>
+<li>使用 Navicat 远程连接发现报 1045 错误</li>
+<li>进入容器登录 mysql 发现仍然是<code>ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)</code></li>
+</ol>
+<h2 id="解决问题">解决问题</h2>
+<p>这里说一下，在<a href="https://github.com/docker-library/mysql/issues/434" target="_blank" rel="noopener noreffer">https://github.com/docker-library/mysql/issues/434</a>这里看到相关问题，有人说使用 <code>mysql -uroot -p***</code> 即直接写出密码可以，我试过是不行的，这里贴出具体解决方案。</p>
+<ol>
+<li>进入容器中</li>
+<li>使用命令 <code>/usr/bin/mysql_secure_installation</code></li>
+<li>按照提示进行密码初始化即可</li>
+</ol>
+<p><strong>如下所示：</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -145,161 +165,181 @@
 </span><span class="lnt">19
 </span><span class="lnt">20
 </span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"># /usr/bin/mysql_secure_installation
 
-<span class="kn">import</span><span class="p">(</span>
-    <span class="s">&#34;time&#34;</span>
-    <span class="s">&#34;fmt&#34;</span>
-    <span class="s">&#34;math/rand&#34;</span>
-<span class="p">)</span>
 
-<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">start</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">()</span>
-    <span class="kd">var</span> <span class="nx">t</span> <span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Timer</span>
-    <span class="nx">t</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">AfterFunc</span><span class="p">(</span><span class="nf">randomDuration</span><span class="p">(),</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Sub</span><span class="p">(</span><span class="nx">start</span><span class="p">))</span>
-        <span class="nx">t</span><span class="p">.</span><span class="nf">Reset</span><span class="p">(</span><span class="nf">randomDuration</span><span class="p">())</span>
-    <span class="p">})</span>
-    <span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
-<span class="p">}</span>
 
-<span class="kd">func</span> <span class="nf">randomDuration</span><span class="p">()</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Duration</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Duration</span><span class="p">(</span><span class="nx">rand</span><span class="p">.</span><span class="nf">Int63n</span><span class="p">(</span><span class="mf">1e9</span><span class="p">))</span>
-<span class="p">}</span>
+NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MySQL
+      SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
+
+In order to log into MySQL to secure it, we&#39;ll need the current
+password for the root user.  If you&#39;ve just installed MySQL, and
+you haven&#39;t set the root password yet, the password will be blank,
+so you should just press enter here.
+
+Enter current password for root (enter for none):
+OK, successfully used password, moving on...
+
+Setting the root password ensures that nobody can log into the MySQL
+root user without the proper authorisation.
+
+You already have a root password set, so you can safely answer &#39;n&#39;.
+
+Change the root password? [Y/n] y
+New password:
+Re-enter new password:
+Password updated successfully!
+Reloading privilege tables..
+ ... Success!
+
+
+By default, a MySQL installation has an anonymous user, allowing anyone
+to log into MySQL without having to have a user account created for
+them.  This is intended only for testing, and to make the installation
+go a bit smoother.  You should remove them before moving into a
+production environment.
+
+Remove anonymous users? [Y/n] y
+ ... Success!
+
+Normally, root should only be allowed to connect from &#39;localhost&#39;.  This
+ensures that someone cannot guess at the root password from the network.
+
+Disallow root login remotely? [Y/n] n
+ ... skipping.
+
+By default, MySQL comes with a database named &#39;test&#39; that anyone can
+access.  This is also intended only for testing, and should be removed
+before moving into a production environment.
+
+Remove test database and access to it? [Y/n] y
+ - Dropping test database...
+ERROR 1008 (HY000) at line 1: Can&#39;t drop database &#39;test&#39;; database doesn&#39;t exist
+ ... Failed!  Not critical, keep moving...
+ - Removing privileges on test database...
+ ... Success!
+
+Reloading the privilege tables will ensure that all changes made so far
+will take effect immediately.
+
+Reload privilege tables now? [Y/n] y
+ ... Success!
+
+
+
+
+All done!  If you&#39;ve completed all of the above steps, your MySQL
+installation should now be secure.
+
+Thanks for using MySQL!
+
+
+Cleaning up...
+# mysql -uroot -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 17
+Server version: 5.6.50 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.
 </code></pre></td></tr></table>
 </div>
-</div><p>  这个例子看起来没有任何问题，但是实际上， <code>time.AfterFunc</code> 是会另外启动一个goroutine来进行计时和执行func()。由于 func 中有对  <code>t(Timer)</code> 进行 <code>Reset</code> 操作，而主goroutine也有对t进行操作 <code>t = time.After</code> 。这个时候，其实有可能会造成两个goroutine对同一个变量进行竞争的情况。
-  这个例子有点复杂，简化一下，使用一个简单的例子：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
-
-<span class="kn">import</span><span class="p">(</span>
-    <span class="s">&#34;time&#34;</span>
-    <span class="s">&#34;fmt&#34;</span>
-<span class="p">)</span>
-
-<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">a</span> <span class="o">:=</span> <span class="mi">1</span>
-    <span class="k">go</span> <span class="kd">func</span><span class="p">(){</span>
-        <span class="nx">a</span> <span class="p">=</span> <span class="mi">2</span>
-    <span class="p">}()</span>
-    <span class="nx">a</span> <span class="p">=</span> <span class="mi">3</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;a is &#34;</span><span class="p">,</span> <span class="nx">a</span><span class="p">)</span>
-
-    <span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>    在这段代码中，go func 触发的goroutine会修改 a 。主goroutine也会对对 a 进行修改。但是如果我们只运行 <code>go run</code> ，我们可能往往不会发现什么太大的问题。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">go run main.go
-a is <span class="m">3</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>  可喜的是，golang在1.1之后引入了竞争检测的概念，我们可以使用 <code>go run -race</code> 或者 <code>go build -race</code> 来进行竞争检测。</p>
-<p>  Golang语言内部大概的实现就是同时开启多个 goroutine 执行同一个命令，并记录每个变量的状态。
-如果用race来检测上面的程序，我们就会看到输出：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">go run -race main.go
-
-a is  <span class="nv">3</span>
-<span class="o">==================</span>
-WARNING: DATA RACE
-Write at 0x00c00012c058 by goroutine 7:
-  main.main.func1<span class="o">()</span>
-      E:/GoModule/go-learning/main.go:11 +0x44
-
-Previous write at 0x00c00012c058 by main goroutine:
-  main.main<span class="o">()</span>
-      E:/GoModule/go-learning/main.go:13 +0x92
-
-Goroutine <span class="m">7</span> <span class="o">(</span>running<span class="o">)</span> created at:
-  main.main<span class="o">()</span>
-      E:/GoModule/go-learning/main.go:10 +0x84
-<span class="o">==================</span>
-Found <span class="m">1</span> data race<span class="o">(</span>s<span class="o">)</span>
-<span class="nb">exit</span> status <span class="m">66</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>  这个命令输出了 Warning， 告诉我们，goroutine7 运行到第11行进行触发近竞争了。而且从第14行得知groutine7是在第10行创建的，这样我们就知道这个程序在这个地方写的有问题了。</p>
-<p>  当然这个参数会引发CPU和内存的使用增加，所以基本是在测试环境使用，不是在正式环境开启。</p>
-<h2 id="参考资料">参考资料</h2>
-<p><a href="https://www.cnblogs.com/yjf512/p/5144211.html" target="_blank" rel="noopener noreffer">叶剑峰的博客园</a></p></div><div class="post-footer" id="post-footer">
+</div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-01-11</span>
+                <span>更新于 2021-02-11</span>
             </div>
             <div class="post-info-license"></div>
         </div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/golang-race/index.md" target="_blank">阅读原始文档</a>
+                            <a class="link-to-markdown" href="/docker-mysql-login-failed/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://yqqy.top/golang-race/" data-title="Golang中的Race检测"><i class="fab fa-weibo fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://yqqy.top/docker-mysql-login-failed/" data-title="Docker安装MySQL后无法登录"><i class="fab fa-weibo fa-fw"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/golang/">Golang</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/docker/">Docker</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/zinx-frame-v5/" class="prev" rel="prev" title="Zinx学习之消息封装模块"><i class="fas fa-angle-left fa-fw"></i>Zinx学习之消息封装模块</a>
-            <a href="/docker-mysql-login-failed/" class="next" rel="next" title="Docker安装MySQL后无法登录">Docker安装MySQL后无法登录<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/golang-race/" class="prev" rel="prev" title="Golang中的Race检测"><i class="fas fa-angle-left fa-fw"></i>Golang中的Race检测</a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.

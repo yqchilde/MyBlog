@@ -4,7 +4,14 @@
         <link>https://yqqy.top/tags/docker/</link>
         <description>Docker - 标签 - Yq&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 11 Nov 2020 08:11:30 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/tags/docker/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 11 Feb 2021 15:52:21 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/tags/docker/" rel="self" type="application/rss+xml" /><item>
+    <title>Docker安装MySQL后无法登录</title>
+    <link>https://yqqy.top/docker-mysql-login-failed/</link>
+    <pubDate>Thu, 11 Feb 2021 15:52:21 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yqqy.top/docker-mysql-login-failed/</guid>
+    <description><![CDATA[用docker跑了一个mysql容器后，发现进入容器却无法成功登录，记录一下解决方案。]]></description>
+</item><item>
     <title>Ubuntu启动Docker报没有权限</title>
     <link>https://yqqy.top/ubuntu-docker-permission-denied/</link>
     <pubDate>Wed, 11 Nov 2020 08:11:30 &#43;0800</pubDate>
