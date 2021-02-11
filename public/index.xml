@@ -4,9 +4,16 @@
         <link>https://yqqy.top/</link>
         <description>一名Gopher,热爱技术,中度强迫症,熬夜达人</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 11 Feb 2021 15:52:21 &#43;0800</lastBuildDate>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 11 Feb 2021 17:05:43 &#43;0800</lastBuildDate>
             <atom:link href="https://yqqy.top/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Docker Compose简单配置Mysql Nginx挂载持久化</title>
+    <link>https://yqqy.top/docker-compose-mysql-nginx/</link>
+    <pubDate>Thu, 11 Feb 2021 17:05:43 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yqqy.top/docker-compose-mysql-nginx/</guid>
+    <description><![CDATA[通过docker-compose简单的配置一下mysql和nginx，并且挂载到一个文件夹。]]></description>
+</item><item>
     <title>Docker安装MySQL后无法登录</title>
     <link>https://yqqy.top/docker-mysql-login-failed/</link>
     <pubDate>Thu, 11 Feb 2021 15:52:21 &#43;0800</pubDate>
@@ -69,12 +76,5 @@
     <author>作者</author>
     <guid>https://yqqy.top/golang-request-body-reuse/</guid>
     <description><![CDATA[在写路由中间件时有一个需求，去获取Request携带的参数然后去拦截是否合法，这时候在下游的Controller层再次去获取body竟然发现结果为空，特此记录原因和解决方案]]></description>
-</item><item>
-    <title>Ubuntu启动Docker报没有权限</title>
-    <link>https://yqqy.top/ubuntu-docker-permission-denied/</link>
-    <pubDate>Wed, 11 Nov 2020 08:11:30 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/ubuntu-docker-permission-denied/</guid>
-    <description><![CDATA[解决Ubuntu启动Docker 'Got permission denied while trying to connect to the Docker daemon socket' 问题。]]></description>
 </item></channel>
 </rss>
