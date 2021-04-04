@@ -7,7 +7,7 @@ title = "Yq's Blog"
 # 是否使用 robots.txt
 enableRobotsTXT = true
 # 是否使用 git 信息
-enableGitInfo = false
+enableGitInfo = true
 
 # 是否使用 emoji 代码
 enableEmoji = false
@@ -160,7 +160,7 @@ enableEmoji = false
   # 网站默认主题 ("light", "dark", "auto")
   defaultTheme = "auto"
   # 公共 git 仓库路径，仅在 enableGitInfo 设为 true 时有效
-  gitRepo = ""
+  gitRepo = "https://github.com/yqchilde"
   # 哪种哈希函数用来 SRI, 为空时表示不使用 SRI ("sha256", "sha384", "sha512", "md5")
   fingerprint = ""
   # 日期格式
@@ -288,8 +288,7 @@ enableEmoji = false
       fullscreen = true
     # 文章页面的分享信息设置
     [params.page.share]
-      enable = true
-      Weibo = true
+      enable = false
     # 评论系统设置
     [params.page.comment]
       enable = true
@@ -298,7 +297,7 @@ enableEmoji = false
         enable = true
         appId = "kRdzczL0inU57oCl9a4thIUN-gzGzoHsz"
         appKey = "yq4N8FJfqgrqwC4jBw8ifyyK"
-        placeholder = "阅读完全文后请发表100字以上小作文..."
+        placeholder = "博主才疏博浅，文章如有错误请帮忙指正！"
         avatar = "mp"
         meta= ""
         pageSize = 10

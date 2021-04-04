@@ -4,7 +4,14 @@
         <link>https://yqqy.top/tags/golang/</link>
         <description>Golang - 标签 - Yq&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 11 Jan 2021 23:43:21 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/tags/golang/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 04 Apr 2021 17:39:04 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/tags/golang/" rel="self" type="application/rss+xml" /><item>
+    <title>Go的template模板关于range换行和crontab的简单正则表达式</title>
+    <link>https://yqqy.top/template-range-crontab-regex/</link>
+    <pubDate>Sun, 04 Apr 2021 17:39:04 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yqqy.top/template-range-crontab-regex/</guid>
+    <description><![CDATA[1. 在使用Go的Template时，在end后下方出现了一行空白的坑，很影响强迫症心情。<br>2. 记录一个简单的crontab正则表达式如何编写。]]></description>
+</item><item>
     <title>Golang中的Race检测</title>
     <link>https://yqqy.top/golang-race/</link>
     <pubDate>Mon, 11 Jan 2021 23:43:21 &#43;0800</pubDate>
@@ -67,12 +74,5 @@
     <author>作者</author>
     <guid>https://yqqy.top/golang-json-serialization/</guid>
     <description><![CDATA[Golang解析Json数组的一些技巧，奇怪的知识又增加了！]]></description>
-</item><item>
-    <title>Golang之学习Context</title>
-    <link>https://yqqy.top/golang-learning-context/</link>
-    <pubDate>Fri, 15 May 2020 16:07:35 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/golang-learning-context/</guid>
-    <description><![CDATA[Context包是什么很强大的包，他可用户web处理多个goroutine数据间关系，亦可处理超时控制和上下文控制，总之，要好好理解一下了。]]></description>
 </item></channel>
 </rss>
