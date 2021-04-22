@@ -58,7 +58,7 @@ default-character-set=utf8mb4
 
 ## Nginx 多目录
 
-​ 当我们只有一个端口可以开`Server`时，就需要一个`Server`开启多个`location`来写规则，具体需求就是在`www`目录下有`home`和`docs`两个目录，通过不同的后缀去访问不同的页面，规则这样写：
+ 当我们只有一个端口可以开`Server`时，就需要一个`Server`开启多个`location`来写规则，具体需求就是在`www`目录下有`home`和`docs`两个目录，通过不同的后缀去访问不同的页面，规则这样写：
 
 ```nginx
 Server {
@@ -94,3 +94,22 @@ location /docs {
   }
 ```
 
+## Redis
+
+> 2021-04-22补充redis的配置
+
+```yaml
+version: "3"
+services:
+  redis:
+    image: redis:alpine
+    container_name: redis
+    restart: always
+    volumes:
+      - ../redis/data:/data
+      - ../redis/conf/redis.conf:/usr/local/etc/redis/redis.conf
+      - ../redis/logs:/logs
+    command: redis-server /usr/local/etc/redis/redis.conf
+    ports:
+      - "6379:6379"
+```

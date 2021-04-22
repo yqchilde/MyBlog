@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/yqqy.top\/docker-compose-mysql-nginx\/"
-        },"genre": "posts","keywords": "Docker","wordcount":  579 ,
+        },"genre": "posts","keywords": "Docker","wordcount":  618 ,
         "url": "https:\/\/yqqy.top\/docker-compose-mysql-nginx\/","datePublished": "2021-02-11T17:05:43+08:00","dateModified": "2021-02-11T17:12:57+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Yqchilde"},"author": {
@@ -104,7 +104,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Docker Compose简单配置Mysql Nginx挂载持久化</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/docker/"><i class="far fa-folder fa-fw"></i>Docker</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-02-11">2021-02-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 579 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-02-11">2021-02-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 618 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/docker-compose-mysql-nginx/" class="leancloud_visitors" data-flag-title="Docker Compose简单配置Mysql Nginx挂载持久化">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -123,6 +123,7 @@
       </ul>
     </li>
     <li><a href="#nginx-多目录">Nginx 多目录</a></li>
+    <li><a href="#redis">Redis</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><blockquote>
@@ -213,7 +214,7 @@
 </div><h3 id="nginx">Nginx</h3>
 <p>创建<code>logs</code>、<code>conf</code>、<code>www</code>三个空目录，编写<code>nginx.conf</code>文件放入<code>conf</code>文件夹。</p>
 <h2 id="nginx-多目录">Nginx 多目录</h2>
-<p>​ 当我们只有一个端口可以开<code>Server</code>时，就需要一个<code>Server</code>开启多个<code>location</code>来写规则，具体需求就是在<code>www</code>目录下有<code>home</code>和<code>docs</code>两个目录，通过不同的后缀去访问不同的页面，规则这样写：</p>
+<p>当我们只有一个端口可以开<code>Server</code>时，就需要一个<code>Server</code>开启多个<code>location</code>来写规则，具体需求就是在<code>www</code>目录下有<code>home</code>和<code>docs</code>两个目录，通过不同的后缀去访问不同的页面，规则这样写：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -275,6 +276,42 @@
     <span class="p">}</span>
   <span class="p">}</span>
 </code></pre></td></tr></table>
+</div>
+</div><h2 id="redis">Redis</h2>
+<blockquote>
+<p>2021-04-22补充redis的配置</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
+</span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">redis</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">redis:alpine</span><span class="w">
+</span><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">redis</span><span class="w">
+</span><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">../redis/data:/data</span><span class="w">
+</span><span class="w">      </span>- <span class="l">../redis/conf/redis.conf:/usr/local/etc/redis/redis.conf</span><span class="w">
+</span><span class="w">      </span>- <span class="l">../redis/logs:/logs</span><span class="w">
+</span><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">redis-server /usr/local/etc/redis/redis.conf</span><span class="w">
+</span><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="s2">&#34;6379:6379&#34;</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">

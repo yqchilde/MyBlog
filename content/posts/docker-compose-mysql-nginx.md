@@ -2,7 +2,7 @@
 title: "Docker Compose简单配置Mysql Nginx挂载持久化"
 subtitle: ""
 date: 2021-02-11T17:05:43+08:00
-lastmod: 2021-02-11T17:05:43+08:00
+lastmod: 2021-04-22T19:39:29+08:00
 author: ""
 authorLink: ""
 description: "通过docker-compose简单的配置一下mysql和nginx，并且挂载到一个文件夹。"
@@ -81,7 +81,7 @@ default-character-set=utf8mb4
 
 ## Nginx 多目录
 
-​ 当我们只有一个端口可以开`Server`时，就需要一个`Server`开启多个`location`来写规则，具体需求就是在`www`目录下有`home`和`docs`两个目录，通过不同的后缀去访问不同的页面，规则这样写：
+ 当我们只有一个端口可以开`Server`时，就需要一个`Server`开启多个`location`来写规则，具体需求就是在`www`目录下有`home`和`docs`两个目录，通过不同的后缀去访问不同的页面，规则这样写：
 
 ```nginx
 Server {
@@ -115,4 +115,24 @@ location /docs {
       rewrite [^/]$ $scheme://$http_host$uri/ permanent;
     }
   }
+```
+
+## Redis
+
+> 2021-04-22补充redis的配置
+
+```yaml
+version: "3"
+services:
+  redis:
+    image: redis:alpine
+    container_name: redis
+    restart: always
+    volumes:
+      - ../redis/data:/data
+      - ../redis/conf/redis.conf:/usr/local/etc/redis/redis.conf
+      - ../redis/logs:/logs
+    command: redis-server /usr/local/etc/redis/redis.conf
+    ports:
+      - "6379:6379"
 ```
