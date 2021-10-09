@@ -9,8 +9,8 @@
 <meta property="og:description" content="Golang解析Json数组的一些技巧，奇怪的知识又增加了！" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yqqy.top/golang-json-serialization/" /><meta property="og:image" content="https://yqqy.top"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-05-16T13:41:00&#43;00:00" />
-<meta property="article:modified_time" content="2020-09-09T22:20:14&#43;08:00" />
+<meta property="article:published_time" content="2020-05-16T13:41:00+00:00" />
+<meta property="article:modified_time" content="2020-09-09T22:20:14+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://yqqy.top"/>
@@ -144,7 +144,7 @@
 <h3 id="普通序列化">普通序列化</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -165,7 +165,7 @@
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">A</span> <span class="kd">struct</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">A</span> <span class="kd">struct</span> <span class="p">{</span>
 	<span class="nx">Name</span> <span class="kt">string</span> <span class="s">`json:&#34;name&#34;`</span>
 	<span class="nx">Age</span>  <span class="kt">int</span>    <span class="s">`json:&#34;age&#34;`</span>
 	<span class="nx">Sex</span>  <span class="kt">string</span> <span class="s">`json:&#34;sex&#34;`</span>
@@ -191,7 +191,7 @@
 <p>如果想在序列化/反序列化的时候忽略掉结构体中的某个字段，可以在<code>tag</code>字段中添加<code>-</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -212,7 +212,7 @@
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">A</span> <span class="kd">struct</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">A</span> <span class="kd">struct</span> <span class="p">{</span>
 	<span class="nx">Name</span> <span class="kt">string</span> <span class="s">`json:&#34;name&#34;`</span>
 	<span class="nx">Age</span>  <span class="kt">int</span>    <span class="s">`json:&#34;-&#34;`</span>
 	<span class="nx">Sex</span>  <span class="kt">string</span> <span class="s">`json:&#34;-&#34;`</span>
@@ -238,7 +238,7 @@
 <p>当struct中的字段没有值时，<code>json.Marshal()</code>序列化的时候不会忽略这些字段，而是输出默认字段的类型零值，如果想要忽略掉这些值的字段时，可以在对应字段添加<code>omitempty</code>tag</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -257,7 +257,7 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">User</span> <span class="kd">struct</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">User</span> <span class="kd">struct</span> <span class="p">{</span>
 	<span class="nx">Name</span>  <span class="kt">string</span>   <span class="s">`json:&#34;name&#34;`</span>
 	<span class="nx">Email</span> <span class="kt">string</span>   <span class="s">`json:&#34;email&#34;`</span>
 	<span class="nx">Hobby</span> <span class="p">[]</span><span class="kt">string</span> <span class="s">`json:&#34;hobby&#34;`</span>
@@ -280,14 +280,14 @@
 <p>添加<code>omitempty</code>tag，看看效果</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">User</span> <span class="kd">struct</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">User</span> <span class="kd">struct</span> <span class="p">{</span>
 	<span class="nx">Name</span>  <span class="kt">string</span>   <span class="s">`json:&#34;name&#34;`</span>
 	<span class="nx">Email</span> <span class="kt">string</span>   <span class="s">`json:&#34;email,omitempty&#34;`</span>
 	<span class="nx">Hobby</span> <span class="p">[]</span><span class="kt">string</span> <span class="s">`json:&#34;hobby,omitempty&#34;`</span>
@@ -298,7 +298,7 @@
 <h3 id="忽略嵌套结构体空值字段">忽略嵌套结构体空值字段</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -324,7 +324,7 @@
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">User</span> <span class="kd">struct</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">User</span> <span class="kd">struct</span> <span class="p">{</span>
 	<span class="nx">Name</span>  <span class="kt">string</span>   <span class="s">`json:&#34;name&#34;`</span>
 	<span class="nx">Email</span> <span class="kt">string</span>   <span class="s">`json:&#34;email,omitempty&#34;`</span>
 	<span class="nx">Hobby</span> <span class="p">[]</span><span class="kt">string</span> <span class="s">`json:&#34;hobby,omitempty&#34;`</span>
@@ -355,7 +355,7 @@
 <p>想要变成嵌套的json串，需要改为具名嵌套或定义字段tag</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -363,7 +363,7 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">User</span> <span class="kd">struct</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">User</span> <span class="kd">struct</span> <span class="p">{</span>
 	<span class="nx">Name</span>    <span class="kt">string</span>   <span class="s">`json:&#34;name&#34;`</span>
 	<span class="nx">Email</span>   <span class="kt">string</span>   <span class="s">`json:&#34;email,omitempty&#34;`</span>
 	<span class="nx">Hobby</span>   <span class="p">[]</span><span class="kt">string</span> <span class="s">`json:&#34;hobby,omitempty&#34;`</span>
@@ -375,7 +375,7 @@
 <p>想要在嵌套的结构体为空值时，忽略该字段，仅添加<code>omitempty</code>是不够的，例如给Profile添加tag<code>omitempty</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -383,7 +383,7 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">User</span> <span class="kd">struct</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">User</span> <span class="kd">struct</span> <span class="p">{</span>
 	<span class="nx">Name</span>    <span class="kt">string</span>   <span class="s">`json:&#34;name&#34;`</span>
 	<span class="nx">Email</span>   <span class="kt">string</span>   <span class="s">`json:&#34;email,omitempty&#34;`</span>
 	<span class="nx">Hobby</span>   <span class="p">[]</span><span class="kt">string</span> <span class="s">`json:&#34;hobby,omitempty&#34;`</span>
@@ -395,7 +395,7 @@
 <p>这时候换成<code>指针</code>就可以了</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -403,7 +403,7 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">User</span> <span class="kd">struct</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">User</span> <span class="kd">struct</span> <span class="p">{</span>
 	<span class="nx">Name</span>     <span class="kt">string</span>   <span class="s">`json:&#34;name&#34;`</span>
 	<span class="nx">Email</span>    <span class="kt">string</span>   <span class="s">`json:&#34;email,omitempty&#34;`</span>
 	<span class="nx">Hobby</span>    <span class="p">[]</span><span class="kt">string</span> <span class="s">`json:&#34;hobby,omitempty&#34;`</span>
@@ -416,7 +416,7 @@
 <p>现在有一个案例，需要json序列化<code>User</code>，但是不想把密码也序列化，又不想修改<code>User</code>结构体，这个时候我们就可以使用创建另外一个结构体<code>PublicUser</code>匿名嵌套原<code>User</code>，同时指定<code>Password</code>字段为匿名结构体指针类型，并添加<code>omitempty</code>tag，示例如下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -442,7 +442,7 @@
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">User</span> <span class="kd">struct</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">User</span> <span class="kd">struct</span> <span class="p">{</span>
 	<span class="nx">Name</span>     <span class="kt">string</span> <span class="s">`json:&#34;name&#34;`</span>
 	<span class="nx">Password</span> <span class="kt">string</span> <span class="s">`json:&#34;password&#34;`</span>
 <span class="p">}</span>
@@ -473,7 +473,7 @@
 <p>有时候，前端传递来的json数据中可能会使用字符串类型的数字，这个时候可以在结构体tag中添加<code>string</code>来告诉json包从字符串中解析相应字段的数据</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -491,7 +491,7 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">Card</span> <span class="kd">struct</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">Card</span> <span class="kd">struct</span> <span class="p">{</span>
 	<span class="nx">ID</span>    <span class="kt">int64</span>   <span class="s">`json:&#34;id,string&#34;`</span>
 	<span class="nx">Score</span> <span class="kt">float64</span> <span class="s">`json:&#34;score,string&#34;`</span>
 <span class="p">}</span>
@@ -513,7 +513,7 @@
 <p>在JSON协议中是没有整形和浮点型之分的，他们统称为number，json字符串中的数字经过Go语言中的json包反序列化之后都会变成<code>float64</code>类型</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -533,7 +533,7 @@
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 	<span class="kd">var</span> <span class="nx">m</span> <span class="p">=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{},</span> <span class="mi">1</span><span class="p">)</span>
 	<span class="nx">m</span><span class="p">[</span><span class="s">&#34;count&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="mi">1</span> <span class="c1">// int
 </span><span class="c1"></span>	<span class="nx">b</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="nx">m</span><span class="p">)</span>
@@ -556,7 +556,7 @@
 </div><p>可以看到上面代码输出的结果，int数值类型变成了float64，如果想更合理的处理数字就需要使用<code>decoder</code>去反序列化</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -587,7 +587,7 @@
 </span><span class="lnt">29
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 	<span class="kd">var</span> <span class="nx">m</span> <span class="p">=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{},</span> <span class="mi">1</span><span class="p">)</span>
 	<span class="nx">m</span><span class="p">[</span><span class="s">&#34;count&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="mi">1</span> <span class="c1">// int
 </span><span class="c1"></span>	<span class="nx">b</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="nx">m</span><span class="p">)</span>
@@ -621,7 +621,7 @@
 </div><p><code>json.Number</code>的源码定义如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -642,7 +642,7 @@
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// A Number represents a JSON number literal.
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// A Number represents a JSON number literal.
 </span><span class="c1">// Number表示JSON数字文字
 </span><span class="c1"></span><span class="kd">type</span> <span class="nx">Number</span> <span class="kt">string</span>
 
@@ -668,7 +668,7 @@
 <p>Go语言内置的json包使用<code>RFC3339</code>标准中定义的时间格式，对我们序列化时间字段的时候有很多限制</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -687,7 +687,7 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 	<span class="nx">p1</span> <span class="o">:=</span> <span class="nx">Post</span><span class="p">{</span><span class="nx">CreateTime</span><span class="p">:</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">()}</span>
 	<span class="nx">marshal</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="nx">p1</span><span class="p">)</span>
 	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
@@ -709,12 +709,12 @@
 </div><p>上面的代码输出结果如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="p">{</span><span class="s">&#34;create_time&#34;</span><span class="p">:</span><span class="s">&#34;2020-05-16T21:23:48.1498199+08:00&#34;</span><span class="p">}</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="p">{</span><span class="s">&#34;create_time&#34;</span><span class="p">:</span><span class="s">&#34;2020-05-16T21:23:48.1498199+08:00&#34;</span><span class="p">}</span>
 
 <span class="nx">parsing</span> <span class="nx">time</span> <span class="s">&#34;&#34;</span><span class="mi">2020</span><span class="o">-</span><span class="mo">05</span><span class="o">-</span><span class="mi">16</span> <span class="mi">12</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="mi">42</span><span class="s">&#34;&#34;</span> <span class="nx">as</span> <span class="s">&#34;&#34;</span><span class="mi">2006</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mo">02</span><span class="nx">T15</span><span class="p">:</span><span class="mo">04</span><span class="p">:</span><span class="mo">05</span><span class="nx">Z07</span><span class="p">:</span><span class="mo">00</span><span class="s">&#34;&#34;</span><span class="p">:</span> <span class="nx">cannot</span> <span class="nx">parse</span> <span class="s">&#34; 12:25:42&#34;&#34; as &#34;</span><span class="nx">T</span><span class="err">&#34;</span>
 </code></pre></td></tr></table>
@@ -724,7 +724,7 @@
 <p>实现<code>decode</code>包下的两个接口函数<code>MarshalJSON</code>和<code>UnmarshalJSON</code>，而且这个也可以作为实现<strong>自定义解析</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -743,7 +743,7 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="p">(</span><span class="nx">ct</span> <span class="o">*</span><span class="nx">CustomTime</span><span class="p">)</span> <span class="nf">UnmarshalJSON</span><span class="p">(</span><span class="nx">b</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="p">(</span><span class="nx">err</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="p">(</span><span class="nx">ct</span> <span class="o">*</span><span class="nx">CustomTime</span><span class="p">)</span> <span class="nf">UnmarshalJSON</span><span class="p">(</span><span class="nx">b</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="p">(</span><span class="nx">err</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
 	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">b</span><span class="p">))</span>
 	<span class="nx">s</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">Trim</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">b</span><span class="p">),</span> <span class="s">&#34;\&#34;&#34;</span><span class="p">)</span>
 	<span class="k">if</span> <span class="nx">s</span> <span class="o">==</span> <span class="s">&#34;null&#34;</span> <span class="p">{</span>
@@ -766,7 +766,7 @@
 <p>使用内嵌结构体能够扩展结构体的字段，但有时候我们没有必要单独定义新的结构体，可以使用匿名结构体简化操作</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -793,7 +793,7 @@
 </span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">UserInfo</span> <span class="kd">struct</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">UserInfo</span> <span class="kd">struct</span> <span class="p">{</span>
 	<span class="nx">ID</span> <span class="kt">int</span> <span class="s">`json:&#34;id&#34;`</span>
 	<span class="nx">Name</span> <span class="kt">string</span> <span class="s">`json:&#34;name&#34;`</span>
 <span class="p">}</span>
@@ -825,7 +825,7 @@
 <p>同理，也可以使用匿名结构体来组合多个结构体来序列化与反序列化数据</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -853,7 +853,7 @@
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">Student</span> <span class="kd">struct</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">Student</span> <span class="kd">struct</span> <span class="p">{</span>
 	<span class="nx">Name</span> <span class="kt">string</span> <span class="s">`json:&#34;name&#34;`</span>
 <span class="p">}</span>
 
@@ -885,7 +885,7 @@
 <h3 id="gjson库">gjson库</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -900,7 +900,7 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kn">import</span> <span class="p">(</span>
 	<span class="s">&#34;fmt&#34;</span>
@@ -951,7 +951,7 @@
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.82.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
         </div>

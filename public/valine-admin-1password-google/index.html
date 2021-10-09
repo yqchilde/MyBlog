@@ -9,8 +9,8 @@
 <meta property="og:description" content="周末灌水，上午修补Valine-Admin，中午白嫖1Password，下午处理荣耀平板5的谷歌三件套，Valine-Admin: 不能每日邮件遗漏补发，原因：函数写半个？荣耀平板5最新系统9.1.0.175无法获取谷歌服务？" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yqqy.top/valine-admin-1password-google/" /><meta property="og:image" content="https://yqqy.top"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-03-22T13:45:11&#43;00:00" />
-<meta property="article:modified_time" content="2020-09-09T22:20:14&#43;08:00" />
+<meta property="article:published_time" content="2020-03-22T13:45:11+00:00" />
+<meta property="article:modified_time" content="2020-09-09T22:20:14+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://yqqy.top"/>
@@ -143,7 +143,7 @@
 <p>博客用的是Valine的三方评论，后台模板用的是zhaojun改完的Valine-Admin，基于免费版Leancloud账户的问题，每日最多运行18小时，所以在0-7点属于休眠状态，这个时刻如果有人评论了，虽然是会唤醒服务，但是是收不到邮件的，就需要邮件补发功能了，经过遗漏掉一条邮件排查掉，<a href="https://github.com/zhaojun1998/Valine-Admin" target="_blank" rel="noopener noreffer"><strong>zhaojun</strong></a> fork <a href="https://github.com/DesertsP/Valine-Admin" target="_blank" rel="noopener noreffer"><strong>panjunwen</strong></a> 的项目之后改完漏掉一个函数<code>sendNotification</code>，唉，fork了不要魔改啊，改的都丢三落四，整理完的 <code>cloud.js</code> 如下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -206,7 +206,7 @@
 </span><span class="lnt">61
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">AV</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;leanengine&#39;</span><span class="p">);</span>
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">AV</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;leanengine&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">mail</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./utilities/send-mail&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">Comment</span> <span class="o">=</span> <span class="nx">AV</span><span class="p">.</span><span class="nb">Object</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="s1">&#39;Comment&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
@@ -359,7 +359,7 @@
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.82.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
         </div>

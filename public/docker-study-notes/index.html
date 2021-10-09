@@ -9,8 +9,8 @@
 <meta property="og:description" content="Docker无疑是云原生时代不可缺少的知识技能，我将一点一点学Docker，循序渐进，本文作为自己学习Docker的笔记" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yqqy.top/docker-study-notes/" /><meta property="og:image" content="https://yqqy.top"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-09-05T23:36:56&#43;08:00" />
-<meta property="article:modified_time" content="2020-09-09T22:28:43&#43;08:00" />
+<meta property="article:published_time" content="2020-09-05T23:36:56+08:00" />
+<meta property="article:modified_time" content="2020-09-09T22:28:43+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://yqqy.top"/>
@@ -159,12 +159,12 @@
 <p>首先在安装Docker之前，需要添加Docker安装源</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo yum-config-manager<span class="se">\
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ sudo yum-config-manager<span class="se">\
 </span><span class="se"></span>	-add-repo<span class="se">\
 </span><span class="se"></span>	https://download.docker.com/linux/centos/docker-ce-repo
 </code></pre></td></tr></table>
@@ -172,19 +172,19 @@
 </div><p><strong>安装最新版本docker</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo yum install docker-ce docker-ce-cli containerd.io
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ sudo yum install docker-ce docker-ce-cli containerd.io
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="启动">启动</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo systemctl start docker
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ sudo systemctl start docker
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="容器原理技术">容器原理技术</h2>
@@ -221,7 +221,7 @@
 <h2 id="常用命令">常用命令</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -238,7 +238,7 @@
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">// 拉取镜像
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">// 拉取镜像
 docker pull
 
 // 重命名镜像
@@ -259,10 +259,10 @@ docker rmi
 <p>Docker镜像的拉取使用 <code>docker pull</code> 命令，命令格式一般为</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ docker pull <span class="o">[</span>Registry<span class="o">]</span>/<span class="o">[</span>Repository<span class="o">]</span>/<span class="o">[</span>Image<span class="o">]</span>:<span class="o">[</span>Tag<span class="o">]</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ docker pull <span class="o">[</span>Registry<span class="o">]</span>/<span class="o">[</span>Repository<span class="o">]</span>/<span class="o">[</span>Image<span class="o">]</span>:<span class="o">[</span>Tag<span class="o">]</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -286,13 +286,13 @@ docker rmi
 <p>如果想自定义镜像名称或者推送镜像到其他镜像仓库，你可以使用 <code>docker tag</code> 命令将镜像重命名。<code>docker tag</code> 的命令格式为</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ docker tag <span class="o">[</span>SOURCE_IMAGE<span class="o">][</span>:TAG<span class="o">]</span> <span class="o">[</span>TARGET_IMAGE<span class="o">][</span>:TAG<span class="o">]</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ docker tag <span class="o">[</span>SOURCE_IMAGE<span class="o">][</span>:TAG<span class="o">]</span> <span class="o">[</span>TARGET_IMAGE<span class="o">][</span>:TAG<span class="o">]</span>
 
 Ps.
 $ docker tag telemed:latest newtelemed:telemed
@@ -311,12 +311,12 @@ $ docker tag telemed:latest newtelemed:telemed
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">// 没有 <span class="sb">`</span><span class="o">[]</span><span class="sb">`</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">// 没有 <span class="sb">`</span><span class="o">[]</span><span class="sb">`</span>
 $ docker run -rm --name<span class="o">=[</span>容器名<span class="o">]</span> -it <span class="o">[</span>容器名<span class="o">]</span> sh
 / <span class="c1">#</span>
 </code></pre></td></tr></table>
@@ -324,21 +324,21 @@ $ docker run -rm --name<span class="o">=[</span>容器名<span class="o">]</span
 </div><p>执行完上面的命令后，当前窗口会进入指定容器名的容器中，在容器中，执行以下命令创建一个文件并写入内容</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">/ <span class="c1"># touch hello.txt &amp;&amp; echo &#34;I Love Docker.&#34; &gt; hello.txt</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">/ <span class="c1"># touch hello.txt &amp;&amp; echo &#34;I Love Docker.&#34; &gt; hello.txt</span>
 / <span class="c1">#</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>此时在容器的根目录下，已经创建了一个hello.txt文件，并写入了&quot;I Love Docker.&quot;。下面，重新打开一个命令行窗口，运行以下命令提交镜像</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ docker commit <span class="o">[</span>TARGET_IMAGE<span class="o">]</span> <span class="o">[</span>TARGET_IMAGE<span class="o">][</span>:TAG<span class="o">]</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ docker commit <span class="o">[</span>TARGET_IMAGE<span class="o">]</span> <span class="o">[</span>TARGET_IMAGE<span class="o">][</span>:TAG<span class="o">]</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>再次使用 <code>docker images</code> 就可以看到生成了 <code>[TARGET_IMAGE][:TAG]</code>这个镜像</p>
@@ -408,7 +408,7 @@ $ docker run -rm --name<span class="o">=[</span>容器名<span class="o">]</span
 <p>通过如下实例来熟悉一下Dockerfile</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -416,7 +416,7 @@ $ docker run -rm --name<span class="o">=[</span>容器名<span class="o">]</span
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-docker" data-lang="docker"><span class="k">FROM</span><span class="s"> centos:7</span><span class="err">
+<pre tabindex="0" class="chroma"><code class="language-docker" data-lang="docker"><span class="k">FROM</span><span class="s"> centos:7</span><span class="err">
 </span><span class="err"></span><span class="k">COPY</span> nginx.repo /etc/yum.repos.d/nginx.repo<span class="err">
 </span><span class="err"></span><span class="k">RUN</span> yum install -y nginx<span class="err">
 </span><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 80</span><span class="err">
@@ -437,12 +437,12 @@ $ docker run -rm --name<span class="o">=[</span>容器名<span class="o">]</span
 <p>其实Docker镜像是由一系列镜像层（layer）组成的，每一层代表了镜像构建过程中的一次提交。下面以一个镜像构建的Dockerfile来说明镜像是如何分层的。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-docker" data-lang="docker"><span class="k">FROM</span><span class="s"> busybos</span><span class="err">
+<pre tabindex="0" class="chroma"><code class="language-docker" data-lang="docker"><span class="k">FROM</span><span class="s"> busybos</span><span class="err">
 </span><span class="err"></span><span class="k">COPY</span> <span class="nb">test</span> /tmp/test<span class="err">
 </span><span class="err"></span><span class="k">RUN</span> mkdir /tmp/testdir<span class="err">
 </span></code></pre></td></tr></table>
@@ -454,10 +454,10 @@ $ docker run -rm --name<span class="o">=[</span>容器名<span class="o">]</span
 <p>为了验证镜像的存储结构，我们使用 <code>docker build</code> 命令在上面Dockerfile所在目录构建一个镜像：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ docker build -t mybusybox .
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ docker build -t mybusybox .
 </code></pre></td></tr></table>
 </div>
 </div><p>这里的Docker使用的是overlay2文件驱动，进入到 <code>/var/lib/docker/overlay2</code> 目录下使用 <code>tree .</code> 命令查看产生的镜像文件</p>
@@ -496,7 +496,7 @@ $ docker run -rm --name<span class="o">=[</span>容器名<span class="o">]</span
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.82.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
         </div>

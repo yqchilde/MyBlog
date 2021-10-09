@@ -9,8 +9,8 @@
 <meta property="og:description" content="假设现在学校目前只开设了语文、数学、英语三门课，后期还可开设其他门课，请尽量合理的设计班级、学生、考生成绩的数据库表结构并写出查询语句。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yqqy.top/mysql-score-exercises/" /><meta property="og:image" content="https://yqqy.top"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-05-08T09:22:31&#43;00:00" />
-<meta property="article:modified_time" content="2020-09-09T22:20:14&#43;08:00" />
+<meta property="article:published_time" content="2020-05-08T09:22:31+00:00" />
+<meta property="article:modified_time" content="2020-09-09T22:20:14+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://yqqy.top"/>
@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/yqqy.top\/mysql-score-exercises\/"
-        },"genre": "posts","keywords": "MySQL","wordcount":  1356 ,
+        },"genre": "posts","keywords": "MySQL","wordcount":  1282 ,
         "url": "https:\/\/yqqy.top\/mysql-score-exercises\/","datePublished": "2020-05-08T09:22:31+00:00","dateModified": "2020-09-09T22:20:14+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Yqchilde"},"author": {
@@ -104,7 +104,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">MySQL常考学生成绩查询练习题</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/mysql/"><i class="far fa-folder fa-fw"></i>MySQL</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-05-08">2020-05-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1356 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-05-08">2020-05-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1282 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/mysql-score-exercises/" class="leancloud_visitors" data-flag-title="MySQL常考学生成绩查询练习题">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -151,7 +151,7 @@
 <p><strong>设计的sql如下：</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">  1
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -257,7 +257,7 @@
 </span><span class="lnt">104
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="cm">/*
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="cm">/*
 </span><span class="cm"> Navicat Premium Data Transfer
 </span><span class="cm">
 </span><span class="cm"> Source Server         : root
@@ -271,103 +271,103 @@
 </span><span class="cm"> File Encoding         : 65001
 </span><span class="cm">
 </span><span class="cm"> Date: 08/05/2020 16:30:45
-</span><span class="cm">*/</span>
-
-<span class="k">SET</span> <span class="k">NAMES</span> <span class="n">utf8mb4</span><span class="p">;</span>
-<span class="k">SET</span> <span class="n">FOREIGN_KEY_CHECKS</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-<span class="c1">-- ----------------------------
+</span><span class="cm">*/</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="k">NAMES</span><span class="w"> </span><span class="n">utf8mb4</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="n">FOREIGN_KEY_CHECKS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">-- ----------------------------
 </span><span class="c1">-- Table structure for t_class
 </span><span class="c1">-- ----------------------------
-</span><span class="c1"></span><span class="k">DROP</span> <span class="k">TABLE</span> <span class="k">IF</span> <span class="k">EXISTS</span> <span class="o">`</span><span class="n">t_class</span><span class="o">`</span><span class="p">;</span>
-<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">t_class</span><span class="o">`</span>  <span class="p">(</span>
-  <span class="o">`</span><span class="n">classid</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-  <span class="o">`</span><span class="n">classname</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span> <span class="nb">CHARACTER</span> <span class="k">SET</span> <span class="n">utf8</span> <span class="k">COLLATE</span> <span class="n">utf8_general_ci</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="k">NULL</span><span class="p">,</span>
-  <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">classid</span><span class="o">`</span><span class="p">)</span> <span class="k">USING</span> <span class="n">BTREE</span>
-<span class="p">)</span> <span class="n">ENGINE</span> <span class="o">=</span> <span class="n">InnoDB</span> <span class="nb">CHARACTER</span> <span class="k">SET</span> <span class="o">=</span> <span class="n">utf8</span> <span class="k">COLLATE</span> <span class="o">=</span> <span class="n">utf8_general_ci</span> <span class="n">ROW_FORMAT</span> <span class="o">=</span> <span class="k">Dynamic</span><span class="p">;</span>
-
-<span class="c1">-- ----------------------------
+</span><span class="c1"></span><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="o">`</span><span class="n">t_class</span><span class="o">`</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="n">t_class</span><span class="o">`</span><span class="w">  </span><span class="p">(</span><span class="w">
+</span><span class="w">  </span><span class="o">`</span><span class="n">classid</span><span class="o">`</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="o">`</span><span class="n">classname</span><span class="o">`</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span><span class="w"> </span><span class="nb">CHARACTER</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">utf8</span><span class="w"> </span><span class="k">COLLATE</span><span class="w"> </span><span class="n">utf8_general_ci</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">classid</span><span class="o">`</span><span class="p">)</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">BTREE</span><span class="w">
+</span><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">ENGINE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InnoDB</span><span class="w"> </span><span class="nb">CHARACTER</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">utf8</span><span class="w"> </span><span class="k">COLLATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">utf8_general_ci</span><span class="w"> </span><span class="n">ROW_FORMAT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">Dynamic</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">-- ----------------------------
 </span><span class="c1">-- Records of t_class
 </span><span class="c1">-- ----------------------------
-</span><span class="c1"></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">t_class</span><span class="o">`</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">1701</span><span class="p">,</span> <span class="s1">&#39;一班&#39;</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">t_class</span><span class="o">`</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">1702</span><span class="p">,</span> <span class="s1">&#39;二班&#39;</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">t_class</span><span class="o">`</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">1703</span><span class="p">,</span> <span class="s1">&#39;三班&#39;</span><span class="p">);</span>
-
-<span class="c1">-- ----------------------------
+</span><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">`</span><span class="n">t_class</span><span class="o">`</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1701</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;一班&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">`</span><span class="n">t_class</span><span class="o">`</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1702</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;二班&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">`</span><span class="n">t_class</span><span class="o">`</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1703</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;三班&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">-- ----------------------------
 </span><span class="c1">-- Table structure for t_course
 </span><span class="c1">-- ----------------------------
-</span><span class="c1"></span><span class="k">DROP</span> <span class="k">TABLE</span> <span class="k">IF</span> <span class="k">EXISTS</span> <span class="o">`</span><span class="n">t_course</span><span class="o">`</span><span class="p">;</span>
-<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">t_course</span><span class="o">`</span>  <span class="p">(</span>
-  <span class="o">`</span><span class="n">cid</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-  <span class="o">`</span><span class="n">cname</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span> <span class="nb">CHARACTER</span> <span class="k">SET</span> <span class="n">utf8</span> <span class="k">COLLATE</span> <span class="n">utf8_general_ci</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="k">NULL</span><span class="p">,</span>
-  <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">cid</span><span class="o">`</span><span class="p">)</span> <span class="k">USING</span> <span class="n">BTREE</span>
-<span class="p">)</span> <span class="n">ENGINE</span> <span class="o">=</span> <span class="n">InnoDB</span> <span class="nb">CHARACTER</span> <span class="k">SET</span> <span class="o">=</span> <span class="n">utf8</span> <span class="k">COLLATE</span> <span class="o">=</span> <span class="n">utf8_general_ci</span> <span class="n">ROW_FORMAT</span> <span class="o">=</span> <span class="k">Dynamic</span><span class="p">;</span>
-
-<span class="c1">-- ----------------------------
+</span><span class="c1"></span><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="o">`</span><span class="n">t_course</span><span class="o">`</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="n">t_course</span><span class="o">`</span><span class="w">  </span><span class="p">(</span><span class="w">
+</span><span class="w">  </span><span class="o">`</span><span class="n">cid</span><span class="o">`</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="o">`</span><span class="n">cname</span><span class="o">`</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span><span class="w"> </span><span class="nb">CHARACTER</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">utf8</span><span class="w"> </span><span class="k">COLLATE</span><span class="w"> </span><span class="n">utf8_general_ci</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">cid</span><span class="o">`</span><span class="p">)</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">BTREE</span><span class="w">
+</span><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">ENGINE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InnoDB</span><span class="w"> </span><span class="nb">CHARACTER</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">utf8</span><span class="w"> </span><span class="k">COLLATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">utf8_general_ci</span><span class="w"> </span><span class="n">ROW_FORMAT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">Dynamic</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">-- ----------------------------
 </span><span class="c1">-- Records of t_course
 </span><span class="c1">-- ----------------------------
-</span><span class="c1"></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">t_course</span><span class="o">`</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="s1">&#39;MySQL&#39;</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">t_course</span><span class="o">`</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">102</span><span class="p">,</span> <span class="s1">&#39;网络&#39;</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">t_course</span><span class="o">`</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">103</span><span class="p">,</span> <span class="s1">&#39;系统&#39;</span><span class="p">);</span>
-
-<span class="c1">-- ----------------------------
+</span><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">`</span><span class="n">t_course</span><span class="o">`</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;MySQL&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">`</span><span class="n">t_course</span><span class="o">`</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">102</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;网络&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">`</span><span class="n">t_course</span><span class="o">`</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">103</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;系统&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">-- ----------------------------
 </span><span class="c1">-- Table structure for t_score
 </span><span class="c1">-- ----------------------------
-</span><span class="c1"></span><span class="k">DROP</span> <span class="k">TABLE</span> <span class="k">IF</span> <span class="k">EXISTS</span> <span class="o">`</span><span class="n">t_score</span><span class="o">`</span><span class="p">;</span>
-<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">t_score</span><span class="o">`</span>  <span class="p">(</span>
-  <span class="o">`</span><span class="n">sid</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="k">NULL</span><span class="p">,</span>
-  <span class="o">`</span><span class="n">cid</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="k">NULL</span><span class="p">,</span>
-  <span class="o">`</span><span class="n">score</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="k">NULL</span><span class="p">,</span>
-  <span class="k">INDEX</span> <span class="o">`</span><span class="n">s_id</span><span class="o">`</span><span class="p">(</span><span class="o">`</span><span class="n">sid</span><span class="o">`</span><span class="p">)</span> <span class="k">USING</span> <span class="n">BTREE</span><span class="p">,</span>
-  <span class="k">INDEX</span> <span class="o">`</span><span class="n">c_id</span><span class="o">`</span><span class="p">(</span><span class="o">`</span><span class="n">cid</span><span class="o">`</span><span class="p">)</span> <span class="k">USING</span> <span class="n">BTREE</span><span class="p">,</span>
-  <span class="k">CONSTRAINT</span> <span class="o">`</span><span class="n">c_id</span><span class="o">`</span> <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">cid</span><span class="o">`</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="o">`</span><span class="n">t_course</span><span class="o">`</span> <span class="p">(</span><span class="o">`</span><span class="n">cid</span><span class="o">`</span><span class="p">)</span> <span class="k">ON</span> <span class="k">DELETE</span> <span class="k">NO</span> <span class="n">ACTION</span> <span class="k">ON</span> <span class="k">UPDATE</span> <span class="k">CASCADE</span><span class="p">,</span>
-  <span class="k">CONSTRAINT</span> <span class="o">`</span><span class="n">s_id</span><span class="o">`</span> <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">sid</span><span class="o">`</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="o">`</span><span class="n">t_student</span><span class="o">`</span> <span class="p">(</span><span class="o">`</span><span class="n">sid</span><span class="o">`</span><span class="p">)</span> <span class="k">ON</span> <span class="k">DELETE</span> <span class="k">NO</span> <span class="n">ACTION</span> <span class="k">ON</span> <span class="k">UPDATE</span> <span class="k">CASCADE</span>
-<span class="p">)</span> <span class="n">ENGINE</span> <span class="o">=</span> <span class="n">InnoDB</span> <span class="nb">CHARACTER</span> <span class="k">SET</span> <span class="o">=</span> <span class="n">utf8</span> <span class="k">COLLATE</span> <span class="o">=</span> <span class="n">utf8_general_ci</span> <span class="n">ROW_FORMAT</span> <span class="o">=</span> <span class="k">Dynamic</span><span class="p">;</span>
-
-<span class="c1">-- ----------------------------
+</span><span class="c1"></span><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="o">`</span><span class="n">t_score</span><span class="o">`</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="n">t_score</span><span class="o">`</span><span class="w">  </span><span class="p">(</span><span class="w">
+</span><span class="w">  </span><span class="o">`</span><span class="n">sid</span><span class="o">`</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="o">`</span><span class="n">cid</span><span class="o">`</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="o">`</span><span class="n">score</span><span class="o">`</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="k">INDEX</span><span class="w"> </span><span class="o">`</span><span class="n">s_id</span><span class="o">`</span><span class="p">(</span><span class="o">`</span><span class="n">sid</span><span class="o">`</span><span class="p">)</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">BTREE</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="k">INDEX</span><span class="w"> </span><span class="o">`</span><span class="n">c_id</span><span class="o">`</span><span class="p">(</span><span class="o">`</span><span class="n">cid</span><span class="o">`</span><span class="p">)</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">BTREE</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="o">`</span><span class="n">c_id</span><span class="o">`</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">cid</span><span class="o">`</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="o">`</span><span class="n">t_course</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">cid</span><span class="o">`</span><span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="k">NO</span><span class="w"> </span><span class="n">ACTION</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="k">CASCADE</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="o">`</span><span class="n">s_id</span><span class="o">`</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">sid</span><span class="o">`</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="o">`</span><span class="n">t_student</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">sid</span><span class="o">`</span><span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="k">NO</span><span class="w"> </span><span class="n">ACTION</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="k">CASCADE</span><span class="w">
+</span><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">ENGINE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InnoDB</span><span class="w"> </span><span class="nb">CHARACTER</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">utf8</span><span class="w"> </span><span class="k">COLLATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">utf8_general_ci</span><span class="w"> </span><span class="n">ROW_FORMAT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">Dynamic</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">-- ----------------------------
 </span><span class="c1">-- Records of t_score
 </span><span class="c1">-- ----------------------------
-</span><span class="c1"></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">t_score</span><span class="o">`</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">10001</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">59</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">t_score</span><span class="o">`</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">10001</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">66</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">t_score</span><span class="o">`</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">10001</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">80</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">t_score</span><span class="o">`</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">10002</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">79</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">t_score</span><span class="o">`</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">10002</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">t_score</span><span class="o">`</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">10002</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">82</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">t_score</span><span class="o">`</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">10003</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">t_score</span><span class="o">`</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">10003</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">84</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">t_score</span><span class="o">`</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">10003</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">65</span><span class="p">);</span>
-
-<span class="c1">-- ----------------------------
+</span><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">`</span><span class="n">t_score</span><span class="o">`</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">10001</span><span class="p">,</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="mi">59</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">`</span><span class="n">t_score</span><span class="o">`</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">10001</span><span class="p">,</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w"> </span><span class="mi">66</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">`</span><span class="n">t_score</span><span class="o">`</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">10001</span><span class="p">,</span><span class="w"> </span><span class="mi">103</span><span class="p">,</span><span class="w"> </span><span class="mi">80</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">`</span><span class="n">t_score</span><span class="o">`</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">10002</span><span class="p">,</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="mi">79</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">`</span><span class="n">t_score</span><span class="o">`</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">10002</span><span class="p">,</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">`</span><span class="n">t_score</span><span class="o">`</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">10002</span><span class="p">,</span><span class="w"> </span><span class="mi">103</span><span class="p">,</span><span class="w"> </span><span class="mi">82</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">`</span><span class="n">t_score</span><span class="o">`</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">10003</span><span class="p">,</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">`</span><span class="n">t_score</span><span class="o">`</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">10003</span><span class="p">,</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w"> </span><span class="mi">84</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">`</span><span class="n">t_score</span><span class="o">`</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">10003</span><span class="p">,</span><span class="w"> </span><span class="mi">103</span><span class="p">,</span><span class="w"> </span><span class="mi">65</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">-- ----------------------------
 </span><span class="c1">-- Table structure for t_student
 </span><span class="c1">-- ----------------------------
-</span><span class="c1"></span><span class="k">DROP</span> <span class="k">TABLE</span> <span class="k">IF</span> <span class="k">EXISTS</span> <span class="o">`</span><span class="n">t_student</span><span class="o">`</span><span class="p">;</span>
-<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">t_student</span><span class="o">`</span>  <span class="p">(</span>
-  <span class="o">`</span><span class="n">sid</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-  <span class="o">`</span><span class="n">sname</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span> <span class="nb">CHARACTER</span> <span class="k">SET</span> <span class="n">utf8</span> <span class="k">COLLATE</span> <span class="n">utf8_general_ci</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="k">NULL</span><span class="p">,</span>
-  <span class="o">`</span><span class="n">classid</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="k">NULL</span><span class="p">,</span>
-  <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">sid</span><span class="o">`</span><span class="p">)</span> <span class="k">USING</span> <span class="n">BTREE</span><span class="p">,</span>
-  <span class="k">INDEX</span> <span class="o">`</span><span class="n">class_id</span><span class="o">`</span><span class="p">(</span><span class="o">`</span><span class="n">classid</span><span class="o">`</span><span class="p">)</span> <span class="k">USING</span> <span class="n">BTREE</span><span class="p">,</span>
-  <span class="k">CONSTRAINT</span> <span class="o">`</span><span class="n">class_id</span><span class="o">`</span> <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">classid</span><span class="o">`</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="o">`</span><span class="n">t_class</span><span class="o">`</span> <span class="p">(</span><span class="o">`</span><span class="n">classid</span><span class="o">`</span><span class="p">)</span> <span class="k">ON</span> <span class="k">DELETE</span> <span class="k">NO</span> <span class="n">ACTION</span> <span class="k">ON</span> <span class="k">UPDATE</span> <span class="k">CASCADE</span>
-<span class="p">)</span> <span class="n">ENGINE</span> <span class="o">=</span> <span class="n">InnoDB</span> <span class="nb">CHARACTER</span> <span class="k">SET</span> <span class="o">=</span> <span class="n">utf8</span> <span class="k">COLLATE</span> <span class="o">=</span> <span class="n">utf8_general_ci</span> <span class="n">ROW_FORMAT</span> <span class="o">=</span> <span class="k">Dynamic</span><span class="p">;</span>
-
-<span class="c1">-- ----------------------------
+</span><span class="c1"></span><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="o">`</span><span class="n">t_student</span><span class="o">`</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="n">t_student</span><span class="o">`</span><span class="w">  </span><span class="p">(</span><span class="w">
+</span><span class="w">  </span><span class="o">`</span><span class="n">sid</span><span class="o">`</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="o">`</span><span class="n">sname</span><span class="o">`</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span><span class="w"> </span><span class="nb">CHARACTER</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">utf8</span><span class="w"> </span><span class="k">COLLATE</span><span class="w"> </span><span class="n">utf8_general_ci</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="o">`</span><span class="n">classid</span><span class="o">`</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">sid</span><span class="o">`</span><span class="p">)</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">BTREE</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="k">INDEX</span><span class="w"> </span><span class="o">`</span><span class="n">class_id</span><span class="o">`</span><span class="p">(</span><span class="o">`</span><span class="n">classid</span><span class="o">`</span><span class="p">)</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">BTREE</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="o">`</span><span class="n">class_id</span><span class="o">`</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">classid</span><span class="o">`</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="o">`</span><span class="n">t_class</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">classid</span><span class="o">`</span><span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="k">NO</span><span class="w"> </span><span class="n">ACTION</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="k">CASCADE</span><span class="w">
+</span><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">ENGINE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InnoDB</span><span class="w"> </span><span class="nb">CHARACTER</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">utf8</span><span class="w"> </span><span class="k">COLLATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">utf8_general_ci</span><span class="w"> </span><span class="n">ROW_FORMAT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">Dynamic</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">-- ----------------------------
 </span><span class="c1">-- Records of t_student
 </span><span class="c1">-- ----------------------------
-</span><span class="c1"></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">t_student</span><span class="o">`</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">10001</span><span class="p">,</span> <span class="s1">&#39;张三&#39;</span><span class="p">,</span> <span class="mi">1701</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">t_student</span><span class="o">`</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">10002</span><span class="p">,</span> <span class="s1">&#39;李四&#39;</span><span class="p">,</span> <span class="mi">1701</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">t_student</span><span class="o">`</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">10003</span><span class="p">,</span> <span class="s1">&#39;王五&#39;</span><span class="p">,</span> <span class="mi">1702</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">t_student</span><span class="o">`</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">10004</span><span class="p">,</span> <span class="s1">&#39;赵六&#39;</span><span class="p">,</span> <span class="mi">1702</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">t_student</span><span class="o">`</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">10005</span><span class="p">,</span> <span class="s1">&#39;孙七&#39;</span><span class="p">,</span> <span class="mi">1703</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">`</span><span class="n">t_student</span><span class="o">`</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">10006</span><span class="p">,</span> <span class="s1">&#39;王八&#39;</span><span class="p">,</span> <span class="mi">1703</span><span class="p">);</span>
-
-<span class="k">SET</span> <span class="n">FOREIGN_KEY_CHECKS</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-</code></pre></td></tr></table>
+</span><span class="c1"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">`</span><span class="n">t_student</span><span class="o">`</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">10001</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;张三&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1701</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">`</span><span class="n">t_student</span><span class="o">`</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">10002</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;李四&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1701</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">`</span><span class="n">t_student</span><span class="o">`</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">10003</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;王五&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1702</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">`</span><span class="n">t_student</span><span class="o">`</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">10004</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;赵六&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1702</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">`</span><span class="n">t_student</span><span class="o">`</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">10005</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;孙七&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1703</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">`</span><span class="n">t_student</span><span class="o">`</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">10006</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;王八&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1703</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="n">FOREIGN_KEY_CHECKS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
 </div><h3 id="题目一">题目一</h3>
 <p><strong>统计每个学生成绩和选课数量以及所属班级</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -386,24 +386,24 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">SELECT</span>
-	<span class="n">d</span><span class="p">.</span><span class="n">classid</span><span class="p">,</span>
-	<span class="n">a</span><span class="p">.</span><span class="n">sid</span><span class="p">,</span>
-	<span class="n">a</span><span class="p">.</span><span class="n">sname</span><span class="p">,</span>
-	<span class="nf">SUM</span><span class="p">(</span> <span class="n">c</span><span class="p">.</span><span class="n">score</span> <span class="p">)</span> <span class="n">totalScore</span><span class="p">,</span>
-	<span class="nf">COUNT</span><span class="p">(</span> <span class="n">c</span><span class="p">.</span><span class="n">cid</span> <span class="p">)</span> <span class="n">courseNum</span> 
-<span class="k">FROM</span>
-	<span class="n">t_student</span> <span class="n">a</span><span class="p">,</span>
-	<span class="n">t_course</span> <span class="n">b</span><span class="p">,</span>
-	<span class="n">t_score</span> <span class="n">c</span><span class="p">,</span>
-	<span class="n">t_class</span> <span class="n">d</span> 
-<span class="k">WHERE</span>
-	<span class="n">a</span><span class="p">.</span><span class="n">sid</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">sid</span> 
-	<span class="k">AND</span> <span class="n">b</span><span class="p">.</span><span class="n">cid</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">cid</span> 
-	<span class="k">AND</span> <span class="n">a</span><span class="p">.</span><span class="n">classid</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">classid</span> 
-<span class="k">GROUP</span> <span class="k">BY</span>
-	<span class="n">a</span><span class="p">.</span><span class="n">sid</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">SELECT</span><span class="w">
+</span><span class="w">	</span><span class="n">d</span><span class="p">.</span><span class="n">classid</span><span class="p">,</span><span class="w">
+</span><span class="w">	</span><span class="n">a</span><span class="p">.</span><span class="n">sid</span><span class="p">,</span><span class="w">
+</span><span class="w">	</span><span class="n">a</span><span class="p">.</span><span class="n">sname</span><span class="p">,</span><span class="w">
+</span><span class="w">	</span><span class="nf">SUM</span><span class="p">(</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">score</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">totalScore</span><span class="p">,</span><span class="w">
+</span><span class="w">	</span><span class="nf">COUNT</span><span class="p">(</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">cid</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">courseNum</span><span class="w"> 
+</span><span class="w"></span><span class="k">FROM</span><span class="w">
+</span><span class="w">	</span><span class="n">t_student</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w">
+</span><span class="w">	</span><span class="n">t_course</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w">
+</span><span class="w">	</span><span class="n">t_score</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w">
+</span><span class="w">	</span><span class="n">t_class</span><span class="w"> </span><span class="n">d</span><span class="w"> 
+</span><span class="w"></span><span class="k">WHERE</span><span class="w">
+</span><span class="w">	</span><span class="n">a</span><span class="p">.</span><span class="n">sid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">sid</span><span class="w"> 
+</span><span class="w">	</span><span class="k">AND</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">cid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">cid</span><span class="w"> 
+</span><span class="w">	</span><span class="k">AND</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">classid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">classid</span><span class="w"> 
+</span><span class="w"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w">
+</span><span class="w">	</span><span class="n">a</span><span class="p">.</span><span class="n">sid</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
 </div><p>查询结果：</p>
 <table>
@@ -444,7 +444,7 @@
 <p><strong>统计每个班总成绩在180分以上的学生信息</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -464,25 +464,25 @@
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">SELECT</span>
-	<span class="n">d</span><span class="p">.</span><span class="n">classid</span><span class="p">,</span>
-	<span class="n">a</span><span class="p">.</span><span class="n">sid</span><span class="p">,</span>
-	<span class="n">a</span><span class="p">.</span><span class="n">sname</span><span class="p">,</span>
-	<span class="nf">SUM</span><span class="p">(</span> <span class="n">c</span><span class="p">.</span><span class="n">score</span> <span class="p">)</span> <span class="n">totalScore</span> 
-<span class="k">FROM</span>
-	<span class="n">t_student</span> <span class="n">a</span><span class="p">,</span>
-	<span class="n">t_course</span> <span class="n">b</span><span class="p">,</span>
-	<span class="n">t_score</span> <span class="n">c</span><span class="p">,</span>
-	<span class="n">t_class</span> <span class="n">d</span> 
-<span class="k">WHERE</span>
-	<span class="n">a</span><span class="p">.</span><span class="n">sid</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">sid</span> 
-	<span class="k">AND</span> <span class="n">b</span><span class="p">.</span><span class="n">cid</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">cid</span> 
-	<span class="k">AND</span> <span class="n">a</span><span class="p">.</span><span class="n">classid</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">classid</span> 
-<span class="k">GROUP</span> <span class="k">BY</span>
-	<span class="n">a</span><span class="p">.</span><span class="n">sid</span> 
-<span class="k">HAVING</span>
-	<span class="p">(</span> <span class="nf">SUM</span><span class="p">(</span> <span class="n">c</span><span class="p">.</span><span class="n">score</span> <span class="p">)</span> <span class="o">&gt;</span> <span class="mi">180</span> <span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">SELECT</span><span class="w">
+</span><span class="w">	</span><span class="n">d</span><span class="p">.</span><span class="n">classid</span><span class="p">,</span><span class="w">
+</span><span class="w">	</span><span class="n">a</span><span class="p">.</span><span class="n">sid</span><span class="p">,</span><span class="w">
+</span><span class="w">	</span><span class="n">a</span><span class="p">.</span><span class="n">sname</span><span class="p">,</span><span class="w">
+</span><span class="w">	</span><span class="nf">SUM</span><span class="p">(</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">score</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">totalScore</span><span class="w"> 
+</span><span class="w"></span><span class="k">FROM</span><span class="w">
+</span><span class="w">	</span><span class="n">t_student</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w">
+</span><span class="w">	</span><span class="n">t_course</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w">
+</span><span class="w">	</span><span class="n">t_score</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w">
+</span><span class="w">	</span><span class="n">t_class</span><span class="w"> </span><span class="n">d</span><span class="w"> 
+</span><span class="w"></span><span class="k">WHERE</span><span class="w">
+</span><span class="w">	</span><span class="n">a</span><span class="p">.</span><span class="n">sid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">sid</span><span class="w"> 
+</span><span class="w">	</span><span class="k">AND</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">cid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">cid</span><span class="w"> 
+</span><span class="w">	</span><span class="k">AND</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">classid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">classid</span><span class="w"> 
+</span><span class="w"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w">
+</span><span class="w">	</span><span class="n">a</span><span class="p">.</span><span class="n">sid</span><span class="w"> 
+</span><span class="w"></span><span class="k">HAVING</span><span class="w">
+</span><span class="w">	</span><span class="p">(</span><span class="w"> </span><span class="nf">SUM</span><span class="p">(</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">score</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">180</span><span class="w"> </span><span class="p">)</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
 </div><p>查询结果：</p>
 <table>
@@ -513,7 +513,7 @@
 <p><strong>统计各个班总成绩在180分以上的学生的数量</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -538,30 +538,30 @@
 </span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">SELECT</span>
-	<span class="n">e</span><span class="p">.</span><span class="n">classid</span><span class="p">,</span>
-	<span class="nf">COUNT</span><span class="p">(</span> <span class="n">classid</span> <span class="p">)</span> <span class="n">stuNum</span> 
-<span class="k">FROM</span>
-	<span class="p">(</span>
-<span class="k">SELECT</span>
-	<span class="n">bj</span><span class="p">.</span><span class="n">classid</span><span class="p">,</span>
-	<span class="n">xs</span><span class="p">.</span><span class="n">sid</span><span class="p">,</span>
-	<span class="nf">SUM</span><span class="p">(</span> <span class="n">cj</span><span class="p">.</span><span class="n">score</span> <span class="p">)</span> <span class="n">totalScore</span> 
-<span class="k">FROM</span>
-	<span class="n">t_student</span> <span class="n">xs</span><span class="p">,</span>
-	<span class="n">t_course</span> <span class="n">kc</span><span class="p">,</span>
-	<span class="n">t_score</span> <span class="n">cj</span><span class="p">,</span>
-	<span class="n">t_class</span> <span class="n">bj</span> 
-<span class="k">WHERE</span>
-	<span class="n">xs</span><span class="p">.</span><span class="n">sid</span> <span class="o">=</span> <span class="n">cj</span><span class="p">.</span><span class="n">sid</span> 
-	<span class="k">AND</span> <span class="n">kc</span><span class="p">.</span><span class="n">cid</span> <span class="o">=</span> <span class="n">cj</span><span class="p">.</span><span class="n">cid</span> 
-	<span class="k">AND</span> <span class="n">xs</span><span class="p">.</span><span class="n">classid</span> <span class="o">=</span> <span class="n">bj</span><span class="p">.</span><span class="n">classid</span> 
-<span class="k">GROUP</span> <span class="k">BY</span>
-	<span class="n">xs</span><span class="p">.</span><span class="n">sid</span> 
-<span class="k">HAVING</span>
-	<span class="p">(</span> <span class="n">totalScore</span> <span class="o">&gt;</span> <span class="mi">180</span> <span class="p">)</span> 
-	<span class="p">)</span> <span class="n">e</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">SELECT</span><span class="w">
+</span><span class="w">	</span><span class="n">e</span><span class="p">.</span><span class="n">classid</span><span class="p">,</span><span class="w">
+</span><span class="w">	</span><span class="nf">COUNT</span><span class="p">(</span><span class="w"> </span><span class="n">classid</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">stuNum</span><span class="w"> 
+</span><span class="w"></span><span class="k">FROM</span><span class="w">
+</span><span class="w">	</span><span class="p">(</span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w">
+</span><span class="w">	</span><span class="n">bj</span><span class="p">.</span><span class="n">classid</span><span class="p">,</span><span class="w">
+</span><span class="w">	</span><span class="n">xs</span><span class="p">.</span><span class="n">sid</span><span class="p">,</span><span class="w">
+</span><span class="w">	</span><span class="nf">SUM</span><span class="p">(</span><span class="w"> </span><span class="n">cj</span><span class="p">.</span><span class="n">score</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">totalScore</span><span class="w"> 
+</span><span class="w"></span><span class="k">FROM</span><span class="w">
+</span><span class="w">	</span><span class="n">t_student</span><span class="w"> </span><span class="n">xs</span><span class="p">,</span><span class="w">
+</span><span class="w">	</span><span class="n">t_course</span><span class="w"> </span><span class="n">kc</span><span class="p">,</span><span class="w">
+</span><span class="w">	</span><span class="n">t_score</span><span class="w"> </span><span class="n">cj</span><span class="p">,</span><span class="w">
+</span><span class="w">	</span><span class="n">t_class</span><span class="w"> </span><span class="n">bj</span><span class="w"> 
+</span><span class="w"></span><span class="k">WHERE</span><span class="w">
+</span><span class="w">	</span><span class="n">xs</span><span class="p">.</span><span class="n">sid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cj</span><span class="p">.</span><span class="n">sid</span><span class="w"> 
+</span><span class="w">	</span><span class="k">AND</span><span class="w"> </span><span class="n">kc</span><span class="p">.</span><span class="n">cid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cj</span><span class="p">.</span><span class="n">cid</span><span class="w"> 
+</span><span class="w">	</span><span class="k">AND</span><span class="w"> </span><span class="n">xs</span><span class="p">.</span><span class="n">classid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bj</span><span class="p">.</span><span class="n">classid</span><span class="w"> 
+</span><span class="w"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w">
+</span><span class="w">	</span><span class="n">xs</span><span class="p">.</span><span class="n">sid</span><span class="w"> 
+</span><span class="w"></span><span class="k">HAVING</span><span class="w">
+</span><span class="w">	</span><span class="p">(</span><span class="w"> </span><span class="n">totalScore</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">180</span><span class="w"> </span><span class="p">)</span><span class="w"> 
+</span><span class="w">	</span><span class="p">)</span><span class="w"> </span><span class="n">e</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
 </div><table>
 <thead>
@@ -581,7 +581,7 @@
 <p><strong>统计各个班成绩最高的学生姓名，总成绩</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -608,32 +608,32 @@
 </span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">SELECT</span>
-	<span class="n">e</span><span class="p">.</span><span class="n">classid</span><span class="p">,</span>
-	<span class="n">stu</span><span class="p">.</span><span class="n">sname</span><span class="p">,</span>
-	<span class="nf">MAX</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">totalScore</span><span class="p">)</span> <span class="n">maxScore</span>
-<span class="k">FROM</span>
-	<span class="n">t_student</span> <span class="n">stu</span>
-	<span class="k">INNER</span> <span class="k">JOIN</span> <span class="p">(</span>
-<span class="k">SELECT</span>
-	<span class="n">bj</span><span class="p">.</span><span class="n">classid</span><span class="p">,</span>
-	<span class="n">xs</span><span class="p">.</span><span class="n">sid</span><span class="p">,</span>
-	<span class="nf">SUM</span><span class="p">(</span> <span class="n">cj</span><span class="p">.</span><span class="n">score</span> <span class="p">)</span> <span class="n">totalScore</span> 
-<span class="k">FROM</span>
-	<span class="n">t_student</span> <span class="n">xs</span><span class="p">,</span>
-	<span class="n">t_course</span> <span class="n">kc</span><span class="p">,</span>
-	<span class="n">t_score</span> <span class="n">cj</span><span class="p">,</span>
-	<span class="n">t_class</span> <span class="n">bj</span> 
-<span class="k">WHERE</span>
-	<span class="n">xs</span><span class="p">.</span><span class="n">sid</span> <span class="o">=</span> <span class="n">cj</span><span class="p">.</span><span class="n">sid</span> 
-	<span class="k">AND</span> <span class="n">kc</span><span class="p">.</span><span class="n">cid</span> <span class="o">=</span> <span class="n">cj</span><span class="p">.</span><span class="n">cid</span> 
-	<span class="k">AND</span> <span class="n">xs</span><span class="p">.</span><span class="n">classid</span> <span class="o">=</span> <span class="n">bj</span><span class="p">.</span><span class="n">classid</span> 
-<span class="k">GROUP</span> <span class="k">BY</span>
-	<span class="n">xs</span><span class="p">.</span><span class="n">sid</span> 
-	<span class="p">)</span> <span class="n">e</span> <span class="k">ON</span> <span class="n">stu</span><span class="p">.</span><span class="n">sid</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="n">sid</span>
-<span class="k">GROUP</span> <span class="k">BY</span>
-	<span class="n">classid</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">SELECT</span><span class="w">
+</span><span class="w">	</span><span class="n">e</span><span class="p">.</span><span class="n">classid</span><span class="p">,</span><span class="w">
+</span><span class="w">	</span><span class="n">stu</span><span class="p">.</span><span class="n">sname</span><span class="p">,</span><span class="w">
+</span><span class="w">	</span><span class="nf">MAX</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">totalScore</span><span class="p">)</span><span class="w"> </span><span class="n">maxScore</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w">
+</span><span class="w">	</span><span class="n">t_student</span><span class="w"> </span><span class="n">stu</span><span class="w">
+</span><span class="w">	</span><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span><span class="w"></span><span class="k">SELECT</span><span class="w">
+</span><span class="w">	</span><span class="n">bj</span><span class="p">.</span><span class="n">classid</span><span class="p">,</span><span class="w">
+</span><span class="w">	</span><span class="n">xs</span><span class="p">.</span><span class="n">sid</span><span class="p">,</span><span class="w">
+</span><span class="w">	</span><span class="nf">SUM</span><span class="p">(</span><span class="w"> </span><span class="n">cj</span><span class="p">.</span><span class="n">score</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">totalScore</span><span class="w"> 
+</span><span class="w"></span><span class="k">FROM</span><span class="w">
+</span><span class="w">	</span><span class="n">t_student</span><span class="w"> </span><span class="n">xs</span><span class="p">,</span><span class="w">
+</span><span class="w">	</span><span class="n">t_course</span><span class="w"> </span><span class="n">kc</span><span class="p">,</span><span class="w">
+</span><span class="w">	</span><span class="n">t_score</span><span class="w"> </span><span class="n">cj</span><span class="p">,</span><span class="w">
+</span><span class="w">	</span><span class="n">t_class</span><span class="w"> </span><span class="n">bj</span><span class="w"> 
+</span><span class="w"></span><span class="k">WHERE</span><span class="w">
+</span><span class="w">	</span><span class="n">xs</span><span class="p">.</span><span class="n">sid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cj</span><span class="p">.</span><span class="n">sid</span><span class="w"> 
+</span><span class="w">	</span><span class="k">AND</span><span class="w"> </span><span class="n">kc</span><span class="p">.</span><span class="n">cid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cj</span><span class="p">.</span><span class="n">cid</span><span class="w"> 
+</span><span class="w">	</span><span class="k">AND</span><span class="w"> </span><span class="n">xs</span><span class="p">.</span><span class="n">classid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bj</span><span class="p">.</span><span class="n">classid</span><span class="w"> 
+</span><span class="w"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w">
+</span><span class="w">	</span><span class="n">xs</span><span class="p">.</span><span class="n">sid</span><span class="w"> 
+</span><span class="w">	</span><span class="p">)</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">stu</span><span class="p">.</span><span class="n">sid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">sid</span><span class="w">
+</span><span class="w"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w">
+</span><span class="w">	</span><span class="n">classid</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
 </div><table>
 <thead>
@@ -668,15 +668,15 @@
 <p>重启mysql服务</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="n">net</span> <span class="n">stop</span> <span class="n">mysql</span>
-   
-<span class="n">net</span> <span class="n">start</span> <span class="n">mysql</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="n">net</span><span class="w"> </span><span class="n">stop</span><span class="w"> </span><span class="n">mysql</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="n">net</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">mysql</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ol></div><div class="post-footer" id="post-footer">
@@ -712,7 +712,7 @@
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.82.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
         </div>

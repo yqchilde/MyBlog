@@ -9,8 +9,8 @@
 <meta property="og:description" content="记录一下MySQL在做插入操作时怎么去指定条件" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yqqy.top/mysql-insert-how-where/" /><meta property="og:image" content="https://yqqy.top"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2019-10-26T14:25:53&#43;00:00" />
-<meta property="article:modified_time" content="2020-09-09T22:20:14&#43;08:00" />
+<meta property="article:published_time" content="2019-10-26T14:25:53+00:00" />
+<meta property="article:modified_time" content="2020-09-09T22:20:14+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://yqqy.top"/>
@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/yqqy.top\/mysql-insert-how-where\/"
-        },"genre": "posts","keywords": "MySQL","wordcount":  412 ,
+        },"genre": "posts","keywords": "MySQL","wordcount":  456 ,
         "url": "https:\/\/yqqy.top\/mysql-insert-how-where\/","datePublished": "2019-10-26T14:25:53+00:00","dateModified": "2020-09-09T22:20:14+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Yqchilde"},"author": {
@@ -104,7 +104,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">MySQL中insert数据时怎么用where条件</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/mysql/"><i class="far fa-folder fa-fw"></i>MySQL</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2019-10-26">2019-10-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 412 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2019-10-26">2019-10-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 456 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/mysql-insert-how-where/" class="leancloud_visitors" data-flag-title="MySQL中insert数据时怎么用where条件">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -128,15 +128,15 @@
 <p>简单点得一句sql语句，如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">INSERT</span> <span class="k">INTO</span> <span class="err">表名</span><span class="p">(</span><span class="err">字段一</span><span class="p">,</span><span class="err">字段二</span><span class="p">)</span> 
-	<span class="k">SELECT</span> <span class="s1">&#39;字段值&#39;</span><span class="p">,</span><span class="s1">&#39;字段值&#39;</span> <span class="k">FROM</span> <span class="n">DUAL</span> 
-	<span class="k">WHERE</span> <span class="k">NOT</span> <span class="k">EXISTS</span><span class="p">(</span><span class="k">SELECT</span> <span class="err">数据</span> <span class="k">FROM</span> <span class="err">表名</span> <span class="k">WHERE</span> <span class="err">条件</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="err">表名</span><span class="p">(</span><span class="err">字段一</span><span class="p">,</span><span class="err">字段二</span><span class="p">)</span><span class="w"> 
+</span><span class="w">	</span><span class="k">SELECT</span><span class="w"> </span><span class="s1">&#39;字段值&#39;</span><span class="p">,</span><span class="s1">&#39;字段值&#39;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">DUAL</span><span class="w"> 
+</span><span class="w">	</span><span class="k">WHERE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="err">数据</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="err">条件</span><span class="p">)</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
 </div><p>例如 ： <code>insert into tb(name,age) select 'fox',20 from DUAL where not EXISTS(select name from tb where name='fox')</code></p>
 <blockquote>
@@ -146,7 +146,7 @@
 <p>现在在用Golang写web业务，补充一下之前的例子吧</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -164,7 +164,7 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// UserAdd 添加用户
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// UserAdd 添加用户
 </span><span class="c1"></span><span class="kd">func</span> <span class="nf">UserAdd</span><span class="p">(</span><span class="nx">mod</span> <span class="o">*</span><span class="nx">User</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
 	<span class="nx">tx</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">Db</span><span class="p">.</span><span class="nf">Begin</span><span class="p">()</span>
 	<span class="nx">result</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">tx</span><span class="p">.</span><span class="nf">Exec</span><span class="p">(</span><span class="s">&#34;insert into user(num,name,pass,phone,email,ctime) SELECT ?,?,?,?,?,? from DUAL where ? NOT IN ( SELECT `num` FROM USER )&#34;</span><span class="p">,</span> <span class="nx">mod</span><span class="p">.</span><span class="nx">Num</span><span class="p">,</span> <span class="nx">mod</span><span class="p">.</span><span class="nx">Name</span><span class="p">,</span> <span class="nx">mod</span><span class="p">.</span><span class="nx">Pass</span><span class="p">,</span> <span class="nx">mod</span><span class="p">.</span><span class="nx">Phone</span><span class="p">,</span> <span class="nx">mod</span><span class="p">.</span><span class="nx">Email</span><span class="p">,</span> <span class="nx">mod</span><span class="p">.</span><span class="nx">Ctime</span><span class="p">,</span> <span class="nx">mod</span><span class="p">.</span><span class="nx">Num</span><span class="p">)</span>
@@ -215,7 +215,7 @@
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.82.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
         </div>

@@ -9,8 +9,8 @@
 <meta property="og:description" content="在Ubuntu系统中安装了MySQL之后,不知道密码是什么无法登录，本文记录解决方案。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yqqy.top/ubuntu-mysql-lost-passowrd/" /><meta property="og:image" content="https://yqqy.top"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-11-10T23:39:25&#43;08:00" />
-<meta property="article:modified_time" content="2020-11-11T08:23:22&#43;08:00" />
+<meta property="article:published_time" content="2020-11-10T23:39:25+08:00" />
+<meta property="article:modified_time" content="2020-11-11T08:23:22+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://yqqy.top"/>
@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/yqqy.top\/ubuntu-mysql-lost-passowrd\/"
-        },"genre": "posts","keywords": "MySQL","wordcount":  467 ,
+        },"genre": "posts","keywords": "MySQL","wordcount":  604 ,
         "url": "https:\/\/yqqy.top\/ubuntu-mysql-lost-passowrd\/","datePublished": "2020-11-10T23:39:25+08:00","dateModified": "2020-11-11T08:23:22+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Yqchilde"},"author": {
@@ -101,8 +101,8 @@
 <main class="main">
                 <div class="container"><article class="page single"><h1 class="single-title animated flipInX">Ubuntu安装MySQL后没有初始密码之解决方案</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/mysql/"><i class="far fa-folder fa-fw"></i>MySQL</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-11-10">2020-11-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 467 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/ubuntu-mysql-lost-passowrd/" class="leancloud_visitors" data-flag-title="Ubuntu安装MySQL后没有初始密码之解决方案">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-11-10">2020-11-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 604 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/ubuntu-mysql-lost-passowrd/" class="leancloud_visitors" data-flag-title="Ubuntu安装MySQL后没有初始密码之解决方案">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="content" id="content"><p>​</p>
@@ -139,7 +139,7 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -155,21 +155,21 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="mi">1</span><span class="p">.</span> <span class="err">选择</span><span class="n">mysql库</span>
-<span class="k">use</span> <span class="n">mysql</span>
-
-<span class="mi">2</span><span class="p">.</span> <span class="err">更新密码</span>
-<span class="k">update</span> <span class="n">mysql</span><span class="p">.</span><span class="k">user</span> <span class="kt">set</span> <span class="n">authentication_string</span><span class="o">=</span><span class="nf">password</span><span class="p">(</span><span class="s1">&#39;这里设置新密码&#39;</span><span class="p">)</span> <span class="k">where</span> <span class="k">user</span><span class="o">=</span><span class="s1">&#39;root&#39;</span> <span class="k">and</span> <span class="n">Host</span> <span class="o">=</span><span class="s1">&#39;localhost&#39;</span><span class="p">;</span> 
-
-<span class="mi">3</span><span class="p">.</span> <span class="err">更新</span><span class="n">plugin</span>
-<span class="k">update</span> <span class="k">user</span> <span class="kt">set</span> <span class="n">plugin</span><span class="o">=</span><span class="s2">&#34;mysql_native_password&#34;</span><span class="p">;</span>
-
-<span class="mi">4</span><span class="p">.</span> <span class="err">刷新</span>
-<span class="k">flush</span> <span class="k">privileges</span><span class="p">;</span>
-
-<span class="mi">5</span><span class="p">.</span> <span class="err">退出</span>
-<span class="n">quit</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="err">选择</span><span class="n">mysql库</span><span class="w">
+</span><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">mysql</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="err">更新密码</span><span class="w">
+</span><span class="w"></span><span class="k">update</span><span class="w"> </span><span class="n">mysql</span><span class="p">.</span><span class="k">user</span><span class="w"> </span><span class="kt">set</span><span class="w"> </span><span class="n">authentication_string</span><span class="o">=</span><span class="nf">password</span><span class="p">(</span><span class="s1">&#39;这里设置新密码&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="k">user</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">Host</span><span class="w"> </span><span class="o">=</span><span class="s1">&#39;localhost&#39;</span><span class="p">;</span><span class="w"> 
+</span><span class="w">
+</span><span class="w"></span><span class="mi">3</span><span class="p">.</span><span class="w"> </span><span class="err">更新</span><span class="n">plugin</span><span class="w">
+</span><span class="w"></span><span class="k">update</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="kt">set</span><span class="w"> </span><span class="n">plugin</span><span class="o">=</span><span class="s2">&#34;mysql_native_password&#34;</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="mi">4</span><span class="p">.</span><span class="w"> </span><span class="err">刷新</span><span class="w">
+</span><span class="w"></span><span class="k">flush</span><span class="w"> </span><span class="k">privileges</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="mi">5</span><span class="p">.</span><span class="w"> </span><span class="err">退出</span><span class="w">
+</span><span class="w"></span><span class="n">quit</span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
 </div><p>​		操作如图所示：</p>
 <p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20201111080455.png?imageMogr2/format/webp/interlace/1" title="image-20201111080453889" data-thumbnail="https://pic.yqqy.top/blog/20201111080455.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>修改密码</h2><p>image-20201111080453889</p>">
@@ -187,11 +187,11 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="n">sudo</span> <span class="n">service</span> <span class="n">mysql</span> <span class="n">restart</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="n">sudo</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">mysql</span><span class="w"> </span><span class="n">restart</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
 </div><p>以上就是全部，再次登录使用root和设置的密码就可以登录</p>
 <p>本文参考文章<a href="https://www.cnblogs.com/williamjie/p/11126486.html" target="_blank" rel="noopener noreffer">CNBLOGS</a></p></div><div class="post-footer" id="post-footer">
@@ -227,7 +227,7 @@
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.82.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
         </div>

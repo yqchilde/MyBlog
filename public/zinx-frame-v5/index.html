@@ -9,8 +9,8 @@
 <meta property="og:description" content="Zinx是一个轻量级TCP服务框架，会跟着课程开始做一些笔记，消息封装模块是将消息细化，以达到将消息表达具体化的目的。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yqqy.top/zinx-frame-v5/" /><meta property="og:image" content="https://yqqy.top"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-01-02T23:21:30&#43;08:00" />
-<meta property="article:modified_time" content="2021-01-02T23:39:20&#43;08:00" />
+<meta property="article:published_time" content="2021-01-02T23:21:30+08:00" />
+<meta property="article:modified_time" content="2021-01-02T23:39:20+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://yqqy.top"/>
@@ -140,7 +140,7 @@
 创建 <code>ziface/imessage.go</code> ，代码如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -157,7 +157,7 @@
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// IMessage 将去请求的消息封装起来
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// IMessage 将去请求的消息封装起来
 </span><span class="c1"></span><span class="kd">type</span> <span class="nx">IMessage</span> <span class="kd">interface</span> <span class="p">{</span>
 	<span class="c1">// 获取消息数据段长度
 </span><span class="c1"></span>	<span class="nf">GetDataLen</span><span class="p">()</span> <span class="kt">uint32</span>
@@ -178,7 +178,7 @@
 <p>这一块没有太多难度，直接贴代码了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -228,7 +228,7 @@
 </span><span class="lnt">48
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// Message 包含消息的属性
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// Message 包含消息的属性
 </span><span class="c1"></span><span class="kd">type</span> <span class="nx">Message</span> <span class="kd">struct</span> <span class="p">{</span>
 	<span class="c1">// 消息ID
 </span><span class="c1"></span>	<span class="nx">ID</span> <span class="kt">uint32</span>
@@ -290,7 +290,7 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -300,7 +300,7 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">IDataPack</span> <span class="kd">interface</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">IDataPack</span> <span class="kd">interface</span> <span class="p">{</span>
 	<span class="c1">// 头部长度
 </span><span class="c1"></span>	<span class="nf">GetHeadLen</span><span class="p">()</span> <span class="kt">uint32</span>
 	<span class="c1">// 封包方法
@@ -313,7 +313,7 @@
 </div><p>创建 <code>zinx/znet/datapack.go</code> 文件，实现<strong>IDataPack</strong>中的全部方法：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -373,7 +373,7 @@
 </span><span class="lnt">58
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// DataPack 封包拆包类对象
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// DataPack 封包拆包类对象
 </span><span class="c1"></span><span class="kd">type</span> <span class="nx">DataPack</span> <span class="kd">struct</span><span class="p">{}</span>
 
 <span class="c1">// NewDataPack 封包拆包实例初始化方法
@@ -437,7 +437,7 @@
 <p>构建单元测试 <code>zinx/znet/datapack_test.go</code> 文件，代码如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -524,7 +524,7 @@
 </span><span class="lnt">85
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">TestDataPack</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">TestDataPack</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
 	<span class="c1">// 模拟Server端
 </span><span class="c1"></span>	<span class="c1">// 1. 创建 socketTCP
 </span><span class="c1"></span>	<span class="nx">listener</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">Listen</span><span class="p">(</span><span class="s">&#34;tcp&#34;</span><span class="p">,</span> <span class="s">&#34;127.0.0.1:7777&#34;</span><span class="p">)</span>
@@ -654,7 +654,7 @@
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.82.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
         </div>

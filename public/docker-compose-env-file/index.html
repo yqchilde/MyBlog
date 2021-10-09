@@ -9,8 +9,8 @@
 <meta property="og:description" content="记录在docker-compose中对环境变量抽离，使用env文件嵌套变量使用的方法。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yqqy.top/docker-compose-env-file/" /><meta property="og:image" content="https://yqqy.top"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-03-13T12:49:58&#43;08:00" />
-<meta property="article:modified_time" content="2021-03-13T16:33:20&#43;08:00" />
+<meta property="article:published_time" content="2021-03-13T12:49:58+08:00" />
+<meta property="article:modified_time" content="2021-03-13T16:33:20+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://yqqy.top"/>
@@ -127,7 +127,7 @@
 <p>如果要使用env_file配置，这时候，是会把所有的变量都带入进来的，我不需要那么多变量，举个🌰</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -142,7 +142,7 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-txt" data-lang="txt"># 京东农场
+<pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"># 京东农场
 FRUIT1=0f6f68f0d58d43a98d2f578a7e1a0215
 FRUIT2=8e2785b15cef4f03a714f4288a496dec
 FRUIT3=c8f3876f3ea24dedbb174868ad53e4d2
@@ -160,7 +160,7 @@ FRUIT_SHARECODE5=${FRUIT1}@${FRUIT2}@${FRUIT3}@${FRUIT4}
 </div><p><code>.env</code>文件中有这么一段内容，其中 <code>FRUIT1-5</code> 和 <code>FRUIT_SHARECODE1-5</code>全是变量，但是很显然我只要想 <code>FRUIT_SHARECODE1-5</code>的变量，不想要上面的，可以说是我需要按需引入变量，如果直接用如下这种配置，就会将所有的变量全部引入</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -169,7 +169,7 @@ FRUIT_SHARECODE5=${FRUIT1}@${FRUIT2}@${FRUIT3}@${FRUIT4}
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat docker-compose.yml
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ cat docker-compose.yml
 version: <span class="s1">&#39;3&#39;</span>
 services:
   api:
@@ -203,14 +203,14 @@ services:
 <p>顺便提一下更新 <code>docker-compose</code>版本步骤</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ whereis docker-compose
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ whereis docker-compose
 docker-compose: /usr/local/bin/docker-compose
 
 <span class="c1"># 记得后面保存的位置是原来的位置</span>
@@ -262,7 +262,7 @@ $ curl -L https://github.com/docker/compose/releases/download/1.27.4/docker-comp
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.82.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
         </div>

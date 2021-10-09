@@ -4,9 +4,16 @@
         <link>https://yqqy.top/</link>
         <description>一名Gopher,热爱技术,中度强迫症,熬夜达人</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 21 Apr 2021 22:44:20 &#43;0800</lastBuildDate>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 09 Oct 2021 08:02:40 &#43;0800</lastBuildDate>
             <atom:link href="https://yqqy.top/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>MacOS-如何删除Free Space，使得APFS容器将Free Space占用</title>
+    <link>https://yqqy.top/macos-remove-freespace/</link>
+    <pubDate>Sat, 09 Oct 2021 08:02:40 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yqqy.top/macos-remove-freespace/</guid>
+    <description><![CDATA[description]]></description>
+</item><item>
     <title>Golang交叉编译Makefile，通过Github release版本检测覆盖更新</title>
     <link>https://yqqy.top/golang-makefile-and-additional/</link>
     <pubDate>Wed, 21 Apr 2021 22:44:20 &#43;0800</pubDate>
@@ -69,12 +76,5 @@
     <author>作者</author>
     <guid>https://yqqy.top/2020-harvest-summary/</guid>
     <description><![CDATA[2020结束啦，第一次正式总结，祝大家新年快乐！]]></description>
-</item><item>
-    <title>Zinx学习之Router模块</title>
-    <link>https://yqqy.top/zinx-frame-v3/</link>
-    <pubDate>Sun, 27 Dec 2020 21:00:29 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/zinx-frame-v3/</guid>
-    <description><![CDATA[Zinx是一个轻量级TCP服务框架，会跟着课程开始做一些笔记，Router模块主要封装了Request接口和Router接口，用于实现通过路由请求数据，并且通过路由调用链接功能，v3是单路由模式。]]></description>
 </item></channel>
 </rss>
