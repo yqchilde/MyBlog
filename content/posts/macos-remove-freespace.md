@@ -5,7 +5,7 @@ date: 2021-10-09T08:02:40+08:00
 lastmod: 2021-10-09T08:02:40+08:00
 author: ""
 authorLink: ""
-description: "description"
+description: "本文记载如果将一个APFS容器删除，并将与其剩余空间合并。"
 
 tags: ["MacOS"]
 categories: ["MacOS"]
