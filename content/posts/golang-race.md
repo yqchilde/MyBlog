@@ -2,7 +2,7 @@
 title: "Golang中的Race检测"
 subtitle: ""
 date: 2021-01-11T23:43:21+08:00
-lastmod: 2021-01-11T23:43:21+08:00
+lastmod: 2021-10-27T16:12:59+08:00
 author: ""
 authorLink: ""
 description: "很多时候，当我们写出一个程序时，我们并不知道这个程序在并发情况下会不会出现什么问题。所以在本质上说，goroutine的使用增加了函数的危险系数。比如一个全局变量，如果没有加上锁，我们写一个比较庞大的项目下来，根本不知道这个变量是不是会引起多个goroutine竞争，race参数就是提前帮我们检查是否存在竞争。"
@@ -115,6 +115,71 @@ exit status 66
 
 &emsp;&emsp;当然这个参数会引发CPU和内存的使用增加，所以基本是在测试环境使用，不是在正式环境开启。
 
+## 解决方案
+
+1. 利用atomic包来原子操作
+
+```go
+package main
+
+import (
+  "fmt"
+  "sync/atomic"
+  "time"
+)
+
+var value atomic.Value
+
+func main() {
+  a := 1
+  value.Store(a)
+  go func() {
+    a := value.Load().(int)
+    a = 2
+    value.Store(a)
+  }()
+  a = value.Load().(int)
+  a = 3
+  value.Store(a)
+  fmt.Println("a is ", a)
+
+  time.Sleep(2 * time.Second)
+}
+```
+
+2. 利用Mutex锁
+
+```go
+package main
+
+import (
+	"fmt"
+	"sync"
+	"time"
+)
+
+var mu sync.Mutex
+
+func main() {
+	a := 1
+	go func() {
+		mu.Lock()
+		a = 2
+		mu.Unlock()
+
+	}()
+	mu.Lock()
+	a = 3
+	fmt.Println("a is ", a)
+	mu.Unlock()
+
+	time.Sleep(2 * time.Second)
+}
+```
+
+
 ## 参考资料
 
-[叶剑峰的博客园](https://www.cnblogs.com/yjf512/p/5144211.html)
+* [golang中的race检测](https://www.cnblogs.com/yjf512/p/5144211.html)
+
+* [谈谈 Golang 中的 Data Race](https://ms2008.github.io/2019/05/12/golang-data-race/)

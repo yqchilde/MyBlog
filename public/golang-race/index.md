@@ -92,6 +92,71 @@ exit status 66
 
 &emsp;&emsp;当然这个参数会引发CPU和内存的使用增加，所以基本是在测试环境使用，不是在正式环境开启。
 
+## 解决方案
+
+1. 利用atomic包来原子操作
+
+```go
+package main
+
+import (
+  "fmt"
+  "sync/atomic"
+  "time"
+)
+
+var value atomic.Value
+
+func main() {
+  a := 1
+  value.Store(a)
+  go func() {
+    a := value.Load().(int)
+    a = 2
+    value.Store(a)
+  }()
+  a = value.Load().(int)
+  a = 3
+  value.Store(a)
+  fmt.Println("a is ", a)
+
+  time.Sleep(2 * time.Second)
+}
+```
+
+2. 利用Mutex锁
+
+```go
+package main
+
+import (
+	"fmt"
+	"sync"
+	"time"
+)
+
+var mu sync.Mutex
+
+func main() {
+	a := 1
+	go func() {
+		mu.Lock()
+		a = 2
+		mu.Unlock()
+
+	}()
+	mu.Lock()
+	a = 3
+	fmt.Println("a is ", a)
+	mu.Unlock()
+
+	time.Sleep(2 * time.Second)
+}
+```
+
+
 ## 参考资料
 
-[叶剑峰的博客园](https://www.cnblogs.com/yjf512/p/5144211.html)
+* [golang中的race检测](https://www.cnblogs.com/yjf512/p/5144211.html)
+
+* [谈谈 Golang 中的 Data Race](https://ms2008.github.io/2019/05/12/golang-data-race/)
