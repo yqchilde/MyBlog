@@ -119,6 +119,7 @@
 
     p {
       margin: .5rem 0;
+      letter-spacing: 1px;
     }
 
     b, strong {
@@ -150,6 +151,10 @@
 
     ul {
       list-style-type: disc;
+    }
+
+    li {
+      margin-bottom: 10px;
     }
 
     ruby {
