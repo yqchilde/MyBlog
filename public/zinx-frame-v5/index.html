@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/yqqy.top\/zinx-frame-v5\/"
-        },"genre": "posts","keywords": "Golang, Zinx","wordcount":  1607 ,
+        },"genre": "posts","keywords": "Golang, Zinx","wordcount":  1627 ,
         "url": "https:\/\/yqqy.top\/zinx-frame-v5\/","datePublished": "2021-01-02T23:21:30+08:00","dateModified": "2021-01-02T23:39:20+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Yqchilde"},"author": {
@@ -104,7 +104,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Zinx学习之消息封装模块</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/golang/"><i class="far fa-folder fa-fw"></i>Golang</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-01-02">2021-01-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1607 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-01-02">2021-01-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1627 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/zinx-frame-v5/" class="leancloud_visitors" data-flag-title="Zinx学习之消息封装模块">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -279,9 +279,9 @@
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="消息的封包与拆包">消息的封包与拆包</h3>
-<p>  Zinx框架使用经典的 <strong>TLV(Type-Len-Value)</strong> 封包格式来解决TCP黏包问题。</p>
-<p>  <strong>TLV</strong> 即在head部分先存放数据长度，再存放数据ID，body部分存数据。这样在读消息时，先去head部分把数据长度读到，然后再把该数据向后偏移该数据长度就是整个数据，每个数据又用数据ID来区分。</p>
-<p>  <strong>关于TCP黏包</strong> 这里简单查了下资料，便于理解：当客户端调用两次send，服务端一次recv就全部读取出来，我们是希望怎么传就怎么读，保证数据的完整性。现象是这个样子，但是TCP本来就是基于字节流而不是消息包的协议，它自己说的清清楚楚：我会把你的数据变成字节流发到对面去，而且保证顺序不会乱，但是你要自己搞定字节流解析。<strong>所以这个问题其实就是“如何设计应用层协议的问题”。</strong></p>
+<p>&emsp;&emsp;Zinx框架使用经典的 <strong>TLV(Type-Len-Value)</strong> 封包格式来解决TCP黏包问题。</p>
+<p>&emsp;&emsp;<strong>TLV</strong> 即在head部分先存放数据长度，再存放数据ID，body部分存数据。这样在读消息时，先去head部分把数据长度读到，然后再把该数据向后偏移该数据长度就是整个数据，每个数据又用数据ID来区分。</p>
+<p>&emsp;&emsp;<strong>关于TCP黏包</strong> 这里简单查了下资料，便于理解：当客户端调用两次send，服务端一次recv就全部读取出来，我们是希望怎么传就怎么读，保证数据的完整性。现象是这个样子，但是TCP本来就是基于字节流而不是消息包的协议，它自己说的清清楚楚：我会把你的数据变成字节流发到对面去，而且保证顺序不会乱，但是你要自己搞定字节流解析。<strong>所以这个问题其实就是“如何设计应用层协议的问题”。</strong></p>
 <p>创建 <code>zinx/ziface/idatapack.go</code> 文件，构造如下方法：</p>
 <ul>
 <li>封包数据</li>
