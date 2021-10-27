@@ -7,11 +7,13 @@
 
 职业：Gopher🐒。
 
+擅长语言：Golang、Python、Javascript
+
 描述：中度强迫症，重度急性子
 
 常用昵称：Yqchilde
 
-Gayhub：[https://github.com/yqchilde](https://github.com/yqchilde)
+Github：[https://github.com/yqchilde](https://github.com/yqchilde)
 
 ### Hey
 
@@ -25,13 +27,14 @@ func main() {
 
 ---
 
-### 有趣的工具
+### 开源项目
 
-CheckInAssistant：[[https://github.com/yqchilde/CheckInAssistant](https://github.com/yqchilde/CheckInAssistant)]^(🤡是我参加山东省大学生软件设计大赛一等奖作品，也是我毕设答辩优秀作品)
-
-短链生成(t.cn)：(放弃维护)
-
-科学上✈：(放弃维护)
+|       项目名称       |                           项目地址                           |
+| :------------------: | :----------------------------------------------------------: |
+|   CheckInAssistant   | [[https://github.com/yqchilde/CheckInAssistant](https://github.com/yqchilde/CheckInAssistant)]^(🤡是我参加山东省大学生软件设计大赛一等奖作品，也是我毕设答辩优秀作品) |
+| JDMemberCloseAccount | [[https://github.com/yqchilde/JDMemberCloseAccount](https://github.com/yqchilde/JDMemberCloseAccount)]^(Python+Selenium实现的一种京东全自动退会方案) |
+|   Golang-Interview   | [[https://github.com/yqchilde/Golang-Interview](https://github.com/yqchilde/Golang-Interview)]^(收集的一些Golang笔试题) |
+|       Rebirth        | [[https://github.com/yqchilde/rebirth](https://github.com/yqchilde/rebirth)]^(一款简约优雅响应式WordPress主题) |
 
 ### 感谢
 

@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Javascript - 标签 - Yq&#39;s Blog</title>
+        <title>Javascript - 标签 - Yqchilde</title>
         <link>https://yqqy.top/tags/javascript/</link>
-        <description>Javascript - 标签 - Yq&#39;s Blog</description>
+        <description>Javascript - 标签 - Yqchilde</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
             <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 20 Sep 2019 10:48:27 &#43;0000</lastBuildDate><atom:link href="https://yqqy.top/tags/javascript/" rel="self" type="application/rss+xml" /><item>
     <title>利用脚本软件“一触即发”写一个自动收取，偷取支付宝能量脚本</title>

@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>data structure - 标签 - Yq&#39;s Blog</title>
+        <title>data structure - 标签 - Yqchilde</title>
         <link>https://yqqy.top/tags/data-structure/</link>
-        <description>data structure - 标签 - Yq&#39;s Blog</description>
+        <description>data structure - 标签 - Yqchilde</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
             <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 31 Mar 2020 15:53:11 &#43;0000</lastBuildDate><atom:link href="https://yqqy.top/tags/data-structure/" rel="self" type="application/rss+xml" /><item>
     <title>Golang数据结构</title>

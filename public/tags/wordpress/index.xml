@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>WordPress - 标签 - Yq&#39;s Blog</title>
+        <title>WordPress - 标签 - Yqchilde</title>
         <link>https://yqqy.top/tags/wordpress/</link>
-        <description>WordPress - 标签 - Yq&#39;s Blog</description>
+        <description>WordPress - 标签 - Yqchilde</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
             <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 08 Mar 2020 11:15:56 &#43;0000</lastBuildDate><atom:link href="https://yqqy.top/tags/wordpress/" rel="self" type="application/rss+xml" /><item>
     <title>正确配置rocket-nginx，加速你的wordpress</title>

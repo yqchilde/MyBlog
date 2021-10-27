@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>ThinkPHP - 标签 - Yq&#39;s Blog</title>
+        <title>ThinkPHP - 标签 - Yqchilde</title>
         <link>https://yqqy.top/tags/thinkphp/</link>
-        <description>ThinkPHP - 标签 - Yq&#39;s Blog</description>
+        <description>ThinkPHP - 标签 - Yqchilde</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
             <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 23 Apr 2019 14:13:16 &#43;0000</lastBuildDate><atom:link href="https://yqqy.top/tags/thinkphp/" rel="self" type="application/rss+xml" /><item>
     <title>解决PHP5.6版本“No input file specified”</title>

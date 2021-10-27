@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>MySQL - 分类 - Yq&#39;s Blog</title>
+        <title>MySQL - 分类 - Yqchilde</title>
         <link>https://yqqy.top/categories/mysql/</link>
-        <description>MySQL - 分类 - Yq&#39;s Blog</description>
+        <description>MySQL - 分类 - Yqchilde</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
             <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 10 Nov 2020 23:39:25 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/categories/mysql/" rel="self" type="application/rss+xml" /><item>
     <title>Ubuntu安装MySQL后没有初始密码之解决方案</title>
