@@ -27,29 +27,31 @@ license: ""
 
 ## 了解
 
-在使用 `GitHub Actions` 前先要了解什么是GitHub Actions
+{{indent}}在使用 `GitHub Actions` 前先要了解什么是GitHub Actions
 
-推荐看阮一峰老师的文章：[GitHub Actions入门教程](http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html)
+{{indent}}推荐看阮一峰老师的文章：[GitHub Actions入门教程](http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html)
 
 ## 熟悉流程
 
 1. 首先我们在github创建自己的私有仓库，用来推Hugo生成的 `public` 文件夹
+
 2. 利用 `GitHub Actions` 远程连接 `SSH`,执行删除服务器的绑定的web目录（即运行目录）
+
 3. 利用 `GitHub Actions` SCP服务推送Github仓库下的 `public` 到远端服务器的web目录
 
 ## 创建Actions
 
-前面我们已经提到先将Hugo生成的public文件夹整体推到了Github，接下来就是创建 `GitHub Actions`
+{{indent}}前面我们已经提到先将Hugo生成的public文件夹整体推到了Github，接下来就是创建 `GitHub Actions`
 
 ![img](https://pic.yqqy.top/blog/1.png?imageMogr2/format/webp/interlace/1 "创建Actions")
 
 ## 配置文件
 
-连接SSH的选择一个Star比较多的，如下图
+{{indent}}连接SSH的选择一个Star比较多的，如下图
 
 ![img](https://pic.yqqy.top/blog/2.png?imageMogr2/format/webp/interlace/1 "选择市场插件")
 
-这边我贴一下我配置好的
+{{indent}}这边我贴一下我配置好的：
 
 ```yml
 # This is a basic workflow to help you get started with Actions
@@ -116,15 +118,13 @@ rm -rf 远端目录
 fi
 ```
 
-
-
 ### secrets添加
 
 ![img](https://pic.yqqy.top/blog/20200830204924.png?imageMogr2/format/webp/interlace/1 "secrets添加位置")
 
 ## 推送
 
-点击右上角保存即可，这样每次只需要在本地将文章推到GitHub就可以自动部署到服务器了。
+{{indent}}点击右上角保存即可，这样每次只需要在本地将文章推到GitHub就可以自动部署到服务器了。
 
 ![img](https://pic.yqqy.top/blog/20200830205650.png?imageMogr2/format/webp/interlace/1 "运行日志")
 
@@ -132,11 +132,11 @@ fi
 
 > 2020/09/01 补充 Algolia搜索的自动同步
 
-本站搜索用的是`Algolia`搜索，由于每次需要手动将Hugo生成的要搜索的json数据手动同步到 `Algolia`比较麻烦，所以研究了下继续使用 `GitHub Actions`，这样在上面一系列操作后面添加即可。
+{{indent}}本站搜索用的是`Algolia`搜索，由于每次需要手动将Hugo生成的要搜索的json数据手动同步到 `Algolia`比较麻烦，所以研究了下继续使用 `GitHub Actions`，这样在上面一系列操作后面添加即可。
 
-**引用库来自：** [https://github.com/chrisdmacrae/atomic-algolia](https://github.com/chrisdmacrae/atomic-algolia)
+{{indent}}**引用库来自：** [https://github.com/chrisdmacrae/atomic-algolia](https://github.com/chrisdmacrae/atomic-algolia)
 
-贴一下代码，在上面的 `yml配置文件中后面跟着添加`
+{{indent}}贴一下代码，在上面的 `yml配置文件中后面跟着添加`
 
 ```yml
 - name: Use Node.js
@@ -167,11 +167,11 @@ fi
 
 > 2020/09/016补充 放弃SCP，使用RSync
 
-用了一段时间随着生成文件的越来越多，SCP是真的太慢了，在Github Actions 上我往往需要花费10多分钟才能完成部署
+{{indent}}用了一段时间随着生成文件的越来越多，SCP是真的太慢了，在Github Actions 上我往往需要花费10多分钟才能完成部署。
 
-用到的Rsync库是 [https://github.com/marketplace/actions/rsyncer-action](https://github.com/marketplace/actions/rsyncer-action)，配置的一些参数看给出的文档就可以
+{{indent}}用到的Rsync库是 [https://github.com/marketplace/actions/rsyncer-action](https://github.com/marketplace/actions/rsyncer-action)，配置的一些参数看给出的文档就可以。
 
-这里贴出来我重新配置的yml
+{{indent}}这里贴出来我重新配置的yml：
 
 {{< admonition tip >}}
 
@@ -254,4 +254,4 @@ echo "publish success!"
 
 ## 结束
 
-至此，每次只需要在本地写文章并推送到GitHub，其他的事情就交给GitHub Actions做就可以了
+{{indent}}至此，每次只需要在本地写文章并推送到GitHub，其他的事情就交给GitHub Actions做就可以了

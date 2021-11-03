@@ -3,7 +3,7 @@
 <!--more-->
 
 ## Makefile
-> 之前一直看到很多开源项目中都有Makefile的存在，博主也是第一次写Makefile，参考了很多文章，特此记录一下关于Golang交叉编译的Makefile
+> {{indent}}之前一直看到很多开源项目中都有Makefile的存在，博主也是第一次写Makefile，参考了很多文章，特此记录一下关于Golang交叉编译的Makefile
 
 
 
@@ -103,15 +103,17 @@ func main() {
 }
 
 ```
-使用 `go build main.go` ，运行结果为 `当前版本: ` 
-再使用 `go build -ldflags "-X main.Version=1.0.0" main.go` ，运行结果为 `当前版本: 1.0.0` 
-我们可以基于此功能写入到Makefile中，就是上面的Makefile
+{{indent}}使用 `go build main.go`，运行结果为 `当前版本:`
+
+{{indent}}再使用 `go build -ldflags "-X main.Version=1.0.0" main.go`，运行结果为 `当前版本: 1.0.0`。我们可以基于此功能写入到Makefile中，就是上面的Makefile
+
 ## 基于Github release进行覆盖更新
-有了在编译时指定版本的方式，下一步尝试使用Github release来进行软件每次检查更新以及覆盖更新。
-Github 开放了 [Github Api v3](https://docs.github.com/en/rest/reference/repos) ，也有各种语言的SDK，就是判断版本号是否一致并进行下载解压覆盖重启即可
+
+{{indent}}有了在编译时指定版本的方式，下一步尝试使用Github release来进行软件每次检查更新以及覆盖更新。
+Github 开放了 [Github Api v3](https://docs.github.com/en/rest/reference/repos)，也有各种语言的SDK，就是判断版本号是否一致并进行下载解压覆盖重启即可。
 
 
-主程序
+主程序：
 ```go
 package main
 

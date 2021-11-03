@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/yqqy.top\/uniapp-form-picker\/"
-        },"genre": "posts","keywords": "Uni-App","wordcount":  876 ,
+        },"genre": "posts","keywords": "Uni-App","wordcount":  944 ,
         "url": "https:\/\/yqqy.top\/uniapp-form-picker\/","datePublished": "2019-08-01T14:21:19+00:00","dateModified": "2020-09-09T22:20:14+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Yqchilde"},"author": {
@@ -104,7 +104,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">uniapp的Form提交之蛋疼的picker</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/uni-app/"><i class="far fa-folder fa-fw"></i>Uni-App</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2019-08-01">2019-08-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 876 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2019-08-01">2019-08-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 944 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/uniapp-form-picker/" class="leancloud_visitors" data-flag-title="uniapp的Form提交之蛋疼的picker">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -115,21 +115,17 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#思路">思路</a></li>
-        <li><a href="#效果图">效果图</a></li>
-        <li><a href="#可能感觉很好写">可能感觉很好写</a></li>
-        <li><a href="#uniapp写法">uniapp写法</a></li>
-        <li><a href="#还有坑啊">还有坑啊</a></li>
-      </ul>
-    </li>
+    <li><a href="#思路">思路</a></li>
+    <li><a href="#效果图">效果图</a></li>
+    <li><a href="#可能感觉很好写">可能感觉很好写</a></li>
+    <li><a href="#uniapp写法">uniapp写法</a></li>
+    <li><a href="#还有坑啊">还有坑啊</a></li>
+    <li><a href="#参考文章">参考文章</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h3 id="思路">思路</h3>
-<p>哪有思路，菜鸡是没有思路的，本文参考小程序club的一篇文章写的关于uniapp的写法。
-参考地址 ： <a href="http://www.wxappclub.com/topic/687" target="_blank" rel="noopener noreffer">http://www.wxappclub.com/topic/687</a></p>
-<h3 id="效果图">效果图</h3>
+            </div><div class="content" id="content"><h2 id="思路">思路</h2>
+<p>&emsp;&emsp;哪有思路，菜鸡是没有思路的，本文参考小程序club的一篇文章写的关于uniapp的写法。</p>
+<h2 id="效果图">效果图</h2>
 <p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20171011unipicker.gif?imageMogr2/format/webp" title="mark" data-thumbnail="https://pic.yqqy.top/blog/20171011unipicker.gif?imageMogr2/format/webp" data-sub-html="<h2>效果图</h2><p>mark</p>">
         <img
             class="lazyload"
@@ -140,8 +136,8 @@
             alt="https://pic.yqqy.top/blog/20171011unipicker.gif?imageMogr2/format/webp" />
     </a><figcaption class="image-caption">效果图</figcaption>
     </figure></p>
-<h3 id="可能感觉很好写">可能感觉很好写</h3>
-<p>其实这里有一个蛋疼的地方，借用原作者的一句话，picker通过form提交的时候，肯定提交的是自己的value，那么就相当于永远提交的是0、1、2、3、4、5…… 这样的话问题就来了，咱们要这些个0123有个毛用？所以你会发现官方文档给的，只能返回索引值。</p>
+<h2 id="可能感觉很好写">可能感觉很好写</h2>
+<p>&emsp;&emsp;其实这里有一个蛋疼的地方，借用原作者的一句话，picker通过form提交的时候，肯定提交的是自己的value，那么就相当于永远提交的是0、1、2、3、4、5…… 这样的话问题就来了，咱们要这些个0123有个毛用？所以你会发现官方文档给的，只能返回索引值。</p>
 <p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20200111/XjHmRG5eNOCN.png?imageMogr2/format/webp/interlace/1" title="mark" data-thumbnail="https://pic.yqqy.top/blog/20200111/XjHmRG5eNOCN.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>参数</h2><p>mark</p>">
         <img
             class="lazyload"
@@ -152,7 +148,7 @@
             alt="https://pic.yqqy.top/blog/20200111/XjHmRG5eNOCN.png?imageMogr2/format/webp/interlace/1" />
     </a><figcaption class="image-caption">参数</figcaption>
     </figure></p>
-<h3 id="uniapp写法">uniapp写法</h3>
+<h2 id="uniapp写法">uniapp写法</h2>
 <p><strong>template部分</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -265,9 +261,9 @@
 <span class="o">&lt;</span><span class="err">/script&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="还有坑啊">还有坑啊</h3>
-<p>就是在 <code>onLoad</code> 里面的  <code>this.selectTime.forEach</code> 里面必须用that，在之前将this对象赋值给that,因为此时this对象在这个函数里面已经丢失了，可以打印this,会发现是undefined。</p>
-<p>或者可以用ES6的箭头函数就可以避免这个问题，如下：</p>
+</div><h2 id="还有坑啊">还有坑啊</h2>
+<p>&emsp;&emsp;就是在 <code>onLoad</code> 里面的  <code>this.selectTime.forEach</code> 里面必须用that，在之前将this对象赋值给that,因为此时this对象在这个函数里面已经丢失了，可以打印this,会发现是undefined。</p>
+<p>&emsp;&emsp;或者可以用ES6的箭头函数就可以避免这个问题，如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -282,7 +278,10 @@
 <span class="p">})</span>
 </code></pre></td></tr></table>
 </div>
-</div></div><div class="post-footer" id="post-footer">
+</div><h2 id="参考文章">参考文章</h2>
+<ul>
+<li><a href="http://www.wxappclub.com/topic/687" target="_blank" rel="noopener noreffer">表单组件Form提交之蛋疼的___picker普通选择器模式</a></li>
+</ul></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

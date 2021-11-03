@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/yqqy.top\/ubuntu-mysql-lost-passowrd\/"
-        },"genre": "posts","keywords": "MySQL","wordcount":  604 ,
+        },"genre": "posts","keywords": "MySQL","wordcount":  653 ,
         "url": "https:\/\/yqqy.top\/ubuntu-mysql-lost-passowrd\/","datePublished": "2020-11-10T23:39:25+08:00","dateModified": "2020-11-11T08:23:22+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Yqchilde"},"author": {
@@ -101,13 +101,12 @@
 <main class="main">
                 <div class="container"><article class="page single"><h1 class="single-title animated flipInX">Ubuntu安装MySQL后没有初始密码之解决方案</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/mysql/"><i class="far fa-folder fa-fw"></i>MySQL</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-11-10">2020-11-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 604 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-11-10">2020-11-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 653 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/ubuntu-mysql-lost-passowrd/" class="leancloud_visitors" data-flag-title="Ubuntu安装MySQL后没有初始密码之解决方案">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
-        </div><div class="content" id="content"><p>​</p>
-<p>​		在Ubuntu系统中安装了MySQL之后，根据操作看是有一个交互需要设置密码的，但是并没有出现设置密码的环节，压根登录不了，尝试查看过 <code>var/log/mysql/error.log</code>，看到的内容显示密码为空，还是没有用。</p>
-<p>​		解决方案如下：</p>
+        </div><div class="content" id="content"><p>&emsp;&emsp;在Ubuntu系统中安装了MySQL之后，根据操作看是有一个交互需要设置密码的，但是并没有出现设置密码的环节，压根登录不了，尝试查看过 <code>var/log/mysql/error.log</code>，看到的内容显示密码为空，还是没有用。</p>
+<p>&emsp;&emsp;解决方案如下：</p>
 <ol>
 <li>在终端输入 <code>sudo cat/etc/mysql/debian.cnf</code>，如下图</li>
 </ol>
@@ -171,7 +170,7 @@
 </span><span class="w"></span><span class="n">quit</span><span class="p">;</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
-</div><p>​		操作如图所示：</p>
+</div><p>&emsp;&emsp;操作如图所示：</p>
 <p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20201111080455.png?imageMogr2/format/webp/interlace/1" title="image-20201111080453889" data-thumbnail="https://pic.yqqy.top/blog/20201111080455.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>修改密码</h2><p>image-20201111080453889</p>">
         <img
             class="lazyload"
@@ -194,7 +193,10 @@
 </span></code></pre></td></tr></table>
 </div>
 </div><p>以上就是全部，再次登录使用root和设置的密码就可以登录</p>
-<p>本文参考文章<a href="https://www.cnblogs.com/williamjie/p/11126486.html" target="_blank" rel="noopener noreffer">CNBLOGS</a></p></div><div class="post-footer" id="post-footer">
+<h2 id="参考文章">参考文章</h2>
+<ul>
+<li><a href="https://www.cnblogs.com/williamjie/p/11126486.html" target="_blank" rel="noopener noreffer">在Ubuntu 18.04 下安装mysql，没有初始密码，重设root密码</a></li>
+</ul></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/yqqy.top\/mysql-insert-how-where\/"
-        },"genre": "posts","keywords": "MySQL","wordcount":  456 ,
+        },"genre": "posts","keywords": "MySQL","wordcount":  496 ,
         "url": "https:\/\/yqqy.top\/mysql-insert-how-where\/","datePublished": "2019-10-26T14:25:53+00:00","dateModified": "2020-09-09T22:20:14+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Yqchilde"},"author": {
@@ -104,7 +104,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">MySQL中insert数据时怎么用where条件</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/mysql/"><i class="far fa-folder fa-fw"></i>MySQL</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2019-10-26">2019-10-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 456 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2019-10-26">2019-10-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 496 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/mysql-insert-how-where/" class="leancloud_visitors" data-flag-title="MySQL中insert数据时怎么用where条件">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -124,8 +124,8 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h3 id="这是一个坑">这是一个坑</h3>
-<p>在之前写PHP中想去添加一条数据，并且想查询是否在插入之前有这条数据，我会沙雕的做法（emmm,之前我不知道我这么沙雕了）就是写两个sql语句，分别让他们去单独执行:sleepy:</p>
-<p>简单点得一句sql语句，如下：</p>
+<p>&emsp;&emsp;在之前写PHP中想去添加一条数据，并且想查询是否在插入之前有这条数据，我会沙雕的做法（emmm,之前我不知道我这么沙雕了）就是写两个sql语句，分别让他们去单独执行:sleepy:</p>
+<p>&emsp;&emsp;简单点得一句sql语句，如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -143,7 +143,7 @@
 <p>DUAL 是虚拟表为了满足  select &hellip;from &hellip;..格式</p>
 </blockquote>
 <h3 id="2019102补充">2019/10/2补充</h3>
-<p>现在在用Golang写web业务，补充一下之前的例子吧</p>
+<p>&emsp;&emsp;现在在用Golang写web业务，补充一下之前的例子吧</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -182,7 +182,7 @@
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><strong>通过这个例子可以看出来我们只需要判断num字段时候已经存在，存在情况下就会返回Affected rows: 0，So判断RowsAffected就行，不存在就直接插入了</strong></p></div><div class="post-footer" id="post-footer">
+</div><p>&emsp;&emsp;<strong>通过这个例子可以看出来我们只需要判断num字段时候已经存在，存在情况下就会返回Affected rows: 0，So判断RowsAffected就行，不存在就直接插入了</strong></p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/yqqy.top\/docker-compose-env-file\/"
-        },"genre": "posts","keywords": "Docker","wordcount":  767 ,
+        },"genre": "posts","keywords": "Docker","wordcount":  828 ,
         "url": "https:\/\/yqqy.top\/docker-compose-env-file\/","datePublished": "2021-03-13T12:49:58+08:00","dateModified": "2021-03-13T16:33:20+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Yqchilde"},"author": {
@@ -104,7 +104,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">docker-compose使用env处理环境变量妙用</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/docker/"><i class="far fa-folder fa-fw"></i>Docker</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-03-13">2021-03-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 767 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-03-13">2021-03-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 828 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/docker-compose-env-file/" class="leancloud_visitors" data-flag-title="docker-compose使用env处理环境变量妙用">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -120,11 +120,10 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><blockquote>
-<p>最近在用的一个服务他的docker-compose需要配置很多很多的环境变量，而每个环境变量可能又很长，所以查阅资料了解到env file这种配置</p>
+<p>&emsp;&emsp;最近在用的一个服务他的docker-compose需要配置很多很多的环境变量，而每个环境变量可能又很长，所以查阅资料了解到env file这种配置</p>
 </blockquote>
 <h2 id="env_file">env_file</h2>
-<p>官方文档地址 <a href="https://docs.docker.com/compose/environment-variables" target="_blank" rel="noopener noreffer">https://docs.docker.com/compose/environment-variables</a>，这里记录一下我遇到的问题</p>
-<p>如果要使用env_file配置，这时候，是会把所有的变量都带入进来的，我不需要那么多变量，举个🌰</p>
+<p>&emsp;&emsp;官方文档地址 <a href="https://docs.docker.com/compose/environment-variables" target="_blank" rel="noopener noreffer">https://docs.docker.com/compose/environment-variables</a>，这里记录一下我遇到的问题，如果要使用env_file配置，这时候，是会把所有的变量都带入进来的，我不需要那么多变量，举个🌰</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -157,7 +156,7 @@ FRUIT_SHARECODE4=${FRUIT1}@${FRUIT2}@${FRUIT3}@${FRUIT5}
 FRUIT_SHARECODE5=${FRUIT1}@${FRUIT2}@${FRUIT3}@${FRUIT4}
 </code></pre></td></tr></table>
 </div>
-</div><p><code>.env</code>文件中有这么一段内容，其中 <code>FRUIT1-5</code> 和 <code>FRUIT_SHARECODE1-5</code>全是变量，但是很显然我只要想 <code>FRUIT_SHARECODE1-5</code>的变量，不想要上面的，可以说是我需要按需引入变量，如果直接用如下这种配置，就会将所有的变量全部引入</p>
+</div><p>&emsp;&emsp;<code>.env</code>文件中有这么一段内容，其中 <code>FRUIT1-5</code> 和 <code>FRUIT_SHARECODE1-5</code>全是变量，但是很显然我只要想 <code>FRUIT_SHARECODE1-5</code>的变量，不想要上面的，可以说是我需要按需引入变量，如果直接用如下这种配置，就会将所有的变量全部引入</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -178,7 +177,7 @@ services:
      - ./api.env
 </code></pre></td></tr></table>
 </div>
-</div><p>所以最终想法还是只在同目录用 <code>.env</code> 文件，这样不需要特别声明引入，只需要保证同目录即可，这时候我在 <code>docker-compose.yml</code> 文件中引入了 <code>FRUIT_SHARECODE1</code> 变量，按照我的理解是变量嵌套会间接引入上面的变量，结果变成了下面这个样子。</p>
+</div><p>&emsp;&emsp;所以最终想法还是只在同目录用 <code>.env</code> 文件，这样不需要特别声明引入，只需要保证同目录即可，这时候我在 <code>docker-compose.yml</code> 文件中引入了 <code>FRUIT_SHARECODE1</code> 变量，按照我的理解是变量嵌套会间接引入上面的变量，结果变成了下面这个样子。</p>
 <p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20210313150914.png?imageMogr2/format/webp/interlace/1" title="https://pic.yqqy.top/blog/20210313150914.png?imageMogr2/format/webp/interlace/1" data-thumbnail="https://pic.yqqy.top/blog/20210313150914.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>图1</h2>">
         <img
             class="lazyload"
@@ -189,7 +188,7 @@ services:
             alt="https://pic.yqqy.top/blog/20210313150914.png?imageMogr2/format/webp/interlace/1" />
     </a><figcaption class="image-caption">图1</figcaption>
     </figure></p>
-<p>难道docker-compose不支持这种写法？还被多加了一个 <code>$</code>变成了 <code>$${}</code> ，随后在自己的本地电脑试了下，是按照我预想的结果输出的，那么问题就好说了，这说明是dockerc-compose版本不对，并不是不支持，当前服务器下的版本是 1.25.4，翻阅版本记录发现在 1.26.0 以后使用了 <code>python-dotenv</code> 管理了env_file，所以至少要使用大于1.26.0以后的版本。</p>
+<p>&emsp;&emsp;难道docker-compose不支持这种写法？还被多加了一个 <code>$</code>变成了 <code>$${}</code> ，随后在自己的本地电脑试了下，是按照我预想的结果输出的，那么问题就好说了，这说明是dockerc-compose版本不对，并不是不支持，当前服务器下的版本是 1.25.4，翻阅版本记录发现在 1.26.0 以后使用了 <code>python-dotenv</code> 管理了env_file，所以至少要使用大于1.26.0以后的版本。</p>
 <p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20210313151336.png?imageMogr2/format/webp/interlace/1" title="https://pic.yqqy.top/blog/20210313151336.png?imageMogr2/format/webp/interlace/1" data-thumbnail="https://pic.yqqy.top/blog/20210313151336.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>图2</h2>">
         <img
             class="lazyload"
@@ -229,7 +228,7 @@ $ curl -L https://github.com/docker/compose/releases/download/1.27.4/docker-comp
     </a><figcaption class="image-caption">图三</figcaption>
     </figure></p>
 <h2 id="总结">总结</h2>
-<p>docker-compose很方便，使用 <code>.env</code> 文件会更加方便，这样我们可以传递更多的内容进来，每次只需要维护 <code>.env</code> 不用频繁修改 <code>docker-compose.yml</code> 。</p></div><div class="post-footer" id="post-footer">
+<p>&emsp;&emsp;docker-compose很方便，使用 <code>.env</code> 文件会更加方便，这样我们可以传递更多的内容进来，每次只需要维护 <code>.env</code> 不用频繁修改 <code>docker-compose.yml</code> 。</p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/yqqy.top\/wordpress-rocket\/"
-        },"genre": "posts","keywords": "WordPress","wordcount":  1556 ,
+        },"genre": "posts","keywords": "WordPress","wordcount":  1607 ,
         "url": "https:\/\/yqqy.top\/wordpress-rocket\/","datePublished": "2020-03-08T11:15:56+00:00","dateModified": "2020-09-09T22:20:14+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Yqchilde"},"author": {
@@ -104,7 +104,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">正确配置rocket-nginx，加速你的wordpress</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/tips/"><i class="far fa-folder fa-fw"></i>Tips</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-03-08">2020-03-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1556 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-03-08">2020-03-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1607 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/wordpress-rocket/" class="leancloud_visitors" data-flag-title="正确配置rocket-nginx，加速你的wordpress">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -135,13 +135,13 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h3 id="0x01-前提">0x01 前提</h3>
-<p>前提是需要先获得<code>wp-rocket</code>插件，该插件是收费插件，如果有能力请支持正版，这里不提供下载地址，擅于利用搜索引擎或万能的某宝。本文是基于自己用宝塔配置rocket-nginx的教程，因为网上目前搜到的所有配置都是直接翻译github的README.md(😒)，不过还是推荐看最新的文档，没准啥时候就变动了，操作步骤如下</p>
+<p>&emsp;&emsp;前提是需要先获得<code>wp-rocket</code>插件，该插件是收费插件，如果有能力请支持正版，这里不提供下载地址，擅于利用搜索引擎或万能的某宝。本文是基于自己用宝塔配置rocket-nginx的教程，因为网上目前搜到的所有配置都是直接翻译github的README.md(😒 )，不过还是推荐看最新的文档，没准啥时候就变动了，操作步骤如下：</p>
 <h3 id="0x02-正文">0x02 正文</h3>
 <h4 id="rocket-nginx">rocket-nginx</h4>
 <ul>
 <li>介绍一下（翻译过来）：</li>
 </ul>
-<p>Rocket-Nginx是WordPress缓存插件WP-Rocket的Nginx配置。它使Nginx可以直接提供以前缓存的文件，而无需调用WordPress或任何PHP。它还会添加标题以缓存CSS，JS和媒体，以通过减少对Web服务器的请求来利用浏览器的缓存。</p>
+<p>&emsp;&emsp;Rocket-Nginx是WordPress缓存插件WP-Rocket的Nginx配置。它使Nginx可以直接提供以前缓存的文件，而无需调用WordPress或任何PHP。它还会添加标题以缓存CSS，JS和媒体，以通过减少对Web服务器的请求来利用浏览器的缓存。</p>
 <ul>
 <li>
 <p>简单说就是<strong>NGINX→PHP-FPM→PHP→静态文件</strong> 变成了 <strong>NGINX→静态文件</strong>（通过直接提供静态页面而不加载WordPress或PHP，可以使WP-Rocket更快。）</p>
@@ -151,10 +151,10 @@
 </li>
 </ul>
 <h4 id="禁止wp定时任务">禁止WP定时任务</h4>
-<p>在<code>wp-config</code>这个文件里添加一行代码，作用是为了禁止WP自带的CRON定时任务</p>
-<p><code>define('DISABLE_WP_CRON', true);</code></p>
+<p>&emsp;&emsp;在<code>wp-config</code>这个文件里添加一行代码，作用是为了禁止WP自带的CRON定时任务</p>
+<p>&emsp;&emsp;<code>define('DISABLE_WP_CRON', true);</code></p>
 <h4 id="添加新的定时任务">添加新的定时任务</h4>
-<p>以下三种定时任务代码任一个就行，记得将website换成自己的网址</p>
+<p>&emsp;&emsp;以下三种定时任务代码任一个就行，记得将website换成自己的网址</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -298,7 +298,7 @@ php rocket-parser.php
 </li>
 </ul>
 <h3 id="0x04-效果">0x04 效果</h3>
-<p>在没有做<code>nginx</code>优化时，即使用了<code>wp-rocket</code>插件也是两个B，现在明显有变化，因为本主题是图文式的，如果你的主题不怎么用图片，那么效果会更为显著。</p>
+<p>&emsp;&emsp;在没有做<code>nginx</code>优化时，即使用了<code>wp-rocket</code>插件也是两个B，现在明显有变化，因为本主题是图文式的，如果你的主题不怎么用图片，那么效果会更为显著。</p>
 <p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20200308190854.png?imageMogr2/format/webp/interlace/1" title="image-20200308190851632" data-thumbnail="https://pic.yqqy.top/blog/20200308190854.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>速度测试</h2><p>image-20200308190851632</p>">
         <img
             class="lazyload"

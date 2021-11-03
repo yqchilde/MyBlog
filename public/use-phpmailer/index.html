@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/yqqy.top\/use-phpmailer\/"
-        },"genre": "posts","keywords": "PHP","wordcount":  1153 ,
+        },"genre": "posts","keywords": "PHP","wordcount":  1203 ,
         "url": "https:\/\/yqqy.top\/use-phpmailer\/","datePublished": "2019-09-19T12:34:09+00:00","dateModified": "2020-09-09T22:20:14+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Yqchilde"},"author": {
@@ -104,7 +104,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">PHPMailer6.0.7如何在类中被调用</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/php/"><i class="far fa-folder fa-fw"></i>PHP</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2019-09-19">2019-09-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1153 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2019-09-19">2019-09-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1203 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/use-phpmailer/" class="leancloud_visitors" data-flag-title="PHPMailer6.0.7如何在类中被调用">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -127,14 +127,14 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><blockquote>
-<p>在写发送邮件时发现移植过来的PHPMailer是旧版的（是没有namespace）的，在后面的版本官方才更新过来，于是我在github下载到最新的版本准备写一个发送邮件</p>
+<p>&emsp;&emsp;在写发送邮件时发现移植过来的PHPMailer是旧版的（是没有namespace）的，在后面的版本官方才更新过来，于是我在github下载到最新的版本准备写一个发送邮件</p>
 </blockquote>
 <h3 id="第一步">第一步</h3>
-<p>当然是下载 <code>PHPMailer</code> 地址：<a href="https://github.com/PHPMailer/PHPMailer" target="_blank" rel="noopener noreffer">https://github.com/PHPMailer/PHPMailer</a></p>
+<p>&emsp;&emsp;当然是下载 <code>PHPMailer</code> 地址：<a href="https://github.com/PHPMailer/PHPMailer" target="_blank" rel="noopener noreffer">https://github.com/PHPMailer/PHPMailer</a></p>
 <h3 id="第二步">第二步</h3>
-<p>将文件引入项目中，只保留 <code>src</code> 目录，其余的不用留</p>
+<p>&emsp;&emsp;将文件引入项目中，只保留 <code>src</code> 目录，其余的不用留</p>
 <h3 id="第三步">第三步</h3>
-<p>新建一个文件，文件名为 <code>sendMail.php</code> ，写如下代码进行配置</p>
+<p>&emsp;&emsp;新建一个文件，文件名为 <code>sendMail.php</code> ，写如下代码进行配置</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -276,7 +276,7 @@
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="第四步">第四步</h3>
-<p>在另一个地方实例化这个类就行，然后就可以进行参数传递，代码如下：</p>
+<p>&emsp;&emsp;在另一个地方实例化这个类就行，然后就可以进行参数传递，代码如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1

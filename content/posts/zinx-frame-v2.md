@@ -27,7 +27,7 @@ license: ""
 
 ![img](https://pic.yqqy.top/blog/20201227215136.png?imageMogr2/format/webp/interlace/1 "基础链接封装和业务绑定模块脑图")
 
-v1版本已经实现了一个基础的Server框架，现在我们需要对客户端链接和不同的客户端链接所处理的不同业务在做一层接口封装。在ziface下创建一个链接的接口文件 `iconnection.go` ，以及在znet目录下的实现文件 `connection.go` 。
+{{indent}}v1版本已经实现了一个基础的Server框架，现在我们需要对客户端链接和不同的客户端链接所处理的不同业务在做一层接口封装。在ziface下创建一个链接的接口文件 `iconnection.go` ，以及在znet目录下的实现文件 `connection.go` 。
 
 ### 定义IConnection接口
 
@@ -182,7 +182,7 @@ func (c *Connection) Send(data []byte) error {
 
 ### 链接绑定方法处理
 
-在v1中回显功能直接写在Start方法中，但是在v2中我们在Connection结构体中定义了该链接的处理方法API： `handleFunc` ，所以我们去 `server.go` 外部实现一个回显功能的方法，如下：
+{{indent}}在v1中回显功能直接写在Start方法中，但是在v2中我们在Connection结构体中定义了该链接的处理方法API： `handleFunc` ，所以我们去 `server.go` 外部实现一个回显功能的方法，如下：
 
 ```go
 // CallBackToClient 定义当前客户端链接所绑定的handle api
@@ -197,7 +197,7 @@ func CallBackToClient(conn *net.TCPConn, data []byte, cnt int) error {
 }
 ```
 
-在 **Start()** 方法中将原本的回显功能删掉，使用 `NewConnection` 去直接绑定一个链接和该链接绑定的业务方法。
+{{indent}}在 **Start()** 方法中将原本的回显功能删掉，使用 `NewConnection` 去直接绑定一个链接和该链接绑定的业务方法。
 
 ```go
 func (s *Server) Start() {
@@ -242,4 +242,4 @@ func (s *Server) Start() {
 
 ### 测试
 
-将v1的测试复制一份到v2里面，将其中的log信息修改为v2的数据，在两个控制台分别运行server.go和client.go 可以看到客户端一直发送数据，服务端也可以一直接收到。
+{{indent}}将v1的测试复制一份到v2里面，将其中的log信息修改为v2的数据，在两个控制台分别运行server.go和client.go 可以看到客户端一直发送数据，服务端也可以一直接收到。

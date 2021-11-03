@@ -3,16 +3,17 @@
 <!--more-->
 
 ## 在网上看到这行命令并使用
-`select host,user,password from mysql.user;` 
-然后报错了
-`ERROR 1054 (42S22): Unknown column 'password' in 'field list'` 
+{{indent}}`select host,user,password from mysql.user;`
+
+{{indent}}然后报错了
+
+{{indent}}`ERROR 1054 (42S22): Unknown column 'password' in 'field list'`
 
 ---
 
+{{indent}}错误的原因是5.7版本下的mysql数据库下已经没有password这个字段了，password字段改成了authentication_string
 
-错误的原因是 5.7版本下的mysql数据库下已经没有password这个字段了，password字段改成了authentication_string
-
-正确操作如下：
+{{indent}}正确操作如下：
 
 ```sql
 mysql> use mysql

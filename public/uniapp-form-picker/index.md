@@ -2,22 +2,21 @@
 
 <!--more-->
 
-### 思路
+## 思路
 
-哪有思路，菜鸡是没有思路的，本文参考小程序club的一篇文章写的关于uniapp的写法。
-参考地址 ： [http://www.wxappclub.com/topic/687](http://www.wxappclub.com/topic/687)
+{{indent}}哪有思路，菜鸡是没有思路的，本文参考小程序club的一篇文章写的关于uniapp的写法。
 
-### 效果图
+## 效果图
 
 ![mark](https://pic.yqqy.top/blog/20171011unipicker.gif?imageMogr2/format/webp "效果图")
 
-### 可能感觉很好写
+## 可能感觉很好写
 
-其实这里有一个蛋疼的地方，借用原作者的一句话，picker通过form提交的时候，肯定提交的是自己的value，那么就相当于永远提交的是0、1、2、3、4、5…… 这样的话问题就来了，咱们要这些个0123有个毛用？所以你会发现官方文档给的，只能返回索引值。
+{{indent}}其实这里有一个蛋疼的地方，借用原作者的一句话，picker通过form提交的时候，肯定提交的是自己的value，那么就相当于永远提交的是0、1、2、3、4、5…… 这样的话问题就来了，咱们要这些个0123有个毛用？所以你会发现官方文档给的，只能返回索引值。
 
 ![mark](https://pic.yqqy.top/blog/20200111/XjHmRG5eNOCN.png?imageMogr2/format/webp/interlace/1 "参数")
 
-### uniapp写法
+## uniapp写法
 
 **template部分**
 ```html
@@ -76,11 +75,11 @@
 </script>
 ```
 
-### 还有坑啊
+## 还有坑啊
 
-就是在 `onLoad` 里面的  `this.selectTime.forEach` 里面必须用that，在之前将this对象赋值给that,因为此时this对象在这个函数里面已经丢失了，可以打印this,会发现是undefined。
+{{indent}}就是在 `onLoad` 里面的  `this.selectTime.forEach` 里面必须用that，在之前将this对象赋值给that,因为此时this对象在这个函数里面已经丢失了，可以打印this,会发现是undefined。
 
-或者可以用ES6的箭头函数就可以避免这个问题，如下：
+{{indent}}或者可以用ES6的箭头函数就可以避免这个问题，如下：
 
 ```javascript
 this.selectTime.forEach( e => {
@@ -88,3 +87,7 @@ this.selectTime.forEach( e => {
 	this.picker_id.push(e.id);
 })
 ```
+
+## 参考文章
+
+* [表单组件Form提交之蛋疼的___picker普通选择器模式](http://www.wxappclub.com/topic/687)

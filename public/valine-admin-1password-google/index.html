@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/yqqy.top\/valine-admin-1password-google\/"
-        },"genre": "posts","keywords": "mood","wordcount":  1424 ,
+        },"genre": "posts","keywords": "mood","wordcount":  1545 ,
         "url": "https:\/\/yqqy.top\/valine-admin-1password-google\/","datePublished": "2020-03-22T13:45:11+00:00","dateModified": "2020-09-09T22:20:14+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Yqchilde"},"author": {
@@ -104,8 +104,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Valine-Admin、1Password、荣耀平板5谷歌三件套</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/notes/"><i class="far fa-folder fa-fw"></i>Notes</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-03-22">2020-03-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1424 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/valine-admin-1password-google/" class="leancloud_visitors" data-flag-title="Valine-Admin、1Password、荣耀平板5谷歌三件套">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-03-22">2020-03-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1545 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/valine-admin-1password-google/" class="leancloud_visitors" data-flag-title="Valine-Admin、1Password、荣耀平板5谷歌三件套">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -140,7 +140,7 @@
 <p>荣耀平板5最新系统9.1.0.175无法获取谷歌服务，原因：贸易战</p>
 </blockquote>
 <h3 id="valine-admin">Valine-Admin</h3>
-<p>博客用的是Valine的三方评论，后台模板用的是zhaojun改完的Valine-Admin，基于免费版Leancloud账户的问题，每日最多运行18小时，所以在0-7点属于休眠状态，这个时刻如果有人评论了，虽然是会唤醒服务，但是是收不到邮件的，就需要邮件补发功能了，经过遗漏掉一条邮件排查掉，<a href="https://github.com/zhaojun1998/Valine-Admin" target="_blank" rel="noopener noreffer"><strong>zhaojun</strong></a> fork <a href="https://github.com/DesertsP/Valine-Admin" target="_blank" rel="noopener noreffer"><strong>panjunwen</strong></a> 的项目之后改完漏掉一个函数<code>sendNotification</code>，唉，fork了不要魔改啊，改的都丢三落四，整理完的 <code>cloud.js</code> 如下</p>
+<p>&emsp;&emsp;博客用的是Valine的三方评论，后台模板用的是zhaojun改完的Valine-Admin，基于免费版Leancloud账户的问题，每日最多运行18小时，所以在0-7点属于休眠状态，这个时刻如果有人评论了，虽然是会唤醒服务，但是是收不到邮件的，就需要邮件补发功能了，经过遗漏掉一条邮件排查掉，<a href="https://github.com/zhaojun1998/Valine-Admin" target="_blank" rel="noopener noreffer"><strong>zhaojun</strong></a> fork <a href="https://github.com/DesertsP/Valine-Admin" target="_blank" rel="noopener noreffer"><strong>panjunwen</strong></a> 的项目之后改完漏掉一个函数<code>sendNotification</code>，唉，fork了不要魔改啊，改的都丢三落四，整理完的 <code>cloud.js</code> 如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -270,7 +270,7 @@
 </code></pre></td></tr></table>
 </div>
 </div><h4 id="leancloud免费服务的问题">Leancloud免费服务的问题</h4>
-<p>总所周知，免费服务有限制，比如唤醒只给了15s时间，所以容易启动不了</p>
+<p>&emsp;&emsp;总所周知，免费服务有限制，比如唤醒只给了15s时间，所以容易启动不了</p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -279,31 +279,41 @@
         data-sizes="auto"
         alt="https://pic.yqqy.top/blog/20200322204205.png?imageMogr2/format/webp/interlace/1"
         title="image-20200322203850365" /></p>
-<p>解决办法：使用 <code>linux</code> 的 <code>Crontab</code>自行唤醒，即不用Leancloud定时任务唤醒，只用其补发邮件</p>
+<p>&emsp;&emsp;解决办法：使用 <code>linux</code> 的 <code>Crontab</code>自行唤醒，即不用Leancloud定时任务唤醒，只用其补发邮件</p>
 <h3 id="白嫖1password">白嫖1Password</h3>
-<p>看的某乎的教程直接添链接了，<a href="https://zhuanlan.zhihu.com/p/87575555" target="_blank" rel="noopener noreffer">白嫖1Password</a></p>
+<p>&emsp;&emsp;看的某乎的教程直接添链接了，<a href="https://zhuanlan.zhihu.com/p/87575555" target="_blank" rel="noopener noreffer">白嫖1Password家庭版一年~真香!</a></p>
 <h3 id="荣耀平板5获取谷歌三件套">荣耀平板5获取谷歌三件套</h3>
 <h4 id="神奇操作">神奇操作</h4>
-<p>很神奇，可能是由于贸易战或者缓解原因，有的机型自带GMS，有的不带需要自己装，解决办法是花粉俱乐部参考得到的（即东拼西凑），以下是获取之前的配置</p>
+<p>&emsp;&emsp;很神奇，可能是由于贸易战或者缓解原因，有的机型自带GMS，有的不带需要自己装，解决办法是花粉俱乐部参考得到的（即东拼西凑），以下是获取之前的配置</p>
 <ul>
 <li>安卓9</li>
 <li>Magic UI 2.1.0</li>
 <li>版本号 9.1.0.175</li>
 </ul>
-<p><strong>方法</strong></p>
-<p><strong>先通过华为手机助手降级到9.0.x.122，然后可以升级，升级到9.1.0.128😀必须128</strong></p>
-<p>安装谷歌服务方法（需PC辅助）</p>
-<p>教程适用机型有：华为Mate30系列、华为畅享10Plus、华为nova5/nova5 Pro、华为novai/novai Pro、华为麦芒8、华为畅享9系列/Max等</p>
-<p>荣耀9X、荣耀20i、荣耀8X/8X Max、荣耀10青春版等</p>
-<p>荣耀平板5、华为平板M6等</p>
-<p>助手是用来激活设备管理器的，只要激活了就行了，不用担心惊叹号那些问题。</p>
+<p><strong>方法：</strong></p>
+<p>&emsp;&emsp;<strong>先通过华为手机助手降级到9.0.x.122，然后可以升级，升级到9.1.0.128😀必须128</strong></p>
+<p>&emsp;&emsp;安装谷歌服务方法（需PC辅助）</p>
+<p>&emsp;&emsp;教程适用机型有：华为Mate30系列、华为畅享10Plus、华为nova5/nova5 Pro、华为novai/novai Pro、华为麦芒8、华为畅享9系列/Max等</p>
+<p>&emsp;&emsp;荣耀9X、荣耀20i、荣耀8X/8X Max、荣耀10青春版等</p>
+<p>&emsp;&emsp;荣耀平板5、华为平板M6等</p>
+<p>&emsp;&emsp;助手是用来激活设备管理器的，只要激活了就行了，不用担心惊叹号那些问题。</p>
 <p><strong>步骤如下</strong></p>
 <ol>
-<li>下载并解压谷歌服务包</li>
-<li>连接Hisuite（pc华为手机助手）点击数据恢复，找到刚才解压的文件，只恢复应用数据</li>
-<li>恢复完成后，查看桌面是否有<code>谷歌服务助手</code>APP</li>
-<li>打开谷歌服务助手，激活设备管理器   其他不用理会（感叹号的不用管，直接退出APP）</li>
-<li>激活完成后重启手机，下载<code>Go谷歌安装器</code>，安装三件套，完成，如果可以打开<code>谷歌play</code>并可以登陆，那就恭喜了</li>
+<li>
+<p>下载并解压谷歌服务包</p>
+</li>
+<li>
+<p>连接Hisuite（pc华为手机助手）点击数据恢复，找到刚才解压的文件，只恢复应用数据</p>
+</li>
+<li>
+<p>恢复完成后，查看桌面是否有<code>谷歌服务助手</code>APP</p>
+</li>
+<li>
+<p>打开谷歌服务助手，激活设备管理器   其他不用理会（感叹号的不用管，直接退出APP）</p>
+</li>
+<li>
+<p>激活完成后重启手机，下载<code>Go谷歌安装器</code>，安装三件套，完成，如果可以打开<code>谷歌play</code>并可以登陆，那就恭喜了</p>
+</li>
 </ol>
 <h4 id="咦真香">咦~真香</h4>
 <p><img

@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/yqqy.top\/golang-makefile-and-additional\/"
-        },"genre": "posts","keywords": "Golang, Makefile","wordcount":  1814 ,
+        },"genre": "posts","keywords": "Golang, Makefile","wordcount":  1874 ,
         "url": "https:\/\/yqqy.top\/golang-makefile-and-additional\/","datePublished": "2021-04-21T22:44:20+08:00","dateModified": "2021-04-21T22:52:55+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Yqchilde"},"author": {
@@ -104,7 +104,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Golang交叉编译Makefile，通过Github release版本检测覆盖更新</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/golang/"><i class="far fa-folder fa-fw"></i>Golang</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-04-21">2021-04-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1814 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-04-21">2021-04-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1874 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/golang-makefile-and-additional/" class="leancloud_visitors" data-flag-title="Golang交叉编译Makefile，通过Github release版本检测覆盖更新">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -127,7 +127,7 @@
 </nav></div>
             </div><div class="content" id="content"><h2 id="makefile">Makefile</h2>
 <blockquote>
-<p>之前一直看到很多开源项目中都有Makefile的存在，博主也是第一次写Makefile，参考了很多文章，特此记录一下关于Golang交叉编译的Makefile</p>
+<p>&emsp;&emsp;之前一直看到很多开源项目中都有Makefile的存在，博主也是第一次写Makefile，参考了很多文章，特此记录一下关于Golang交叉编译的Makefile</p>
 </blockquote>
 <p>首先看一下完成的Makefile，长这个样子</p>
 <div class="highlight"><div class="chroma">
@@ -307,13 +307,12 @@
 
 </code></pre></td></tr></table>
 </div>
-</div><p>使用 <code>go build main.go</code> ，运行结果为 <code>当前版本: </code> 
-再使用 <code>go build -ldflags &quot;-X main.Version=1.0.0&quot; main.go</code> ，运行结果为 <code>当前版本: 1.0.0</code> 
-我们可以基于此功能写入到Makefile中，就是上面的Makefile</p>
+</div><p>&emsp;&emsp;使用 <code>go build main.go</code>，运行结果为 <code>当前版本:</code></p>
+<p>&emsp;&emsp;再使用 <code>go build -ldflags &quot;-X main.Version=1.0.0&quot; main.go</code>，运行结果为 <code>当前版本: 1.0.0</code>。我们可以基于此功能写入到Makefile中，就是上面的Makefile</p>
 <h2 id="基于github-release进行覆盖更新">基于Github release进行覆盖更新</h2>
-<p>有了在编译时指定版本的方式，下一步尝试使用Github release来进行软件每次检查更新以及覆盖更新。
-Github 开放了 <a href="https://docs.github.com/en/rest/reference/repos" target="_blank" rel="noopener noreffer">Github Api v3</a> ，也有各种语言的SDK，就是判断版本号是否一致并进行下载解压覆盖重启即可</p>
-<p>主程序</p>
+<p>&emsp;&emsp;有了在编译时指定版本的方式，下一步尝试使用Github release来进行软件每次检查更新以及覆盖更新。
+Github 开放了 <a href="https://docs.github.com/en/rest/reference/repos" target="_blank" rel="noopener noreffer">Github Api v3</a>，也有各种语言的SDK，就是判断版本号是否一致并进行下载解压覆盖重启即可。</p>
+<p>主程序：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">  1

@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/yqqy.top\/golang-trie\/"
-        },"genre": "posts","keywords": "Golang","wordcount":  865 ,
+        },"genre": "posts","keywords": "Golang","wordcount":  905 ,
         "url": "https:\/\/yqqy.top\/golang-trie\/","datePublished": "2020-03-28T11:20:13+00:00","dateModified": "2020-09-09T22:20:14+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Yqchilde"},"author": {
@@ -104,7 +104,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Golang之Trie写法 &amp;&amp; sort.Interface使用</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/golang/"><i class="far fa-folder fa-fw"></i>Golang</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-03-28">2020-03-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 865 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-03-28">2020-03-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 905 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/golang-trie/" class="leancloud_visitors" data-flag-title="Golang之Trie写法 &amp;&amp; sort.Interface使用">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -124,7 +124,7 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h3 id="trie">Trie</h3>
-<p>Trie又称字典树，是N叉树的一种特殊形式。是一种存储大量字符串的树形数据结构，相当于<code>HashMap</code>，在存储单词中又比<code>HashMap</code>节省了很多的内存空间。<code>trie</code>树的根节点不存储内容，内容都在孩子节点上。</p>
+<p>&emsp;&emsp;Trie又称字典树，是N叉树的一种特殊形式。是一种存储大量字符串的树形数据结构，相当于<code>HashMap</code>，在存储单词中又比<code>HashMap</code>节省了很多的内存空间。<code>trie</code>树的根节点不存储内容，内容都在孩子节点上。</p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -133,7 +133,7 @@
         data-sizes="auto"
         alt="https://pic.yqqy.top/blog/20200328174533.png?imageMogr2/format/webp/interlace/1"
         title="https://pic.yqqy.top/blog/20200328174533.png?imageMogr2/format/webp/interlace/1" /></p>
-<p>这是一个保存了8个单词的字典树的结构，8个单词分别是&quot;A&quot;, &ldquo;to&rdquo;, &ldquo;tea&rdquo;, &ldquo;ted&rdquo;, &ldquo;ten&rdquo;, &ldquo;i&rdquo;, &ldquo;in&rdquo;, &ldquo;inn&rdquo;。每条从根节点到叶子节点的路径都构成了单词（有的不需要走到叶子节点也是单词，比如<code>i</code>, <code>in</code>），从根节点出发的路径都是给定单词列表的某个/某些单词的前缀，反之如果在某个字符串中没有出现在这棵树的路径上，就说明组不成单词。</p>
+<p>&emsp;&emsp;这是一个保存了8个单词的字典树的结构，8个单词分别是&quot;A&quot;, &ldquo;to&rdquo;, &ldquo;tea&rdquo;, &ldquo;ted&rdquo;, &ldquo;ten&rdquo;, &ldquo;i&rdquo;, &ldquo;in&rdquo;, &ldquo;inn&rdquo;。每条从根节点到叶子节点的路径都构成了单词（有的不需要走到叶子节点也是单词，比如<code>i</code>, <code>in</code>），从根节点出发的路径都是给定单词列表的某个/某些单词的前缀，反之如果在某个字符串中没有出现在这棵树的路径上，就说明组不成单词。</p>
 <blockquote>
 <p>通常Trie树也会用在搜索引擎上，就是输入某些词，就会扩展出一些模糊词汇</p>
 <p>Golang 实现的写法如下：</p>
@@ -260,7 +260,7 @@
 <blockquote>
 <p>关于自定义排序，用这个就可以了</p>
 </blockquote>
-<p>在官方库<code>sort.go</code>中关于<code>Interface</code>定义如下：</p>
+<p>&emsp;&emsp;在官方库<code>sort.go</code>中关于<code>Interface</code>定义如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -291,7 +291,7 @@
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>所以我们只需要实现上面三个方法就可以了，如下是一个按照数组中字符串长度排序的一个例子</p>
+</div><p>&emsp;&emsp;所以我们只需要实现上面三个方法就可以了，如下是一个按照数组中字符串长度排序的一个例子</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1

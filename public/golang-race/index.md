@@ -31,7 +31,8 @@ func randomDuration() time.Duration {
 }
 ```
 
-{{indent}}这个例子看起来没有任何问题，但是实际上， `time.AfterFunc` 是会另外启动一个goroutine来进行计时和执行func()。由于 func 中有对  `t(Timer)` 进行 `Reset` 操作，而主goroutine也有对t进行操作 `t = time.After` 。这个时候，其实有可能会造成两个goroutine对同一个变量进行竞争的情况。
+{{indent}}这个例子看起来没有任何问题，但是实际上， `time.AfterFunc`是会另外启动一个goroutine来进行计时和执行func()。由于 func 中有对  `t(Timer)`进行 `Reset`操作，而主goroutine也有对t进行操作 `t = time.After`。这个时候，其实有可能会造成两个goroutine对同一个变量进行竞争的情况。
+
 {{indent}}这个例子有点复杂，简化一下，使用一个简单的例子：
 
 ```go

@@ -36,7 +36,7 @@ services:
 
 ### MySQL
 
-创建``datas` 和 `conf` 两个空目录，编写`my.cnf`文件放入`conf`文件夹，配置如下：
+{{indent}}创建``datas` 和 `conf` 两个空目录，编写`my.cnf`文件放入`conf`文件夹，配置如下：
 
 ```ini
 [mysqld]
@@ -54,11 +54,11 @@ default-character-set=utf8mb4
 
 ### Nginx
 
-创建`logs`、`conf`、`www`三个空目录，编写`nginx.conf`文件放入`conf`文件夹。
+{{indent}}创建`logs`、`conf`、`www`三个空目录，编写`nginx.conf`文件放入`conf`文件夹。
 
 ## Nginx 多目录
 
- 当我们只有一个端口可以开`Server`时，就需要一个`Server`开启多个`location`来写规则，具体需求就是在`www`目录下有`home`和`docs`两个目录，通过不同的后缀去访问不同的页面，规则这样写：
+{{indent}}当我们只有一个端口可以开`Server`时，就需要一个`Server`开启多个`location`来写规则，具体需求就是在`www`目录下有`home`和`docs`两个目录，通过不同的后缀去访问不同的页面，规则这样写：
 
 ```nginx
 Server {
@@ -80,9 +80,9 @@ Server {
 }
 ```
 
-需要注意的是`root`和`alias`的区别，一个是从`root`下跟`location`路径，一个是通过`location`路径的别名到`alias`的路径
+{{indent}}需要注意的是`root`和`alias`的区别，一个是从`root`下跟`location`路径，一个是通过`location`路径的别名到`alias`的路径。
 
-这时候，又发现了一个问题，那就是如果不加`/`，就会出现端口丢失问题，因为容器内映射的端口是 80 端口，外边公网给的 ip 是另一个，而 80 是浏览器 web 页面的默认端口，举个 🌰，`47.1.2.1:8090/docs`没有加`/`就会经过 nginx 的 301 重定向到`47.1.2.1/docs/`，由于端口丢失，即使重定向到带有`/`的地址也只是 404，这时只需要修改为如下配置即可。
+{{indent}}这时候，又发现了一个问题，那就是如果不加`/`，就会出现端口丢失问题，因为容器内映射的端口是 80 端口，外边公网给的 ip 是另一个，而 80 是浏览器 web 页面的默认端口，举个 🌰，`47.1.2.1:8090/docs`没有加`/`就会经过 nginx 的 301 重定向到`47.1.2.1/docs/`，由于端口丢失，即使重定向到带有`/`的地址也只是 404，这时只需要修改为如下配置即可。
 
 ```nginx
 location /docs {

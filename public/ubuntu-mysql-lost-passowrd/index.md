@@ -3,11 +3,9 @@
 
 <!--more-->
 
-​		
+{{indent}}在Ubuntu系统中安装了MySQL之后，根据操作看是有一个交互需要设置密码的，但是并没有出现设置密码的环节，压根登录不了，尝试查看过 `var/log/mysql/error.log`，看到的内容显示密码为空，还是没有用。
 
-​		在Ubuntu系统中安装了MySQL之后，根据操作看是有一个交互需要设置密码的，但是并没有出现设置密码的环节，压根登录不了，尝试查看过 `var/log/mysql/error.log`，看到的内容显示密码为空，还是没有用。
-
-​		解决方案如下：
+{{indent}}解决方案如下：
 
 1. 在终端输入 `sudo cat/etc/mysql/debian.cnf`，如下图
 
@@ -36,7 +34,7 @@ flush privileges;
 quit;
 ```
 
-​		操作如图所示：
+{{indent}}操作如图所示：
 
 ![image-20201111080453889](https://pic.yqqy.top/blog/20201111080455.png?imageMogr2/format/webp/interlace/1 "修改密码")
 
@@ -48,6 +46,6 @@ sudo service mysql restart
 
 以上就是全部，再次登录使用root和设置的密码就可以登录
 
+## 参考文章
 
-
-本文参考文章[CNBLOGS](https://www.cnblogs.com/williamjie/p/11126486.html)
+* [在Ubuntu 18.04 下安装mysql，没有初始密码，重设root密码](https://www.cnblogs.com/williamjie/p/11126486.html)

@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/yqqy.top\/golang-learning-context\/"
-        },"genre": "posts","keywords": "Golang","wordcount":  2545 ,
+        },"genre": "posts","keywords": "Golang","wordcount":  2699 ,
         "url": "https:\/\/yqqy.top\/golang-learning-context\/","datePublished": "2020-05-15T16:07:35+00:00","dateModified": "2020-09-09T22:20:14+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Yqchilde"},"author": {
@@ -104,7 +104,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Golang之学习Context</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/golang/"><i class="far fa-folder fa-fw"></i>Golang</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-05-15">2020-05-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2545 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-05-15">2020-05-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2699 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;<span id="/golang-learning-context/" class="leancloud_visitors" data-flag-title="Golang之学习Context">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -128,7 +128,7 @@
           </ul>
         </li>
         <li><a href="#建议或注意事项">建议或注意事项</a></li>
-        <li><a href="#参考资料">参考资料</a></li>
+        <li><a href="#参考文章">参考文章</a></li>
       </ul>
     </li>
   </ul>
@@ -144,8 +144,8 @@
 <blockquote>
 <p>介绍一下</p>
 </blockquote>
-<p>在go1.7之前，context还是非编制的，存在（golang.org/x/net/context）中，golang团队发现context这个东西很好用，于是把它收编了，1.7版本正式进入了标准库。专门用来简化处理多个goroutine之间与请求域的数据、取消信号、截止时间等相关操作。</p>
-<p>对服务器传入的请求应该创建上下文，而对服务器的传出调用应该接受上下文，它们之间的函数调用链必须传递上下文，或者可以使用<code>WithCancel</code>、<code>WithDeadline</code>、<code>WithTimeOut</code>、<code>WithValue</code>创建的派生上下文，当一个上下文被取消时，它派生的所有上下文也被取消。</p>
+<p>&emsp;&emsp;在go1.7之前，context还是非编制的，存在（golang.org/x/net/context）中，golang团队发现context这个东西很好用，于是把它收编了，1.7版本正式进入了标准库。专门用来简化处理多个goroutine之间与请求域的数据、取消信号、截止时间等相关操作。</p>
+<p>&emsp;&emsp;对服务器传入的请求应该创建上下文，而对服务器的传出调用应该接受上下文，它们之间的函数调用链必须传递上下文，或者可以使用<code>WithCancel</code>、<code>WithDeadline</code>、<code>WithTimeOut</code>、<code>WithValue</code>创建的派生上下文，当一个上下文被取消时，它派生的所有上下文也被取消。</p>
 <blockquote>
 <p>Context常用的使用姿势</p>
 </blockquote>
@@ -206,10 +206,10 @@
 </tbody>
 </table>
 <h3 id="context的创建">context的创建</h3>
-<p>为了更加方便的创建<code>Context</code>，包里头定义了<code>Background</code>来作为所有<code>Context</code>的根，可以认为所有的<code>Context</code>是树的结构，<code>Background</code>是树的根，当任一<code>Context</code>被取消的时候，那么继承他的<code>Context</code>将全部被回收。</p>
+<p>&emsp;&emsp;为了更加方便的创建<code>Context</code>，包里头定义了<code>Background</code>来作为所有<code>Context</code>的根，可以认为所有的<code>Context</code>是树的结构，<code>Background</code>是树的根，当任一<code>Context</code>被取消的时候，那么继承他的<code>Context</code>将全部被回收。</p>
 <h3 id="context的api">context的Api</h3>
 <h4 id="withcancel">WithCancel</h4>
-<p><code>WithCancel</code>返回带有新Done通道的父节点的副本，当调用返回的<code>cancel</code>函数或当关闭 父上下文 的Done通道时，将关闭返回上下文的Done通道，无论先发生什么情况。</p>
+<p>&emsp;&emsp;<code>WithCancel</code>返回带有新Done通道的父节点的副本，当调用返回的<code>cancel</code>函数或当关闭 父上下文 的Done通道时，将关闭返回上下文的Done通道，无论先发生什么情况。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -286,9 +286,9 @@
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>**解释：**在上面的示例代码中，<code>gen</code>函数在单独的goroutine中生成整数并将它们发送到返回的通道。 <code>gen</code>的调用者在使用生成的整数之后需要取消上下文，以免<code>gen</code>启动的内部goroutine发生泄漏。</p>
+</div><p>&emsp;&emsp;<strong>解释：</strong> 在上面的示例代码中，<code>gen</code>函数在单独的goroutine中生成整数并将它们发送到返回的通道。 <code>gen</code>的调用者在使用生成的整数之后需要取消上下文，以免<code>gen</code>启动的内部goroutine发生泄漏。</p>
 <h4 id="withdeadline">WithDeadline</h4>
-<p><code>WithDeadline</code>返回父上下文的副本，并将<code>deadline</code>调整为不迟于<code>d</code>。如果父上下文的<code>deadline</code>已经早于<code>d</code>，则<code>WithDeadline(parent, d)</code>在语义上等同于父上下文。当截止日过期时，当调用返回的<code>cancel</code>函数时，或者当父上下文的Done通道关闭时，返回上下文的Done通道将被关闭，以最先发生的情况为准。</p>
+<p>&emsp;&emsp;<code>WithDeadline</code>返回父上下文的副本，并将<code>deadline</code>调整为不迟于<code>d</code>。如果父上下文的<code>deadline</code>已经早于<code>d</code>，则<code>WithDeadline(parent, d)</code>在语义上等同于父上下文。当截止日过期时，当调用返回的<code>cancel</code>函数时，或者当父上下文的Done通道关闭时，返回上下文的Done通道将被关闭，以最先发生的情况为准。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -297,7 +297,7 @@
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">WithDeadline</span><span class="p">(</span><span class="nx">parent</span> <span class="nx">Context</span><span class="p">,</span> <span class="nx">d</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span><span class="p">)</span> <span class="p">(</span><span class="nx">Context</span><span class="p">,</span> <span class="nx">CancelFunc</span><span class="p">)</span> 
 </code></pre></td></tr></table>
 </div>
-</div><p>取消上下文将释放与其相关联的资源，因此代码还应该在此上下文中运行的操作完成后立即调用<code>cancel</code></p>
+</div><p>&emsp;&emsp;取消上下文将释放与其相关联的资源，因此代码还应该在此上下文中运行的操作完成后立即调用<code>cancel</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -330,9 +330,9 @@
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>上面的代码中，定义了一个50毫秒之后过期的<code>deadline</code>，然后我们调用<code>context.WithDeadline(context.Background(), d)</code>得到一个上下文<code>ctx</code>和一个取消函数<code>cancel</code>，然后使用一个<code>select</code>让主程序陷入等待，等待1秒后打印<code>overslept</code>退出或者等待<code>ctx</code>过期后退出，因为<code>ctx</code>50秒后就过期，所以<code>ctx.Done</code>会先接收到值，上面的代码会打印<code>ctx.Err()</code>取消原因</p>
+</div><p>&emsp;&emsp;上面的代码中，定义了一个50毫秒之后过期的<code>deadline</code>，然后我们调用<code>context.WithDeadline(context.Background(), d)</code>得到一个上下文<code>ctx</code>和一个取消函数<code>cancel</code>，然后使用一个<code>select</code>让主程序陷入等待，等待1秒后打印<code>overslept</code>退出或者等待<code>ctx</code>过期后退出，因为<code>ctx</code>50秒后就过期，所以<code>ctx.Done</code>会先接收到值，上面的代码会打印<code>ctx.Err()</code>取消原因</p>
 <h4 id="withtimeout">WithTimeout</h4>
-<p><code>WithTimeout</code>返回<code>WithDeadLine(parent, time.Now().Add(timeout))</code></p>
+<p>&emsp;&emsp;<code>WithTimeout</code>返回<code>WithDeadLine(parent, time.Now().Add(timeout))</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -341,7 +341,7 @@
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">WithTimeout</span><span class="p">(</span><span class="nx">parent</span> <span class="nx">Context</span><span class="p">,</span> <span class="nx">timeout</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Duration</span><span class="p">)</span> <span class="p">(</span><span class="nx">Context</span><span class="p">,</span> <span class="nx">CancelFunc</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>取消此上下文将释放与其相关的资源，因此代码应该在此上下文中运行的操作完成后立即调用<code>cancel</code>，通常用于数据库或者网络连接的超时控制</p>
+</div><p>&emsp;&emsp;取消此上下文将释放与其相关的资源，因此代码应该在此上下文中运行的操作完成后立即调用<code>cancel</code>，通常用于数据库或者网络连接的超时控制</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -406,9 +406,9 @@
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>上面示例代码就是设置了一个50毫秒的超时，在模拟链接超时到50毫秒的时候结束了操作</p>
+</div><p>&emsp;&emsp;上面示例代码就是设置了一个50毫秒的超时，在模拟链接超时到50毫秒的时候结束了操作</p>
 <h4 id="withvalue">WithValue</h4>
-<p><code>WithValue</code>函数能够将请求作用域的数据与Context对象建立关系</p>
+<p>&emsp;&emsp;<code>WithValue</code>函数能够将请求作用域的数据与Context对象建立关系</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -417,9 +417,9 @@
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">WithValue</span><span class="p">(</span><span class="nx">parent</span> <span class="nx">Context</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">val</span> <span class="kd">interface</span><span class="p">{})</span> <span class="nx">Context</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><code>WithValue</code>返回父节点的副本，其中与<code>key</code>关联的值为<code>val</code></p>
-<p>仅对API和进程间传递请求域的数据使用上下文值，而不是使用它来传递可选参数给函数</p>
-<p>所提供的键必须是<code>可比较</code>的，并且不应该是<code>string</code>类型或任何其他内置类型，以避免使用上下文在包之间发生冲突。<code>WithValue</code>的用户应该为键定义自己的类型。为了避免在分配给interface{}时进行分配，上下文键通常具有具体类型<code>struct{}</code>，或者导出的上下文关键变量的静态类型应该为指针或接口。</p>
+</div><p>&emsp;&emsp;<code>WithValue</code>返回父节点的副本，其中与<code>key</code>关联的值为<code>val</code></p>
+<p>&emsp;&emsp;仅对API和进程间传递请求域的数据使用上下文值，而不是使用它来传递可选参数给函数。</p>
+<p>&emsp;&emsp;所提供的键必须是<code>可比较</code>的，并且不应该是<code>string</code>类型或任何其他内置类型，以避免使用上下文在包之间发生冲突。<code>WithValue</code>的用户应该为键定义自己的类型。为了避免在分配给interface{}时进行分配，上下文键通常具有具体类型<code>struct{}</code>，或者导出的上下文关键变量的静态类型应该为指针或接口。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -508,9 +508,9 @@
 <li>Context的Value相关方法应该传递请求域的必要数据，不应该用于传递可选参数</li>
 <li>Context是线程安全的，可以放心的在多个goroutine中传递</li>
 </ul>
-<h3 id="参考资料">参考资料</h3>
+<h3 id="参考文章">参考文章</h3>
 <ul>
-<li><a href="https://www.liwenzhou.com/posts/Go/go_context/" target="_blank" rel="noopener noreffer">李文周博客</a></li>
+<li><a href="https://www.liwenzhou.com/posts/Go/go_context/" target="_blank" rel="noopener noreffer">Go标准库Context</a></li>
 <li><a href="https://blog.csdn.net/u011957758/article/details/82948750" target="_blank" rel="noopener noreffer">由浅入深聊聊Golang的context</a></li>
 </ul></div><div class="post-footer" id="post-footer">
     <div class="post-info">

@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/yqqy.top\/ubuntu-docker-permission-denied\/"
-        },"genre": "posts","keywords": "Docker","wordcount":  306 ,
+        },"genre": "posts","keywords": "Docker","wordcount":  383 ,
         "url": "https:\/\/yqqy.top\/ubuntu-docker-permission-denied\/","datePublished": "2020-11-11T08:11:30+08:00","dateModified": "2020-11-11T08:23:22+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Yqchilde"},"author": {
@@ -104,7 +104,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Ubuntu启动Docker报没有权限</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/docker/"><i class="far fa-folder fa-fw"></i>Docker</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-11-11">2020-11-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 306 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-11-11">2020-11-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 383 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/ubuntu-docker-permission-denied/" class="leancloud_visitors" data-flag-title="Ubuntu启动Docker报没有权限">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -119,10 +119,11 @@
     <li><a href="#原因分析">原因分析</a></li>
     <li><a href="#解决方案">解决方案</a></li>
     <li><a href="#检查结果">检查结果</a></li>
+    <li><a href="#参考文章">参考文章</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="问题描述">问题描述</h2>
-<p>​		解决Ubuntu启动Docker &ldquo;Got permission denied while trying to connect to the Docker daemon socket&rdquo; 问题。在终端执行 <code>docker version </code>命令，出现以下错误</p>
+<p>&emsp;&emsp;解决Ubuntu启动Docker &ldquo;Got permission denied while trying to connect to the Docker daemon socket&rdquo; 问题。在终端执行 <code>docker version </code>命令，出现以下错误</p>
 <p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20201111081457.png?imageMogr2/format/webp/interlace/1" title="image-20201111081455844" data-thumbnail="https://pic.yqqy.top/blog/20201111081457.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>docker version</h2><p>image-20201111081455844</p>">
         <img
             class="lazyload"
@@ -134,9 +135,9 @@
     </a><figcaption class="image-caption">docker version</figcaption>
     </figure></p>
 <h2 id="原因分析">原因分析</h2>
-<p>​		docker进程使用 Unix Socket 而不是 TCP 端口。而默认情况下，Unix socket 属于 root 用户，因此需要 <strong>root权限</strong> 才能访问。</p>
+<p>&emsp;&emsp;docker进程使用 Unix Socket 而不是 TCP 端口。而默认情况下，Unix socket 属于 root 用户，因此需要 <strong>root权限</strong> 才能访问。</p>
 <h2 id="解决方案">解决方案</h2>
-<p>​		将 docker 添加进用户组，代码如下，依次执行：</p>
+<p>&emsp;&emsp;将 docker 添加进用户组，代码如下，依次执行：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -176,8 +177,11 @@ newgrp docker
     </a><figcaption class="image-caption">解决方案</figcaption>
     </figure></p>
 <h2 id="检查结果">检查结果</h2>
-<p>再次执行 <code>docker version</code> 命令，发现不再出现缺失权限的问题</p>
-<p><strong>本文参考文章：</strong> <a href="https://blog.csdn.net/liangllhahaha/article/details/92077065" target="_blank" rel="noopener noreffer">CSDN</a></p></div><div class="post-footer" id="post-footer">
+<p>&emsp;&emsp;再次执行 <code>docker version</code> 命令，发现不再出现缺失权限的问题</p>
+<h2 id="参考文章">参考文章</h2>
+<ul>
+<li><a href="https://blog.csdn.net/liangllhahaha/article/details/92077065" target="_blank" rel="noopener noreffer">解决Ubuntu18.04启动Docker“Got permission denied while trying to connect to the Docker daemon socket“问题</a></li>
+</ul></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

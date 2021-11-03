@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/yqqy.top\/golang-duck-typing\/"
-        },"genre": "posts","keywords": "Golang","wordcount":  753 ,
+        },"genre": "posts","keywords": "Golang","wordcount":  813 ,
         "url": "https:\/\/yqqy.top\/golang-duck-typing\/","datePublished": "2020-03-24T14:52:28+00:00","dateModified": "2020-09-09T22:20:14+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Yqchilde"},"author": {
@@ -101,19 +101,19 @@
 <main class="main">
                 <div class="container"><article class="page single"><h1 class="single-title animated flipInX">Golang-Duck&amp;Typing</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/golang/"><i class="far fa-folder fa-fw"></i>Golang</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-03-24">2020-03-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 753 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-03-24">2020-03-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 813 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/golang-duck-typing/" class="leancloud_visitors" data-flag-title="Golang-Duck&amp;Typing">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="content" id="content"><blockquote>
 <p><a href="https://zh.wikipedia.org/wiki/%E9%B8%AD%E5%AD%90%E7%B1%BB%E5%9E%8B#.E5.9C.A8Python.E4.B8.AD" target="_blank" rel="noopener noreffer">维基百科</a>解释：</p>
-<p><strong>鸭子类型</strong>在<a href="https://zh.wikipedia.org/wiki/%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1" target="_blank" rel="noopener noreffer">程序设计</a>中是<a href="https://zh.wikipedia.org/wiki/%e9%a1%9e%e5%9e%8b%e7%b3%bb%e7%b5%b1" target="_blank" rel="noopener noreffer">动态类型</a>的一种风格。在这种风格中，一个对象有效的语义，不是由继承自特定的类或实现特定的接口，而是由&quot;当前<a href="https://zh.wikipedia.org/wiki/%e6%96%b9%e6%b3%95_%28%e9%9b%bb%e8%85%a6%e7%a7%91%e5%ad%b8%29" target="_blank" rel="noopener noreffer">方法</a>和属性的集合&quot;决定。这个概念的名字来源于由<a href="https://zh.wikipedia.org/w/index.php?title=%e8%a9%b9%e5%a7%86%e6%96%af%c2%b7%e6%83%a0%e7%89%b9%e7%a7%91%e5%a7%86%c2%b7%e8%8e%b1%e5%88%a9&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener noreffer">詹姆斯·惠特科姆·莱利</a>提出的<a href="https://zh.wikipedia.org/wiki/%e9%b8%ad%e5%ad%90%e6%b5%8b%e8%af%95" target="_blank" rel="noopener noreffer">鸭子测试</a>，“鸭子测试”可以这样表述：</p>
-<p><em><strong>当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。</strong></em></p>
-<p>在鸭子类型中，关注点在于对象的行为，能作什么；而不是关注对象所属的类型。例如，在不使用鸭子类型的语言中，我们可以编写一个函数，它接受一个类型为&quot;鸭子&quot;的对象，并调用它的&quot;走&quot;和&quot;叫&quot;方法。在使用鸭子类型的语言中，这样的一个函数可以接受一个任意类型的对象，并调用它的&quot;走&quot;和&quot;叫&quot;方法。如果这些需要被调用的方法不存在，那么将引发一个运行时错误。任何拥有这样的正确的&quot;走&quot;和&quot;叫&quot;方法的对象都可被函数接受的这种行为引出了以上表述，这种决定类型的方式因此得名。</p>
-<p>鸭子类型通常得益于&quot;不&quot;测试方法和函数中参数的类型，而是依赖文档、清晰的代码和测试来确保正确使用。</p>
-<p>在常规类型中，我们能否在一个特定场景中使用某个对象取决于这个对象的类型，而在鸭子类型中，则取决于这个对象是否具有某种属性或者方法——即只要具备特定的属性或方法，能通过鸭子测试，就可以使用。</p>
+<p>&emsp;&emsp;<strong>鸭子类型</strong>在<a href="https://zh.wikipedia.org/wiki/%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1" target="_blank" rel="noopener noreffer">程序设计</a>中是<a href="https://zh.wikipedia.org/wiki/%e9%a1%9e%e5%9e%8b%e7%b3%bb%e7%b5%b1" target="_blank" rel="noopener noreffer">动态类型</a>的一种风格。在这种风格中，一个对象有效的语义，不是由继承自特定的类或实现特定的接口，而是由&quot;当前<a href="https://zh.wikipedia.org/wiki/%e6%96%b9%e6%b3%95_%28%e9%9b%bb%e8%85%a6%e7%a7%91%e5%ad%b8%29" target="_blank" rel="noopener noreffer">方法</a>和属性的集合&quot;决定。这个概念的名字来源于由<a href="https://zh.wikipedia.org/w/index.php?title=%e8%a9%b9%e5%a7%86%e6%96%af%c2%b7%e6%83%a0%e7%89%b9%e7%a7%91%e5%a7%86%c2%b7%e8%8e%b1%e5%88%a9&amp;action=edit&amp;redlink=1" target="_blank" rel="noopener noreffer">詹姆斯·惠特科姆·莱利</a>提出的<a href="https://zh.wikipedia.org/wiki/%e9%b8%ad%e5%ad%90%e6%b5%8b%e8%af%95" target="_blank" rel="noopener noreffer">鸭子测试</a>，“鸭子测试”可以这样表述：</p>
+<p>&emsp;&emsp;<em><strong>当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。</strong></em></p>
+<p>&emsp;&emsp;在鸭子类型中，关注点在于对象的行为，能作什么；而不是关注对象所属的类型。例如，在不使用鸭子类型的语言中，我们可以编写一个函数，它接受一个类型为&quot;鸭子&quot;的对象，并调用它的&quot;走&quot;和&quot;叫&quot;方法。在使用鸭子类型的语言中，这样的一个函数可以接受一个任意类型的对象，并调用它的&quot;走&quot;和&quot;叫&quot;方法。如果这些需要被调用的方法不存在，那么将引发一个运行时错误。任何拥有这样的正确的&quot;走&quot;和&quot;叫&quot;方法的对象都可被函数接受的这种行为引出了以上表述，这种决定类型的方式因此得名。</p>
+<p>&emsp;&emsp;鸭子类型通常得益于&quot;不&quot;测试方法和函数中参数的类型，而是依赖文档、清晰的代码和测试来确保正确使用。</p>
+<p>&emsp;&emsp;在常规类型中，我们能否在一个特定场景中使用某个对象取决于这个对象的类型，而在鸭子类型中，则取决于这个对象是否具有某种属性或者方法——即只要具备特定的属性或方法，能通过鸭子测试，就可以使用。</p>
 </blockquote>
-<p><strong>按照我的理解</strong> 就是实现了 <code>测试</code> 是否实现了某个接口中的所有方法，代码如下</p>
+<p>&emsp;&emsp;<strong>按照我的理解</strong> 就是实现了 <code>测试</code> 是否实现了某个接口中的所有方法，代码如下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1

@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/yqqy.top\/golang-design-pattern\/"
-        },"genre": "posts","keywords": "Golang","wordcount":  5134 ,
+        },"genre": "posts","keywords": "Golang","wordcount":  5340 ,
         "url": "https:\/\/yqqy.top\/golang-design-pattern\/","datePublished": "2020-04-21T15:00:16+00:00","dateModified": "2020-09-09T22:20:14+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Yqchilde"},"author": {
@@ -104,7 +104,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Golang实现软件设计模式</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/golang/"><i class="far fa-folder fa-fw"></i>Golang</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-04-21">2020-04-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5134 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-04-21">2020-04-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5340 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 11 分钟&nbsp;<span id="/golang-design-pattern/" class="leancloud_visitors" data-flag-title="Golang实现软件设计模式">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -156,20 +156,20 @@
         data-sizes="auto"
         alt="https://pic.yqqy.top/blog/20200406232406.png?imageMogr2/format/webp/interlace/1"
         title="img" /></p>
-<p>虽然设计模式存在于面向对象的语言中，Golang并不是一门OOP的语言，但是这并代表不能实现设计模式。</p>
+<p>&emsp;&emsp;虽然设计模式存在于面向对象的语言中，Golang并不是一门OOP的语言，但是这并代表不能实现设计模式。</p>
 <h2 id="六大原则">六大原则</h2>
 <h3 id="开闭原则">开闭原则</h3>
-<p>一个软件实体，如类、模块和函数应该对扩展开放，对修改关闭。在软件的生命周期内，因变化、升级、和维护对原有代码进行修改，可能会引入错误，所以当软件需要变化时，通过扩展软件实体的行为来实现变化，而不是修改原有代码。</p>
+<p>&emsp;&emsp;一个软件实体，如类、模块和函数应该对扩展开放，对修改关闭。在软件的生命周期内，因变化、升级、和维护对原有代码进行修改，可能会引入错误，所以当软件需要变化时，通过扩展软件实体的行为来实现变化，而不是修改原有代码。</p>
 <h3 id="里氏代换原则">里氏代换原则</h3>
-<p>任何基类可以出现的地方，子类一定可以出现。里氏代换原则是继承复用的基石，只有当衍生类可以替换掉基类，软件单位的功能不受到影响时，基类才能真正被复用，而衍生类也能够在基类的基础上增加新的行为。里氏代换原则是对“开闭”原则的补充。实现“开闭”原则的关键步骤就是抽象化。而基类与子类的继承关系就是抽象化的具体实现，所以里氏代换原则是对实现抽象化的具体步骤的规范。通俗的说就是：子类可以扩展父类的功能，但不能改变父类原有的功能。</p>
+<p>&emsp;&emsp;任何基类可以出现的地方，子类一定可以出现。里氏代换原则是继承复用的基石，只有当衍生类可以替换掉基类，软件单位的功能不受到影响时，基类才能真正被复用，而衍生类也能够在基类的基础上增加新的行为。里氏代换原则是对“开闭”原则的补充。实现“开闭”原则的关键步骤就是抽象化。而基类与子类的继承关系就是抽象化的具体实现，所以里氏代换原则是对实现抽象化的具体步骤的规范。通俗的说就是：子类可以扩展父类的功能，但不能改变父类原有的功能。</p>
 <h3 id="单一职责原则">单一职责原则</h3>
-<p>一个类只负责一项职责。</p>
+<p>&emsp;&emsp;一个类只负责一项职责。</p>
 <h3 id="依赖倒置原则">依赖倒置原则</h3>
-<p>高层模块不应该依赖低层模块，二者都应该依赖其抽象；抽象不应该依赖细节；细节应该依赖抽象。通俗的说：多用抽象的接口来描述相同的动作，降低实现这个动作的人和物之前的耦合度。</p>
+<p>&emsp;&emsp;高层模块不应该依赖低层模块，二者都应该依赖其抽象；抽象不应该依赖细节；细节应该依赖抽象。通俗的说：多用抽象的接口来描述相同的动作，降低实现这个动作的人和物之前的耦合度。</p>
 <h3 id="接口隔离原则">接口隔离原则</h3>
-<p>客户端不应该依赖它不需要的接口；一个类对另一个类的依赖应该建立在最小的接口上。</p>
+<p>&emsp;&emsp;客户端不应该依赖它不需要的接口；一个类对另一个类的依赖应该建立在最小的接口上。</p>
 <h3 id="迪米特法则">迪米特法则</h3>
-<p>一个对象应该对其他对象保持最少的了解。类与类之间的关系越密切，耦合度越大，当一个类发生改变时，对另一个类的影响也越大。</p>
+<p>&emsp;&emsp;一个对象应该对其他对象保持最少的了解。类与类之间的关系越密切，耦合度越大，当一个类发生改变时，对另一个类的影响也越大。</p>
 <table>
 <thead>
 <tr>
@@ -206,23 +206,37 @@
 <blockquote>
 <p>wiki解释</p>
 </blockquote>
-<p>创建者模式（也可称为生成器模式 / 建造模式），是一种对象构建模式。它可以将复杂对象的建造过程抽象出来（抽象类别），使这个抽象过程的不同实现方法可以构造出不同表现（属性）的对象。</p>
+<p>&emsp;&emsp;创建者模式（也可称为生成器模式 / 建造模式），是一种对象构建模式。它可以将复杂对象的建造过程抽象出来（抽象类别），使这个抽象过程的不同实现方法可以构造出不同表现（属性）的对象。</p>
 <blockquote>
 <p>建造者模式的主要角色</p>
 </blockquote>
 <ul>
-<li>Product：产品角色。它是包含多个组成部件的复杂对象和属性，是一个模型。</li>
-<li>Builder：抽象建造者。它是一个包含创建产品各个子部件的抽象方法的接口或者抽象类，通常还包含一个返回复杂产品的方法 ，该方法一般是抽象并且返回值类型是产品角色（Product）。理解为它在调用生成方法。</li>
-<li>ConcreteBuilder：具体建造者。实现 Builder 接口或者继承Builder 抽象类，完成复杂产品的各个部件的具体创建方法。</li>
-<li>Director：指挥者。它调用建造者（Builder）中的部件构造与装配方法完成复杂对象的创建，不设计产品具体构建细节。</li>
+<li>
+<p>Product：产品角色。它是包含多个组成部件的复杂对象和属性，是一个模型。</p>
+</li>
+<li>
+<p>Builder：抽象建造者。它是一个包含创建产品各个子部件的抽象方法的接口或者抽象类，通常还包含一个返回复杂产品的方法 ，该方法一般是抽象并且返回值类型是产品角色（Product）。理解为它在调用生成方法。</p>
+</li>
+<li>
+<p>ConcreteBuilder：具体建造者。实现 Builder 接口或者继承Builder 抽象类，完成复杂产品的各个部件的具体创建方法。</p>
+</li>
+<li>
+<p>Director：指挥者。它调用建造者（Builder）中的部件构造与装配方法完成复杂对象的创建，不设计产品具体构建细节。</p>
+</li>
 </ul>
 <blockquote>
 <p>主要作用</p>
 </blockquote>
 <ul>
-<li>用户不用关心对象的建造过程就可以创建复杂对象</li>
-<li>方便用户创建很多类似或者有相同属性的对象</li>
-<li>代码复用性高，且用封装性</li>
+<li>
+<p>用户不用关心对象的建造过程就可以创建复杂对象</p>
+</li>
+<li>
+<p>方便用户创建很多类似或者有相同属性的对象</p>
+</li>
+<li>
+<p>代码复用性高，且用封装性</p>
+</li>
 </ul>
 <blockquote>
 <p>Golang实现</p>
@@ -389,11 +403,11 @@
 <blockquote>
 <p>wiki解释</p>
 </blockquote>
-<p>普通的工厂方法模式通常伴随着对象的具体类型与工厂具体类型的一一对应，客户端代码根据需要选择合适的具体类型工厂使用。然而，这种选择可能包含复杂的逻辑，这时，可以创建一个单一的工厂类，用以包含这种选择逻辑，根据参数的不同选择实现不同的具体对象。这个工厂类不需要由每个具体产品实现一个自己的具体的工厂类。</p>
+<p>&emsp;&emsp;普通的工厂方法模式通常伴随着对象的具体类型与工厂具体类型的一一对应，客户端代码根据需要选择合适的具体类型工厂使用。然而，这种选择可能包含复杂的逻辑，这时，可以创建一个单一的工厂类，用以包含这种选择逻辑，根据参数的不同选择实现不同的具体对象。这个工厂类不需要由每个具体产品实现一个自己的具体的工厂类。</p>
 <blockquote>
 <p>白话理解</p>
 </blockquote>
-<p>即单独创建一个单一的工厂类，只做相关的实现，避免复杂的创建过程</p>
+<p>&emsp;&emsp;即单独创建一个单一的工厂类，只做相关的实现，避免复杂的创建过程</p>
 <blockquote>
 <p>Golang实现</p>
 </blockquote>
@@ -518,7 +532,7 @@
 <blockquote>
 <p>白话理解</p>
 </blockquote>
-<p>当我们需要实现数据固定，实现不同操作的时候，就可以扩展操作来实现新加入的方法不影响之前的代码，就比如下面的代码，实现了一个接口，让接口实现设置、计算方法，设计一个减法工厂，使其实现减法，如果我们需要再实现一个加法工厂，只需要单独在创建一个加法的，在项目中，往往这些需要抽离在单独的文件中。</p>
+<p>&emsp;&emsp;当我们需要实现数据固定，实现不同操作的时候，就可以扩展操作来实现新加入的方法不影响之前的代码，就比如下面的代码，实现了一个接口，让接口实现设置、计算方法，设计一个减法工厂，使其实现减法，如果我们需要再实现一个加法工厂，只需要单独在创建一个加法的，在项目中，往往这些需要抽离在单独的文件中。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -674,12 +688,12 @@
 <blockquote>
 <p>wiki解释</p>
 </blockquote>
-<p>修饰模式，是面向对象编程领域中，一种动态地往一个类中添加新的行为的设计模式。就功能而言，修饰模式相比生成子类更为灵活，这样可以给某个对象而不是整个类添加一些功能。</p>
-<p>通过使用修饰模式，可以在运行时扩充一个类的功能。原理是：增加一个修饰类包裹原来的类，包裹的方式一般是通过在将原来的对象作为修饰类的构造函数的参数。装饰类实现新的功能，但是，在不需要用到新功能的地方，它可以直接调用原来的类中的方法。修饰类必须和原来的类有相同的接口。</p>
+<p>&emsp;&emsp;修饰模式，是面向对象编程领域中，一种动态地往一个类中添加新的行为的设计模式。就功能而言，修饰模式相比生成子类更为灵活，这样可以给某个对象而不是整个类添加一些功能。</p>
+<p>&emsp;&emsp;通过使用修饰模式，可以在运行时扩充一个类的功能。原理是：增加一个修饰类包裹原来的类，包裹的方式一般是通过在将原来的对象作为修饰类的构造函数的参数。装饰类实现新的功能，但是，在不需要用到新功能的地方，它可以直接调用原来的类中的方法。修饰类必须和原来的类有相同的接口。</p>
 <blockquote>
 <p>白话</p>
 </blockquote>
-<p>做一个修饰方法，他的参数是要修饰的函数的参数，他的返回值是我们想要得到的结果，动态地给一个对象添加一些额外的职责。比如我们要实现一个记录每个函数执行时间的方法，如果我们手动在每个函数添加记录执行时间的函数，在函数很多的情况下，要花费大量时间且不易维护，所以就需要修饰模式来帮我们修饰一个方法，得到特定的结果。</p>
+<p>&emsp;&emsp;做一个修饰方法，他的参数是要修饰的函数的参数，他的返回值是我们想要得到的结果，动态地给一个对象添加一些额外的职责。比如我们要实现一个记录每个函数执行时间的方法，如果我们手动在每个函数添加记录执行时间的函数，在函数很多的情况下，要花费大量时间且不易维护，所以就需要修饰模式来帮我们修饰一个方法，得到特定的结果。</p>
 <blockquote>
 <p>Golang实现</p>
 </blockquote>
@@ -811,11 +825,13 @@
 <blockquote>
 <p>wiki解释</p>
 </blockquote>
-<p>在面向对象的编程里，<strong>迭代器模式</strong>是一种设计模式，是一种最简单也最常见的设计模式。他可以让用户透过特定的接口寻访容器中的每一个元素而不用了解底层的实现。</p>
+<p>&emsp;&emsp;在面向对象的编程里，<strong>迭代器模式</strong>是一种设计模式，是一种最简单也最常见的设计模式。他可以让用户透过特定的接口寻访容器中的每一个元素而不用了解底层的实现。</p>
 <blockquote>
 <p>白话解释   推荐这篇文章，真的是白话解释</p>
 </blockquote>
-<p><a href="https://segmentfault.com/a/1190000007208388" target="_blank" rel="noopener noreffer">白话解释迭代器</a></p>
+<ul>
+<li><a href="https://segmentfault.com/a/1190000007208388" target="_blank" rel="noopener noreffer">白话解释 迭代器(ITERATOR)和生成器(GENERATOR)</a></li>
+</ul>
 <blockquote>
 <p>Golang实现</p>
 </blockquote>
@@ -964,11 +980,17 @@
 <blockquote>
 <p>wiki解释</p>
 </blockquote>
-<p>在面向对象编程的范畴中，命令模式是一种设计模式，它尝试以对象来代表实际行动。命令对象可以把行动及其参数封装起来，于是这些行动可以被：</p>
+<p>&emsp;&emsp;在面向对象编程的范畴中，命令模式是一种设计模式，它尝试以对象来代表实际行动。命令对象可以把行动及其参数封装起来，于是这些行动可以被：</p>
 <ul>
-<li>重复多次</li>
-<li>取消（如果该对象有实现的话）</li>
-<li>取消后又再重做</li>
+<li>
+<p>重复多次</p>
+</li>
+<li>
+<p>取消（如果该对象有实现的话）</p>
+</li>
+<li>
+<p>取消后又再重做</p>
+</li>
 </ul>
 <blockquote>
 <p>Golang实现</p>
@@ -1158,10 +1180,10 @@
 <blockquote>
 <p>wiki解释</p>
 </blockquote>
-<p>责任链模式在面向对象程式设计里是一种软件设计模式，它包含了一些命令对象和一系列的处理对象。每一个处理对象决定它能处理哪些命令对象，它也知道如何将它不能处理的命令对象传递给该链中的下一个处理对象。</p>
+<p>&emsp;&emsp;责任链模式在面向对象程式设计里是一种软件设计模式，它包含了一些命令对象和一系列的处理对象。每一个处理对象决定它能处理哪些命令对象，它也知道如何将它不能处理的命令对象传递给该链中的下一个处理对象。</p>
 <blockquote>
-<p>白话讲</p>
-<p>我个人理解就是如果一件事情，多个人要去做，就比如请假来说，小于3天的班主任可以请，大于3天小于5天的级部主任可以请，大于5天小于10天的只能教务校长请，其他的不给请，在传统模式中写代码需要写一堆的<code>if</code>  <code>else if</code>  <code>else</code>，这会使得代码臃肿、耦合度高。那么就需要使用<strong>责任链模式</strong>，通过接口暴露出一个方法，每个人只需要做到方法里面的事即可，如果自己处理不了，那就交给上一级处理。</p>
+<p>白话讲：</p>
+<p>&emsp;&emsp;我个人理解就是如果一件事情，多个人要去做，就比如请假来说，小于3天的班主任可以请，大于3天小于5天的级部主任可以请，大于5天小于10天的只能教务校长请，其他的不给请，在传统模式中写代码需要写一堆的<code>if</code>  <code>else if</code>  <code>else</code>，这会使得代码臃肿、耦合度高。那么就需要使用<strong>责任链模式</strong>，通过接口暴露出一个方法，每个人只需要做到方法里面的事即可，如果自己处理不了，那就交给上一级处理。</p>
 </blockquote>
 <blockquote>
 <p>Golang实现</p>
@@ -1568,9 +1590,15 @@
 </div>
 </div><h2 id="参考">参考</h2>
 <ul>
-<li>WIKI百科</li>
-<li><a href="https://space.bilibili.com/375038855/dynamic" target="_blank" rel="noopener noreffer">Bilibili</a></li>
-<li><a href="https://github.com/senghoo/golang-design-pattern" target="_blank" rel="noopener noreffer">github</a></li>
+<li>
+<p>WIKI百科</p>
+</li>
+<li>
+<p><a href="https://space.bilibili.com/375038855/dynamic" target="_blank" rel="noopener noreffer">Bilibili</a></p>
+</li>
+<li>
+<p><a href="https://github.com/senghoo/golang-design-pattern" target="_blank" rel="noopener noreffer">github</a></p>
+</li>
 </ul></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">

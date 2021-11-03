@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/yqqy.top\/golang-request-body-reuse\/"
-        },"genre": "posts","keywords": "Golang","wordcount":  477 ,
+        },"genre": "posts","keywords": "Golang","wordcount":  502 ,
         "url": "https:\/\/yqqy.top\/golang-request-body-reuse\/","datePublished": "2020-12-19T13:56:15+08:00","dateModified": "2020-12-19T14:18:18+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Yqchilde"},"author": {
@@ -104,8 +104,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Golang之Request.Body复用</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/golang/"><i class="far fa-folder fa-fw"></i>Golang</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-19">2020-12-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 477 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/golang-request-body-reuse/" class="leancloud_visitors" data-flag-title="Golang之Request.Body复用">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-19">2020-12-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 502 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/golang-request-body-reuse/" class="leancloud_visitors" data-flag-title="Golang之Request.Body复用">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
@@ -117,13 +117,12 @@
   <ul>
     <li><a href="#解决方案">解决方案</a></li>
     <li><a href="#分析原因">分析原因</a></li>
-    <li><a href="#源码分析">源码分析</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><blockquote>
-<p>在写路由中间件时有一个需求，去获取Request携带的参数然后去拦截是否合法，这时候在下游的Controller层再次去获取body竟然发现结果为空，特此记录原因和解决方案</p>
+<p>&emsp;&emsp;在写路由中间件时有一个需求，去获取Request携带的参数然后去拦截是否合法，这时候在下游的Controller层再次去获取body竟然发现结果为空，特此记录原因和解决方案</p>
 </blockquote>
-<p>由于<code>http.Request.Body</code>是<code>io.ReadCloser</code>类型，所以需要带有无操作close方法的ReadCloser去复制</p>
+<p>&emsp;&emsp;由于<code>http.Request.Body</code>是<code>io.ReadCloser</code>类型，所以需要带有无操作close方法的ReadCloser去复制</p>
 <h2 id="解决方案">解决方案</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -144,10 +143,8 @@
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="分析原因">分析原因</h2>
-<p>大多数Http框架都是这样实现的，只读一次，是因为持有的缓冲区的指针都是往前读的，如果一直持有缓冲区而不释放会出问题，可以想象一下，假如可以多次重复读，那么用户连接所产生的的内存占用的缓冲区有多大呢？什么时候释放呢？</p>
-<p>在实际开发中，响应主体持有的资源可能会很大，所以并不会将其直接保存在内存中，只是持有数据流连接。当我们需要时，才会从服务器获取数据并返回。同时，考虑到应用重复读取数据的可能性很小，所以将其设计为<code>一次性流（one-shot）</code>,即“读取后立即关闭并释放资源”。</p>
-<h2 id="源码分析">源码分析</h2>
-<p>待更新&hellip;</p></div><div class="post-footer" id="post-footer">
+<p>&emsp;&emsp;大多数Http框架都是这样实现的，只读一次，是因为持有的缓冲区的指针都是往前读的，如果一直持有缓冲区而不释放会出问题，可以想象一下，假如可以多次重复读，那么用户连接所产生的的内存占用的缓冲区有多大呢？什么时候释放呢？</p>
+<p>&emsp;&emsp;在实际开发中，响应主体持有的资源可能会很大，所以并不会将其直接保存在内存中，只是持有数据流连接。当我们需要时，才会从服务器获取数据并返回。同时，考虑到应用重复读取数据的可能性很小，所以将其设计为<code>一次性流（one-shot）</code>,即“读取后立即关闭并释放资源”。</p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

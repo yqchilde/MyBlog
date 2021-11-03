@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/yqqy.top\/golang-slice-expand-capacity\/"
-        },"genre": "posts","keywords": "Golang","wordcount":  805 ,
+        },"genre": "posts","keywords": "Golang","wordcount":  869 ,
         "url": "https:\/\/yqqy.top\/golang-slice-expand-capacity\/","datePublished": "2020-05-08T15:48:29+00:00","dateModified": "2020-09-09T22:28:43+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Yqchilde"},"author": {
@@ -104,7 +104,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">终于理解了Slice扩容机制</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/golang/"><i class="far fa-folder fa-fw"></i>Golang</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-05-08">2020-05-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 805 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-05-08">2020-05-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 869 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/golang-slice-expand-capacity/" class="leancloud_visitors" data-flag-title="终于理解了Slice扩容机制">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -136,7 +136,7 @@
     </a><figcaption class="image-caption">Slice</figcaption>
     </figure></p>
 <blockquote>
-<p>写了很久的slice却没有去想过他的扩容机制，近期面试，去了解了一下，这次也算是彻底明白了，之前只是简单的看了看文章</p>
+<p>&emsp;&emsp;写了很久的slice却没有去想过他的扩容机制，近期面试，去了解了一下，这次也算是彻底明白了，之前只是简单的看了看文章</p>
 </blockquote>
 <h3 id="step1-预估扩容后容量">STEP1 预估扩容后容量</h3>
 <p>先看一个例子</p>
@@ -152,9 +152,15 @@
 </div>
 </div><p>了解一下预估规则</p>
 <ul>
-<li>在原容量扩大两倍还要小于扩容后的容量时，预估容量就是扩容后的</li>
-<li>当大于扩容后的时，如果小于1024时，预估容量是扩容前容量的2倍</li>
-<li>当大于扩容后的时，如果大于1024时，预估容量是扩容前容量的1.25倍，即以0.25增加</li>
+<li>
+<p>在原容量扩大两倍还要小于扩容后的容量时，预估容量就是扩容后的</p>
+</li>
+<li>
+<p>当大于扩容后的时，如果小于1024时，预估容量是扩容前容量的2倍</p>
+</li>
+<li>
+<p>当大于扩容后的时，如果大于1024时，预估容量是扩容前容量的1.25倍，即以0.25增加</p>
+</li>
 </ul>
 <p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20200508232218.png?imageMogr2/format/webp/interlace/1" title="image-20200508232208435" data-thumbnail="https://pic.yqqy.top/blog/20200508232218.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>扩容规则</h2><p>image-20200508232208435</p>">
         <img
@@ -167,9 +173,8 @@
     </a><figcaption class="image-caption">扩容规则</figcaption>
     </figure></p>
 <h3 id="step2-需要多大内存">STEP2 需要多大内存</h3>
-<p><code>所需内存 = 预估容量 * 元素类型大小</code></p>
-<p>这里以<code>int</code> 举例，int在64位操作上默认是int64，即8个字节，所以元素类型不一样，内存也不一样</p>
-<p>内存这里需要了解<code>golang</code>的内存管理模块，源码在<code>runtime/sizeclasses.go</code></p>
+<p>&emsp;&emsp;<code>所需内存 = 预估容量 * 元素类型大小</code></p>
+<p>&emsp;&emsp;这里以<code>int</code> 举例，int在64位操作上默认是int64，即8个字节，所以元素类型不一样，内存也不一样，内存这里需要了解<code>golang</code>的内存管理模块，源码在<code>runtime/sizeclasses.go</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -210,8 +215,8 @@
 <span class="c1">//    66      32768       32768        1           0     12.50%
 </span></code></pre></td></tr></table>
 </div>
-</div><p>通过阅读源码可以知道，在小于16字节时，每次以8个字节增加，当大于16小于2^8时，每次以16字节增加，当大于2^8小于2^9时以32字节增加，依此规律&hellip;</p>
-<p><strong>申请内存时，选择相近的，且大于等于需要的大小</strong></p>
+</div><p>&emsp;&emsp;通过阅读源码可以知道，在小于16字节时，每次以8个字节增加，当大于16小于2^8时，每次以16字节增加，当大于2^8小于2^9时以32字节增加，依此规律&hellip;</p>
+<p>&emsp;&emsp;<strong>申请内存时，选择相近的，且大于等于需要的大小</strong></p>
 <h3 id="step3-匹配到合适的内存规格">STEP3 匹配到合适的内存规格</h3>
 <ol>
 <li>在之前的例子中，预估容量为5</li>
@@ -247,8 +252,8 @@
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>长度是62，这无疑，重点是容量计算，两倍的旧容量小于预估计的容量，所以预估计容量成了62</p>
-<p>62 * 8 = 496，在内存规格中选择到了512，所以512 / 8 = 64，即cap(a) = 64</p></div><div class="post-footer" id="post-footer">
+</div><p>&emsp;&emsp;长度是62，这无疑，重点是容量计算，两倍的旧容量小于预估计的容量，所以预估计容量成了62，
+62 * 8 = 496，在内存规格中选择到了512，所以512 / 8 = 64，即cap(a) = 64。</p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

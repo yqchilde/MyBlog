@@ -2,19 +2,19 @@
 
 <!--more-->
 
-> 在写发送邮件时发现移植过来的PHPMailer是旧版的（是没有namespace）的，在后面的版本官方才更新过来，于是我在github下载到最新的版本准备写一个发送邮件
+> {{indent}}在写发送邮件时发现移植过来的PHPMailer是旧版的（是没有namespace）的，在后面的版本官方才更新过来，于是我在github下载到最新的版本准备写一个发送邮件
 
 ### 第一步
 
-当然是下载 `PHPMailer` 地址：[https://github.com/PHPMailer/PHPMailer](https://github.com/PHPMailer/PHPMailer)
+{{indent}}当然是下载 `PHPMailer` 地址：[https://github.com/PHPMailer/PHPMailer](https://github.com/PHPMailer/PHPMailer)
 
 ### 第二步
 
-将文件引入项目中，只保留 `src` 目录，其余的不用留
+{{indent}}将文件引入项目中，只保留 `src` 目录，其余的不用留
 
 ### 第三步
 
-新建一个文件，文件名为 `sendMail.php` ，写如下代码进行配置
+{{indent}}新建一个文件，文件名为 `sendMail.php` ，写如下代码进行配置
 
 ```php
 <?php
@@ -88,7 +88,7 @@ class sendMail
 
 ### 第四步
 
-在另一个地方实例化这个类就行，然后就可以进行参数传递，代码如下：
+{{indent}}在另一个地方实例化这个类就行，然后就可以进行参数传递，代码如下：
 
 ```php
 $mailSend = new dncToolsendMail();

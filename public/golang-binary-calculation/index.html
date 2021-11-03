@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/yqqy.top\/golang-binary-calculation\/"
-        },"genre": "posts","keywords": "Golang","wordcount":  555 ,
+        },"genre": "posts","keywords": "Golang","wordcount":  619 ,
         "url": "https:\/\/yqqy.top\/golang-binary-calculation\/","datePublished": "2020-04-02T08:07:56+00:00","dateModified": "2020-09-09T22:20:14+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Yqchilde"},"author": {
@@ -104,7 +104,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Golang实现进制计算两种方法</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/golang/"><i class="far fa-folder fa-fw"></i>Golang</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-04-02">2020-04-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 555 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-04-02">2020-04-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 619 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/golang-binary-calculation/" class="leancloud_visitors" data-flag-title="Golang实现进制计算两种方法">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -134,9 +134,10 @@
 <blockquote>
 <p>本文将以二进制计算作为例子实现</p>
 </blockquote>
-<p>给定两个二进制字符串，返回他们的和（用二进制表示）。</p>
-<p>输入为非空字符串且只包含数字 1 和 0。</p>
-<p>示例 1:</p>
+<p><strong>题目：</strong></p>
+<p>&emsp;&emsp;给定两个二进制字符串，返回他们的和（用二进制表示）。</p>
+<p>&emsp;&emsp;输入为非空字符串且只包含数字 1 和 0。</p>
+<p>&emsp;&emsp;示例 1:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -147,7 +148,7 @@
 <span class="nx">输出</span><span class="p">:</span> <span class="s">&#34;100&#34;</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>示例 2:</p>
+</div><p>&emsp;&emsp;示例 2:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -221,7 +222,7 @@
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="位运算">位运算</h3>
-<p>XOR 操作得到两个数字无进位相加的结果。</p>
+<p>&emsp;&emsp;XOR 操作得到两个数字无进位相加的结果。</p>
 <p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20200402161845.png?imageMogr2/format/webp/interlace/1" title="https://pic.yqqy.top/blog/20200402161845.png?imageMogr2/format/webp/interlace/1" data-thumbnail="https://pic.yqqy.top/blog/20200402161845.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>图1</h2>">
         <img
             class="lazyload"
@@ -232,7 +233,7 @@
             alt="https://pic.yqqy.top/blog/20200402161845.png?imageMogr2/format/webp/interlace/1" />
     </a><figcaption class="image-caption">图1</figcaption>
     </figure></p>
-<p>进位和两个数字与操作结果左移一位对应。</p>
+<p>&emsp;&emsp;进位和两个数字与操作结果左移一位对应。</p>
 <p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20200402161907.png?imageMogr2/format/webp/interlace/1" title="https://pic.yqqy.top/blog/20200402161907.png?imageMogr2/format/webp/interlace/1" data-thumbnail="https://pic.yqqy.top/blog/20200402161907.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>图2</h2>">
         <img
             class="lazyload"
@@ -243,8 +244,8 @@
             alt="https://pic.yqqy.top/blog/20200402161907.png?imageMogr2/format/webp/interlace/1" />
     </a><figcaption class="image-caption">图2</figcaption>
     </figure></p>
-<p>首先计算两个数字的无进位相加结果和进位，然后计算无进位相加结果与进位之和。同理求和问题又可以转换成上一步，直到进位为 0 结束。</p>
-<p><strong>计算</strong></p>
+<p>&emsp;&emsp;首先计算两个数字的无进位相加结果和进位，然后计算无进位相加结果与进位之和。同理求和问题又可以转换成上一步，直到进位为 0 结束。</p>
+<p><strong>计算：</strong></p>
 <ul>
 <li>把 aa 和 bb 转换成整型数字 xx 和 yy，xx 保存结果，yy 保存进位。</li>
 <li>当进位不为 0：y != 0：
