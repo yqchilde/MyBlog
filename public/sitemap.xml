@@ -2,13 +2,16 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://yqqy.top/categories/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/tags/macos/</loc><lastmod>2021-10-27T17:31:08&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/categories/macos/</loc><lastmod>2021-10-27T17:31:08&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/macos-remove-freespace/</loc><lastmod>2021-10-27T17:31:08&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/posts/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/tags/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/categories/</loc><lastmod>2021-11-09T17:31:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/tags/nginx/</loc><lastmod>2021-11-09T17:31:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/categories/nginx/</loc><lastmod>2021-11-09T17:31:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/nginx-configuration/</loc><lastmod>2021-11-09T17:31:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/posts/</loc><lastmod>2021-11-09T17:31:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/tags/</loc><lastmod>2021-11-09T17:31:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/</loc><lastmod>2021-11-09T17:31:11&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/tags/macos/</loc><lastmod>2021-10-27T17:31:08&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>https://yqqy.top/categories/macos/</loc><lastmod>2021-10-27T17:31:08&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>https://yqqy.top/macos-remove-freespace/</loc><lastmod>2021-10-27T17:31:08&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
             <loc>https://yqqy.top/tags/golang/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://yqqy.top/categories/golang/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://yqqy.top/golang-makefile-and-additional/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
@@ -63,7 +66,6 @@
             <loc>https://yqqy.top/git-clone-slow/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yqqy.top/tags/aria/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yqqy.top/aria-rpc-motrix-bilibili/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://yqqy.top/tags/nginx/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yqqy.top/windows-nginx/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yqqy.top/tags/ansi/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://yqqy.top/tags/cmd/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
