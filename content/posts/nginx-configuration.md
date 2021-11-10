@@ -22,6 +22,9 @@ math:
   enable: false
 lightgallery: false
 license: ""
+
+code:
+  maxShownLines: 500
 ---
 
 <!--more-->
