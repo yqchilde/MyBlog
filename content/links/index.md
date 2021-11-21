@@ -43,9 +43,5 @@ links:
     url: https://ehak.cn
     avatar: https://dn-qiniu-avatar.qbox.me/avatar/820f82e09366f6da46996dc1443c83e3?size=500
 
-  - name: 阿斌运维日记
-    desc: 一个运维大佬
-    url: https://www.qiqios.cn
-    avatar: https://dn-qiniu-avatar.qbox.me/avatar/
 ---
 

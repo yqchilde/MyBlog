@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>MySQL的优化笔记 - Yqchilde</title><meta name="Description" content="整理MySQL优化相关的笔记，持续补充 🌈"><meta property="og:title" content="MySQL的优化笔记" />
+<meta property="og:description" content="整理MySQL优化相关的笔记，持续补充 🌈" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yqqy.top/mysql-optimization-notes/" /><meta property="og:image" content="https://yqqy.top"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-11-21T20:12:46+08:00" />
+<meta property="article:modified_time" content="2021-11-21T20:12:46+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://yqqy.top"/>
+
+<meta name="twitter:title" content="MySQL的优化笔记"/>
+<meta name="twitter:description" content="整理MySQL优化相关的笔记，持续补充 🌈"/>
+<meta name="application-name" content="Yqchilde">
+<meta name="apple-mobile-web-app-title" content="Yqchilde"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="https://pic.yqqy.top/blog/yqqy/logo.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://yqqy.top/mysql-optimization-notes/" /><link rel="prev" href="https://yqqy.top/nginx-configuration/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "MySQL的优化笔记",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/yqqy.top\/mysql-optimization-notes\/"
+        },"genre": "posts","keywords": "MySQL","wordcount":  4678 ,
+        "url": "https:\/\/yqqy.top\/mysql-optimization-notes\/","datePublished": "2021-11-21T20:12:46+08:00","dateModified": "2021-11-21T20:12:46+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Yqchilde"},"author": {
+                "@type": "Person",
+                "name": "Yqchilde"
+            },"description": "整理MySQL优化相关的笔记，持续补充 🌈"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Yqchilde"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Yqchilde</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/links/"> 友链 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/yqchilde" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Yqchilde"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Yqchilde</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/links/" title="">友链</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/yqchilde" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">MySQL的优化笔记</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/mysql/"><i class="far fa-folder fa-fw"></i>MySQL</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-21">2021-11-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4678 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 10 分钟&nbsp;<span id="/mysql-optimization-notes/" class="leancloud_visitors" data-flag-title="MySQL的优化笔记">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#表设计の角度">表设计の角度</a>
+      <ul>
+        <li><a href="#表设计原则">表设计原则</a></li>
+        <li><a href="#使用反范式设计">使用反范式设计</a></li>
+        <li><a href="#设置代理主键">设置代理主键</a></li>
+      </ul>
+    </li>
+    <li><a href="#索引优化の角度">索引优化の角度</a>
+      <ul>
+        <li><a href="#了解---索引的形式">了解 - 索引的形式</a></li>
+        <li><a href="#了解---mysql常用的索引">了解 - MySQL常用的索引</a></li>
+        <li><a href="#了解---mysql中的锁">了解 - MySQL中的锁</a></li>
+        <li><a href="#了解---innodb引擎">了解 - InnoDB引擎</a></li>
+        <li><a href="#了解---什么情况下不会用到索引">了解 - 什么情况下不会用到索引</a></li>
+        <li><a href="#优化---使用索引优化排序">优化 - 使用索引优化排序</a></li>
+        <li><a href="#优化---删除冗余索引">优化 - 删除冗余索引</a></li>
+        <li><a href="#优化---sql编写">优化 - SQL编写</a></li>
+        <li><a href="#优化---减少表与索引碎片">优化 - 减少表与索引碎片</a></li>
+      </ul>
+    </li>
+    <li><a href="#mysql自带の分析器">MySQL自带の分析器</a>
+      <ul>
+        <li><a href="#开启慢sql日志分析">开启慢SQL日志分析</a></li>
+        <li><a href="#利用explain执行计划">利用explain执行计划</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="表设计の角度">表设计の角度</h2>
+<h3 id="表设计原则">表设计原则</h3>
+<ol>
+<li>一对一，通过主键关联</li>
+<li>一对多，在多的一方设置外键</li>
+<li>多对多，增加中间表，持有双方外键</li>
+</ol>
+<h3 id="使用反范式设计">使用反范式设计</h3>
+<p>&emsp;&emsp;严格采用一、二、三范式的设计会将系统中的表拆分的非常多，不利于查询。可以将一些冗余的字段加在必要的查询表中，从而将原本需要多表关联查询变成了单表查询，这就是反范式的目的。</p>
+<p><strong>优缺点：</strong></p>
+<ol>
+<li>单表查询易于优化，易于管理。单表的索引优化也比多个表好做，在进行排序时，多个表关联查询后order by往往是很复杂的，设计成反范式后易于简单化。</li>
+<li>SQL语句简单，有利于程序开发，团队协作。</li>
+<li>存在数据冗余，写操作时需要额外更新从表数据。</li>
+<li>不合理的反范式设计会让表变得臃肿不堪。</li>
+</ol>
+<h3 id="设置代理主键">设置代理主键</h3>
+<p>什么是自然主键，什么又是代理主键？</p>
+<ul>
+<li>自然主键是指事物属性中的自然唯一标识，比如身份证号，学号，工号等</li>
+<li>代理主键是指与业务无关的，无意义的数字序列值</li>
+</ul>
+<p>通常设计一个自增主键作为代理主键，将具体的业务逻辑ID加上索引作为自然主键，且因为代理主键使用了自增，插入时是有顺序的，对B+Tree插入影响范围较小，这样计算量也是最小的。</p>
+<h2 id="索引优化の角度">索引优化の角度</h2>
+<h3 id="了解---索引的形式">了解 - 索引的形式</h3>
+<p>索引的存储形式是由存储引擎决定的</p>
+<p><strong>数据表索引分类</strong></p>
+<ul>
+<li>从存储结构上划分：
+<ul>
+<li>BTree索引（B-Tree 或 B+Tree）</li>
+<li>Hash索引</li>
+<li>full-index全文索引</li>
+<li>R-Tree索引，通常用于GIS系统来表示空间数据</li>
+</ul>
+</li>
+<li>从应用分层上划分：
+<ul>
+<li>普通索引，普通的字段索引</li>
+<li>唯一索引，常用于主键的索引</li>
+<li>复合索引，用于多个条件的查询组织</li>
+</ul>
+</li>
+<li>从数据的物理顺序与键值逻辑（索引）顺序关系划分：
+<ul>
+<li>聚集索引，指插入顺序与索引建立顺序一致</li>
+<li>非聚集索引</li>
+</ul>
+</li>
+</ul>
+<p>B+Tree结构</p>
+<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20211121205415.png?imageMogr2/format/webp/interlace/1" title="img1" data-thumbnail="https://pic.yqqy.top/blog/20211121205415.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>图1</h2><p>img1</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://pic.yqqy.top/blog/20211121205415.png?imageMogr2/format/webp/interlace/1"
+            data-srcset="https://pic.yqqy.top/blog/20211121205415.png?imageMogr2/format/webp/interlace/1, https://pic.yqqy.top/blog/20211121205415.png?imageMogr2/format/webp/interlace/1 1.5x, https://pic.yqqy.top/blog/20211121205415.png?imageMogr2/format/webp/interlace/1 2x"
+            data-sizes="auto"
+            alt="https://pic.yqqy.top/blog/20211121205415.png?imageMogr2/format/webp/interlace/1" />
+    </a><figcaption class="image-caption">图1</figcaption>
+    </figure></p>
+<p>查找8和9的路径为：</p>
+<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20211121205136.gif?imageMogr2/format/webp/interlace/1" title="img2" data-thumbnail="https://pic.yqqy.top/blog/20211121205136.gif?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>图2</h2><p>img2</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://pic.yqqy.top/blog/20211121205136.gif?imageMogr2/format/webp/interlace/1"
+            data-srcset="https://pic.yqqy.top/blog/20211121205136.gif?imageMogr2/format/webp/interlace/1, https://pic.yqqy.top/blog/20211121205136.gif?imageMogr2/format/webp/interlace/1 1.5x, https://pic.yqqy.top/blog/20211121205136.gif?imageMogr2/format/webp/interlace/1 2x"
+            data-sizes="auto"
+            alt="https://pic.yqqy.top/blog/20211121205136.gif?imageMogr2/format/webp/interlace/1" />
+    </a><figcaption class="image-caption">图2</figcaption>
+    </figure></p>
+<h3 id="了解---mysql常用的索引">了解 - MySQL常用的索引</h3>
+<ul>
+<li>B+Tree索引 - 适合用于范围查找
+<ul>
+<li>InnoDB与MyISAM采用的是B+Tree索引</li>
+<li>B+Tree索引采用树形链表结构建立数据“目录”</li>
+<li>在其他字段上的索引通过和主键的索引产生关联来绑定</li>
+</ul>
+</li>
+<li>Hash索引 - 适合于精确匹配
+<ul>
+<li>Hash索引基于哈希表实现</li>
+<li>精确匹配所有列的查询才有效，不支持范围查询，模糊查询及排序</li>
+<li>Hash索引为每条数据生成一个HashCode</li>
+<li>Hash索引只包含哈希值和行指针</li>
+<li>Hash取值速度非常快，但索引选择性很低时不建议使用</li>
+<li>MySQL目前只有Memory <strong>显示</strong> 支持Hash索引</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>&emsp;&emsp;上文说了只有在memory引擎中才会显示支持hash索引，那么在innodb中的hash索引如何创建呢？其实在Innodb中会自动帮我们创建，这里记一下他的几个特点：</p>
+<ol>
+<li>InnoDB存储引擎只支持显示创建BTree索引</li>
+<li>当数据精确匹配时MySQL会自动生成HashCode，存入缓存</li>
+</ol>
+</blockquote>
+<h3 id="了解---mysql中的锁">了解 - MySQL中的锁</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">职责分类</th>
+<th style="text-align:center">粒度分类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">共享锁 - 读锁</td>
+<td style="text-align:center">行级锁</td>
+</tr>
+<tr>
+<td style="text-align:center">独占锁（排他锁） - 写锁</td>
+<td style="text-align:center">表级锁</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>共享锁：
+<ul>
+<li>这个数据可以被所有的事务连接、共享，持有该数据共享锁的所有进程都可以访问到该数据，共享锁只服务于访问，又称为读锁。</li>
+</ul>
+</li>
+<li>独占锁：
+<ul>
+<li>当某一个线程获得了某一条数据的访问权限时，其他所有的数据操作都将进入等待的操作，直到解锁，又称为写锁。独占锁与共享锁是互斥关系。</li>
+</ul>
+</li>
+<li>行级锁：
+<ul>
+<li>只对当前修改的数据进行锁定，如果不用程序访问不同数据，那彼此间是互不影响的可以并行操作的。行级锁只出现于多个程序访问同一数据时。</li>
+</ul>
+</li>
+<li>表级锁：
+<ul>
+<li>只要获取到表级锁，无论里面更新几条数据，该表都是锁定状态，都无法修改成功。</li>
+<li>表级锁锁定范围比较大，行级锁锁定范围比较小，从并发性角度来说，行级锁性能比表级锁性能好；从锁自身状态管理角度来说，行级锁的开销要比表级锁大。</li>
+</ul>
+</li>
+</ul>
+<h3 id="了解---innodb引擎">了解 - InnoDB引擎</h3>
+<ul>
+<li>InnoDB支持事务</li>
+<li>InnoDB默认使用<code>行级锁</code></li>
+<li>InnoDB具备良好的高并发特性</li>
+</ul>
+<p>&emsp;&emsp;在InnoDB中只有利用索引的更新、删除操作，才可以使用行级锁，不能使用索引的写操作则是表级锁。
+在实际开发的时候，如果遇到写操作，一定要确保<code>update/delete</code>语句的条件要能够使用索引，否则就会锁表，程序将不具备并发性。</p>
+<h3 id="了解---什么情况下不会用到索引">了解 - 什么情况下不会用到索引</h3>
+<ul>
+<li>索引选择性太差</li>
+<li><code>&lt;&gt;</code>或<code>not in</code>无法使用索引</li>
+<li><code>is null</code>会使用索引，<code>is not null</code>不会使用索引</li>
+<li><code>where</code>子句跳过左侧索引列，直接查询右侧索引字段</li>
+<li>对索引列进行计算或使用函数</li>
+</ul>
+<h3 id="优化---使用索引优化排序">优化 - 使用索引优化排序</h3>
+<p>当<code>order by</code>字段与索引字段顺序/排序方向相同时，索引可以优化排序速度</p>
+<ul>
+<li>在单字段情况下，索引支持升降序，比如：</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="o">#</span><span class="w"> </span><span class="n">field上面有索引</span><span class="err">，</span><span class="n">where时走了索引</span><span class="err">，</span><span class="k">order</span><span class="w"> </span><span class="n">by上也走了索引</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10000</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">field</span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>在多字段情况下，左侧字段必须是升序，且顺序不允许打乱</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="o">#</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">field必须为升序</span><span class="err">，如果用了</span><span class="k">desc</span><span class="err">，用</span><span class="n">explain分析则会是</span><span class="w"> </span><span class="k">Using</span><span class="w"> </span><span class="n">filesort</span><span class="err">，代表效率较差</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10000</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">field</span><span class="p">,</span><span class="w"> </span><span class="n">field2</span><span class="p">;</span><span class="w"> 
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="优化---删除冗余索引">优化 - 删除冗余索引</h3>
+<ul>
+<li>使用<code>pt-duplicate-key-checker</code>工具，他可以帮助检测表中重复的索引或者主键，仅支持linux环境。</li>
+<li>执行实用索引SQL语句，按照索引维度看一下磁盘I/O的处理情况</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span><span class="w">
+</span><span class="w">	</span><span class="n">object_type</span><span class="p">,</span><span class="w"> </span><span class="n">object_schema</span><span class="p">,</span><span class="w"> </span><span class="n">object_name</span><span class="p">,</span><span class="w"> </span><span class="n">index_name</span><span class="p">,</span><span class="w">
+</span><span class="w">	</span><span class="n">count_read</span><span class="p">,</span><span class="w"> </span><span class="n">count_fetch</span><span class="p">,</span><span class="w"> </span><span class="n">count_insert</span><span class="p">,</span><span class="w">
+</span><span class="w">	</span><span class="n">count_update</span><span class="p">,</span><span class="w"> </span><span class="n">count_delete</span><span class="w">
+</span><span class="w"></span><span class="k">FROM</span><span class="w">
+</span><span class="w">	</span><span class="o">`</span><span class="n">performance_schema</span><span class="o">`</span><span class="p">.</span><span class="n">table_io_waits_summary_by_index_usage</span><span class="w">
+</span><span class="w"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w">
+</span><span class="w">	</span><span class="n">sum_timer_wait</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>count_read: 索引在计算过程中读取了多少行</li>
+<li>count_fetch: 最终查询结果是多少行</li>
+<li>sum_timer_wait: 利用索引查询的总时间</li>
+<li>当后面几个查询结果全为0时，代表MySQL服务运行起来后索引没有被使用过，可以被删掉</li>
+</ul>
+<h3 id="优化---sql编写">优化 - SQL编写</h3>
+<p><strong>使用where条件</strong></p>
+<ul>
+<li>在精确匹配时，允许使用btree索引，比如<code>where uid = 10001</code></li>
+<li>在范围匹配时，允许使用btree索引，比如<code>where uid &gt; 10000 and uid &lt; 10005</code></li>
+<li>在匹配类型不一致时，比如<code>where uid = 10001</code>换成<code>where uid = &quot;10001&quot;</code>中，仍然可以使用btree索引，这是因为查询优化器会自动进行类型转换，但建议使用与定义相符的类型，减少转换操作。不过当使用<code>where uid like &quot;1000%&quot;</code>时，这时候走的就是全表扫描，查询优化器无法进行类型转换。</li>
+</ul>
+<hr>
+<p><strong>使用like条件</strong></p>
+<ul>
+<li>在字符串字段中，btree索引允许进行“前缀查询”，比如<code>where sno like &quot;20210901000%&quot;</code>，不过查询效率与前缀有关，当选择性太低的时候，依然是全表查询</li>
+<li>在字符串字段中，后缀查询和模糊匹配时，btree索引均不支持，比如<code>where sno like &quot;%09010001&quot;</code> 和 <code>where sno like &quot;%0901%&quot;</code></li>
+</ul>
+<p><strong>使用复合索引</strong></p>
+<ul>
+<li>复合索引查询条件必须包含左侧列</li>
+<li>直接书写右侧列将导致数据无法查询</li>
+<li><code>&lt;&gt;</code>与<code>not</code>会导致不使用索引</li>
+</ul>
+<h3 id="优化---减少表与索引碎片">优化 - 减少表与索引碎片</h3>
+<p>在数据进行频繁的增、删、改操作后，操作数据会重新组织结构。在组织过程中，可能出现一些空间的浪费以及数据组织上的不合理地方。如下两条命令就是解决该问题的：</p>
+<ul>
+<li><code>analyze table 表名</code>，让统计信息进行重新计算，从而让查询分析器在执行sql时基于新计算的准确的结果选择最合适的优化方案。</li>
+<li><code>optimize table 表名</code>，对于表数据进行优化，连续的数据之间可能存在“缝隙”，在大量数据操作后，“缝隙”越来越大，此外删除的数据是被空闲下来，并不会在“表空间”这个文件中将删除数据的空间进行释放，故使用该命令重新优化表空间。<strong>执行该命令会锁表，所以一定要在维护期间，否则会造成I/O阻塞</strong></li>
+</ul>
+<h2 id="mysql自带の分析器">MySQL自带の分析器</h2>
+<h3 id="开启慢sql日志分析">开启慢SQL日志分析</h3>
+<ol>
+<li>首选要开启慢SQL日志功能</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="o">#</span><span class="w"> </span><span class="err">设置慢</span><span class="n">sql日志状态</span><span class="w">
+</span><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="k">GLOBAL</span><span class="w"> </span><span class="n">slow_query_log</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">on</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="o">#</span><span class="w"> </span><span class="err">设置慢</span><span class="n">sql执行时间阈值</span><span class="err">，单位（秒）</span><span class="w">
+</span><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="k">GLOBAL</span><span class="w"> </span><span class="n">long_query_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="o">#</span><span class="w"> </span><span class="err">代表</span><span class="mi">300</span><span class="err">毫秒</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="o">#</span><span class="w"> </span><span class="err">设置慢</span><span class="n">sql日志保存文件</span><span class="err">，路径为</span><span class="n">mysql</span><span class="o">/</span><span class="k">data</span><span class="w">
+</span><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="k">GLOBAL</span><span class="w"> </span><span class="n">show_query_log_file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;show-sql.log&#34;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="利用explain执行计划">利用explain执行计划</h3>
+<ul>
+<li>id：计划ID</li>
+<li>select_type：查询类型
+<ul>
+<li>SIMPLE：简单查询，指查询不包含子查询和union</li>
+<li>PRIMARY：复杂查询中最外侧的select</li>
+<li>DERIVED：包含在from子句中的子查询，mysql会将结果存放在一个临时表中，也称为派生表（derived的英文含义）</li>
+<li>SUBQUERY：子查询</li>
+<li>UNION：连接查询</li>
+<li>UNION RESULT：连接查询后的结果集</li>
+</ul>
+</li>
+<li>table：访问的具体表名</li>
+<li>partitions：分区表</li>
+<li>type：表示关联类型或访问类型，即MySQL决定如何查找表中的行，执行效率排序为：
+<ul>
+<li>system</li>
+<li><strong>const</strong>
+<ul>
+<li>mysql能对查询的某部分进行优化并将其转化成一个常量，用于primary key 或 unique key的所有列与常数比较时，所以表最多有一个匹配行，读取一次，速度比较快</li>
+<li><code>explain select * from (select * from film where id = 1) tmp;</code></li>
+</ul>
+</li>
+<li><strong>eq_ref</strong>
+<ul>
+<li>primary key 或 unique key索引的所有部分被连接使用，最多只会返回一条符合条件的记录。这可能是在const之外最好的联结类型了，简单的select查询不会出现这种type</li>
+<li><code>explain select * from film_actor left join film on film_actor.film_id = film.id</code></li>
+</ul>
+</li>
+<li><strong>ref</strong>
+<ul>
+<li>相比eq_ref，不使用唯一索引，而是使用普通索引或者唯一性索引的部分前缀，索引要和某个值相比较，可能会找到多个符合条件的行</li>
+<li><code>explain select * from film where name = &quot;film1&quot;</code></li>
+</ul>
+</li>
+<li>fulltext</li>
+<li><strong>ref_or_null</strong>
+<ul>
+<li>类似ref，但是可以搜索值为NULL的行</li>
+<li><code>explain select * from film where name = &quot;film1&quot; or name is null;</code></li>
+</ul>
+</li>
+<li>index_merge</li>
+<li>unique_subquery</li>
+<li>index_subquery</li>
+<li><strong>range</strong>
+<ul>
+<li>范围扫描通常出现在<code>in()</code>，<code>between</code>，<code>&gt;</code>， <code>&lt;</code>，<code>&gt;=</code>等操作中，使用一个索引来检索给定范围的行</li>
+<li><code>explain select * from actor where id &gt; 1;</code></li>
+</ul>
+</li>
+<li><strong>index</strong>
+<ul>
+<li>和ALL一样，不同就是mysql只需扫描索引树，这通常比ALL快一些</li>
+<li><code>explain select count(*) from film;</code></li>
+</ul>
+</li>
+<li><strong>ALL</strong>
+<ul>
+<li>全表扫描，意味着mysql需要从头到尾去查找所需要的行，通常这种情况下需要增加索引来优化了</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>possible_keys：显示查询可能使用哪些索引来查找</li>
+<li>key：显示mysql实际采用哪个索引来优化对该表的访问</li>
+<li>key_len：显示mysql在索引里使用的字节数，通过这个值可以算出具体使用了索引的哪些列</li>
+<li>ref：显示了在key列记录的索引中，表查找值所用到的列或常量，常见的有：const、func、NULL、字段名（例：film.id）</li>
+<li>rows：是mysql估计要读取并检测的行数，注意这个不是结果集里的行数</li>
+<li>filtered：是一个百分比的值，代表 <code>(rows * filtered) / 100</code>，这个结果将于前表产生交互</li>
+<li>Extra：展示的是额外信息
+<ul>
+<li>distinct:
+<ul>
+<li>一旦mysql找到了与行相联合匹配的行，就不再搜索了</li>
+<li><code>explain select distinct name from film left join film_actor on film.id = film_actor.film_id;</code></li>
+</ul>
+</li>
+<li>Using index:
+<ul>
+<li>又称为 <strong>索引覆盖</strong>，这发生在对表的请求列都是同一索引的部分的时候，返回的列数据只使用了索引中的信息，而没有再去访问表中的行记录，是性能高的表现</li>
+<li><code>explain select id from film order by id;</code></li>
+</ul>
+</li>
+<li>Using where:
+<ul>
+<li>mysql服务器将在存储引擎检索行后再进行过滤，就是先读取整行数据，再按where条件进行检查，符合就留下，不符合就丢弃</li>
+<li><code>explain select * from film where id &gt; 1;</code></li>
+</ul>
+</li>
+<li>Using temporary:
+<ul>
+<li>mysql需要创建一张临时表来处理查询，出现这种情况一般是要进行优化的，首先是想到利用索引来优化</li>
+<li><code>explain select distinct name from actor;</code></li>
+<li>当使用语句<code>create index idx_name on actor(name);</code>创建索引后，将会变成Using index</li>
+</ul>
+</li>
+<li>Using filesort:
+<ul>
+<li>
+<ol>
+<li>采用文件扫描对结果进行计算排序，效率很差</li>
+</ol>
+</li>
+<li><code>explain select * from actor order by name;</code></li>
+<li>
+<ol start="2">
+<li>尽管在<code>name</code>上加了索引也不会使用Using index，这是因为对于排序，只有select字段与order by字段都被索引覆盖时才允许使用Using index，比如</li>
+</ol>
+</li>
+<li><code>explain select name from actor order by name;</code></li>
+<li>
+<ol start="3">
+<li>再加一个字段，并且添加索引后查询，extra结果是<code>Using index; Using filesort</code></li>
+</ol>
+</li>
+<li><code>explain select name, update_time from actor order by update_time, name;</code></li>
+<li><code>create index idx_name_ut on actor(name, update_time);</code></li>
+<li>
+<ol start="4">
+<li>只有必须按照复合索引的顺序来才会使用Using index，比如</li>
+</ol>
+</li>
+<li><code>explain select name, update_time from actor order by name, update_time;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>&emsp;&emsp;id = 1 的那张表是查询的驱动表，id按照升序排列看，按顺序是依次的select，尽可能少的使用union，因为union result是使用的临时表，临时表没有索引</p>
+</blockquote></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-11-21</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/mysql-optimization-notes/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/mysql/">MySQL</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/nginx-configuration/" class="prev" rel="prev" title="Nginx常用配置"><i class="fas fa-angle-left fa-fw"></i>Nginx常用配置</a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":150},"comment":{"valine":{"appId":"kRdzczL0inU57oCl9a4thIUN-gzGzoHsz","appKey":"yq4N8FJfqgrqwC4jBw8ifyyK","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-CN","pageSize":10,"placeholder":"博主才疏博浅，文章如有错误请帮忙指正！","recordIP":true,"serverURLs":"https://line.yqqy.top","visitor":true}},"search":{"algoliaAppID":"CQ9IB2P7OM","algoliaIndex":"search","algoliaSearchKey":"0b8ac695d9473a1134af4c32c85d5194","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

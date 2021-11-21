@@ -2,96 +2,97 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://yqqy.top/categories/</loc><lastmod>2021-11-09T17:46:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/tags/nginx/</loc><lastmod>2021-11-09T17:46:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/categories/nginx/</loc><lastmod>2021-11-09T17:46:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/nginx-configuration/</loc><lastmod>2021-11-09T17:46:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/posts/</loc><lastmod>2021-11-09T17:46:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/tags/</loc><lastmod>2021-11-09T17:46:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/</loc><lastmod>2021-11-09T17:46:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/tags/macos/</loc><lastmod>2021-10-27T17:31:08&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>https://yqqy.top/categories/macos/</loc><lastmod>2021-10-27T17:31:08&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>https://yqqy.top/macos-remove-freespace/</loc><lastmod>2021-10-27T17:31:08&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>https://yqqy.top/tags/golang/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/categories/golang/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/golang-makefile-and-additional/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/tags/makefile/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/template-range-crontab-regex/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/tags/docker/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/categories/docker/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/docker-compose-env-file/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/docker-compose-mysql-nginx/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/docker-mysql-login-failed/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/golang-race/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/tags/zinx/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/zinx-frame-v5/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/zinx-frame-v4/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/zinx-frame-v3/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/zinx-frame-v2/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/categories/</loc><lastmod>2021-11-21T20:12:46&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/tags/mysql/</loc><lastmod>2021-11-21T20:12:46&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/categories/mysql/</loc><lastmod>2021-11-21T20:12:46&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/mysql-optimization-notes/</loc><lastmod>2021-11-21T20:12:46&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/posts/</loc><lastmod>2021-11-21T20:12:46&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/tags/</loc><lastmod>2021-11-21T20:12:46&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/</loc><lastmod>2021-11-21T20:12:46&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/tags/nginx/</loc><lastmod>2021-11-10T09:19:55&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>https://yqqy.top/categories/nginx/</loc><lastmod>2021-11-10T09:19:55&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>https://yqqy.top/nginx-configuration/</loc><lastmod>2021-11-10T09:19:55&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>https://yqqy.top/tags/macos/</loc><lastmod>2021-10-27T17:31:08&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
+            <loc>https://yqqy.top/categories/macos/</loc><lastmod>2021-10-27T17:31:08&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
+            <loc>https://yqqy.top/macos-remove-freespace/</loc><lastmod>2021-10-27T17:31:08&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
+            <loc>https://yqqy.top/tags/golang/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/categories/golang/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/golang-makefile-and-additional/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/tags/makefile/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/template-range-crontab-regex/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/tags/docker/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/categories/docker/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/docker-compose-env-file/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/docker-compose-mysql-nginx/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/docker-mysql-login-failed/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/golang-race/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/tags/zinx/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/zinx-frame-v5/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/zinx-frame-v4/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/zinx-frame-v3/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/zinx-frame-v2/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>https://yqqy.top/zinx-frame-v1/</loc><lastmod>2020-12-27T21:53:37&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://yqqy.top/golang-request-body-reuse/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/ubuntu-docker-permission-denied/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/tags/mysql/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/categories/mysql/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/ubuntu-mysql-lost-passowrd/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/tags/mood/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/categories/notes/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/win10-missing-microsoftstore/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/golang-request-body-reuse/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/ubuntu-docker-permission-denied/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/ubuntu-mysql-lost-passowrd/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/tags/mood/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/categories/notes/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/win10-missing-microsoftstore/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>https://yqqy.top/regex-lookground-verify-passowrd/</loc><lastmod>2020-09-15T23:31:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://yqqy.top/docker-study-notes/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/tags/github-actions/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/tags/hugo/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/categories/tips/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/hugo-github-actions-aliyun/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/docker-study-notes/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/tags/github-actions/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/tags/hugo/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/categories/tips/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/hugo-github-actions-aliyun/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>https://yqqy.top/tags/git/</loc><lastmod>2020-11-08T19:15:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yqqy.top/git-command-quick-check/</loc><lastmod>2020-11-08T19:15:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://yqqy.top/about/</loc><lastmod>2021-10-27T09:48:06&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>https://yqqy.top/about/</loc><lastmod>2021-10-27T09:48:06&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
             <loc>https://yqqy.top/links/</loc><lastmod>2021-01-03T17:33:45&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://yqqy.top/golang-json-serialization/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/golang-learning-context/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/golang-slice-expand-capacity/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/mysql-score-exercises/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/golang-design-pattern/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/golang-binary-calculation/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/golang-json-serialization/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/golang-learning-context/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/golang-slice-expand-capacity/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/mysql-score-exercises/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/golang-design-pattern/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/golang-binary-calculation/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>https://yqqy.top/tags/data-structure/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yqqy.top/golang-data-structure/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://yqqy.top/golang-trie/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/golang-duck-typing/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/valine-admin-1password-google/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/tags/wordpress/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/wordpress-rocket/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/tags/rebirth/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/tips/848/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/golang-base64captcha/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/golang-trie/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/golang-duck-typing/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/valine-admin-1password-google/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/tags/wordpress/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/wordpress-rocket/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/tags/rebirth/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/tips/848/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/golang-base64captcha/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>https://yqqy.top/git-clone-slow/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yqqy.top/tags/aria/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yqqy.top/aria-rpc-motrix-bilibili/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yqqy.top/windows-nginx/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://yqqy.top/tags/ansi/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/tags/cmd/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/windows-cmd-ansi/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/tags/ansi/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/tags/cmd/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/windows-cmd-ansi/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>https://yqqy.top/golang-web-baota/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yqqy.top/golang-interview/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://yqqy.top/mysql-insert-how-where/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/mysql5.7-update-password/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/mysql-insert-how-where/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/mysql5.7-update-password/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>https://yqqy.top/tags/javascript/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yqqy.top/mayisenlin-script/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://yqqy.top/tags/php/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/categories/php/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/use-phpmailer/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/tags/php/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/categories/php/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/use-phpmailer/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>https://yqqy.top/php-array/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yqqy.top/php-foreach-merge/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yqqy.top/php-js-timestamp/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://yqqy.top/tags/uni-app/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/categories/uni-app/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/uniapp-form-picker/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/tags/uni-app/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/categories/uni-app/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/uniapp-form-picker/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>https://yqqy.top/php-foreach-push/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yqqy.top/js-remove-json-object/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yqqy.top/categories/android/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yqqy.top/tags/java/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yqqy.top/jdk1.8-config/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yqqy.top/uniapp-generate-invitation-qrcode/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://yqqy.top/uniapp-generate-random-verification-code/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/uniapp-generate-random-verification-code/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>https://yqqy.top/uniapp-with-session/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yqqy.top/uniapp-shoushi-huadong/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yqqy.top/mysql-note-second/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
@@ -103,8 +104,8 @@
             <loc>https://yqqy.top/android-learning-recycleview-second/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yqqy.top/android-learning-recycleview-first/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yqqy.top/mysql-note-first/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://yqqy.top/idm-shadowsocks-download/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/tags/soft/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/idm-shadowsocks-download/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://yqqy.top/tags/soft/</loc><lastmod>2021-11-03T10:52:26&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>https://yqqy.top/php-three-generate-random/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yqqy.top/the-same-table-check-repeat/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yqqy.top/php-form-repeat-submit/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
@@ -112,6 +113,6 @@
             <loc>https://yqqy.top/php-no-input-file-specified/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yqqy.top/my-php-first-project/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yqqy.top/sublime-common-shortcuts/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://yqqy.top/tags/content/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://yqqy.top/tags/content/_index.fr/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yqqy.top/tags/installation/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yqqy.top/tags/configuration/</loc><lastmod>2020-09-09T22:20:14&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url></urlset>

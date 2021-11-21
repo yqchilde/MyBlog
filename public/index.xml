@@ -4,9 +4,16 @@
         <link>https://yqqy.top/</link>
         <description>一名Gopher,热爱技术,中度强迫症,熬夜达人</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 09 Nov 2021 17:31:11 &#43;0800</lastBuildDate>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 21 Nov 2021 20:12:46 &#43;0800</lastBuildDate>
             <atom:link href="https://yqqy.top/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>MySQL的优化笔记</title>
+    <link>https://yqqy.top/mysql-optimization-notes/</link>
+    <pubDate>Sun, 21 Nov 2021 20:12:46 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yqqy.top/mysql-optimization-notes/</guid>
+    <description><![CDATA[整理MySQL优化相关的笔记，持续补充 🌈]]></description>
+</item><item>
     <title>Nginx常用配置</title>
     <link>https://yqqy.top/nginx-configuration/</link>
     <pubDate>Tue, 09 Nov 2021 17:31:11 &#43;0800</pubDate>
@@ -69,12 +76,5 @@
     <author>作者</author>
     <guid>https://yqqy.top/zinx-frame-v5/</guid>
     <description><![CDATA[Zinx是一个轻量级TCP服务框架，会跟着课程开始做一些笔记，消息封装模块是将消息细化，以达到将消息表达具体化的目的。]]></description>
-</item><item>
-    <title>Zinx学习之全局配置模块</title>
-    <link>https://yqqy.top/zinx-frame-v4/</link>
-    <pubDate>Sat, 02 Jan 2021 23:20:30 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/zinx-frame-v4/</guid>
-    <description><![CDATA[Zinx是一个轻量级TCP服务框架，会跟着课程开始做一些笔记，全局配置模块主要是配置了服务启动和运行中的一些参数。]]></description>
 </item></channel>
 </rss>
