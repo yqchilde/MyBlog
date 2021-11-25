@@ -4,7 +4,14 @@
         <link>https://yqqy.top/tags/golang/</link>
         <description>Golang - 标签 - Yqchilde</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 21 Apr 2021 22:44:20 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/tags/golang/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 25 Nov 2021 08:34:13 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/tags/golang/" rel="self" type="application/rss+xml" /><item>
+    <title>判断一个点是否在多边形中-Golang实现</title>
+    <link>https://yqqy.top/point-in-polygon-for-golang/</link>
+    <pubDate>Thu, 25 Nov 2021 08:34:13 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yqqy.top/point-in-polygon-for-golang/</guid>
+    <description><![CDATA[这是一道数字几何题，可以应用的领域有很多，比如GIS服务、区域服务等]]></description>
+</item><item>
     <title>Golang交叉编译Makefile，通过Github release版本检测覆盖更新</title>
     <link>https://yqqy.top/golang-makefile-and-additional/</link>
     <pubDate>Wed, 21 Apr 2021 22:44:20 &#43;0800</pubDate>
@@ -67,12 +74,5 @@
     <author>作者</author>
     <guid>https://yqqy.top/golang-request-body-reuse/</guid>
     <description><![CDATA[在写路由中间件时有一个需求，去获取Request携带的参数然后去拦截是否合法，这时候在下游的Controller层再次去获取body竟然发现结果为空，特此记录原因和解决方案]]></description>
-</item><item>
-    <title>Golang一个简单的密码强度验证</title>
-    <link>https://yqqy.top/regex-lookground-verify-passowrd/</link>
-    <pubDate>Tue, 15 Sep 2020 23:02:44 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/regex-lookground-verify-passowrd/</guid>
-    <description><![CDATA[了解正则表达式环视的使用方法，知道Golang为什么不支持该功能，实现一个简单的密码强度验证。]]></description>
 </item></channel>
 </rss>
