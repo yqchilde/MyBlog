@@ -7,8 +7,8 @@ author: ""
 authorLink: ""
 description: "解决Ubuntu启动Docker 'Got permission denied while trying to connect to the Docker daemon socket' 问题。"
 
-tags: ["Docker"]
-categories: ["Docker"]
+tags: ["Docker","Ubuntu"]
+categories: ["Docker","Ubuntu"]
 
 hiddenFromHomePage: false
 hiddenFromSearch: false
