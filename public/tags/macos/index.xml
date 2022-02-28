@@ -4,12 +4,12 @@
         <link>https://yqqy.top/tags/macos/</link>
         <description>MacOS - 标签 - Yqchilde</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 09 Oct 2021 08:02:40 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/tags/macos/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Sat, 09 Oct 2021 08:02:40 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/tags/macos/" rel="self" type="application/rss+xml" /><item>
     <title>MacOS-如何删除Free Space，使得APFS容器将Free Space占用</title>
     <link>https://yqqy.top/macos-remove-freespace/</link>
-    <pubDate>Sat, 09 Oct 2021 08:02:40 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/macos-remove-freespace/</guid>
+    <pubDate>Sat, 09 Oct 2021 08:02:40 &#43;0800</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/macos-remove-freespace/</guid>
     <description><![CDATA[本文记载如果将一个APFS容器删除，并将与其剩余空间合并。]]></description>
 </item></channel>
 </rss>

@@ -4,19 +4,19 @@
         <link>https://yqqy.top/categories/ubuntu/</link>
         <description>Ubuntu - 分类 - Yqchilde</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 29 Nov 2021 10:25:30 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/categories/ubuntu/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Mon, 29 Nov 2021 10:25:30 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/categories/ubuntu/" rel="self" type="application/rss+xml" /><item>
     <title>Ubuntu Install Golang</title>
     <link>https://yqqy.top/ubuntu-install-golang/</link>
-    <pubDate>Mon, 29 Nov 2021 10:25:30 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/ubuntu-install-golang/</guid>
+    <pubDate>Mon, 29 Nov 2021 10:25:30 &#43;0800</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/ubuntu-install-golang/</guid>
     <description><![CDATA[在ubuntu系统上直接使用apt-get下载下来的go版本是1.10.4，相对比较久远，本文记载如何安装指定版本的go]]></description>
 </item><item>
     <title>Ubuntu启动Docker报没有权限</title>
     <link>https://yqqy.top/ubuntu-docker-permission-denied/</link>
-    <pubDate>Wed, 11 Nov 2020 08:11:30 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/ubuntu-docker-permission-denied/</guid>
+    <pubDate>Wed, 11 Nov 2020 08:11:30 &#43;0800</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/ubuntu-docker-permission-denied/</guid>
     <description><![CDATA[解决Ubuntu启动Docker 'Got permission denied while trying to connect to the Docker daemon socket' 问题。]]></description>
 </item></channel>
 </rss>

@@ -4,40 +4,40 @@
         <link>https://yqqy.top/categories/uni-app/</link>
         <description>Uni-App - 分类 - Yqchilde</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 01 Aug 2019 14:21:19 &#43;0000</lastBuildDate><atom:link href="https://yqqy.top/categories/uni-app/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Thu, 01 Aug 2019 14:21:19 &#43;0000</lastBuildDate><atom:link href="https://yqqy.top/categories/uni-app/" rel="self" type="application/rss+xml" /><item>
     <title>uniapp的Form提交之蛋疼的picker</title>
     <link>https://yqqy.top/uniapp-form-picker/</link>
-    <pubDate>Thu, 01 Aug 2019 14:21:19 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/uniapp-form-picker/</guid>
+    <pubDate>Thu, 01 Aug 2019 14:21:19 &#43;0000</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/uniapp-form-picker/</guid>
     <description><![CDATA[uniapp的Form的picker要这样用才对]]></description>
 </item><item>
     <title>Uni-App生成邀请二维码</title>
     <link>https://yqqy.top/uniapp-generate-invitation-qrcode/</link>
-    <pubDate>Mon, 22 Jul 2019 14:36:55 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/uniapp-generate-invitation-qrcode/</guid>
+    <pubDate>Mon, 22 Jul 2019 14:36:55 &#43;0000</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/uniapp-generate-invitation-qrcode/</guid>
     <description><![CDATA[介绍了如何用Uni-App生成邀请二维码并画出来]]></description>
 </item><item>
     <title>uniapp生成随机验证码&amp;php合成验证码图片</title>
     <link>https://yqqy.top/uniapp-generate-random-verification-code/</link>
-    <pubDate>Thu, 11 Jul 2019 15:06:07 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/uniapp-generate-random-verification-code/</guid>
+    <pubDate>Thu, 11 Jul 2019 15:06:07 &#43;0000</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/uniapp-generate-random-verification-code/</guid>
     <description><![CDATA[我搞了3天用php生成验证码，然后session返回验证码的值，这样子直接请求是可以的，但是在小程序里面是只能获取到 `PHPSESSID` ，所以要带着图片的sessionid才能访问到正确的验证码值，奈何在uniapp里面，uni.request请求才能拿到sessionid，但是image标签要想显示这个session的对应的图片，需要动态绑定数据加载，这样就导致了加载的图片请求了一次session，request又请求了一次，我技术不高写不出来了，这才想到了今天要实现的这种方法]]></description>
 </item><item>
     <title>Uni-App之携带session请求</title>
     <link>https://yqqy.top/uniapp-with-session/</link>
-    <pubDate>Thu, 11 Jul 2019 13:58:33 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/uniapp-with-session/</guid>
+    <pubDate>Thu, 11 Jul 2019 13:58:33 &#43;0000</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/uniapp-with-session/</guid>
     <description><![CDATA[记载一下uniapp携带session的请求]]></description>
 </item><item>
     <title>Uni-App的手势监听滑动</title>
     <link>https://yqqy.top/uniapp-shoushi-huadong/</link>
-    <pubDate>Sat, 15 Jun 2019 07:10:11 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/uniapp-shoushi-huadong/</guid>
+    <pubDate>Sat, 15 Jun 2019 07:10:11 &#43;0000</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/uniapp-shoushi-huadong/</guid>
     <description><![CDATA[官方文档上面只有说支持 `touchmove` 但是却没给一个demo，实现过程在这里了。]]></description>
 </item></channel>
 </rss>

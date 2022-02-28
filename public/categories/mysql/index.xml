@@ -4,61 +4,61 @@
         <link>https://yqqy.top/categories/mysql/</link>
         <description>MySQL - 分类 - Yqchilde</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 21 Nov 2021 20:12:46 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/categories/mysql/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Sun, 21 Nov 2021 20:12:46 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/categories/mysql/" rel="self" type="application/rss+xml" /><item>
     <title>MySQL的优化笔记</title>
     <link>https://yqqy.top/mysql-optimization-notes/</link>
-    <pubDate>Sun, 21 Nov 2021 20:12:46 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/mysql-optimization-notes/</guid>
+    <pubDate>Sun, 21 Nov 2021 20:12:46 &#43;0800</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/mysql-optimization-notes/</guid>
     <description><![CDATA[整理MySQL优化相关的笔记，持续补充 🌈]]></description>
 </item><item>
     <title>Ubuntu安装MySQL后没有初始密码之解决方案</title>
     <link>https://yqqy.top/ubuntu-mysql-lost-passowrd/</link>
-    <pubDate>Tue, 10 Nov 2020 23:39:25 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/ubuntu-mysql-lost-passowrd/</guid>
+    <pubDate>Tue, 10 Nov 2020 23:39:25 &#43;0800</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/ubuntu-mysql-lost-passowrd/</guid>
     <description><![CDATA[在Ubuntu系统中安装了MySQL之后,不知道密码是什么无法登录，本文记录解决方案。]]></description>
 </item><item>
     <title>MySQL常考学生成绩查询练习题</title>
     <link>https://yqqy.top/mysql-score-exercises/</link>
-    <pubDate>Fri, 08 May 2020 09:22:31 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/mysql-score-exercises/</guid>
+    <pubDate>Fri, 08 May 2020 09:22:31 &#43;0000</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/mysql-score-exercises/</guid>
     <description><![CDATA[假设现在学校目前只开设了语文、数学、英语三门课，后期还可开设其他门课，请尽量合理的设计班级、学生、考生成绩的数据库表结构并写出查询语句。]]></description>
 </item><item>
     <title>MySQL中insert数据时怎么用where条件</title>
     <link>https://yqqy.top/mysql-insert-how-where/</link>
-    <pubDate>Sat, 26 Oct 2019 14:25:53 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/mysql-insert-how-where/</guid>
+    <pubDate>Sat, 26 Oct 2019 14:25:53 &#43;0000</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/mysql-insert-how-where/</guid>
     <description><![CDATA[记录一下MySQL在做插入操作时怎么去指定条件]]></description>
 </item><item>
     <title>MySQL5.7修改root密码</title>
     <link>https://yqqy.top/mysql5.7-update-password/</link>
-    <pubDate>Sun, 06 Oct 2019 04:17:54 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/mysql5.7-update-password/</guid>
+    <pubDate>Sun, 06 Oct 2019 04:17:54 &#43;0000</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/mysql5.7-update-password/</guid>
     <description><![CDATA[错误的原因是 5.7版本下的mysql数据库下已经没有password这个字段了，password字段改成了authentication_string]]></description>
 </item><item>
     <title>MySQL复习笔记二</title>
     <link>https://yqqy.top/mysql-note-second/</link>
-    <pubDate>Mon, 03 Jun 2019 07:56:40 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/mysql-note-second/</guid>
+    <pubDate>Mon, 03 Jun 2019 07:56:40 &#43;0000</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/mysql-note-second/</guid>
     <description><![CDATA[这是我的第二篇MySQL复习笔记]]></description>
 </item><item>
     <title>MySQL复习笔记一</title>
     <link>https://yqqy.top/mysql-note-first/</link>
-    <pubDate>Mon, 20 May 2019 08:00:21 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/mysql-note-first/</guid>
+    <pubDate>Mon, 20 May 2019 08:00:21 &#43;0000</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/mysql-note-first/</guid>
     <description><![CDATA[这是我的第一篇MySQL复习笔记]]></description>
 </item><item>
     <title>同一个表下update数据并检测是否重复</title>
     <link>https://yqqy.top/the-same-table-check-repeat/</link>
-    <pubDate>Sun, 05 May 2019 15:00:26 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/the-same-table-check-repeat/</guid>
+    <pubDate>Sun, 05 May 2019 15:00:26 &#43;0000</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/the-same-table-check-repeat/</guid>
     <description><![CDATA[在表a的 第b 条数据要 update 数据的时候，检查这个表中的所有数据中有没有与要更新的数据重复，如果有即不更新，没有即更新，起初是理解错了目的，以为是单一数据不能重复，设置了唯一索引 unique 后来和我说不是那样的效果，故改之~~~]]></description>
 </item></channel>
 </rss>

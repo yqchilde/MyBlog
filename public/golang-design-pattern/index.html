@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="robots" content="noodp" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>Golang实现软件设计模式 - Yqchilde</title><meta name="Description" content="Golang复习软件设计模式，通过设计模式学习其设计思想，无他，唯手熟尔。"><meta property="og:title" content="Golang实现软件设计模式" />
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">Golang实现软件设计模式 - Yqchilde</title><meta name="Description" content="Golang复习软件设计模式，通过设计模式学习其设计思想，无他，唯手熟尔。"><meta property="og:title" content="Golang实现软件设计模式" />
 <meta property="og:description" content="Golang复习软件设计模式，通过设计模式学习其设计思想，无他，唯手熟尔。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://yqqy.top/golang-design-pattern/" /><meta property="og:image" content="https://yqqy.top"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://yqqy.top/golang-design-pattern/" /><meta property="og:image" content="https://yqqy.top/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-04-21T15:00:16+00:00" />
-<meta property="article:modified_time" content="2021-11-03T10:52:26+08:00" />
+<meta property="article:modified_time" content="2020-04-21T15:00:16+00:00" /><meta property="og:site_name" content="yqchilde" />
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://yqqy.top"/>
+<meta name="twitter:image" content="https://yqqy.top/logo.png"/>
 
 <meta name="twitter:title" content="Golang实现软件设计模式"/>
 <meta name="twitter:description" content="Golang复习软件设计模式，通过设计模式学习其设计思想，无他，唯手熟尔。"/>
 <meta name="application-name" content="Yqchilde">
-<meta name="apple-mobile-web-app-title" content="Yqchilde"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="https://pic.yqqy.top/blog/yqqy/logo.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://yqqy.top/golang-design-pattern/" /><link rel="prev" href="https://yqqy.top/golang-binary-calculation/" /><link rel="next" href="https://yqqy.top/mysql-score-exercises/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+<meta name="apple-mobile-web-app-title" content="Yqchilde">
+
+<meta name="theme-color" content="#f8f8f8"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://yqqy.top/golang-design-pattern/" /><link rel="prev" href="https://yqqy.top/golang-binary-calculation/" /><link rel="next" href="https://yqqy.top/mysql-score-exercises/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.df04ac6c2b2cb2ddbb8dd064524dc5d726926f909f7e63f1cd11b8704aad1094.css" integrity="sha256-3wSsbCssst27jdBkUk3F1yaSb5CffmPxzRG4cEqtEJQ="><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -27,18 +33,26 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/yqqy.top\/golang-design-pattern\/"
-        },"genre": "posts","keywords": "Golang","wordcount":  5340 ,
-        "url": "https:\/\/yqqy.top\/golang-design-pattern\/","datePublished": "2020-04-21T15:00:16+00:00","dateModified": "2021-11-03T10:52:26+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"genre": "posts","keywords": "Golang","wordcount":  5160 ,
+        "url": "https:\/\/yqqy.top\/golang-design-pattern\/","datePublished": "2020-04-21T15:00:16+00:00","dateModified": "2020-04-21T15:00:16+00:00","publisher": {
             "@type": "Organization",
-            "name": "Yqchilde"},"author": {
+            "name": "yqchilde"},"author": {
                 "@type": "Person",
                 "name": "Yqchilde"
             },"description": "Golang复习软件设计模式，通过设计模式学习其设计思想，无他，唯手熟尔。"
     }
     </script></head>
-    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
-        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let metaColors = {'light': '#f8f8f8','dark': '#252627','black': '#000000'}
+        getMeta('theme-color').content = metaColors[document.body.getAttribute('theme')];
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
         <div class="header-title">
             <a href="/" title="Yqchilde"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Yqchilde</a>
@@ -46,19 +60,24 @@
         <div class="menu">
             <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/links/"> 友链 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/yqchilde" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                        <a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
                             <i class="fas fa-search fa-fw"></i>
                         </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                        <a href="#" onclick="return false;" class="search-button search-clear" id="search-clear-desktop" title="清空">
                             <i class="fas fa-times-circle fa-fw"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-desktop">
                             <i class="fas fa-spinner fa-fw fa-spin"></i>
                         </span>
-                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    </span><a href="#" onclick="return false;" class="menu-item theme-select" title="切换主题">
                     <i class="fas fa-adjust fa-fw"></i>
-                </a>
-            </div>
+                    <select class="color-theme-select" id="theme-select-desktop" title="切换主题">
+                        <option value="light">浅色</option>
+                        <option value="dark">深色</option>
+                        <option value="black">黑色</option>
+                        <option value="auto">跟随系统</option>
+                    </select>
+                </a></div>
         </div>
     </div>
 </header><header class="mobile" id="header-mobile">
@@ -74,21 +93,27 @@
         <div class="menu" id="menu-mobile"><div class="search-wrapper">
                     <div class="search mobile" id="search-mobile">
                         <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                        <a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
                             <i class="fas fa-search fa-fw"></i>
                         </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                        <a href="#" onclick="return false;" class="search-button search-clear" id="search-clear-mobile" title="清空">
                             <i class="fas fa-times-circle fa-fw"></i>
                         </a>
                         <span class="search-button search-loading" id="search-loading-mobile">
                             <i class="fas fa-spinner fa-fw fa-spin"></i>
                         </span>
                     </div>
-                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                    <a href="#" onclick="return false;" class="search-cancel" id="search-cancel-mobile">
                         取消
                     </a>
-                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/links/" title="">友链</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/yqchilde" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/links/" title="">友链</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/yqchilde" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="#" onclick="return false;" class="menu-item theme-select" title="切换主题">
                 <i class="fas fa-adjust fa-fw"></i>
+                <select class="color-theme-select" id="theme-select-mobile" title="切换主题">
+                    <option value="light">浅色</option>
+                    <option value="dark">深色</option>
+                    <option value="black">黑色</option>
+                    <option value="auto">跟随系统</option>
+                </select>
             </a></div>
     </div>
 </header>
@@ -99,15 +124,49 @@
     <div id="search-dropdown-mobile"></div>
 </div>
 <main class="main">
-                <div class="container"><div class="toc" id="toc-auto">
-            <h2 class="toc-title">目录</h2>
-            <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">Golang实现软件设计模式</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Yqchilde</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/golang/"><i class="far fa-folder fa-fw"></i>Golang</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-04-21">2020-04-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5340 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 11 分钟&nbsp;<span id="/golang-design-pattern/" class="leancloud_visitors" data-flag-title="Golang实现软件设计模式">
-                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
-                    </span>&nbsp;</div>
+            <div class="container"><div class="toc" id="toc-auto">
+        <h2 class="toc-title">目录</h2>
+        <div class="toc-content" id="toc-content-auto"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#六大原则">六大原则</a>
+      <ul>
+        <li><a href="#开闭原则">开闭原则</a></li>
+        <li><a href="#里氏代换原则">里氏代换原则</a></li>
+        <li><a href="#单一职责原则">单一职责原则</a></li>
+        <li><a href="#依赖倒置原则">依赖倒置原则</a></li>
+        <li><a href="#接口隔离原则">接口隔离原则</a></li>
+        <li><a href="#迪米特法则">迪米特法则</a></li>
+      </ul>
+    </li>
+    <li><a href="#创建型">创建型</a>
+      <ul>
+        <li><a href="#创建者模式">创建者模式</a></li>
+        <li><a href="#工厂模式">工厂模式</a></li>
+        <li><a href="#抽象工厂">抽象工厂</a></li>
+      </ul>
+    </li>
+    <li><a href="#结构型">结构型</a>
+      <ul>
+        <li><a href="#装饰者模式">装饰者模式</a></li>
+      </ul>
+    </li>
+    <li><a href="#行为型">行为型</a>
+      <ul>
+        <li><a href="#迭代器模式">迭代器模式</a></li>
+        <li><a href="#命令模式">命令模式</a></li>
+        <li><a href="#责任链模式">责任链模式</a></li>
+        <li><a href="#观察者模式">观察者模式</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav></div>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Golang实现软件设计模式</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author">Yqchilde</a>
+                </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/golang/"><i class="far fa-folder fa-fw"></i>Golang</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-04-21">2020-04-21</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2020-04-21">2020-04-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5160 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 11 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -148,28 +207,35 @@
     <li><a href="#参考">参考</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p><img
+            </div><div class="content" id="content"><div class="details admonition warning open">
+                <div class="details-summary admonition-title">
+                    <i class="icon fas fa-exclamation-triangle fa-fwwarning"></i>警告<i class="details-icon fas fa-angle-right fa-fw"></i>
+                </div>
+                <div class="details-content">
+                    <div class="admonition-content">
+                        本文最后更新于 <span class="timeago" datetime="2020-04-21T15:00:16" title="April 21, 2020">2020-04-21</span>，文中内容可能已过时。</div>
+                </div>
+            </div><p><img
         class="lazyload"
-        src="/svg/loading.min.svg"
         data-src="https://pic.yqqy.top/blog/20200406232406.png?imageMogr2/format/webp/interlace/1"
         data-srcset="https://pic.yqqy.top/blog/20200406232406.png?imageMogr2/format/webp/interlace/1, https://pic.yqqy.top/blog/20200406232406.png?imageMogr2/format/webp/interlace/1 1.5x, https://pic.yqqy.top/blog/20200406232406.png?imageMogr2/format/webp/interlace/1 2x"
         data-sizes="auto"
         alt="https://pic.yqqy.top/blog/20200406232406.png?imageMogr2/format/webp/interlace/1"
-        title="img" /></p>
-<p>&emsp;&emsp;虽然设计模式存在于面向对象的语言中，Golang并不是一门OOP的语言，但是这并代表不能实现设计模式。</p>
-<h2 id="六大原则">六大原则</h2>
-<h3 id="开闭原则">开闭原则</h3>
-<p>&emsp;&emsp;一个软件实体，如类、模块和函数应该对扩展开放，对修改关闭。在软件的生命周期内，因变化、升级、和维护对原有代码进行修改，可能会引入错误，所以当软件需要变化时，通过扩展软件实体的行为来实现变化，而不是修改原有代码。</p>
-<h3 id="里氏代换原则">里氏代换原则</h3>
-<p>&emsp;&emsp;任何基类可以出现的地方，子类一定可以出现。里氏代换原则是继承复用的基石，只有当衍生类可以替换掉基类，软件单位的功能不受到影响时，基类才能真正被复用，而衍生类也能够在基类的基础上增加新的行为。里氏代换原则是对“开闭”原则的补充。实现“开闭”原则的关键步骤就是抽象化。而基类与子类的继承关系就是抽象化的具体实现，所以里氏代换原则是对实现抽象化的具体步骤的规范。通俗的说就是：子类可以扩展父类的功能，但不能改变父类原有的功能。</p>
-<h3 id="单一职责原则">单一职责原则</h3>
-<p>&emsp;&emsp;一个类只负责一项职责。</p>
-<h3 id="依赖倒置原则">依赖倒置原则</h3>
-<p>&emsp;&emsp;高层模块不应该依赖低层模块，二者都应该依赖其抽象；抽象不应该依赖细节；细节应该依赖抽象。通俗的说：多用抽象的接口来描述相同的动作，降低实现这个动作的人和物之前的耦合度。</p>
-<h3 id="接口隔离原则">接口隔离原则</h3>
-<p>&emsp;&emsp;客户端不应该依赖它不需要的接口；一个类对另一个类的依赖应该建立在最小的接口上。</p>
-<h3 id="迪米特法则">迪米特法则</h3>
-<p>&emsp;&emsp;一个对象应该对其他对象保持最少的了解。类与类之间的关系越密切，耦合度越大，当一个类发生改变时，对另一个类的影响也越大。</p>
+        title="img"></p>
+<p>虽然设计模式存在于面向对象的语言中，Golang并不是一门OOP的语言，但是这并代表不能实现设计模式。</p>
+<h2 id="六大原则" class="headerLink">
+    <a href="#%e5%85%ad%e5%a4%a7%e5%8e%9f%e5%88%99" class="header-mark"></a>六大原则</h2><h3 id="开闭原则" class="headerLink">
+    <a href="#%e5%bc%80%e9%97%ad%e5%8e%9f%e5%88%99" class="header-mark"></a>开闭原则</h3><p>一个软件实体，如类、模块和函数应该对扩展开放，对修改关闭。在软件的生命周期内，因变化、升级、和维护对原有代码进行修改，可能会引入错误，所以当软件需要变化时，通过扩展软件实体的行为来实现变化，而不是修改原有代码。</p>
+<h3 id="里氏代换原则" class="headerLink">
+    <a href="#%e9%87%8c%e6%b0%8f%e4%bb%a3%e6%8d%a2%e5%8e%9f%e5%88%99" class="header-mark"></a>里氏代换原则</h3><p>任何基类可以出现的地方，子类一定可以出现。里氏代换原则是继承复用的基石，只有当衍生类可以替换掉基类，软件单位的功能不受到影响时，基类才能真正被复用，而衍生类也能够在基类的基础上增加新的行为。里氏代换原则是对“开闭”原则的补充。实现“开闭”原则的关键步骤就是抽象化。而基类与子类的继承关系就是抽象化的具体实现，所以里氏代换原则是对实现抽象化的具体步骤的规范。通俗的说就是：子类可以扩展父类的功能，但不能改变父类原有的功能。</p>
+<h3 id="单一职责原则" class="headerLink">
+    <a href="#%e5%8d%95%e4%b8%80%e8%81%8c%e8%b4%a3%e5%8e%9f%e5%88%99" class="header-mark"></a>单一职责原则</h3><p>一个类只负责一项职责。</p>
+<h3 id="依赖倒置原则" class="headerLink">
+    <a href="#%e4%be%9d%e8%b5%96%e5%80%92%e7%bd%ae%e5%8e%9f%e5%88%99" class="header-mark"></a>依赖倒置原则</h3><p>高层模块不应该依赖低层模块，二者都应该依赖其抽象；抽象不应该依赖细节；细节应该依赖抽象。通俗的说：多用抽象的接口来描述相同的动作，降低实现这个动作的人和物之前的耦合度。</p>
+<h3 id="接口隔离原则" class="headerLink">
+    <a href="#%e6%8e%a5%e5%8f%a3%e9%9a%94%e7%a6%bb%e5%8e%9f%e5%88%99" class="header-mark"></a>接口隔离原则</h3><p>客户端不应该依赖它不需要的接口；一个类对另一个类的依赖应该建立在最小的接口上。</p>
+<h3 id="迪米特法则" class="headerLink">
+    <a href="#%e8%bf%aa%e7%b1%b3%e7%89%b9%e6%b3%95%e5%88%99" class="header-mark"></a>迪米特法则</h3><p>一个对象应该对其他对象保持最少的了解。类与类之间的关系越密切，耦合度越大，当一个类发生改变时，对另一个类的影响也越大。</p>
 <table>
 <thead>
 <tr>
@@ -201,12 +267,12 @@
 </tr>
 </tbody>
 </table>
-<h2 id="创建型">创建型</h2>
-<h3 id="创建者模式">创建者模式</h3>
-<blockquote>
+<h2 id="创建型" class="headerLink">
+    <a href="#%e5%88%9b%e5%bb%ba%e5%9e%8b" class="header-mark"></a>创建型</h2><h3 id="创建者模式" class="headerLink">
+    <a href="#%e5%88%9b%e5%bb%ba%e8%80%85%e6%a8%a1%e5%bc%8f" class="header-mark"></a>创建者模式</h3><blockquote>
 <p>wiki解释</p>
 </blockquote>
-<p>&emsp;&emsp;创建者模式（也可称为生成器模式 / 建造模式），是一种对象构建模式。它可以将复杂对象的建造过程抽象出来（抽象类别），使这个抽象过程的不同实现方法可以构造出不同表现（属性）的对象。</p>
+<p>创建者模式（也可称为生成器模式 / 建造模式），是一种对象构建模式。它可以将复杂对象的建造过程抽象出来（抽象类别），使这个抽象过程的不同实现方法可以构造出不同表现（属性）的对象。</p>
 <blockquote>
 <p>建造者模式的主要角色</p>
 </blockquote>
@@ -398,16 +464,16 @@
 <span class="nx">PASS</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="工厂模式">工厂模式</h3>
-<p><strong>简单工程模式</strong></p>
+</div><h3 id="工厂模式" class="headerLink">
+    <a href="#%e5%b7%a5%e5%8e%82%e6%a8%a1%e5%bc%8f" class="header-mark"></a>工厂模式</h3><p><strong>简单工程模式</strong></p>
 <blockquote>
 <p>wiki解释</p>
 </blockquote>
-<p>&emsp;&emsp;普通的工厂方法模式通常伴随着对象的具体类型与工厂具体类型的一一对应，客户端代码根据需要选择合适的具体类型工厂使用。然而，这种选择可能包含复杂的逻辑，这时，可以创建一个单一的工厂类，用以包含这种选择逻辑，根据参数的不同选择实现不同的具体对象。这个工厂类不需要由每个具体产品实现一个自己的具体的工厂类。</p>
+<p>普通的工厂方法模式通常伴随着对象的具体类型与工厂具体类型的一一对应，客户端代码根据需要选择合适的具体类型工厂使用。然而，这种选择可能包含复杂的逻辑，这时，可以创建一个单一的工厂类，用以包含这种选择逻辑，根据参数的不同选择实现不同的具体对象。这个工厂类不需要由每个具体产品实现一个自己的具体的工厂类。</p>
 <blockquote>
 <p>白话理解</p>
 </blockquote>
-<p>&emsp;&emsp;即单独创建一个单一的工厂类，只做相关的实现，避免复杂的创建过程</p>
+<p>即单独创建一个单一的工厂类，只做相关的实现，避免复杂的创建过程</p>
 <blockquote>
 <p>Golang实现</p>
 </blockquote>
@@ -532,7 +598,7 @@
 <blockquote>
 <p>白话理解</p>
 </blockquote>
-<p>&emsp;&emsp;当我们需要实现数据固定，实现不同操作的时候，就可以扩展操作来实现新加入的方法不影响之前的代码，就比如下面的代码，实现了一个接口，让接口实现设置、计算方法，设计一个减法工厂，使其实现减法，如果我们需要再实现一个加法工厂，只需要单独在创建一个加法的，在项目中，往往这些需要抽离在单独的文件中。</p>
+<p>当我们需要实现数据固定，实现不同操作的时候，就可以扩展操作来实现新加入的方法不影响之前的代码，就比如下面的代码，实现了一个接口，让接口实现设置、计算方法，设计一个减法工厂，使其实现减法，如果我们需要再实现一个加法工厂，只需要单独在创建一个加法的，在项目中，往往这些需要抽离在单独的文件中。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -682,18 +748,18 @@
 <span class="nx">PASS</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="抽象工厂">抽象工厂</h3>
-<h2 id="结构型">结构型</h2>
-<h3 id="装饰者模式">装饰者模式</h3>
-<blockquote>
+</div><h3 id="抽象工厂" class="headerLink">
+    <a href="#%e6%8a%bd%e8%b1%a1%e5%b7%a5%e5%8e%82" class="header-mark"></a>抽象工厂</h3><h2 id="结构型" class="headerLink">
+    <a href="#%e7%bb%93%e6%9e%84%e5%9e%8b" class="header-mark"></a>结构型</h2><h3 id="装饰者模式" class="headerLink">
+    <a href="#%e8%a3%85%e9%a5%b0%e8%80%85%e6%a8%a1%e5%bc%8f" class="header-mark"></a>装饰者模式</h3><blockquote>
 <p>wiki解释</p>
 </blockquote>
-<p>&emsp;&emsp;修饰模式，是面向对象编程领域中，一种动态地往一个类中添加新的行为的设计模式。就功能而言，修饰模式相比生成子类更为灵活，这样可以给某个对象而不是整个类添加一些功能。</p>
-<p>&emsp;&emsp;通过使用修饰模式，可以在运行时扩充一个类的功能。原理是：增加一个修饰类包裹原来的类，包裹的方式一般是通过在将原来的对象作为修饰类的构造函数的参数。装饰类实现新的功能，但是，在不需要用到新功能的地方，它可以直接调用原来的类中的方法。修饰类必须和原来的类有相同的接口。</p>
+<p>修饰模式，是面向对象编程领域中，一种动态地往一个类中添加新的行为的设计模式。就功能而言，修饰模式相比生成子类更为灵活，这样可以给某个对象而不是整个类添加一些功能。</p>
+<p>通过使用修饰模式，可以在运行时扩充一个类的功能。原理是：增加一个修饰类包裹原来的类，包裹的方式一般是通过在将原来的对象作为修饰类的构造函数的参数。装饰类实现新的功能，但是，在不需要用到新功能的地方，它可以直接调用原来的类中的方法。修饰类必须和原来的类有相同的接口。</p>
 <blockquote>
 <p>白话</p>
 </blockquote>
-<p>&emsp;&emsp;做一个修饰方法，他的参数是要修饰的函数的参数，他的返回值是我们想要得到的结果，动态地给一个对象添加一些额外的职责。比如我们要实现一个记录每个函数执行时间的方法，如果我们手动在每个函数添加记录执行时间的函数，在函数很多的情况下，要花费大量时间且不易维护，所以就需要修饰模式来帮我们修饰一个方法，得到特定的结果。</p>
+<p>做一个修饰方法，他的参数是要修饰的函数的参数，他的返回值是我们想要得到的结果，动态地给一个对象添加一些额外的职责。比如我们要实现一个记录每个函数执行时间的方法，如果我们手动在每个函数添加记录执行时间的函数，在函数很多的情况下，要花费大量时间且不易维护，所以就需要修饰模式来帮我们修饰一个方法，得到特定的结果。</p>
 <blockquote>
 <p>Golang实现</p>
 </blockquote>
@@ -820,12 +886,12 @@
 <span class="nx">PASS</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="行为型">行为型</h2>
-<h3 id="迭代器模式">迭代器模式</h3>
-<blockquote>
+</div><h2 id="行为型" class="headerLink">
+    <a href="#%e8%a1%8c%e4%b8%ba%e5%9e%8b" class="header-mark"></a>行为型</h2><h3 id="迭代器模式" class="headerLink">
+    <a href="#%e8%bf%ad%e4%bb%a3%e5%99%a8%e6%a8%a1%e5%bc%8f" class="header-mark"></a>迭代器模式</h3><blockquote>
 <p>wiki解释</p>
 </blockquote>
-<p>&emsp;&emsp;在面向对象的编程里，<strong>迭代器模式</strong>是一种设计模式，是一种最简单也最常见的设计模式。他可以让用户透过特定的接口寻访容器中的每一个元素而不用了解底层的实现。</p>
+<p>在面向对象的编程里，<strong>迭代器模式</strong>是一种设计模式，是一种最简单也最常见的设计模式。他可以让用户透过特定的接口寻访容器中的每一个元素而不用了解底层的实现。</p>
 <blockquote>
 <p>白话解释   推荐这篇文章，真的是白话解释</p>
 </blockquote>
@@ -976,11 +1042,11 @@
 <span class="nx">PASS</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="命令模式">命令模式</h3>
-<blockquote>
+</div><h3 id="命令模式" class="headerLink">
+    <a href="#%e5%91%bd%e4%bb%a4%e6%a8%a1%e5%bc%8f" class="header-mark"></a>命令模式</h3><blockquote>
 <p>wiki解释</p>
 </blockquote>
-<p>&emsp;&emsp;在面向对象编程的范畴中，命令模式是一种设计模式，它尝试以对象来代表实际行动。命令对象可以把行动及其参数封装起来，于是这些行动可以被：</p>
+<p>在面向对象编程的范畴中，命令模式是一种设计模式，它尝试以对象来代表实际行动。命令对象可以把行动及其参数封装起来，于是这些行动可以被：</p>
 <ul>
 <li>
 <p>重复多次</p>
@@ -1176,14 +1242,14 @@
 <span class="nx">PASS</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="责任链模式">责任链模式</h3>
-<blockquote>
+</div><h3 id="责任链模式" class="headerLink">
+    <a href="#%e8%b4%a3%e4%bb%bb%e9%93%be%e6%a8%a1%e5%bc%8f" class="header-mark"></a>责任链模式</h3><blockquote>
 <p>wiki解释</p>
 </blockquote>
-<p>&emsp;&emsp;责任链模式在面向对象程式设计里是一种软件设计模式，它包含了一些命令对象和一系列的处理对象。每一个处理对象决定它能处理哪些命令对象，它也知道如何将它不能处理的命令对象传递给该链中的下一个处理对象。</p>
+<p>责任链模式在面向对象程式设计里是一种软件设计模式，它包含了一些命令对象和一系列的处理对象。每一个处理对象决定它能处理哪些命令对象，它也知道如何将它不能处理的命令对象传递给该链中的下一个处理对象。</p>
 <blockquote>
 <p>白话讲：</p>
-<p>&emsp;&emsp;我个人理解就是如果一件事情，多个人要去做，就比如请假来说，小于3天的班主任可以请，大于3天小于5天的级部主任可以请，大于5天小于10天的只能教务校长请，其他的不给请，在传统模式中写代码需要写一堆的<code>if</code>  <code>else if</code>  <code>else</code>，这会使得代码臃肿、耦合度高。那么就需要使用<strong>责任链模式</strong>，通过接口暴露出一个方法，每个人只需要做到方法里面的事即可，如果自己处理不了，那就交给上一级处理。</p>
+<p>我个人理解就是如果一件事情，多个人要去做，就比如请假来说，小于3天的班主任可以请，大于3天小于5天的级部主任可以请，大于5天小于10天的只能教务校长请，其他的不给请，在传统模式中写代码需要写一堆的<code>if</code>  <code>else if</code>  <code>else</code>，这会使得代码臃肿、耦合度高。那么就需要使用<strong>责任链模式</strong>，通过接口暴露出一个方法，每个人只需要做到方法里面的事即可，如果自己处理不了，那就交给上一级处理。</p>
 </blockquote>
 <blockquote>
 <p>Golang实现</p>
@@ -1331,8 +1397,8 @@
 <span class="nx">PASS</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="观察者模式">观察者模式</h3>
-<blockquote>
+</div><h3 id="观察者模式" class="headerLink">
+    <a href="#%e8%a7%82%e5%af%9f%e8%80%85%e6%a8%a1%e5%bc%8f" class="header-mark"></a>观察者模式</h3><blockquote>
 <p>wiki解释</p>
 </blockquote>
 <p>观察者模式是软件设计模式的一种，在此种模式中，一个目标对象管理所有相依于它的观察者对象，并且在它本身的状态改变时主动发出通知。这通常透过呼叫各观察者所提供的方法来实现，此种模式通常被用来实时事件处理系统。</p>
@@ -1588,8 +1654,8 @@
 <span class="nx">PASS</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="参考">参考</h2>
-<ul>
+</div><h2 id="参考" class="headerLink">
+    <a href="#%e5%8f%82%e8%80%83" class="header-mark"></a>参考</h2><ul>
 <li>
 <p>WIKI百科</p>
 </li>
@@ -1599,19 +1665,18 @@
 <li>
 <p><a href="https://github.com/senghoo/golang-design-pattern" target="_blank" rel="noopener noreffer">github</a></p>
 </li>
-</ul></div><div class="post-footer" id="post-footer">
+</ul></div>
+
+        <div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-11-03&nbsp;<a class="git-hash" href="https://github.com/yqchilde/commit/3194333ab19a5c8014107c19fef623e54590700a" target="_blank" title="commit by yqchilde(yqchilde@gmail.com) 3194333ab19a5c8014107c19fef623e54590700a: 调整文章格式">
-                                    <i class="fas fa-hashtag fa-fw"></i>3194333</a></span>
+                <span>更新于 2020-04-21</span>
             </div>
             <div class="post-info-license"></div>
         </div>
         <div class="post-info-line">
-            <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/golang-design-pattern/index.md" target="_blank">阅读原始文档</a>
-                        </span></div>
+            <div class="post-info-md"></div>
             <div class="post-info-share">
                 <span></span>
             </div>
@@ -1628,20 +1693,27 @@
     <div class="post-nav"><a href="/golang-binary-calculation/" class="prev" rel="prev" title="Golang实现进制计算两种方法"><i class="fas fa-angle-left fa-fw"></i>Golang实现进制计算两种方法</a>
             <a href="/mysql-score-exercises/" class="next" rel="next" title="MySQL常考学生成绩查询练习题">MySQL常考学生成绩查询练习题<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
-<div id="comments"><div id="valine" class="comment"></div><noscript>
-                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+<div id="comments"><div id="giscus"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app/">giscus</a>.
             </noscript></div></article></div>
-            </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.89.4">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">
+                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank" rel="noopener noreferrer">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
-        </div>
-    </footer></div>
+            <div class="footer-line"></div>
+            <div class="footer-line">
+            </div>
+        </div></footer></div>
 
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
-                <i class="fas fa-arrow-up fa-fw"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
-                <i class="fas fa-comment fa-fw"></i>
-            </a>
-        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":150},"comment":{"valine":{"appId":"kRdzczL0inU57oCl9a4thIUN-gzGzoHsz","appKey":"yq4N8FJfqgrqwC4jBw8ifyyK","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"zh-CN","pageSize":10,"placeholder":"博主才疏博浅，文章如有错误请帮忙指正！","recordIP":true,"serverURLs":"https://line.yqqy.top","visitor":true}},"search":{"algoliaAppID":"CQ9IB2P7OM","algoliaIndex":"search","algoliaSearchKey":"0b8ac695d9473a1134af4c32c85d5194","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div id="cookieconsent-container"></div><div class="assets"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.0/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/src/tablesort.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/topbar@1.0.1/topbar.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@sliphua/pjax@2.4.0/dist/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js"></script></div>
+
+<div class="pjax-assets"><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":150},"comment":{"giscus":{"darkTheme":"dark","dataCategory":"Announcements","dataCategoryId":"DIC_kwDOG6yFo84CBXMG","dataEmitMetadata":"0","dataInputPosition":"bottom","dataLang":"zh-CN","dataMapping":"pathname","dataReactionsEnabled":"1","dataRepo":"yqchilde/blogComment","dataRepoId":"R_kgDOG6yFow","lightTheme":"light"}},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":50,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"table":{"sort":true}};</script><script type="text/javascript" src="/js/giscus.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script><script type="text/javascript" src="/js/cookieconsent.min.js" defer></script></div>
+</body>
+
 </html>

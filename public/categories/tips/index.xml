@@ -4,75 +4,75 @@
         <link>https://yqqy.top/categories/tips/</link>
         <description>Tips - 分类 - Yqchilde</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 30 Aug 2020 19:58:27 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/categories/tips/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Sun, 30 Aug 2020 19:58:27 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/categories/tips/" rel="self" type="application/rss+xml" /><item>
     <title>使用GitHub Actions部署Hugo到阿里云</title>
     <link>https://yqqy.top/hugo-github-actions-aliyun/</link>
-    <pubDate>Sun, 30 Aug 2020 19:58:27 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/hugo-github-actions-aliyun/</guid>
+    <pubDate>Sun, 30 Aug 2020 19:58:27 &#43;0800</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/hugo-github-actions-aliyun/</guid>
     <description><![CDATA[博客更换到了静态Hugo生成的网页，为了部署方便，所以使用GitHub Actions来自动化部署]]></description>
 </item><item>
     <title>Git常用命令速查表</title>
     <link>https://yqqy.top/git-command-quick-check/</link>
-    <pubDate>Sun, 05 Jul 2020 13:22:44 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/git-command-quick-check/</guid>
+    <pubDate>Sun, 05 Jul 2020 13:22:44 &#43;0000</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/git-command-quick-check/</guid>
     <description><![CDATA[周末整理了一下Git常用命令速查表，虽然现在有可视化的工具帮助，但是基础命令要知道]]></description>
 </item><item>
     <title>正确配置rocket-nginx，加速你的wordpress</title>
     <link>https://yqqy.top/wordpress-rocket/</link>
-    <pubDate>Sun, 08 Mar 2020 11:15:56 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/wordpress-rocket/</guid>
+    <pubDate>Sun, 08 Mar 2020 11:15:56 &#43;0000</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/wordpress-rocket/</guid>
     <description><![CDATA[前提是需要先获得`wp-rocket`插件，该插件是收费插件，如果有能力请支持正版，这里不提供下载地址，擅于利用搜索引擎或万能的某宝。本文是基于自己用宝塔配置rocket-nginx的教程，因为网上目前搜到的所有配置都是直接翻译github的README.md( 😒 )，不过还是推荐看最新的文档，没准啥时候就变动了，操作步骤如下]]></description>
 </item><item>
     <title>Rebirth为什么推荐使用svg图片作为logo</title>
     <link>https://yqqy.top/tips/848/</link>
-    <pubDate>Thu, 27 Feb 2020 09:44:18 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/tips/848/</guid>
+    <pubDate>Thu, 27 Feb 2020 09:44:18 &#43;0000</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/tips/848/</guid>
     <description><![CDATA[讲解了我制作的WordPress主题中logo为什么推荐使用svg图片]]></description>
 </item><item>
     <title>Git设置代理解决git clone太慢的问题</title>
     <link>https://yqqy.top/git-clone-slow/</link>
-    <pubDate>Sat, 01 Feb 2020 12:33:03 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/git-clone-slow/</guid>
+    <pubDate>Sat, 01 Feb 2020 12:33:03 &#43;0000</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/git-clone-slow/</guid>
     <description><![CDATA[可以不要引号，实测也可以，反而加了引号有些网站不能访问，不需要设置 https.proxy ，仅设置 http.proxy就可以了， 端口需要看本地的socks端口，不是固定]]></description>
 </item><item>
     <title>油猴脚本 &#43; Aria RPC &#43; Motrix批量下载哔哩哔哩视频</title>
     <link>https://yqqy.top/aria-rpc-motrix-bilibili/</link>
-    <pubDate>Sat, 25 Jan 2020 07:26:49 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/aria-rpc-motrix-bilibili/</guid>
+    <pubDate>Sat, 25 Jan 2020 07:26:49 &#43;0000</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/aria-rpc-motrix-bilibili/</guid>
     <description><![CDATA[利用油猴脚本 + Aria RPC + Motrix批量下载哔哩哔哩视频]]></description>
 </item><item>
     <title>win10配置nginx并设置反向代理</title>
     <link>https://yqqy.top/windows-nginx/</link>
-    <pubDate>Sat, 11 Jan 2020 12:41:23 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/windows-nginx/</guid>
+    <pubDate>Sat, 11 Jan 2020 12:41:23 &#43;0000</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/windows-nginx/</guid>
     <description><![CDATA[记录一下在Win10里配置Nginx并设置代理]]></description>
 </item><item>
     <title>解决win10的cmd命令行不转义ANSI序列（让cmd输出彩色字体）</title>
     <link>https://yqqy.top/windows-cmd-ansi/</link>
-    <pubDate>Sat, 11 Jan 2020 10:26:10 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/windows-cmd-ansi/</guid>
+    <pubDate>Sat, 11 Jan 2020 10:26:10 &#43;0000</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/windows-cmd-ansi/</guid>
     <description><![CDATA[简单来说就是装了之后能在cmd中通过一些代码实现华丽的效果，比如改变字体颜色]]></description>
 </item><item>
     <title>利用脚本软件“一触即发”写一个自动收取，偷取支付宝能量脚本</title>
     <link>https://yqqy.top/mayisenlin-script/</link>
-    <pubDate>Fri, 20 Sep 2019 10:48:27 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/mayisenlin-script/</guid>
+    <pubDate>Fri, 20 Sep 2019 10:48:27 &#43;0000</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/mayisenlin-script/</guid>
     <description><![CDATA['介于每天手动收能量、偷能量很浪费我们的时间，所以我想写这样一个脚本，开始我最先想到的是按键精灵，但是这个软件得需要手机root,所以在酷安看到了这么一款软件->一触即发 。是利用了无障碍模式，所以不用root,但是需要安卓版本大于7.0好像。类似的软件又Auto.js，但是现在貌似作者由于一些原因已经下架了，我无法下载，所以就用这个，实现最重要。']]></description>
 </item><item>
     <title>Js删除json中的对象</title>
     <link>https://yqqy.top/js-remove-json-object/</link>
-    <pubDate>Wed, 31 Jul 2019 12:55:43 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/js-remove-json-object/</guid>
+    <pubDate>Wed, 31 Jul 2019 12:55:43 &#43;0000</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/js-remove-json-object/</guid>
     <description><![CDATA[思路就是先将json转换成数组，然后在循环遍历数组，然后再用splice函数进行删除数组]]></description>
 </item></channel>
 </rss>

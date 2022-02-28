@@ -2,79 +2,79 @@
     <channel>
         <title>Yqchilde</title>
         <link>https://yqqy.top/</link>
-        <description>一名Gopher,热爱技术,中度强迫症,熬夜达人</description>
+        <description>yqchilde,程序员,Gopher,热爱技术,中度强迫症,熬夜达人</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 29 Nov 2021 10:25:30 &#43;0800</lastBuildDate>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Mon, 29 Nov 2021 10:25:30 &#43;0800</lastBuildDate>
             <atom:link href="https://yqqy.top/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>Ubuntu Install Golang</title>
     <link>https://yqqy.top/ubuntu-install-golang/</link>
-    <pubDate>Mon, 29 Nov 2021 10:25:30 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/ubuntu-install-golang/</guid>
+    <pubDate>Mon, 29 Nov 2021 10:25:30 &#43;0800</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/ubuntu-install-golang/</guid>
     <description><![CDATA[在ubuntu系统上直接使用apt-get下载下来的go版本是1.10.4，相对比较久远，本文记载如何安装指定版本的go]]></description>
 </item><item>
     <title>判断一个点是否在多边形中-Golang实现</title>
     <link>https://yqqy.top/point-in-polygon-for-golang/</link>
-    <pubDate>Thu, 25 Nov 2021 08:34:13 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/point-in-polygon-for-golang/</guid>
+    <pubDate>Thu, 25 Nov 2021 08:34:13 &#43;0800</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/point-in-polygon-for-golang/</guid>
     <description><![CDATA[这是一道数字几何题，可以应用的领域有很多，比如GIS服务、区域服务等]]></description>
 </item><item>
     <title>MySQL的优化笔记</title>
     <link>https://yqqy.top/mysql-optimization-notes/</link>
-    <pubDate>Sun, 21 Nov 2021 20:12:46 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/mysql-optimization-notes/</guid>
+    <pubDate>Sun, 21 Nov 2021 20:12:46 &#43;0800</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/mysql-optimization-notes/</guid>
     <description><![CDATA[整理MySQL优化相关的笔记，持续补充 🌈]]></description>
 </item><item>
     <title>Nginx常用配置</title>
     <link>https://yqqy.top/nginx-configuration/</link>
-    <pubDate>Tue, 09 Nov 2021 17:31:11 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/nginx-configuration/</guid>
+    <pubDate>Tue, 09 Nov 2021 17:31:11 &#43;0800</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/nginx-configuration/</guid>
     <description><![CDATA[记录一些Nginx常用配置项及说明。]]></description>
 </item><item>
     <title>MacOS-如何删除Free Space，使得APFS容器将Free Space占用</title>
     <link>https://yqqy.top/macos-remove-freespace/</link>
-    <pubDate>Sat, 09 Oct 2021 08:02:40 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/macos-remove-freespace/</guid>
+    <pubDate>Sat, 09 Oct 2021 08:02:40 &#43;0800</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/macos-remove-freespace/</guid>
     <description><![CDATA[本文记载如果将一个APFS容器删除，并将与其剩余空间合并。]]></description>
 </item><item>
     <title>Golang交叉编译Makefile，通过Github release版本检测覆盖更新</title>
     <link>https://yqqy.top/golang-makefile-and-additional/</link>
-    <pubDate>Wed, 21 Apr 2021 22:44:20 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/golang-makefile-and-additional/</guid>
+    <pubDate>Wed, 21 Apr 2021 22:44:20 &#43;0800</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/golang-makefile-and-additional/</guid>
     <description><![CDATA[本文记载如何编写一个简单的适用于Golang交叉编译的Makefile，并且记载了在编译时如何通过动态注入变量来给二进制文件增加版本号，同时利用github releases进行版本更新检测、覆盖更新等。]]></description>
 </item><item>
     <title>Go的template模板关于range换行和crontab的简单正则表达式</title>
     <link>https://yqqy.top/template-range-crontab-regex/</link>
-    <pubDate>Sun, 04 Apr 2021 17:39:04 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/template-range-crontab-regex/</guid>
+    <pubDate>Sun, 04 Apr 2021 17:39:04 &#43;0800</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/template-range-crontab-regex/</guid>
     <description><![CDATA[1. 在使用Go的Template时，在end后下方出现了一行空白的坑，很影响强迫症心情。<br>2. 记录一个简单的crontab正则表达式如何编写。]]></description>
 </item><item>
     <title>docker-compose使用env处理环境变量妙用</title>
     <link>https://yqqy.top/docker-compose-env-file/</link>
-    <pubDate>Sat, 13 Mar 2021 12:49:58 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/docker-compose-env-file/</guid>
+    <pubDate>Sat, 13 Mar 2021 12:49:58 &#43;0800</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/docker-compose-env-file/</guid>
     <description><![CDATA[记录在docker-compose中对环境变量抽离，使用env文件嵌套变量使用的方法。]]></description>
 </item><item>
     <title>Docker Compose简单配置Mysql Nginx挂载持久化</title>
     <link>https://yqqy.top/docker-compose-mysql-nginx/</link>
-    <pubDate>Thu, 11 Feb 2021 17:05:43 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/docker-compose-mysql-nginx/</guid>
+    <pubDate>Thu, 11 Feb 2021 17:05:43 &#43;0800</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/docker-compose-mysql-nginx/</guid>
     <description><![CDATA[通过docker-compose简单的配置一下mysql和nginx，并且挂载到一个文件夹。]]></description>
 </item><item>
     <title>Docker安装MySQL后无法登录</title>
     <link>https://yqqy.top/docker-mysql-login-failed/</link>
-    <pubDate>Thu, 11 Feb 2021 15:52:21 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/docker-mysql-login-failed/</guid>
+    <pubDate>Thu, 11 Feb 2021 15:52:21 &#43;0800</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/docker-mysql-login-failed/</guid>
     <description><![CDATA[用docker跑了一个mysql容器后，发现进入容器却无法成功登录，记录一下解决方案。]]></description>
 </item></channel>
 </rss>

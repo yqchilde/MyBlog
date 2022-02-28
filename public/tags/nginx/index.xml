@@ -4,19 +4,19 @@
         <link>https://yqqy.top/tags/nginx/</link>
         <description>Nginx - 标签 - Yqchilde</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 09 Nov 2021 17:31:11 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/tags/nginx/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Tue, 09 Nov 2021 17:31:11 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/tags/nginx/" rel="self" type="application/rss+xml" /><item>
     <title>Nginx常用配置</title>
     <link>https://yqqy.top/nginx-configuration/</link>
-    <pubDate>Tue, 09 Nov 2021 17:31:11 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/nginx-configuration/</guid>
+    <pubDate>Tue, 09 Nov 2021 17:31:11 &#43;0800</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/nginx-configuration/</guid>
     <description><![CDATA[记录一些Nginx常用配置项及说明。]]></description>
 </item><item>
     <title>win10配置nginx并设置反向代理</title>
     <link>https://yqqy.top/windows-nginx/</link>
-    <pubDate>Sat, 11 Jan 2020 12:41:23 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/windows-nginx/</guid>
+    <pubDate>Sat, 11 Jan 2020 12:41:23 &#43;0000</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/windows-nginx/</guid>
     <description><![CDATA[记录一下在Win10里配置Nginx并设置代理]]></description>
 </item></channel>
 </rss>

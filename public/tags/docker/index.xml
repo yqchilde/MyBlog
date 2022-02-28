@@ -4,40 +4,40 @@
         <link>https://yqqy.top/tags/docker/</link>
         <description>Docker - 标签 - Yqchilde</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 13 Mar 2021 12:49:58 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/tags/docker/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Sat, 13 Mar 2021 12:49:58 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/tags/docker/" rel="self" type="application/rss+xml" /><item>
     <title>docker-compose使用env处理环境变量妙用</title>
     <link>https://yqqy.top/docker-compose-env-file/</link>
-    <pubDate>Sat, 13 Mar 2021 12:49:58 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/docker-compose-env-file/</guid>
+    <pubDate>Sat, 13 Mar 2021 12:49:58 &#43;0800</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/docker-compose-env-file/</guid>
     <description><![CDATA[记录在docker-compose中对环境变量抽离，使用env文件嵌套变量使用的方法。]]></description>
 </item><item>
     <title>Docker Compose简单配置Mysql Nginx挂载持久化</title>
     <link>https://yqqy.top/docker-compose-mysql-nginx/</link>
-    <pubDate>Thu, 11 Feb 2021 17:05:43 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/docker-compose-mysql-nginx/</guid>
+    <pubDate>Thu, 11 Feb 2021 17:05:43 &#43;0800</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/docker-compose-mysql-nginx/</guid>
     <description><![CDATA[通过docker-compose简单的配置一下mysql和nginx，并且挂载到一个文件夹。]]></description>
 </item><item>
     <title>Docker安装MySQL后无法登录</title>
     <link>https://yqqy.top/docker-mysql-login-failed/</link>
-    <pubDate>Thu, 11 Feb 2021 15:52:21 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/docker-mysql-login-failed/</guid>
+    <pubDate>Thu, 11 Feb 2021 15:52:21 &#43;0800</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/docker-mysql-login-failed/</guid>
     <description><![CDATA[用docker跑了一个mysql容器后，发现进入容器却无法成功登录，记录一下解决方案。]]></description>
 </item><item>
     <title>Ubuntu启动Docker报没有权限</title>
     <link>https://yqqy.top/ubuntu-docker-permission-denied/</link>
-    <pubDate>Wed, 11 Nov 2020 08:11:30 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/ubuntu-docker-permission-denied/</guid>
+    <pubDate>Wed, 11 Nov 2020 08:11:30 &#43;0800</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/ubuntu-docker-permission-denied/</guid>
     <description><![CDATA[解决Ubuntu启动Docker 'Got permission denied while trying to connect to the Docker daemon socket' 问题。]]></description>
 </item><item>
     <title>Docker学习笔记</title>
     <link>https://yqqy.top/docker-study-notes/</link>
-    <pubDate>Sat, 05 Sep 2020 23:36:56 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/docker-study-notes/</guid>
+    <pubDate>Sat, 05 Sep 2020 23:36:56 &#43;0800</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/docker-study-notes/</guid>
     <description><![CDATA[Docker无疑是云原生时代不可缺少的知识技能，我将一点一点学Docker，循序渐进，本文作为自己学习Docker的笔记]]></description>
 </item></channel>
 </rss>

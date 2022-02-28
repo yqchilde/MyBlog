@@ -4,19 +4,19 @@
         <link>https://yqqy.top/tags/git/</link>
         <description>Git - 标签 - Yqchilde</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 05 Jul 2020 13:22:44 &#43;0000</lastBuildDate><atom:link href="https://yqqy.top/tags/git/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Sun, 05 Jul 2020 13:22:44 &#43;0000</lastBuildDate><atom:link href="https://yqqy.top/tags/git/" rel="self" type="application/rss+xml" /><item>
     <title>Git常用命令速查表</title>
     <link>https://yqqy.top/git-command-quick-check/</link>
-    <pubDate>Sun, 05 Jul 2020 13:22:44 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/git-command-quick-check/</guid>
+    <pubDate>Sun, 05 Jul 2020 13:22:44 &#43;0000</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/git-command-quick-check/</guid>
     <description><![CDATA[周末整理了一下Git常用命令速查表，虽然现在有可视化的工具帮助，但是基础命令要知道]]></description>
 </item><item>
     <title>Git设置代理解决git clone太慢的问题</title>
     <link>https://yqqy.top/git-clone-slow/</link>
-    <pubDate>Sat, 01 Feb 2020 12:33:03 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/git-clone-slow/</guid>
+    <pubDate>Sat, 01 Feb 2020 12:33:03 &#43;0000</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/git-clone-slow/</guid>
     <description><![CDATA[可以不要引号，实测也可以，反而加了引号有些网站不能访问，不需要设置 https.proxy ，仅设置 http.proxy就可以了， 端口需要看本地的socks端口，不是固定]]></description>
 </item></channel>
 </rss>

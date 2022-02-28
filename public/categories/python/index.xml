@@ -4,12 +4,12 @@
         <link>https://yqqy.top/categories/python/</link>
         <description>Python - 分类 - Yqchilde</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 27 May 2019 04:02:48 &#43;0000</lastBuildDate><atom:link href="https://yqqy.top/categories/python/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Mon, 27 May 2019 04:02:48 &#43;0000</lastBuildDate><atom:link href="https://yqqy.top/categories/python/" rel="self" type="application/rss+xml" /><item>
     <title>Scrapy第一次爬虫（并将数据传到mysql中）</title>
     <link>https://yqqy.top/first-using-scrapy/</link>
-    <pubDate>Mon, 27 May 2019 04:02:48 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://yqqy.top/first-using-scrapy/</guid>
+    <pubDate>Mon, 27 May 2019 04:02:48 &#43;0000</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://yqqy.top/first-using-scrapy/</guid>
     <description><![CDATA[记录一下用Python的Scrapy库爬虫]]></description>
 </item></channel>
 </rss>
