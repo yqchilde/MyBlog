@@ -4,7 +4,7 @@
 
 ### 0x01 前提
 
-{{indent}}前提是需要先获得`wp-rocket`插件，该插件是收费插件，如果有能力请支持正版，这里不提供下载地址，擅于利用搜索引擎或万能的某宝。本文是基于自己用宝塔配置rocket-nginx的教程，因为网上目前搜到的所有配置都是直接翻译github的README.md(😒 )，不过还是推荐看最新的文档，没准啥时候就变动了，操作步骤如下：
+前提是需要先获得`wp-rocket`插件，该插件是收费插件，如果有能力请支持正版，这里不提供下载地址，擅于利用搜索引擎或万能的某宝。本文是基于自己用宝塔配置rocket-nginx的教程，因为网上目前搜到的所有配置都是直接翻译github的README.md(😒 )，不过还是推荐看最新的文档，没准啥时候就变动了，操作步骤如下：
 
 ### 0x02 正文
 
@@ -12,7 +12,7 @@
 
 - 介绍一下（翻译过来）：
 
-{{indent}}Rocket-Nginx是WordPress缓存插件WP-Rocket的Nginx配置。它使Nginx可以直接提供以前缓存的文件，而无需调用WordPress或任何PHP。它还会添加标题以缓存CSS，JS和媒体，以通过减少对Web服务器的请求来利用浏览器的缓存。
+Rocket-Nginx是WordPress缓存插件WP-Rocket的Nginx配置。它使Nginx可以直接提供以前缓存的文件，而无需调用WordPress或任何PHP。它还会添加标题以缓存CSS，JS和媒体，以通过减少对Web服务器的请求来利用浏览器的缓存。
 
 - 简单说就是**NGINX→PHP-FPM→PHP→静态文件** 变成了 **NGINX→静态文件**（通过直接提供静态页面而不加载WordPress或PHP，可以使WP-Rocket更快。）
 
@@ -20,13 +20,13 @@
 
 #### 禁止WP定时任务
 
-{{indent}}在`wp-config`这个文件里添加一行代码，作用是为了禁止WP自带的CRON定时任务
+在`wp-config`这个文件里添加一行代码，作用是为了禁止WP自带的CRON定时任务
 
-{{indent}}`define('DISABLE_WP_CRON', true);`
+`define('DISABLE_WP_CRON', true);`
 
 #### 添加新的定时任务
 
-{{indent}}以下三种定时任务代码任一个就行，记得将website换成自己的网址
+以下三种定时任务代码任一个就行，记得将website换成自己的网址
 
 ```shell
 */15 * * * * wget -q -O - http://www.website.com/wp-cron.php?doing_wp_cron &>/dev/null
@@ -105,6 +105,6 @@ or
 
 ### 0x04 效果
 
-{{indent}}在没有做`nginx`优化时，即使用了`wp-rocket`插件也是两个B，现在明显有变化，因为本主题是图文式的，如果你的主题不怎么用图片，那么效果会更为显著。
+在没有做`nginx`优化时，即使用了`wp-rocket`插件也是两个B，现在明显有变化，因为本主题是图文式的，如果你的主题不怎么用图片，那么效果会更为显著。
 
 ![image-20200308190851632](https://pic.yqqy.top/blog/20200308190854.png?imageMogr2/format/webp/interlace/1 "速度测试")

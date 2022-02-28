@@ -2,11 +2,11 @@
 
 <!--more-->
 
-> {{indent}}在ubuntu系统上，直接使用apt-get安装的话，安装之后的版本是go1.10.4，本文记载如何安装指定版本的go
+> 在ubuntu系统上，直接使用apt-get安装的话，安装之后的版本是go1.10.4，本文记载如何安装指定版本的go
 
 ## 卸载
 
-{{indent}}如果已经通过apt-get安装过了，首先去卸载，如果没有安装请直接跳到 **安装** 部分
+如果已经通过apt-get安装过了，首先去卸载，如果没有安装请直接跳到 **安装** 部分
 
 ![img](https://pic.yqqy.top/blog/202111291036765.jpg?imageMogr2/format/webp/interlace/1 "img1")
 

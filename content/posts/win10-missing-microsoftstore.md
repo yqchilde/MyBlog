@@ -27,15 +27,15 @@ license: ""
 <!--more-->
 
 
-> {{indent}}折腾来折腾去又回到了windows，因为一块2k屏抛弃了体验良好的黑苹果，由于装了企业版，发现企业版不会带Microsoft Store，故查资料发现了解决方法，此文插眼记录。
+> 折腾来折腾去又回到了windows，因为一块2k屏抛弃了体验良好的黑苹果，由于装了企业版，发现企业版不会带Microsoft Store，故查资料发现了解决方法，此文插眼记录。
 
 ## 下载包
 
-{{indent}}打开网址 [Microsoft Store - Generation Projec](https://store.rg-adguard.net)
+打开网址 [Microsoft Store - Generation Projec](https://store.rg-adguard.net)
 
-{{indent}}以 PackageFamilyName 方式搜索 `Microsoft.WindowsStore_8wekyb3d8bbwe`
+以 PackageFamilyName 方式搜索 `Microsoft.WindowsStore_8wekyb3d8bbwe`
 
-{{indent}}根据系统选择对应的包，一共需要下载4个安装包（每类种选择一个）都要下载(64位可以下载32的，32只下载32的就可)
+根据系统选择对应的包，一共需要下载4个安装包（每类种选择一个）都要下载(64位可以下载32的，32只下载32的就可)
 
 ![image-20201108190353787](https://pic.yqqy.top/blog/20201108190857.png?imageMogr2/format/webp/interlace/1 "选择版本")
 
@@ -51,7 +51,7 @@ Add-AppxPackage *
 
 ## win一键切换版本
 
-{{indent}}企业版太不适合开发党了，想下载个新版 Terminal版本都不够，只能切换到专业版了
+企业版太不适合开发党了，想下载个新版 Terminal版本都不够，只能切换到专业版了
 
 ![image-20201108191221252](https://pic.yqqy.top/blog/20201108191223.png?imageMogr2/format/webp/interlace/1 "一键切换软件")
 

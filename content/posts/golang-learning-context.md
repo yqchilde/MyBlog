@@ -29,9 +29,9 @@ license: ""
 
 > 介绍一下
 
-{{indent}}在go1.7之前，context还是非编制的，存在（golang.org/x/net/context）中，golang团队发现context这个东西很好用，于是把它收编了，1.7版本正式进入了标准库。专门用来简化处理多个goroutine之间与请求域的数据、取消信号、截止时间等相关操作。
+在go1.7之前，context还是非编制的，存在（golang.org/x/net/context）中，golang团队发现context这个东西很好用，于是把它收编了，1.7版本正式进入了标准库。专门用来简化处理多个goroutine之间与请求域的数据、取消信号、截止时间等相关操作。
 
-{{indent}}对服务器传入的请求应该创建上下文，而对服务器的传出调用应该接受上下文，它们之间的函数调用链必须传递上下文，或者可以使用`WithCancel`、`WithDeadline`、`WithTimeOut`、`WithValue`创建的派生上下文，当一个上下文被取消时，它派生的所有上下文也被取消。
+对服务器传入的请求应该创建上下文，而对服务器的传出调用应该接受上下文，它们之间的函数调用链必须传递上下文，或者可以使用`WithCancel`、`WithDeadline`、`WithTimeOut`、`WithValue`创建的派生上下文，当一个上下文被取消时，它派生的所有上下文也被取消。
 
 > Context常用的使用姿势
 
@@ -62,13 +62,13 @@ type Context interface {
 
 ### context的创建
 
-{{indent}}为了更加方便的创建`Context`，包里头定义了`Background`来作为所有`Context`的根，可以认为所有的`Context`是树的结构，`Background`是树的根，当任一`Context`被取消的时候，那么继承他的`Context`将全部被回收。
+为了更加方便的创建`Context`，包里头定义了`Background`来作为所有`Context`的根，可以认为所有的`Context`是树的结构，`Background`是树的根，当任一`Context`被取消的时候，那么继承他的`Context`将全部被回收。
 
 ### context的Api
 
 #### WithCancel
 
-{{indent}}`WithCancel`返回带有新Done通道的父节点的副本，当调用返回的`cancel`函数或当关闭 父上下文 的Done通道时，将关闭返回上下文的Done通道，无论先发生什么情况。
+`WithCancel`返回带有新Done通道的父节点的副本，当调用返回的`cancel`函数或当关闭 父上下文 的Done通道时，将关闭返回上下文的Done通道，无论先发生什么情况。
 
 ```go
 func WithCancel(parent Context) (ctx Context, cancel CancelFunc)
@@ -111,17 +111,17 @@ func gen(ctx context.Context) <-chan int {
 }
 ```
 
-{{indent}}**解释：** 在上面的示例代码中，`gen`函数在单独的goroutine中生成整数并将它们发送到返回的通道。 `gen`的调用者在使用生成的整数之后需要取消上下文，以免`gen`启动的内部goroutine发生泄漏。
+**解释：** 在上面的示例代码中，`gen`函数在单独的goroutine中生成整数并将它们发送到返回的通道。 `gen`的调用者在使用生成的整数之后需要取消上下文，以免`gen`启动的内部goroutine发生泄漏。
 
 #### WithDeadline
 
-{{indent}}`WithDeadline`返回父上下文的副本，并将`deadline`调整为不迟于`d`。如果父上下文的`deadline`已经早于`d`，则`WithDeadline(parent, d)`在语义上等同于父上下文。当截止日过期时，当调用返回的`cancel`函数时，或者当父上下文的Done通道关闭时，返回上下文的Done通道将被关闭，以最先发生的情况为准。
+`WithDeadline`返回父上下文的副本，并将`deadline`调整为不迟于`d`。如果父上下文的`deadline`已经早于`d`，则`WithDeadline(parent, d)`在语义上等同于父上下文。当截止日过期时，当调用返回的`cancel`函数时，或者当父上下文的Done通道关闭时，返回上下文的Done通道将被关闭，以最先发生的情况为准。
 
 ```go
 func WithDeadline(parent Context, d time.Time) (Context, CancelFunc) 
 ```
 
-{{indent}}取消上下文将释放与其相关联的资源，因此代码还应该在此上下文中运行的操作完成后立即调用`cancel`
+取消上下文将释放与其相关联的资源，因此代码还应该在此上下文中运行的操作完成后立即调用`cancel`
 
 ```go
 func main() {
@@ -139,17 +139,17 @@ func main() {
 }
 ```
 
-{{indent}}上面的代码中，定义了一个50毫秒之后过期的`deadline`，然后我们调用`context.WithDeadline(context.Background(), d)`得到一个上下文`ctx`和一个取消函数`cancel`，然后使用一个`select`让主程序陷入等待，等待1秒后打印`overslept`退出或者等待`ctx`过期后退出，因为`ctx`50秒后就过期，所以`ctx.Done`会先接收到值，上面的代码会打印`ctx.Err()`取消原因
+上面的代码中，定义了一个50毫秒之后过期的`deadline`，然后我们调用`context.WithDeadline(context.Background(), d)`得到一个上下文`ctx`和一个取消函数`cancel`，然后使用一个`select`让主程序陷入等待，等待1秒后打印`overslept`退出或者等待`ctx`过期后退出，因为`ctx`50秒后就过期，所以`ctx.Done`会先接收到值，上面的代码会打印`ctx.Err()`取消原因
 
 #### WithTimeout
 
-{{indent}}`WithTimeout`返回`WithDeadLine(parent, time.Now().Add(timeout))`
+`WithTimeout`返回`WithDeadLine(parent, time.Now().Add(timeout))`
 
 ```go
 func WithTimeout(parent Context, timeout time.Duration) (Context, CancelFunc)
 ```
 
-{{indent}}取消此上下文将释放与其相关的资源，因此代码应该在此上下文中运行的操作完成后立即调用`cancel`，通常用于数据库或者网络连接的超时控制
+取消此上下文将释放与其相关的资源，因此代码应该在此上下文中运行的操作完成后立即调用`cancel`，通常用于数据库或者网络连接的超时控制
 
 ```go
 var wg sync.WaitGroup
@@ -183,21 +183,21 @@ LOOP:
 }
 ```
 
-{{indent}}上面示例代码就是设置了一个50毫秒的超时，在模拟链接超时到50毫秒的时候结束了操作
+上面示例代码就是设置了一个50毫秒的超时，在模拟链接超时到50毫秒的时候结束了操作
 
 #### WithValue
 
-{{indent}}`WithValue`函数能够将请求作用域的数据与Context对象建立关系
+`WithValue`函数能够将请求作用域的数据与Context对象建立关系
 
 ```go
 func WithValue(parent Context, key, val interface{}) Context
 ```
 
-{{indent}}`WithValue`返回父节点的副本，其中与`key`关联的值为`val`
+`WithValue`返回父节点的副本，其中与`key`关联的值为`val`
 
-{{indent}}仅对API和进程间传递请求域的数据使用上下文值，而不是使用它来传递可选参数给函数。
+仅对API和进程间传递请求域的数据使用上下文值，而不是使用它来传递可选参数给函数。
 
-{{indent}}所提供的键必须是`可比较`的，并且不应该是`string`类型或任何其他内置类型，以避免使用上下文在包之间发生冲突。`WithValue`的用户应该为键定义自己的类型。为了避免在分配给interface{}时进行分配，上下文键通常具有具体类型`struct{}`，或者导出的上下文关键变量的静态类型应该为指针或接口。
+所提供的键必须是`可比较`的，并且不应该是`string`类型或任何其他内置类型，以避免使用上下文在包之间发生冲突。`WithValue`的用户应该为键定义自己的类型。为了避免在分配给interface{}时进行分配，上下文键通常具有具体类型`struct{}`，或者导出的上下文关键变量的静态类型应该为指针或接口。
 
 ```go
 type TraceCode string

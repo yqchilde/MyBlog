@@ -7,17 +7,17 @@
 
 ## 问题描述
 
-{{indent}}解决Ubuntu启动Docker "Got permission denied while trying to connect to the Docker daemon socket" 问题。在终端执行 `docker version `命令，出现以下错误
+解决Ubuntu启动Docker "Got permission denied while trying to connect to the Docker daemon socket" 问题。在终端执行 `docker version `命令，出现以下错误
 
 ![image-20201111081455844](https://pic.yqqy.top/blog/20201111081457.png?imageMogr2/format/webp/interlace/1 "docker version")
 
 ## 原因分析
 
-{{indent}}docker进程使用 Unix Socket 而不是 TCP 端口。而默认情况下，Unix socket 属于 root 用户，因此需要 **root权限** 才能访问。
+docker进程使用 Unix Socket 而不是 TCP 端口。而默认情况下，Unix socket 属于 root 用户，因此需要 **root权限** 才能访问。
 
 ## 解决方案
 
-{{indent}}将 docker 添加进用户组，代码如下，依次执行：
+将 docker 添加进用户组，代码如下，依次执行：
 
 ```bash
 1. 添加docker用户组
@@ -37,7 +37,7 @@ newgrp docker
 
 ## 检查结果
 
-{{indent}}再次执行 `docker version` 命令，发现不再出现缺失权限的问题
+再次执行 `docker version` 命令，发现不再出现缺失权限的问题
 
 ## 参考文章
 

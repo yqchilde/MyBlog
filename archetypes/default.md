@@ -4,12 +4,12 @@ subtitle: ""
 date: {{ .Date }}
 lastmod: {{ .Date }}
 draft: true
-author: ""
-authorLink: ""
+authors: []
 description: ""
 
 tags: []
 categories: []
+series: []
 
 hiddenFromHomePage: false
 hiddenFromSearch: false
@@ -24,3 +24,7 @@ math:
 lightgallery: false
 license: ""
 ---
+
+<!--more-->
+
+TODO

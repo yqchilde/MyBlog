@@ -27,10 +27,10 @@ license: ""
 
 ![img](https://pic.yqqy.top/blog/20201227215212.png?imageMogr2/format/webp/interlace/1 "Router模块脑图")
 
-{{indent}}现在我们需要给用户一个自定的Conn处理业务的接口，需要用户传入所需要处理的业务，而不是写死的回显方法。我们需要定义一些 `interface{}`来让用户填写任意格式的连接处理业务方法。
+现在我们需要给用户一个自定的Conn处理业务的接口，需要用户传入所需要处理的业务，而不是写死的回显方法。我们需要定义一些 `interface{}`来让用户填写任意格式的连接处理业务方法。
 那么，很显然func不能满足我们的需求，接下来就是定义抽象的接口类。
 
-{{indent}}我们需要把客户端请求的连接信息和请求的数据，放在一个 `Request`的结构体里，这样的好处是我们可以从Request里面得到全部客户端的请求信息，也为我们之后扩展框架有一定的作用，一旦客户端有额外的含义的数据信息，都可以放在这个Request中。可以理解为每次客户端的全部请求数据，Zinx都会把它们放在一个Request结构体中。
+我们需要把客户端请求的连接信息和请求的数据，放在一个 `Request`的结构体里，这样的好处是我们可以从Request里面得到全部客户端的请求信息，也为我们之后扩展框架有一定的作用，一旦客户端有额外的含义的数据信息，都可以放在这个Request中。可以理解为每次客户端的全部请求数据，Zinx都会把它们放在一个Request结构体中。
 
 ### 创建抽象IRequest层
 
@@ -73,15 +73,15 @@ func (r *Request) GetData() []byte {
 
 ### 创建抽象的IRouter层
 
-{{indent}}在 `ziface`下创建 `irouter.go`
+在 `ziface`下创建 `irouter.go`
 
-{{indent}}我们知道 **router** 实际上的作用就是，服务端应用可以给 **Zinx** 框架配置当前链接的处理业务方法，之前是写死的回显方法，有了router就可以通过router携带，并且会定义三个方法，且支持方法重写。
+我们知道 **router** 实际上的作用就是，服务端应用可以给 **Zinx** 框架配置当前链接的处理业务方法，之前是写死的回显方法，有了router就可以通过router携带，并且会定义三个方法，且支持方法重写。
 
 - PreHandle:  在处理conn业务之前的钩子方法Hook
 - Handle:       在处理conn业务的主方法Hook
 - PostHandle: 在处理conn业务之后的钩子方法Hook
 
-{{indent}}每个方法的形参就是上面封装的 `IRequest` 对象，用来告知我们所要连的链接以及请求数据，作为我们业务方法的输入数据。
+每个方法的形参就是上面封装的 `IRequest` 对象，用来告知我们所要连的链接以及请求数据，作为我们业务方法的输入数据。
 
 ```go
 // IRouter 路由抽象接口
@@ -119,12 +119,12 @@ func (br *BaseRouter) PostHandle(request ziface.IRequest) {
 }
 ```
 
-{{indent}}我们注意到了，在实体的Router层里我们写了空的结构体 `BaseRouter` ，这里讲一下目的。在实现router时，我们要基于 `BaseRouter` ，也就是面向对象中的继承基类，继承之后就可以对这个基类的方法进行重写。
+我们注意到了，在实体的Router层里我们写了空的结构体 `BaseRouter` ，这里讲一下目的。在实现router时，我们要基于 `BaseRouter` ，也就是面向对象中的继承基类，继承之后就可以对这个基类的方法进行重写。
 举个例子，有的router没有前置或后置处理业务，在继承基类后，有需要写的就直接重写方法即可，不需要的直接忽略即可。
 
 ### IServer 添加路由添加功能
 
-{{indent}}我们需要给 `IServer` 结构体中添加一个方法 `AddRouter` ，目的是让框架使用者自定义一个Router处理业务方法。
+我们需要给 `IServer` 结构体中添加一个方法 `AddRouter` ，目的是让框架使用者自定义一个Router处理业务方法。
 在 `zinx/ziface/iserver.go` 修改如下：
 
 ```go
@@ -170,7 +170,7 @@ func NewServer(name string) ziface.IServer {
 }
 ```
 
-{{indent}}还记得在之前临时在 `Connection` 中添加了一个 `handleAPI ziface.HandleFunc` ，目的是为了直接在业务处理方法，如今我们封装了Router，就是为了在Router中携带业务方法，所以可以删掉了，然后添加处理的 `Router` 对象，如下：
+还记得在之前临时在 `Connection` 中添加了一个 `handleAPI ziface.HandleFunc` ，目的是为了直接在业务处理方法，如今我们封装了Router，就是为了在Router中携带业务方法，所以可以删掉了，然后添加处理的 `Router` 对象，如下：
 
 ```go
 // 链接模块
@@ -240,7 +240,7 @@ go func(request ziface.IRequest) {
 
 ---
 
-{{indent}}以上完成了Zinx的路由模块功能，接下来是测试了。
+以上完成了Zinx的路由模块功能，接下来是测试了。
 拷贝之前的 v2 测试包重命名为 v3。修改 `Server.go` ，我们实现一个 `IRouter` ，并重写里面的三个方法，如下：
 
 ```go

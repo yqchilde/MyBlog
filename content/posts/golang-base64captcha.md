@@ -25,7 +25,7 @@ license: ""
 ---
 <!--more-->
 
-> {{indent}}这个库烦了我两天，我能接触到的例子都是旧版的，新版简直就是大改版哦，构建函数简直和旧版出入太大，函数参数及返回值皆不一样，记录一下最新版的字符验证码的完整实例，（数字验证码、计算验证码、汉字验证码以及语音验证码构建方法举一反三）
+> 这个库烦了我两天，我能接触到的例子都是旧版的，新版简直就是大改版哦，构建函数简直和旧版出入太大，函数参数及返回值皆不一样，记录一下最新版的字符验证码的完整实例，（数字验证码、计算验证码、汉字验证码以及语音验证码构建方法举一反三）
 
 ### 官方例子地址
 
@@ -33,7 +33,7 @@ license: ""
 
 <font color="#F56C6C">注意: </font>
 
-{{indent}}旧版的`base64Captcha.ConfigCharacte` 以及 `base64Captcha.GenerateCaptcha`方法由于作者重构已经取消，具体实现看下面代码
+旧版的`base64Captcha.ConfigCharacte` 以及 `base64Captcha.GenerateCaptcha`方法由于作者重构已经取消，具体实现看下面代码
 
 ### 代码如下
 
@@ -97,6 +97,6 @@ func GenerateCaptcha(ctx *gin.Context) {
 }
 ```
 
-{{indent}}这样子输出的就是一条json，放在项目里面就是这样的
+这样子输出的就是一条json，放在项目里面就是这样的
 
 ![mark](https://pic.yqqy.top/blog/20200207/uIYagTxvi3FE.png?imageMogr2/format/webp/interlace/1 "效果图")

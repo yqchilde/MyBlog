@@ -38,7 +38,7 @@ docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=*** -d -v ~/data/doc
 
 ## 解决问题
 
-{{indent}}这里说一下，在[https://github.com/docker-library/mysql/issues/434](https://github.com/docker-library/mysql/issues/434)这里看到相关问题，有人说使用 `mysql -uroot -p***` 即直接写出密码可以，我试过是不行的，这里贴出具体解决方案。
+这里说一下，在[https://github.com/docker-library/mysql/issues/434](https://github.com/docker-library/mysql/issues/434)这里看到相关问题，有人说使用 `mysql -uroot -p***` 即直接写出密码可以，我试过是不行的，这里贴出具体解决方案。
 
 1. 进入容器中
 2. 使用命令 `/usr/bin/mysql_secure_installation`

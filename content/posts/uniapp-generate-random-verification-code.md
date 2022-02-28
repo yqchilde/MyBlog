@@ -25,7 +25,7 @@ license: ""
 ---
 <!--more-->
 
-> {{indent}}我搞了3天用php生成验证码，然后session返回验证码的值，这样子直接请求是可以的，但是在小程序里面是只能获取到 `PHPSESSID` ，所以要带着图片的sessionid才能访问到正确的验证码值，奈何在uniapp里面，uni.request请求才能拿到sessionid，但是image标签要想显示这个session的对应的图片，需要动态绑定数据加载，这样就导致了加载的图片请求了一次session，request又请求了一次，我技术不高写不出来了，这才想到了今天要实现的这种方法。
+> 我搞了3天用php生成验证码，然后session返回验证码的值，这样子直接请求是可以的，但是在小程序里面是只能获取到 `PHPSESSID` ，所以要带着图片的sessionid才能访问到正确的验证码值，奈何在uniapp里面，uni.request请求才能拿到sessionid，但是image标签要想显示这个session的对应的图片，需要动态绑定数据加载，这样就导致了加载的图片请求了一次session，request又请求了一次，我技术不高写不出来了，这才想到了今天要实现的这种方法。
 
 ## 代码如下
 
@@ -71,7 +71,7 @@ getRandomCode: function() { // 生成验证码
 	});
 }
 ```
-{{indent}}**注意：** 不转化为base64的话图片是
+**注意：** 不转化为base64的话图片是
 
 ![mark](https://pic.yqqy.top/blog/20200111/6B1C0MqdMPD3.png?imageMogr2/format/webp/interlace/1 "未转base64")
 

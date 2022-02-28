@@ -32,11 +32,11 @@ license: ""
 
 
 
-> {{indent}}最近在用的一个服务他的docker-compose需要配置很多很多的环境变量，而每个环境变量可能又很长，所以查阅资料了解到env file这种配置
+> 最近在用的一个服务他的docker-compose需要配置很多很多的环境变量，而每个环境变量可能又很长，所以查阅资料了解到env file这种配置
 
 ## env_file
 
-{{indent}}官方文档地址 [https://docs.docker.com/compose/environment-variables](https://docs.docker.com/compose/environment-variables)，这里记录一下我遇到的问题，如果要使用env_file配置，这时候，是会把所有的变量都带入进来的，我不需要那么多变量，举个🌰
+官方文档地址 [https://docs.docker.com/compose/environment-variables](https://docs.docker.com/compose/environment-variables)，这里记录一下我遇到的问题，如果要使用env_file配置，这时候，是会把所有的变量都带入进来的，我不需要那么多变量，举个🌰
 
 ```txt
 # 京东农场
@@ -54,7 +54,7 @@ FRUIT_SHARECODE4=${FRUIT1}@${FRUIT2}@${FRUIT3}@${FRUIT5}
 FRUIT_SHARECODE5=${FRUIT1}@${FRUIT2}@${FRUIT3}@${FRUIT4}
 ```
 
-{{indent}}`.env`文件中有这么一段内容，其中 `FRUIT1-5` 和 `FRUIT_SHARECODE1-5`全是变量，但是很显然我只要想 `FRUIT_SHARECODE1-5`的变量，不想要上面的，可以说是我需要按需引入变量，如果直接用如下这种配置，就会将所有的变量全部引入
+`.env`文件中有这么一段内容，其中 `FRUIT1-5` 和 `FRUIT_SHARECODE1-5`全是变量，但是很显然我只要想 `FRUIT_SHARECODE1-5`的变量，不想要上面的，可以说是我需要按需引入变量，如果直接用如下这种配置，就会将所有的变量全部引入
 
 ```bash
 $ cat docker-compose.yml
@@ -66,11 +66,11 @@ services:
      - ./api.env
 ```
 
-{{indent}}所以最终想法还是只在同目录用 `.env` 文件，这样不需要特别声明引入，只需要保证同目录即可，这时候我在 `docker-compose.yml` 文件中引入了 `FRUIT_SHARECODE1` 变量，按照我的理解是变量嵌套会间接引入上面的变量，结果变成了下面这个样子。
+所以最终想法还是只在同目录用 `.env` 文件，这样不需要特别声明引入，只需要保证同目录即可，这时候我在 `docker-compose.yml` 文件中引入了 `FRUIT_SHARECODE1` 变量，按照我的理解是变量嵌套会间接引入上面的变量，结果变成了下面这个样子。
 
 ![](https://pic.yqqy.top/blog/20210313150914.png?imageMogr2/format/webp/interlace/1 "图1")
 
-{{indent}}难道docker-compose不支持这种写法？还被多加了一个 `$`变成了 `$${}` ，随后在自己的本地电脑试了下，是按照我预想的结果输出的，那么问题就好说了，这说明是dockerc-compose版本不对，并不是不支持，当前服务器下的版本是 1.25.4，翻阅版本记录发现在 1.26.0 以后使用了 `python-dotenv` 管理了env_file，所以至少要使用大于1.26.0以后的版本。
+难道docker-compose不支持这种写法？还被多加了一个 `$`变成了 `$${}` ，随后在自己的本地电脑试了下，是按照我预想的结果输出的，那么问题就好说了，这说明是dockerc-compose版本不对，并不是不支持，当前服务器下的版本是 1.25.4，翻阅版本记录发现在 1.26.0 以后使用了 `python-dotenv` 管理了env_file，所以至少要使用大于1.26.0以后的版本。
 
 ![](https://pic.yqqy.top/blog/20210313151336.png?imageMogr2/format/webp/interlace/1 "图2")
 
@@ -90,4 +90,4 @@ $ curl -L https://github.com/docker/compose/releases/download/1.27.4/docker-comp
 
 ## 总结
 
-{{indent}}docker-compose很方便，使用 `.env` 文件会更加方便，这样我们可以传递更多的内容进来，每次只需要维护 `.env` 不用频繁修改 `docker-compose.yml` 。
+docker-compose很方便，使用 `.env` 文件会更加方便，这样我们可以传递更多的内容进来，每次只需要维护 `.env` 不用频繁修改 `docker-compose.yml` 。

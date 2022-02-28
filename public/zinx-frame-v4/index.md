@@ -6,7 +6,7 @@
 
 ### 配置文件
 
-{{indent}}写一个全局配置是为了更方便的维护项目已经修改代码参数，创建 `conf/zinx.json`文件，配置信息如下：
+写一个全局配置是为了更方便的维护项目已经修改代码参数，创建 `conf/zinx.json`文件，配置信息如下：
 
 ```json
 {
@@ -98,5 +98,5 @@ fmt.Printf("[START] Server name: %s,listenner at IP: %s, Port %d is starting\n",
 
 ### 测试
 
-{{indent}}拷贝v3中的代码到v4，在v4目录下创建 `conf/zinx.json` ，将上面的zinx.json内容复制进去，分别运行server.go和client.go即可看到服务日志开始打印。
+拷贝v3中的代码到v4，在v4目录下创建 `conf/zinx.json` ，将上面的zinx.json内容复制进去，分别运行server.go和client.go即可看到服务日志开始打印。
 ![img](https://pic.yqqy.top/blog/20210102232931.png?imageMogr2/format/webp/interlace/1 "测试")
