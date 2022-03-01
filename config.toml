@@ -199,11 +199,12 @@ theme = "DoIt"
     [params.home.profile]
       enable = true
       # Gravatar 邮箱, 用于优先在主页显示的头像
-      gravatarEmail = "yqchilde@gmail.com"
+      gravatarEmail = ""
       # 主页显示头像的 URL
       # 将你的头像文件放置于 static 或者 assets 目录下
       # 文件路径是相对于 static 或者 assets 目录的
-      avatarURL = "https://sdn.geekzu.org/avatar/cb6c1ca7b5ba419e81281df45dd07d33?s=96&amp;d=mm&amp;r=g"
+      # avatarURL = "https://sdn.geekzu.org/avatar/cb6c1ca7b5ba419e81281df45dd07d33?s=96&amp;d=mm&amp;r=g"
+      avatarURL = "https://cdn.sep.cc/avatar/cb6c1ca7b5ba419e81281df45dd07d33?s=96&amp;d=mm&amp;r=g"
       #  主页显示的网站标题 (支持 HTML 格式)
       title = ""
       # 主页显示的网站副标题

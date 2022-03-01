@@ -1,6 +1,6 @@
 ---
 title: "关于我"
-subtitle: "更新于2021/10/27"
+subtitle: "更新于2022/03/01"
 date: 2020-05-20T22:58:49+08:00
 
 lightgallery: false
@@ -37,16 +37,16 @@ func main() {
 
 ### 开源项目
 
-|       项目名称       |                           项目地址                           |
-| :------------------: | :----------------------------------------------------------: |
-|   CheckInAssistant   | [[https://github.com/yqchilde/CheckInAssistant](https://github.com/yqchilde/CheckInAssistant)]^(🤡是我参加山东省大学生软件设计大赛一等奖作品，也是我毕设答辩优秀作品) |
+|       项目名称       |                                                                  项目地址                                                                  |
+| :------------------: |:--------------------------------------------------------------------------------------------------------------------------------------:|
+|   CheckInAssistant   |  [[https://github.com/yqchilde/CheckInAssistant](https://github.com/yqchilde/CheckInAssistant)]^(🤡是我参加山东省大学生软件设计大赛获奖作品，也是我毕设答辩优秀作品)   |
 | JDMemberCloseAccount | [[https://github.com/yqchilde/JDMemberCloseAccount](https://github.com/yqchilde/JDMemberCloseAccount)]^(Python+Selenium实现的一种京东全自动退会方案) |
-|   Golang-Interview   | [[https://github.com/yqchilde/Golang-Interview](https://github.com/yqchilde/Golang-Interview)]^(收集的一些Golang笔试题) |
-|       Rebirth        | [[https://github.com/yqchilde/rebirth](https://github.com/yqchilde/rebirth)]^(一款简约优雅响应式WordPress主题) |
+|   Golang-Interview   |            [[https://github.com/yqchilde/Golang-Interview](https://github.com/yqchilde/Golang-Interview)]^(收集的一些Golang笔试题)             |
+|       Rebirth        |                  [[https://github.com/yqchilde/rebirth](https://github.com/yqchilde/rebirth)]^(一款简约优雅响应式WordPress主题)                   |
 
 ### 感谢
 
-本来是想着从wordpress主题迁移到hugo的，已经迁移了一部分，加上复习时间紧，在github发现了该主题，感谢主题作者（不愧是loveit😀 ），这让我的心沉淀了下来，安心去思考其他事情。
+感谢DoIt主题作者，他的主题模板，让我更加熟悉hugo的使用方法，并且让我更加了解hugo的构建工具。
 
 ### 关于Rebirth
 
