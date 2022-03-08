@@ -1,4 +1,4 @@
-# Ubuntu Install Golang
+# 在Ubuntu上安装指定版本的Go语言
 
 <!--more-->
 

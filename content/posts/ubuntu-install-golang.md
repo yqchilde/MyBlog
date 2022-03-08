@@ -1,5 +1,5 @@
 ---
-title: "Ubuntu Install Golang"
+title: "在Ubuntu上安装指定版本的Go语言"
 subtitle: ""
 date: 2021-11-29T10:25:30+08:00
 lastmod: 2021-11-29T10:25:30+08:00
