@@ -251,74 +251,74 @@
 </span><span class="lnt">67
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="k">namespace</span> <span class="nx">dncTool</span><span class="p">;</span>
-
-<span class="k">use</span> <span class="nx">PHPMailerPHPMailerPHPMailer</span><span class="p">;</span>
-<span class="k">use</span> <span class="nx">PHPMailerPHPMailerException</span><span class="p">;</span>
-
-<span class="c1">//引入项目
-</span><span class="c1"></span>
-<span class="nv">$dir</span> <span class="o">=</span> <span class="nx">dirname</span><span class="p">(</span><span class="no">__FILE__</span><span class="p">)</span> <span class="o">.</span> <span class="s1">&#39;/PHPMailer&#39;</span><span class="p">;</span>
-<span class="k">require</span> <span class="p">(</span><span class="nv">$dir</span> <span class="o">.</span> <span class="s1">&#39;/src/Exception.php&#39;</span><span class="p">);</span>
-<span class="k">require</span> <span class="p">(</span><span class="nv">$dir</span> <span class="o">.</span> <span class="s1">&#39;/src/PHPMailer.php&#39;</span><span class="p">);</span>
-<span class="k">require</span> <span class="p">(</span><span class="nv">$dir</span> <span class="o">.</span> <span class="s1">&#39;/src/SMTP.php&#39;</span><span class="p">);</span>
-
-<span class="k">class</span> <span class="nc">sendMail</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="k">static</span> <span class="nv">$Host</span> <span class="o">=</span> <span class="s1">&#39;smtp.163.com&#39;</span><span class="p">;</span> <span class="c1">//smtp服务器
-</span><span class="c1"></span>    <span class="k">private</span> <span class="k">static</span> <span class="nv">$From</span> <span class="o">=</span> <span class="s1">&#39;这里写邮件地址&#39;</span><span class="p">;</span> <span class="c1">//发送者的邮件地址
-</span><span class="c1"></span>    <span class="k">private</span> <span class="k">static</span> <span class="nv">$FromName</span> <span class="o">=</span> <span class="s1">&#39;签到助手&#39;</span><span class="p">;</span> <span class="c1">//发送邮件的用户昵称
-</span><span class="c1"></span>    <span class="k">private</span> <span class="k">static</span> <span class="nv">$Username</span> <span class="o">=</span> <span class="s1">&#39;这里写邮件地址&#39;</span><span class="p">;</span> <span class="c1">//登录到邮箱的用户名
-</span><span class="c1"></span>    <span class="k">private</span> <span class="k">static</span> <span class="nv">$Password</span> <span class="o">=</span> <span class="s1">&#39;授权码&#39;</span><span class="p">;</span> <span class="c1">//第三方登录的授权码，在邮箱里面设置
-</span><span class="c1"></span>
-    <span class="sd">/**
-</span><span class="sd">     * 发送
-</span><span class="sd">     * @param $sendMail
-</span><span class="sd">     * @param $mailTitle
-</span><span class="sd">     * @param $content
-</span><span class="sd">     * @return bool
-</span><span class="sd">     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">send</span><span class="p">(</span><span class="nv">$sendMail</span><span class="p">,</span><span class="nv">$mailTitle</span><span class="p">,</span><span class="nv">$content</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="c1">//实例化PHPMail类
-</span><span class="c1"></span>        <span class="nv">$mail</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PHPMailer</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
-        <span class="k">try</span> <span class="p">{</span>
-            <span class="c1">//Server settings
-</span><span class="c1"></span>            <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">SMTPDebug</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 关闭Dubug模式
-</span><span class="c1"></span>            <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">isSMTP</span><span class="p">();</span> <span class="c1">// 使用SMTP发送邮件
-</span><span class="c1"></span>            <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">Host</span> <span class="o">=</span> <span class="nx">self</span><span class="o">::</span><span class="nv">$Host</span><span class="p">;</span> <span class="c1">//SMTP邮件服务器地址（腾讯企业邮为例）
-</span><span class="c1"></span>            <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">SMTPAuth</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span> <span class="c1">//发信认证
-</span><span class="c1"></span>            <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">Username</span> <span class="o">=</span> <span class="nx">self</span><span class="o">::</span><span class="nv">$Username</span><span class="p">;</span> <span class="c1">// SMTP 发件人邮箱
-</span><span class="c1"></span>            <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">Password</span> <span class="o">=</span> <span class="nx">self</span><span class="o">::</span><span class="nv">$Password</span><span class="p">;</span> <span class="c1">// SMTP 发件人邮箱密码
-</span><span class="c1"></span>            <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">SMTPSecure</span> <span class="o">=</span> <span class="s1">&#39;ssl&#39;</span><span class="p">;</span> <span class="c1">//ssl协议
-</span><span class="c1"></span>            <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">Port</span> <span class="o">=</span> <span class="mi">465</span><span class="p">;</span> <span class="c1">//ssl端口号
-</span><span class="c1"></span>
-            <span class="c1">//发件人
-</span><span class="c1"></span>            <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">setFrom</span><span class="p">(</span><span class="nx">self</span><span class="o">::</span><span class="nv">$From</span><span class="p">,</span> <span class="nx">self</span><span class="o">::</span><span class="nv">$FromName</span><span class="p">);</span> <span class="c1">//发件人邮箱（同 $mail-&gt;Username项设置）、发件人名称
-</span><span class="c1"></span>
-            <span class="c1">//收件人。多收件人可设置多个addAddress
-</span><span class="c1"></span>            <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">addAddress</span><span class="p">(</span><span class="nv">$sendMail</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span> <span class="c1">//收件人邮箱地址，收件人姓名（选填）
-</span><span class="c1"></span>            <span class="c1">//$mail-&gt;addAddress(&#39;ellen@example.com&#39;); // 收件人邮箱地址
-</span><span class="c1"></span>
-            <span class="c1">//邮件内容
-</span><span class="c1"></span>            <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">isHTML</span><span class="p">(</span><span class="k">true</span><span class="p">);</span> <span class="c1">//发送html格式邮件
-</span><span class="c1"></span>            <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">Subject</span> <span class="o">=</span> <span class="nv">$mailTitle</span><span class="p">;</span> <span class="c1">//邮件标题
-</span><span class="c1"></span>            <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">Body</span>    <span class="o">=</span> <span class="nv">$content</span><span class="p">;</span> <span class="c1">//邮件内容
-</span><span class="c1"></span>            <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">AltBody</span> <span class="o">=</span> <span class="s1">&#39;邮件摘要&#39;</span><span class="p">;</span> <span class="c1">//目测没什么用，可去掉
-</span><span class="c1"></span>
-            <span class="c1">//判断是否发送成功
-</span><span class="c1"></span>            <span class="k">if</span> <span class="p">(</span><span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">())</span> <span class="p">{</span>
-                <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
-            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">ErrorInfo</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl"><span class="k">namespace</span> <span class="nx">dncTool</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">use</span> <span class="nx">PHPMailerPHPMailerPHPMailer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">use</span> <span class="nx">PHPMailerPHPMailerException</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//引入项目
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nv">$dir</span> <span class="o">=</span> <span class="nx">dirname</span><span class="p">(</span><span class="no">__FILE__</span><span class="p">)</span> <span class="o">.</span> <span class="s1">&#39;/PHPMailer&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">require</span> <span class="p">(</span><span class="nv">$dir</span> <span class="o">.</span> <span class="s1">&#39;/src/Exception.php&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">require</span> <span class="p">(</span><span class="nv">$dir</span> <span class="o">.</span> <span class="s1">&#39;/src/PHPMailer.php&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">require</span> <span class="p">(</span><span class="nv">$dir</span> <span class="o">.</span> <span class="s1">&#39;/src/SMTP.php&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">sendMail</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">static</span> <span class="nv">$Host</span> <span class="o">=</span> <span class="s1">&#39;smtp.163.com&#39;</span><span class="p">;</span> <span class="c1">//smtp服务器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">private</span> <span class="k">static</span> <span class="nv">$From</span> <span class="o">=</span> <span class="s1">&#39;这里写邮件地址&#39;</span><span class="p">;</span> <span class="c1">//发送者的邮件地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">private</span> <span class="k">static</span> <span class="nv">$FromName</span> <span class="o">=</span> <span class="s1">&#39;签到助手&#39;</span><span class="p">;</span> <span class="c1">//发送邮件的用户昵称
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">private</span> <span class="k">static</span> <span class="nv">$Username</span> <span class="o">=</span> <span class="s1">&#39;这里写邮件地址&#39;</span><span class="p">;</span> <span class="c1">//登录到邮箱的用户名
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">private</span> <span class="k">static</span> <span class="nv">$Password</span> <span class="o">=</span> <span class="s1">&#39;授权码&#39;</span><span class="p">;</span> <span class="c1">//第三方登录的授权码，在邮箱里面设置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="sd">/**
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * 发送
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * @param $sendMail
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * @param $mailTitle
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * @param $content
+</span></span></span><span class="line"><span class="cl"><span class="sd">     * @return bool
+</span></span></span><span class="line"><span class="cl"><span class="sd">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="nf">send</span><span class="p">(</span><span class="nv">$sendMail</span><span class="p">,</span><span class="nv">$mailTitle</span><span class="p">,</span><span class="nv">$content</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//实例化PHPMail类
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nv">$mail</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PHPMailer</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">try</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//Server settings
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">SMTPDebug</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 关闭Dubug模式
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">isSMTP</span><span class="p">();</span> <span class="c1">// 使用SMTP发送邮件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">Host</span> <span class="o">=</span> <span class="nx">self</span><span class="o">::</span><span class="nv">$Host</span><span class="p">;</span> <span class="c1">//SMTP邮件服务器地址（腾讯企业邮为例）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">SMTPAuth</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span> <span class="c1">//发信认证
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">Username</span> <span class="o">=</span> <span class="nx">self</span><span class="o">::</span><span class="nv">$Username</span><span class="p">;</span> <span class="c1">// SMTP 发件人邮箱
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">Password</span> <span class="o">=</span> <span class="nx">self</span><span class="o">::</span><span class="nv">$Password</span><span class="p">;</span> <span class="c1">// SMTP 发件人邮箱密码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">SMTPSecure</span> <span class="o">=</span> <span class="s1">&#39;ssl&#39;</span><span class="p">;</span> <span class="c1">//ssl协议
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">Port</span> <span class="o">=</span> <span class="mi">465</span><span class="p">;</span> <span class="c1">//ssl端口号
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//发件人
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">setFrom</span><span class="p">(</span><span class="nx">self</span><span class="o">::</span><span class="nv">$From</span><span class="p">,</span> <span class="nx">self</span><span class="o">::</span><span class="nv">$FromName</span><span class="p">);</span> <span class="c1">//发件人邮箱（同 $mail-&gt;Username项设置）、发件人名称
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//收件人。多收件人可设置多个addAddress
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">addAddress</span><span class="p">(</span><span class="nv">$sendMail</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span> <span class="c1">//收件人邮箱地址，收件人姓名（选填）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">//$mail-&gt;addAddress(&#39;ellen@example.com&#39;); // 收件人邮箱地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//邮件内容
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">isHTML</span><span class="p">(</span><span class="k">true</span><span class="p">);</span> <span class="c1">//发送html格式邮件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">Subject</span> <span class="o">=</span> <span class="nv">$mailTitle</span><span class="p">;</span> <span class="c1">//邮件标题
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">Body</span>    <span class="o">=</span> <span class="nv">$content</span><span class="p">;</span> <span class="c1">//邮件内容
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">AltBody</span> <span class="o">=</span> <span class="s1">&#39;邮件摘要&#39;</span><span class="p">;</span> <span class="c1">//目测没什么用，可去掉
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//判断是否发送成功
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span> <span class="p">(</span><span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">ErrorInfo</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="第四步" class="headerLink">
     <a href="#%e7%ac%ac%e5%9b%9b%e6%ad%a5" class="header-mark"></a>第四步</h3><p>在另一个地方实例化这个类就行，然后就可以进行参数传递，代码如下：</p>
@@ -345,26 +345,26 @@
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="nv">$mailSend</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">dncToolsendMail</span><span class="p">();</span>
-
-<span class="c1">//设置要发送的邮箱
-</span><span class="c1"></span><span class="nv">$sendMail</span><span class="o">=</span><span class="nv">$email</span><span class="p">;</span>
-
-<span class="c1">//邮件标题
-</span><span class="c1"></span><span class="nv">$mailTitle</span> <span class="o">=</span> <span class="s2">&#34;您收到签到助手的一条邮件&#34;</span><span class="p">;</span>
-
-<span class="c1">//$content为邮件内容
-</span><span class="c1"></span><span class="nv">$newPwd</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">makeCardPassword</span><span class="p">();</span>
-<span class="nv">$content</span><span class="o">=</span><span class="s2">&#34;&lt;div&gt;&lt;b&gt;您的新密码为：&#34;</span> <span class="o">.</span> <span class="nv">$newPwd</span> <span class="o">.</span> <span class="s2">&#34;,请尽快登陆并修改密码&lt;/b&gt;&lt;/div&gt;&#34;</span><span class="p">;</span>
-
-<span class="c1">//执行发信
-</span><span class="c1"></span><span class="nv">$sendRes</span> <span class="o">=</span> <span class="nv">$mailSend</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">(</span><span class="nv">$sendMail</span><span class="p">,</span><span class="nv">$mailTitle</span><span class="p">,</span><span class="nv">$content</span><span class="p">);</span>
-<span class="k">if</span> <span class="p">(</span><span class="nv">$sendRes</span> <span class="o">==</span> <span class="k">false</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">exit</span><span class="p">(</span><span class="nx">jsonCode</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span><span class="s1">&#39;服务错误，请重新尝试&#39;</span><span class="p">));</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-	<span class="k">exit</span><span class="p">(</span><span class="nx">jsonCode</span><span class="p">(</span><span class="s1">&#39;ok&#39;</span><span class="p">,</span><span class="s1">&#39;已将重置后的密码发送到您的邮箱中！&#39;</span><span class="p">));</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nv">$mailSend</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">dncToolsendMail</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//设置要发送的邮箱
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">$sendMail</span><span class="o">=</span><span class="nv">$email</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//邮件标题
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">$mailTitle</span> <span class="o">=</span> <span class="s2">&#34;您收到签到助手的一条邮件&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//$content为邮件内容
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">$newPwd</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">makeCardPassword</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$content</span><span class="o">=</span><span class="s2">&#34;&lt;div&gt;&lt;b&gt;您的新密码为：&#34;</span> <span class="o">.</span> <span class="nv">$newPwd</span> <span class="o">.</span> <span class="s2">&#34;,请尽快登陆并修改密码&lt;/b&gt;&lt;/div&gt;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//执行发信
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">$sendRes</span> <span class="o">=</span> <span class="nv">$mailSend</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">(</span><span class="nv">$sendMail</span><span class="p">,</span><span class="nv">$mailTitle</span><span class="p">,</span><span class="nv">$content</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nv">$sendRes</span> <span class="o">==</span> <span class="k">false</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">exit</span><span class="p">(</span><span class="nx">jsonCode</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span><span class="s1">&#39;服务错误，请重新尝试&#39;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">exit</span><span class="p">(</span><span class="nx">jsonCode</span><span class="p">(</span><span class="s1">&#39;ok&#39;</span><span class="p">,</span><span class="s1">&#39;已将重置后的密码发送到您的邮箱中！&#39;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="然后直接调用第四步方法就可以成功发信" class="headerLink">
     <a href="#%e7%84%b6%e5%90%8e%e7%9b%b4%e6%8e%a5%e8%b0%83%e7%94%a8%e7%ac%ac%e5%9b%9b%e6%ad%a5%e6%96%b9%e6%b3%95%e5%b0%b1%e5%8f%af%e4%bb%a5%e6%88%90%e5%8a%9f%e5%8f%91%e4%bf%a1" class="header-mark"></a>然后直接调用第四步方法就可以成功发信</h3><p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20200111/8TGarEu0hX9E.png?imageMogr2/format/webp/interlace/1" title="mark" data-thumbnail="https://pic.yqqy.top/blog/20200111/8TGarEu0hX9E.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>收到邮件</h2><p>mark</p>">
@@ -417,7 +417,7 @@
             </noscript></div></article></div>
         </main><footer class="footer">
         <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">
-                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
+                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.93.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank" rel="noopener noreferrer">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
             <div class="footer-line"></div>

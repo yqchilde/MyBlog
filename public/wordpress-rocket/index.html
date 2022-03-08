@@ -221,16 +221,16 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">*/15 * * * * wget -q -O - http://www.website.com/wp-cron.php?doing_wp_cron <span class="p">&amp;</span>&gt;/dev/null
-
-or
-
-*/15 * * * * curl http://www.website.com/wp-cron.php?doing_wp_cron <span class="p">&amp;</span>&gt;/dev/null
-
-or
-
-*/15 * * * * <span class="nb">cd</span> /home/user/public_html<span class="p">;</span> php wp-cron.php <span class="p">&amp;</span>&gt;/dev/null
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">*/15 * * * * wget -q -O - http://www.website.com/wp-cron.php?doing_wp_cron <span class="p">&amp;</span>&gt;/dev/null
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">or
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*/15 * * * * curl http://www.website.com/wp-cron.php?doing_wp_cron <span class="p">&amp;</span>&gt;/dev/null
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">or
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*/15 * * * * <span class="nb">cd</span> /home/user/public_html<span class="p">;</span> php wp-cron.php <span class="p">&amp;</span>&gt;/dev/null
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>
@@ -266,10 +266,10 @@ or
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">cd</span> rocket-nginx
-cp rocket-nginx.ini.disabled rocket-nginx.ini
-php rocket-parser.php
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">cd</span> rocket-nginx
+</span></span><span class="line"><span class="cl">cp rocket-nginx.ini.disabled rocket-nginx.ini
+</span></span><span class="line"><span class="cl">php rocket-parser.php
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -290,13 +290,13 @@ php rocket-parser.php
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="k">server</span> <span class="p">{</span>
-    <span class="kn">...</span>
-    <span class="c1"># Rocket-Nginx configuration
-</span><span class="c1"></span>	<span class="s">include</span> <span class="s">/www/server/nginx/rocket-nginx/default.conf</span><span class="p">;</span>
-    <span class="kn">...</span>
-<span class="err">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">server</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">...</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Rocket-Nginx configuration
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="s">include</span> <span class="s">/www/server/nginx/rocket-nginx/default.conf</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">...</span>
+</span></span><span class="line"><span class="cl"><span class="err">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -317,10 +317,10 @@ php rocket-parser.php
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="err">X-Rocket-Nginx-Serving-Static：配置是否直接提供了缓存文件（是否绕过WordPress）：是或否
-</span><span class="err">X-Rocket-Nginx-Reason：注明了为什么启用的原因，如果启用成功返回路径，失败返回原因
-</span><span class="err">X-Rocket-Nginx-File：不管是否启用成功，这里展示一下代理的路径，方便拍错
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">X-Rocket-Nginx-Serving-Static：配置是否直接提供了缓存文件（是否绕过WordPress）：是或否
+</span></span></span><span class="line"><span class="cl"><span class="err">X-Rocket-Nginx-Reason：注明了为什么启用的原因，如果启用成功返回路径，失败返回原因
+</span></span></span><span class="line"><span class="cl"><span class="err">X-Rocket-Nginx-File：不管是否启用成功，这里展示一下代理的路径，方便拍错
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
@@ -340,9 +340,9 @@ php rocket-parser.php
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="err">X-Rocket-Nginx-Serving-Static：NO
-</span><span class="err">X-Rocket-Nginx-File：... /index.html
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">X-Rocket-Nginx-Serving-Static：NO
+</span></span></span><span class="line"><span class="cl"><span class="err">X-Rocket-Nginx-File：... /index.html
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -392,7 +392,7 @@ php rocket-parser.php
             </noscript></div></article></div>
         </main><footer class="footer">
         <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">
-                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
+                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.93.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank" rel="noopener noreferrer">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
             <div class="footer-line"></div>

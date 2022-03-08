@@ -203,16 +203,16 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">picker</span> <span class="na">mode</span><span class="o">=</span><span class="s">&#34;selector&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;selector&#34;</span> <span class="err">@</span><span class="na">change</span><span class="o">=</span><span class="s">&#34;bindSelectTime&#34;</span> <span class="na">:value</span><span class="o">=</span><span class="s">&#34;timeIndex&#34;</span> <span class="na">:range</span><span class="o">=</span><span class="s">&#34;picker_name&#34;</span><span class="p">&gt;</span>
-	<span class="p">&lt;</span><span class="nt">view</span> <span class="na">v-if</span><span class="o">=</span><span class="s">&#34;timeShow&#34;</span><span class="p">&gt;</span>
-		<span class="p">&lt;</span><span class="nt">view</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;uni-input&#34;</span><span class="p">&gt;</span>{{selectTime[timeIndex].name}}<span class="p">&lt;/</span><span class="nt">view</span><span class="p">&gt;</span>
-	<span class="p">&lt;/</span><span class="nt">view</span><span class="p">&gt;</span>
-	<span class="p">&lt;</span><span class="nt">view</span> <span class="na">v-else</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">&gt;</span>
-		<span class="p">&lt;</span><span class="nt">text</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;lateTime-right&#34;</span><span class="p">&gt;</span>请选择时间<span class="p">&lt;/</span><span class="nt">text</span><span class="p">&gt;</span>
-		<span class="p">&lt;</span><span class="nt">text</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;iconfont iconarrow-right-copy-copy&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">text</span><span class="p">&gt;</span>
-	<span class="p">&lt;/</span><span class="nt">view</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">picker</span><span class="p">&gt;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">picker</span> <span class="na">mode</span><span class="o">=</span><span class="s">&#34;selector&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;selector&#34;</span> <span class="err">@</span><span class="na">change</span><span class="o">=</span><span class="s">&#34;bindSelectTime&#34;</span> <span class="na">:value</span><span class="o">=</span><span class="s">&#34;timeIndex&#34;</span> <span class="na">:range</span><span class="o">=</span><span class="s">&#34;picker_name&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">&lt;</span><span class="nt">view</span> <span class="na">v-if</span><span class="o">=</span><span class="s">&#34;timeShow&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">&lt;</span><span class="nt">view</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;uni-input&#34;</span><span class="p">&gt;</span>{{selectTime[timeIndex].name}}<span class="p">&lt;/</span><span class="nt">view</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">&lt;/</span><span class="nt">view</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">&lt;</span><span class="nt">view</span> <span class="na">v-else</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">&lt;</span><span class="nt">text</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;lateTime-right&#34;</span><span class="p">&gt;</span>请选择时间<span class="p">&lt;/</span><span class="nt">text</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">&lt;</span><span class="nt">text</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;iconfont iconarrow-right-copy-copy&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">text</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">&lt;/</span><span class="nt">view</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">picker</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>script部分</strong></p>
 <div class="highlight"><div class="chroma">
@@ -259,47 +259,47 @@
 </span><span class="lnt">40
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
-    <span class="kd">var</span> <span class="nx">that</span><span class="p">;</span>
-	<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
-		<span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
-			<span class="k">return</span> <span class="p">{</span>
-                <span class="nx">selectTime</span><span class="o">:</span> <span class="p">[</span>  <span class="c1">//时间数据
-</span><span class="c1"></span>                        <span class="p">{</span> <span class="s2">&#34;id&#34;</span> <span class="o">:</span> <span class="s2">&#34;1min&#34;</span> <span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="o">:</span><span class="s2">&#34;1分钟&#34;</span><span class="p">},</span>
-                        <span class="p">{</span> <span class="s2">&#34;id&#34;</span> <span class="o">:</span> <span class="s2">&#34;2min&#34;</span> <span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="o">:</span><span class="s2">&#34;2分钟&#34;</span><span class="p">},</span>  
-                        <span class="p">{</span> <span class="s2">&#34;id&#34;</span> <span class="o">:</span> <span class="s2">&#34;3min&#34;</span> <span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="o">:</span><span class="s2">&#34;3分钟&#34;</span><span class="p">},</span>  
-                        <span class="p">{</span> <span class="s2">&#34;id&#34;</span> <span class="o">:</span> <span class="s2">&#34;4min&#34;</span> <span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="o">:</span><span class="s2">&#34;4分钟&#34;</span><span class="p">},</span>  
-                        <span class="p">{</span> <span class="s2">&#34;id&#34;</span> <span class="o">:</span> <span class="s2">&#34;5min&#34;</span> <span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="o">:</span><span class="s2">&#34;5分钟&#34;</span><span class="p">}</span>
-                    <span class="p">],</span>
-                <span class="nx">timeIndex</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="c1">//选择的picker索引
-</span><span class="c1"></span>                <span class="nx">picker_name</span><span class="o">:</span><span class="p">[],</span><span class="c1">//picker中range属性值
-</span><span class="c1"></span>                <span class="nx">picker_id</span><span class="o">:</span><span class="p">[],</span><span class="c1">//存储id数组
-</span><span class="c1"></span>                <span class="nx">result</span><span class="o">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="c1">//form提交最终结果
-</span><span class="c1"></span>			<span class="p">}</span>
-		<span class="p">},</span>
-        <span class="nx">onLoad</span><span class="p">()</span> <span class="p">{</span>
-            <span class="nx">that</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
-            <span class="c1">// 将selectTime遍历赋值
-</span><span class="c1"></span>            <span class="k">this</span><span class="p">.</span><span class="nx">selectTime</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
-                <span class="nx">that</span><span class="p">.</span><span class="nx">picker_name</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span> <span class="c1">//注意一定要用that,因为this对象此时已经没有传不进来了
-</span><span class="c1"></span>                <span class="nx">that</span><span class="p">.</span><span class="nx">picker_id</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
-            <span class="p">})</span>
-        <span class="p">},</span>
-		<span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
-			<span class="nx">bindSelectTime</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 绑定选择时间
-</span><span class="c1"></span>                <span class="nx">that</span><span class="p">.</span><span class="nx">timeShow</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-				<span class="nx">that</span><span class="p">.</span><span class="nx">timeIndex</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">detail</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
-			<span class="p">},</span>
-            <span class="c1">// 表单提交代码
-</span><span class="c1"></span>            <span class="nx">formSubmit</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 表单提交
-</span><span class="c1"></span>                <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">picker_id</span><span class="p">[</span><span class="nx">e</span><span class="p">.</span><span class="nx">detail</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">selector</span><span class="p">];</span>
-                <span class="k">this</span><span class="p">.</span><span class="nx">result</span> <span class="o">=</span> <span class="nx">result</span><span class="p">;</span>
-                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
-            <span class="p">}</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-<span class="o">&lt;</span><span class="err">/script&gt;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">that</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">selectTime</span><span class="o">:</span> <span class="p">[</span>  <span class="c1">//时间数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                        <span class="p">{</span> <span class="s2">&#34;id&#34;</span> <span class="o">:</span> <span class="s2">&#34;1min&#34;</span> <span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="o">:</span><span class="s2">&#34;1分钟&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">{</span> <span class="s2">&#34;id&#34;</span> <span class="o">:</span> <span class="s2">&#34;2min&#34;</span> <span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="o">:</span><span class="s2">&#34;2分钟&#34;</span><span class="p">},</span>  
+</span></span><span class="line"><span class="cl">                        <span class="p">{</span> <span class="s2">&#34;id&#34;</span> <span class="o">:</span> <span class="s2">&#34;3min&#34;</span> <span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="o">:</span><span class="s2">&#34;3分钟&#34;</span><span class="p">},</span>  
+</span></span><span class="line"><span class="cl">                        <span class="p">{</span> <span class="s2">&#34;id&#34;</span> <span class="o">:</span> <span class="s2">&#34;4min&#34;</span> <span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="o">:</span><span class="s2">&#34;4分钟&#34;</span><span class="p">},</span>  
+</span></span><span class="line"><span class="cl">                        <span class="p">{</span> <span class="s2">&#34;id&#34;</span> <span class="o">:</span> <span class="s2">&#34;5min&#34;</span> <span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="o">:</span><span class="s2">&#34;5分钟&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">timeIndex</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="c1">//选择的picker索引
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="nx">picker_name</span><span class="o">:</span><span class="p">[],</span><span class="c1">//picker中range属性值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="nx">picker_id</span><span class="o">:</span><span class="p">[],</span><span class="c1">//存储id数组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="nx">result</span><span class="o">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="c1">//form提交最终结果
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">onLoad</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">that</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 将selectTime遍历赋值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">this</span><span class="p">.</span><span class="nx">selectTime</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">that</span><span class="p">.</span><span class="nx">picker_name</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span> <span class="c1">//注意一定要用that,因为this对象此时已经没有传不进来了
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="nx">that</span><span class="p">.</span><span class="nx">picker_id</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">})</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">bindSelectTime</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 绑定选择时间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="nx">that</span><span class="p">.</span><span class="nx">timeShow</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">that</span><span class="p">.</span><span class="nx">timeIndex</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">detail</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 表单提交代码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nx">formSubmit</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 表单提交
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">picker_id</span><span class="p">[</span><span class="nx">e</span><span class="p">.</span><span class="nx">detail</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">selector</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                <span class="k">this</span><span class="p">.</span><span class="nx">result</span> <span class="o">=</span> <span class="nx">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/script&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="还有坑啊" class="headerLink">
     <a href="#%e8%bf%98%e6%9c%89%e5%9d%91%e5%95%8a" class="header-mark"></a>还有坑啊</h2><p>就是在 <code>onLoad</code> 里面的  <code>this.selectTime.forEach</code> 里面必须用that，在之前将this对象赋值给that,因为此时this对象在这个函数里面已经丢失了，可以打印this,会发现是undefined。</p>
@@ -312,11 +312,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">this</span><span class="p">.</span><span class="nx">selectTime</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="nx">e</span> <span class="p">=&gt;</span> <span class="p">{</span>
-	<span class="k">this</span><span class="p">.</span><span class="nx">picker_name</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
-	<span class="k">this</span><span class="p">.</span><span class="nx">picker_id</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
-<span class="p">})</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="k">this</span><span class="p">.</span><span class="nx">selectTime</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span> <span class="nx">e</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">this</span><span class="p">.</span><span class="nx">picker_name</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">this</span><span class="p">.</span><span class="nx">picker_id</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="参考文章" class="headerLink">
     <a href="#%e5%8f%82%e8%80%83%e6%96%87%e7%ab%a0" class="header-mark"></a>参考文章</h2><ul>
@@ -354,7 +354,7 @@
             </noscript></div></article></div>
         </main><footer class="footer">
         <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">
-                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
+                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.93.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank" rel="noopener noreferrer">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
             <div class="footer-line"></div>

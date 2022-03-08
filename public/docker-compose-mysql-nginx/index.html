@@ -201,29 +201,29 @@
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
-</span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">mysql</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">mysql:5.7</span><span class="w">
-</span><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">mysql</span><span class="w">
-</span><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
-</span><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- <span class="l">MYSQL_ROOT_PASSWORD=***</span><span class="w">
-</span><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- <span class="l">~/mysql/datas:/var/lib/mysql</span><span class="w">
-</span><span class="w">      </span>- <span class="l">~/mysql/conf/my.cnf:/etc/my.cnf</span><span class="w">
-</span><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- <span class="s2">&#34;3306:3306&#34;</span><span class="w">
-</span><span class="w">  </span><span class="nt">nginx</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">nginx:latest</span><span class="w">
-</span><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
-</span><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- <span class="l">~/nginx/logs:/var/log/nginx</span><span class="w">
-</span><span class="w">      </span>- <span class="l">~/nginx/conf/nginx.conf:/etc/nginx/nginx.conf</span><span class="w">
-</span><span class="w">      </span>- <span class="l">~/nginx/www:/usr/share/nginx/html</span><span class="w">
-</span><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- <span class="s2">&#34;80:80&#34;</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">mysql</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">mysql:5.7</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">mysql</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">MYSQL_ROOT_PASSWORD=***</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">~/mysql/datas:/var/lib/mysql</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">~/mysql/conf/my.cnf:/etc/my.cnf</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;3306:3306&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">nginx</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">nginx:latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">~/nginx/logs:/var/log/nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">~/nginx/conf/nginx.conf:/etc/nginx/nginx.conf</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">~/nginx/www:/usr/share/nginx/html</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;80:80&#34;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="分析" class="headerLink">
     <a href="#%e5%88%86%e6%9e%90" class="header-mark"></a>分析</h2><h3 id="mysql" class="headerLink">
@@ -243,18 +243,18 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[mysqld]</span>
-<span class="na">user</span><span class="o">=</span><span class="s">mysql</span>
-<span class="na">default-storage-engine</span><span class="o">=</span><span class="s">INNODB</span>
-<span class="na">character-set-client-handshake</span><span class="o">=</span><span class="s">FALSE</span>
-<span class="na">character-set-server</span><span class="o">=</span><span class="s">utf8mb4</span>
-<span class="na">collation-server</span><span class="o">=</span><span class="s">utf8mb4_unicode_ci</span>
-<span class="na">init_connect</span><span class="o">=</span><span class="s">&#39;SET NAMES utf8mb4&#39;</span>
-<span class="k">[client]</span>
-<span class="na">default-character-set</span><span class="o">=</span><span class="s">utf8mb4</span>
-<span class="k">[mysql]</span>
-<span class="na">default-character-set</span><span class="o">=</span><span class="s">utf8mb4</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="k">[mysqld]</span>
+</span></span><span class="line"><span class="cl"><span class="na">user</span><span class="o">=</span><span class="s">mysql</span>
+</span></span><span class="line"><span class="cl"><span class="na">default-storage-engine</span><span class="o">=</span><span class="s">INNODB</span>
+</span></span><span class="line"><span class="cl"><span class="na">character-set-client-handshake</span><span class="o">=</span><span class="s">FALSE</span>
+</span></span><span class="line"><span class="cl"><span class="na">character-set-server</span><span class="o">=</span><span class="s">utf8mb4</span>
+</span></span><span class="line"><span class="cl"><span class="na">collation-server</span><span class="o">=</span><span class="s">utf8mb4_unicode_ci</span>
+</span></span><span class="line"><span class="cl"><span class="na">init_connect</span><span class="o">=</span><span class="s">&#39;SET NAMES utf8mb4&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="k">[client]</span>
+</span></span><span class="line"><span class="cl"><span class="na">default-character-set</span><span class="o">=</span><span class="s">utf8mb4</span>
+</span></span><span class="line"><span class="cl"><span class="k">[mysql]</span>
+</span></span><span class="line"><span class="cl"><span class="na">default-character-set</span><span class="o">=</span><span class="s">utf8mb4</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="nginx" class="headerLink">
     <a href="#nginx" class="header-mark"></a>Nginx</h3><p>创建<code>logs</code>、<code>conf</code>、<code>www</code>三个空目录，编写<code>nginx.conf</code>文件放入<code>conf</code>文件夹。</p>
@@ -281,24 +281,24 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="k">Server</span> <span class="p">{</span>
-  <span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
-  <span class="kn">listen</span> <span class="s">[::]:80</span><span class="p">;</span>
-
-  <span class="kn">charset</span>     <span class="s">utf-8</span><span class="p">;</span>
-  <span class="kn">server_name</span> <span class="s">location</span><span class="p">;</span>
-
-  <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
-    <span class="kn">root</span> <span class="s">/usr/share/nginx/html</span><span class="p">;</span>
-    <span class="kn">index</span> <span class="s">index.html</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="kn">location</span> <span class="s">/docs</span> <span class="p">{</span>
-    <span class="kn">alias</span> <span class="s">/usr/share/nginx/html/docs/</span><span class="p">;</span>
-    <span class="kn">index</span> <span class="s">index.html</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">Server</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">listen</span> <span class="s">[::]:80</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kn">charset</span>     <span class="s">utf-8</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">server_name</span> <span class="s">location</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">root</span> <span class="s">/usr/share/nginx/html</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">index</span> <span class="s">index.html</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kn">location</span> <span class="s">/docs</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">alias</span> <span class="s">/usr/share/nginx/html/docs/</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">index</span> <span class="s">index.html</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>需要注意的是<code>root</code>和<code>alias</code>的区别，一个是从<code>root</code>下跟<code>location</code>路径，一个是通过<code>location</code>路径的别名到<code>alias</code>的路径。</p>
 <p>这时候，又发现了一个问题，那就是如果不加<code>/</code>，就会出现端口丢失问题，因为容器内映射的端口是 80 端口，外边公网给的 ip 是另一个，而 80 是浏览器 web 页面的默认端口，举个 🌰，<code>47.1.2.1:8090/docs</code>没有加<code>/</code>就会经过 nginx 的 301 重定向到<code>47.1.2.1/docs/</code>，由于端口丢失，即使重定向到带有<code>/</code>的地址也只是 404，这时只需要修改为如下配置即可。</p>
@@ -313,14 +313,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="k">location</span> <span class="s">/docs</span> <span class="p">{</span>
-    <span class="kn">alias</span> <span class="s">/usr/share/nginx/html/docs/</span><span class="p">;</span>
-    <span class="kn">index</span> <span class="s">index.html</span><span class="p">;</span>
-    <span class="kn">if</span> <span class="s">(-d</span> <span class="nv">$request_filename</span><span class="s">)</span> <span class="p">{</span>
-      <span class="kn">rewrite</span> <span class="s">[^/]</span>$ <span class="nv">$scheme://$http_host$uri/</span> <span class="s">permanent</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">location</span> <span class="s">/docs</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">alias</span> <span class="s">/usr/share/nginx/html/docs/</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">index</span> <span class="s">index.html</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">if</span> <span class="s">(-d</span> <span class="nv">$request_filename</span><span class="s">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kn">rewrite</span> <span class="s">[^/]</span>$ <span class="nv">$scheme://$http_host$uri/</span> <span class="s">permanent</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="redis" class="headerLink">
     <a href="#redis" class="header-mark"></a>Redis</h2><blockquote>
@@ -343,20 +343,20 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
-</span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">redis</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">redis:alpine</span><span class="w">
-</span><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">redis</span><span class="w">
-</span><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
-</span><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- <span class="l">../redis/data:/data</span><span class="w">
-</span><span class="w">      </span>- <span class="l">../redis/conf/redis.conf:/usr/local/etc/redis/redis.conf</span><span class="w">
-</span><span class="w">      </span>- <span class="l">../redis/logs:/logs</span><span class="w">
-</span><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">redis-server /usr/local/etc/redis/redis.conf</span><span class="w">
-</span><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- <span class="s2">&#34;6379:6379&#34;</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">redis</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">redis:alpine</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">redis</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">../redis/data:/data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">../redis/conf/redis.conf:/usr/local/etc/redis/redis.conf</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">../redis/logs:/logs</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">redis-server /usr/local/etc/redis/redis.conf</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;6379:6379&#34;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div></div>
 
@@ -391,7 +391,7 @@
             </noscript></div></article></div>
         </main><footer class="footer">
         <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">
-                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
+                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.93.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank" rel="noopener noreferrer">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
             <div class="footer-line"></div>

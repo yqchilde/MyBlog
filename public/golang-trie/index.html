@@ -239,63 +239,63 @@
 </span><span class="lnt">56
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">Trie</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">children</span> <span class="p">[</span><span class="mi">26</span><span class="p">]</span><span class="o">*</span><span class="nx">Trie</span>
-	<span class="nx">isWord</span> <span class="kt">bool</span>
-<span class="p">}</span>
-
-<span class="c1">// Insert
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">Trie</span><span class="p">)</span> <span class="nf">Insert</span><span class="p">(</span><span class="nx">word</span> <span class="kt">string</span><span class="p">)</span>  <span class="p">{</span>
-	<span class="nx">cur</span> <span class="o">:=</span> <span class="nx">t</span>
-	<span class="k">for</span> <span class="nx">k</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">word</span> <span class="p">{</span>
-		<span class="nx">c</span> <span class="o">:=</span> <span class="nx">v</span> <span class="o">-</span> <span class="sc">&#39;a&#39;</span>
-		<span class="k">if</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="nx">c</span><span class="p">]</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
-			<span class="nx">cur</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="nx">c</span><span class="p">]</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">Trie</span><span class="p">{}</span>
-		<span class="p">}</span>
-		<span class="nx">cur</span> <span class="p">=</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="nx">c</span><span class="p">]</span>
-		<span class="c1">// end
-</span><span class="c1"></span>		<span class="k">if</span> <span class="nx">k</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="nx">word</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span> <span class="p">{</span>
-			<span class="nx">cur</span><span class="p">.</span><span class="nx">isWord</span> <span class="p">=</span> <span class="kc">true</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// Search
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">Trie</span><span class="p">)</span> <span class="nf">Search</span><span class="p">(</span><span class="nx">word</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span>  <span class="p">{</span>
-	<span class="nx">cur</span> <span class="o">:=</span> <span class="nx">t</span>
-	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">word</span> <span class="p">{</span>
-		<span class="nx">c</span> <span class="o">:=</span> <span class="nx">v</span> <span class="o">-</span> <span class="sc">&#39;a&#39;</span>
-		<span class="k">if</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="nx">c</span><span class="p">]</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
-			<span class="k">return</span> <span class="kc">false</span>
-		<span class="p">}</span>
-		<span class="nx">cur</span> <span class="p">=</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="nx">c</span><span class="p">]</span>
-	<span class="p">}</span>
-	<span class="k">return</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">isWord</span>
-<span class="p">}</span>
-
-<span class="c1">// StartWith
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">Trie</span><span class="p">)</span> <span class="nf">StartWith</span><span class="p">(</span><span class="nx">prefix</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
-	<span class="nx">cur</span> <span class="o">:=</span> <span class="nx">t</span>
-	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">prefix</span> <span class="p">{</span>
-		<span class="nx">c</span> <span class="o">:=</span> <span class="nx">v</span> <span class="o">-</span> <span class="sc">&#39;a&#39;</span>
-		<span class="k">if</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="nx">c</span><span class="p">]</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
-			<span class="k">return</span> <span class="kc">false</span>
-		<span class="p">}</span>
-		<span class="nx">cur</span> <span class="p">=</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="nx">c</span><span class="p">]</span>
-	<span class="p">}</span>
-	<span class="k">return</span> <span class="kc">true</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">trie</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">Trie</span><span class="p">)</span>
-
-	<span class="nx">trie</span><span class="p">.</span><span class="nf">Insert</span><span class="p">(</span><span class="s">&#34;inn&#34;</span><span class="p">)</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">trie</span><span class="p">.</span><span class="nf">Search</span><span class="p">(</span><span class="s">&#34;inn&#34;</span><span class="p">))</span>   <span class="c1">// true
-</span><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">trie</span><span class="p">.</span><span class="nf">Search</span><span class="p">(</span><span class="s">&#34;in&#34;</span><span class="p">))</span>    <span class="c1">// false
-</span><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">trie</span><span class="p">.</span><span class="nf">StartWith</span><span class="p">(</span><span class="s">&#34;in&#34;</span><span class="p">))</span> <span class="c1">// true
-</span><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">trie</span><span class="p">.</span><span class="nf">StartWith</span><span class="p">(</span><span class="s">&#34;ia&#34;</span><span class="p">))</span> <span class="c1">// false
-</span><span class="c1"></span><span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Trie</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">children</span> <span class="p">[</span><span class="mi">26</span><span class="p">]</span><span class="o">*</span><span class="nx">Trie</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">isWord</span> <span class="kt">bool</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Insert
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">Trie</span><span class="p">)</span> <span class="nf">Insert</span><span class="p">(</span><span class="nx">word</span> <span class="kt">string</span><span class="p">)</span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">cur</span> <span class="o">:=</span> <span class="nx">t</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">k</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">word</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">c</span> <span class="o">:=</span> <span class="nx">v</span> <span class="o">-</span> <span class="sc">&#39;a&#39;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="nx">c</span><span class="p">]</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">cur</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="nx">c</span><span class="p">]</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">Trie</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">cur</span> <span class="p">=</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="nx">c</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// end
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">if</span> <span class="nx">k</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="nx">word</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">cur</span><span class="p">.</span><span class="nx">isWord</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Search
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">Trie</span><span class="p">)</span> <span class="nf">Search</span><span class="p">(</span><span class="nx">word</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">cur</span> <span class="o">:=</span> <span class="nx">t</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">word</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">c</span> <span class="o">:=</span> <span class="nx">v</span> <span class="o">-</span> <span class="sc">&#39;a&#39;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="nx">c</span><span class="p">]</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">cur</span> <span class="p">=</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="nx">c</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">isWord</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// StartWith
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">Trie</span><span class="p">)</span> <span class="nf">StartWith</span><span class="p">(</span><span class="nx">prefix</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">cur</span> <span class="o">:=</span> <span class="nx">t</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">prefix</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">c</span> <span class="o">:=</span> <span class="nx">v</span> <span class="o">-</span> <span class="sc">&#39;a&#39;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="nx">c</span><span class="p">]</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">cur</span> <span class="p">=</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="nx">c</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">trie</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">Trie</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">trie</span><span class="p">.</span><span class="nf">Insert</span><span class="p">(</span><span class="s">&#34;inn&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">trie</span><span class="p">.</span><span class="nf">Search</span><span class="p">(</span><span class="s">&#34;inn&#34;</span><span class="p">))</span>   <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">trie</span><span class="p">.</span><span class="nf">Search</span><span class="p">(</span><span class="s">&#34;in&#34;</span><span class="p">))</span>    <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">trie</span><span class="p">.</span><span class="nf">StartWith</span><span class="p">(</span><span class="s">&#34;in&#34;</span><span class="p">))</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">trie</span><span class="p">.</span><span class="nf">StartWith</span><span class="p">(</span><span class="s">&#34;ia&#34;</span><span class="p">))</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="sortinterface" class="headerLink">
     <a href="#sortinterface" class="header-mark"></a>sort.Interface</h3><blockquote>
@@ -318,19 +318,19 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// A type, typically a collection, that satisfies sort.Interface can be
-</span><span class="c1">// sorted by the routines in this package. The methods require that the
-</span><span class="c1">// elements of the collection be enumerated by an integer index.
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Interface</span> <span class="kd">interface</span> <span class="p">{</span>
-	<span class="c1">// Len is the number of elements in the collection.
-</span><span class="c1"></span>	<span class="nf">Len</span><span class="p">()</span> <span class="kt">int</span>
-	<span class="c1">// Less reports whether the element with
-</span><span class="c1"></span>	<span class="c1">// index i should sort before the element with index j.
-</span><span class="c1"></span>	<span class="nf">Less</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">bool</span>
-	<span class="c1">// Swap swaps the elements with indexes i and j.
-</span><span class="c1"></span>	<span class="nf">Swap</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// A type, typically a collection, that satisfies sort.Interface can be
+</span></span></span><span class="line"><span class="cl"><span class="c1">// sorted by the routines in this package. The methods require that the
+</span></span></span><span class="line"><span class="cl"><span class="c1">// elements of the collection be enumerated by an integer index.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">Interface</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Len is the number of elements in the collection.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">Len</span><span class="p">()</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Less reports whether the element with
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// index i should sort before the element with index j.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">Less</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">bool</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Swap swaps the elements with indexes i and j.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">Swap</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>所以我们只需要实现上面三个方法就可以了，如下是一个按照数组中字符串长度排序的一个例子</p>
 <div class="highlight"><div class="chroma">
@@ -367,37 +367,37 @@
 </span><span class="lnt">30
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
-
-<span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&#34;fmt&#34;</span>
-	<span class="s">&#34;sort&#34;</span>
-<span class="p">)</span>
-
-<span class="kd">type</span> <span class="nx">MySliceSort</span> <span class="p">[]</span><span class="kt">string</span>
-
-<span class="kd">func</span> <span class="p">(</span><span class="nx">m</span> <span class="nx">MySliceSort</span><span class="p">)</span> <span class="nf">Len</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nx">m</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="p">(</span><span class="nx">m</span> <span class="nx">MySliceSort</span><span class="p">)</span> <span class="nf">Less</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="p">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="nx">j</span><span class="p">])</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="p">(</span><span class="nx">m</span> <span class="nx">MySliceSort</span><span class="p">)</span> <span class="nf">Swap</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">m</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">m</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="p">=</span> <span class="nx">m</span><span class="p">[</span><span class="nx">j</span><span class="p">],</span> <span class="nx">m</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nx">sliceSort</span> <span class="o">:=</span> <span class="nx">MySliceSort</span><span class="p">{</span>
-		<span class="s">&#34;这是五个字&#34;</span><span class="p">,</span>
-		<span class="s">&#34;我要变六个字&#34;</span><span class="p">,</span>
-		<span class="s">&#34;三个字&#34;</span><span class="p">,</span>
-	<span class="p">}</span>
-	<span class="nx">sort</span><span class="p">.</span><span class="nf">Sort</span><span class="p">(</span><span class="nx">sliceSort</span><span class="p">)</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">sliceSort</span><span class="p">)</span> <span class="c1">// [我要变六个字 这是五个字 三个字]
-</span><span class="c1"></span><span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;sort&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">MySliceSort</span> <span class="p">[]</span><span class="kt">string</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">m</span> <span class="nx">MySliceSort</span><span class="p">)</span> <span class="nf">Len</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nx">m</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">m</span> <span class="nx">MySliceSort</span><span class="p">)</span> <span class="nf">Less</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="p">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="nx">j</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">m</span> <span class="nx">MySliceSort</span><span class="p">)</span> <span class="nf">Swap</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">m</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">m</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="p">=</span> <span class="nx">m</span><span class="p">[</span><span class="nx">j</span><span class="p">],</span> <span class="nx">m</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">sliceSort</span> <span class="o">:=</span> <span class="nx">MySliceSort</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="s">&#34;这是五个字&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="s">&#34;我要变六个字&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="s">&#34;三个字&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">sort</span><span class="p">.</span><span class="nf">Sort</span><span class="p">(</span><span class="nx">sliceSort</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">sliceSort</span><span class="p">)</span> <span class="c1">// [我要变六个字 这是五个字 三个字]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div>
 
@@ -432,7 +432,7 @@
             </noscript></div></article></div>
         </main><footer class="footer">
         <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">
-                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
+                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.93.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank" rel="noopener noreferrer">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
             <div class="footer-line"></div>

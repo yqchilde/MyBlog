@@ -204,25 +204,25 @@
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">bobo@Mac:~ » diskutil list
-/dev/disk0 <span class="o">(</span>internal, physical<span class="o">)</span>:
-   <span class="c1">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
-   0:      GUID_partition_scheme                        *512.1 GB   disk0
-   1:                        EFI EFI                     209.7 MB   disk0s1
-   2:                 Apple_APFS Container disk2         271.6 GB   disk0s2
-   3:                 Apple_APFS Container disk1         240.3 GB   disk0s3
-
-/dev/disk1 <span class="o">(</span>synthesized<span class="o">)</span>:
-   <span class="c1">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
-   0:      APFS Container Scheme -                      +240.3 GB   disk1
-                                 Physical Store disk0s3
-   1:                APFS Volume MacOS - 数据             94.2 GB    disk1s1
-   2:                APFS Volume Preboot                 284.3 MB   disk1s2
-   3:                APFS Volume Recovery                622.8 MB   disk1s3
-   4:                APFS Volume VM                      1.1 GB     disk1s4
-   5:                APFS Volume MacOS                   15.3 GB    disk1s5
-   6:              APFS Snapshot com.apple.os.update-... 15.3 GB    disk1s5s1
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bobo@Mac:~ » diskutil list
+</span></span><span class="line"><span class="cl">/dev/disk0 <span class="o">(</span>internal, physical<span class="o">)</span>:
+</span></span><span class="line"><span class="cl">   <span class="c1">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
+</span></span><span class="line"><span class="cl">   0:      GUID_partition_scheme                        *512.1 GB   disk0
+</span></span><span class="line"><span class="cl">   1:                        EFI EFI                     209.7 MB   disk0s1
+</span></span><span class="line"><span class="cl">   2:                 Apple_APFS Container disk2         271.6 GB   disk0s2
+</span></span><span class="line"><span class="cl">   3:                 Apple_APFS Container disk1         240.3 GB   disk0s3
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">/dev/disk1 <span class="o">(</span>synthesized<span class="o">)</span>:
+</span></span><span class="line"><span class="cl">   <span class="c1">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
+</span></span><span class="line"><span class="cl">   0:      APFS Container Scheme -                      +240.3 GB   disk1
+</span></span><span class="line"><span class="cl">                                 Physical Store disk0s3
+</span></span><span class="line"><span class="cl">   1:                APFS Volume MacOS - 数据             94.2 GB    disk1s1
+</span></span><span class="line"><span class="cl">   2:                APFS Volume Preboot                 284.3 MB   disk1s2
+</span></span><span class="line"><span class="cl">   3:                APFS Volume Recovery                622.8 MB   disk1s3
+</span></span><span class="line"><span class="cl">   4:                APFS Volume VM                      1.1 GB     disk1s4
+</span></span><span class="line"><span class="cl">   5:                APFS Volume MacOS                   15.3 GB    disk1s5
+</span></span><span class="line"><span class="cl">   6:              APFS Snapshot com.apple.os.update-... 15.3 GB    disk1s5s1
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>
@@ -254,25 +254,25 @@
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">bobo@Mac:~ » diskutil list
-/dev/disk0 <span class="o">(</span>internal, physical<span class="o">)</span>:
-   <span class="c1">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
-   0:      GUID_partition_scheme                        *512.1 GB   disk0
-   1:                        EFI EFI                     209.7 MB   disk0s1
-                      <span class="o">(</span>free space<span class="o">)</span>                       271.6 GB   -
-   2:                 Apple_APFS Container disk1         240.3 GB   disk0s3
-
-/dev/disk1 <span class="o">(</span>synthesized<span class="o">)</span>:
-   <span class="c1">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
-   0:      APFS Container Scheme -                      +240.3 GB   disk1
-                                 Physical Store disk0s3
-   1:                APFS Volume MacOS - 数据             94.2 GB    disk1s1
-   2:                APFS Volume Preboot                 284.3 MB   disk1s2
-   3:                APFS Volume Recovery                622.8 MB   disk1s3
-   4:                APFS Volume VM                      1.1 GB     disk1s4
-   5:                APFS Volume MacOS                   15.3 GB    disk1s5
-   6:              APFS Snapshot com.apple.os.update-... 15.3 GB    disk1s5s1
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bobo@Mac:~ » diskutil list
+</span></span><span class="line"><span class="cl">/dev/disk0 <span class="o">(</span>internal, physical<span class="o">)</span>:
+</span></span><span class="line"><span class="cl">   <span class="c1">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
+</span></span><span class="line"><span class="cl">   0:      GUID_partition_scheme                        *512.1 GB   disk0
+</span></span><span class="line"><span class="cl">   1:                        EFI EFI                     209.7 MB   disk0s1
+</span></span><span class="line"><span class="cl">                      <span class="o">(</span>free space<span class="o">)</span>                       271.6 GB   -
+</span></span><span class="line"><span class="cl">   2:                 Apple_APFS Container disk1         240.3 GB   disk0s3
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">/dev/disk1 <span class="o">(</span>synthesized<span class="o">)</span>:
+</span></span><span class="line"><span class="cl">   <span class="c1">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
+</span></span><span class="line"><span class="cl">   0:      APFS Container Scheme -                      +240.3 GB   disk1
+</span></span><span class="line"><span class="cl">                                 Physical Store disk0s3
+</span></span><span class="line"><span class="cl">   1:                APFS Volume MacOS - 数据             94.2 GB    disk1s1
+</span></span><span class="line"><span class="cl">   2:                APFS Volume Preboot                 284.3 MB   disk1s2
+</span></span><span class="line"><span class="cl">   3:                APFS Volume Recovery                622.8 MB   disk1s3
+</span></span><span class="line"><span class="cl">   4:                APFS Volume VM                      1.1 GB     disk1s4
+</span></span><span class="line"><span class="cl">   5:                APFS Volume MacOS                   15.3 GB    disk1s5
+</span></span><span class="line"><span class="cl">   6:              APFS Snapshot com.apple.os.update-... 15.3 GB    disk1s5s1
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="4">
 <li>
@@ -310,31 +310,31 @@
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">bobo@Mac:~ » diskutil list
-/dev/disk0 <span class="o">(</span>internal, physical<span class="o">)</span>:
-   <span class="c1">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
-   0:      GUID_partition_scheme                        *512.1 GB   disk0
-   1:                        EFI EFI                     209.7 MB   disk0s1
-   2:                 Apple_APFS Container disk2         271.6 GB   disk0s4
-   3:                 Apple_APFS Container disk1         240.3 GB   disk0s3
-
-/dev/disk1 <span class="o">(</span>synthesized<span class="o">)</span>:
-   <span class="c1">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
-   0:      APFS Container Scheme -                      +240.3 GB   disk1
-                                 Physical Store disk0s3
-   1:                APFS Volume MacOS - 数据             94.2 GB    disk1s1
-   2:                APFS Volume Preboot                 284.3 MB   disk1s2
-   3:                APFS Volume Recovery                622.8 MB   disk1s3
-   4:                APFS Volume VM                      1.1 GB     disk1s4
-   5:                APFS Volume MacOS                   15.3 GB    disk1s5
-   6:              APFS Snapshot com.apple.os.update-... 15.3 GB    disk1s5s1
-   
-/dev/disk2 <span class="o">(</span>synthesized<span class="o">)</span>:
- <span class="c1">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
-   0:      APFS Container Scheme -                      +271.6 GB   disk2
-                                 Physical Store disk0s4
-   1:                APFS Volume NewAPFS                 995.3 KB   disk2s1                 
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bobo@Mac:~ » diskutil list
+</span></span><span class="line"><span class="cl">/dev/disk0 <span class="o">(</span>internal, physical<span class="o">)</span>:
+</span></span><span class="line"><span class="cl">   <span class="c1">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
+</span></span><span class="line"><span class="cl">   0:      GUID_partition_scheme                        *512.1 GB   disk0
+</span></span><span class="line"><span class="cl">   1:                        EFI EFI                     209.7 MB   disk0s1
+</span></span><span class="line"><span class="cl">   2:                 Apple_APFS Container disk2         271.6 GB   disk0s4
+</span></span><span class="line"><span class="cl">   3:                 Apple_APFS Container disk1         240.3 GB   disk0s3
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">/dev/disk1 <span class="o">(</span>synthesized<span class="o">)</span>:
+</span></span><span class="line"><span class="cl">   <span class="c1">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
+</span></span><span class="line"><span class="cl">   0:      APFS Container Scheme -                      +240.3 GB   disk1
+</span></span><span class="line"><span class="cl">                                 Physical Store disk0s3
+</span></span><span class="line"><span class="cl">   1:                APFS Volume MacOS - 数据             94.2 GB    disk1s1
+</span></span><span class="line"><span class="cl">   2:                APFS Volume Preboot                 284.3 MB   disk1s2
+</span></span><span class="line"><span class="cl">   3:                APFS Volume Recovery                622.8 MB   disk1s3
+</span></span><span class="line"><span class="cl">   4:                APFS Volume VM                      1.1 GB     disk1s4
+</span></span><span class="line"><span class="cl">   5:                APFS Volume MacOS                   15.3 GB    disk1s5
+</span></span><span class="line"><span class="cl">   6:              APFS Snapshot com.apple.os.update-... 15.3 GB    disk1s5s1
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">/dev/disk2 <span class="o">(</span>synthesized<span class="o">)</span>:
+</span></span><span class="line"><span class="cl"> <span class="c1">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
+</span></span><span class="line"><span class="cl">   0:      APFS Container Scheme -                      +271.6 GB   disk2
+</span></span><span class="line"><span class="cl">                                 Physical Store disk0s4
+</span></span><span class="line"><span class="cl">   1:                APFS Volume NewAPFS                 995.3 KB   disk2s1                 
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="6">
 <li>
@@ -380,35 +380,35 @@
 </span><span class="lnt">28
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">bobo@Mac:~ » diskutil list
-/dev/disk0 <span class="o">(</span>internal, physical<span class="o">)</span>:
-   <span class="c1">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
-   0:      GUID_partition_scheme                        *512.1 GB   disk0
-   1:                        EFI EFI                     209.7 MB   disk0s1
-   2:                 Apple_APFS Container disk1         271.6 GB   disk0s2
-   3:                 Apple_APFS Container disk2         240.3 GB   disk0s3
-
-/dev/disk1 <span class="o">(</span>synthesized<span class="o">)</span>:
-   <span class="c1">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
-   0:      APFS Container Scheme -                      +271.6 GB   disk1
-                                 Physical Store disk0s2
-   1:                APFS Volume MacOS - 数据             94.2 GB    disk1s1
-   2:                APFS Volume MacOS                   15.3 GB    disk1s2
-   3:              APFS Snapshot com.apple.os.update-... 15.3 GB    disk1s2s1
-   4:                APFS Volume Preboot                 284.3 MB   disk1s3
-   5:                APFS Volume Recovery                622.8 MB   disk1s4
-   6:                APFS Volume VM                      1.1 GB     disk1s5
-   
-/dev/disk2 <span class="o">(</span>synthesized<span class="o">)</span>:
- <span class="c1">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
-   0:      APFS Container Scheme -                      +240.3 GB   disk2
-                                 Physical Store disk0s3   
-   1:                APFS Volume MacOS - 数据             94.2 GB    disk2s1
-   2:                APFS Volume Preboot                 284.3 MB   disk2s2
-   3:                APFS Volume Recovery                622.8 MB   disk2s3
-   4:                APFS Volume VM                      1.1 GB     disk2s4
-   5:                APFS Volume MacOS                   15.3 GB    disk2s5
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bobo@Mac:~ » diskutil list
+</span></span><span class="line"><span class="cl">/dev/disk0 <span class="o">(</span>internal, physical<span class="o">)</span>:
+</span></span><span class="line"><span class="cl">   <span class="c1">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
+</span></span><span class="line"><span class="cl">   0:      GUID_partition_scheme                        *512.1 GB   disk0
+</span></span><span class="line"><span class="cl">   1:                        EFI EFI                     209.7 MB   disk0s1
+</span></span><span class="line"><span class="cl">   2:                 Apple_APFS Container disk1         271.6 GB   disk0s2
+</span></span><span class="line"><span class="cl">   3:                 Apple_APFS Container disk2         240.3 GB   disk0s3
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">/dev/disk1 <span class="o">(</span>synthesized<span class="o">)</span>:
+</span></span><span class="line"><span class="cl">   <span class="c1">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
+</span></span><span class="line"><span class="cl">   0:      APFS Container Scheme -                      +271.6 GB   disk1
+</span></span><span class="line"><span class="cl">                                 Physical Store disk0s2
+</span></span><span class="line"><span class="cl">   1:                APFS Volume MacOS - 数据             94.2 GB    disk1s1
+</span></span><span class="line"><span class="cl">   2:                APFS Volume MacOS                   15.3 GB    disk1s2
+</span></span><span class="line"><span class="cl">   3:              APFS Snapshot com.apple.os.update-... 15.3 GB    disk1s2s1
+</span></span><span class="line"><span class="cl">   4:                APFS Volume Preboot                 284.3 MB   disk1s3
+</span></span><span class="line"><span class="cl">   5:                APFS Volume Recovery                622.8 MB   disk1s4
+</span></span><span class="line"><span class="cl">   6:                APFS Volume VM                      1.1 GB     disk1s5
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">/dev/disk2 <span class="o">(</span>synthesized<span class="o">)</span>:
+</span></span><span class="line"><span class="cl"> <span class="c1">#:                       TYPE NAME                    SIZE       IDENTIFIER</span>
+</span></span><span class="line"><span class="cl">   0:      APFS Container Scheme -                      +240.3 GB   disk2
+</span></span><span class="line"><span class="cl">                                 Physical Store disk0s3   
+</span></span><span class="line"><span class="cl">   1:                APFS Volume MacOS - 数据             94.2 GB    disk2s1
+</span></span><span class="line"><span class="cl">   2:                APFS Volume Preboot                 284.3 MB   disk2s2
+</span></span><span class="line"><span class="cl">   3:                APFS Volume Recovery                622.8 MB   disk2s3
+</span></span><span class="line"><span class="cl">   4:                APFS Volume VM                      1.1 GB     disk2s4
+</span></span><span class="line"><span class="cl">   5:                APFS Volume MacOS                   15.3 GB    disk2s5
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="9">
 <li>
@@ -452,7 +452,7 @@
             </noscript></div></article></div>
         </main><footer class="footer">
         <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">
-                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
+                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.93.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank" rel="noopener noreferrer">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
             <div class="footer-line"></div>

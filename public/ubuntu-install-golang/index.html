@@ -214,15 +214,15 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 下载，其他版本在 https://go.dev/dl/ 中找到源链接</span>
-wget https://go.dev/dl/go1.16.10.linux-amd64.tar.gz
-
-<span class="c1"># 解压</span>
-sudo tar -C /usr/local -xzf go1.16.10.linux-amd64.tar.gz
-
-<span class="c1"># 软链接</span>
-sudo ln -s /usr/local/go/bin/* /usr/bin/
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 下载，其他版本在 https://go.dev/dl/ 中找到源链接</span>
+</span></span><span class="line"><span class="cl">wget https://go.dev/dl/go1.16.10.linux-amd64.tar.gz
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 解压</span>
+</span></span><span class="line"><span class="cl">sudo tar -C /usr/local -xzf go1.16.10.linux-amd64.tar.gz
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 软链接</span>
+</span></span><span class="line"><span class="cl">sudo ln -s /usr/local/go/bin/* /usr/bin/
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>设置环境变量</li>
@@ -232,8 +232,8 @@ sudo ln -s /usr/local/go/bin/* /usr/bin/
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">sudo vim ~/.bashrc
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo vim ~/.bashrc
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在配置末尾添加内容：</p>
 <div class="highlight"><div class="chroma">
@@ -243,10 +243,10 @@ sudo ln -s /usr/local/go/bin/* /usr/bin/
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">export</span> <span class="nv">GOPATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/go&#34;</span>
-<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PATH</span><span class="s2">:/usr/local/go/bin:</span><span class="nv">$GOPATH</span><span class="s2">/bin&#34;</span>
-<span class="nb">export</span> <span class="nv">GOPROXY</span><span class="o">=</span>https://goproxy.cn,direct
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">GOPATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/go&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PATH</span><span class="s2">:/usr/local/go/bin:</span><span class="nv">$GOPATH</span><span class="s2">/bin&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">GOPROXY</span><span class="o">=</span>https://goproxy.cn,direct
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>应用配置</p>
 <div class="highlight"><div class="chroma">
@@ -254,8 +254,8 @@ sudo ln -s /usr/local/go/bin/* /usr/bin/
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">source</span> ~/.bashrc
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">source</span> ~/.bashrc
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="检查版本" class="headerLink">
     <a href="#%e6%a3%80%e6%9f%a5%e7%89%88%e6%9c%ac" class="header-mark"></a>检查版本</h2><div class="highlight"><div class="chroma">
@@ -264,9 +264,9 @@ sudo ln -s /usr/local/go/bin/* /usr/bin/
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">root@k8s-node6:~# go version
-go version go1.16.10 linux/amd64
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">root@k8s-node6:~# go version
+</span></span><span class="line"><span class="cl">go version go1.16.10 linux/amd64
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div>
 
@@ -300,7 +300,7 @@ go version go1.16.10 linux/amd64
             </noscript></div></article></div>
         </main><footer class="footer">
         <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">
-                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
+                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.93.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank" rel="noopener noreferrer">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
             <div class="footer-line"></div>

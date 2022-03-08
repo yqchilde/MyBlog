@@ -199,15 +199,15 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// IRequest 接口
-</span><span class="c1">// 实际上是把客户端请求的链接信息和请求的数据包装到一个request中
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">IRequest</span> <span class="kd">interface</span> <span class="p">{</span>
-	<span class="c1">// 得到当前链接
-</span><span class="c1"></span>	<span class="nf">GetConnection</span><span class="p">()</span> <span class="nx">IConnection</span>
-	<span class="c1">// 得到请求的消息数据
-</span><span class="c1"></span>	<span class="nf">GetData</span><span class="p">()</span> <span class="p">[]</span><span class="kt">byte</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// IRequest 接口
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 实际上是把客户端请求的链接信息和请求的数据包装到一个request中
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">IRequest</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 得到当前链接
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">GetConnection</span><span class="p">()</span> <span class="nx">IConnection</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 得到请求的消息数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">GetData</span><span class="p">()</span> <span class="p">[]</span><span class="kt">byte</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="创建实体request层" class="headerLink">
     <a href="#%e5%88%9b%e5%bb%ba%e5%ae%9e%e4%bd%93request%e5%b1%82" class="header-mark"></a>创建实体Request层</h3><p>在 <code>znet</code> 下创建 <code>request.go</code> </p>
@@ -230,22 +230,22 @@
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">Request</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="c1">// 已经和客户端建立好的链接
-</span><span class="c1"></span>	<span class="nx">conn</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IConnection</span>
-
-	<span class="c1">// 客户端请求的数据
-</span><span class="c1"></span>	<span class="nx">data</span> <span class="p">[]</span><span class="kt">byte</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="p">(</span><span class="nx">r</span> <span class="o">*</span><span class="nx">Request</span><span class="p">)</span> <span class="nf">GetConnection</span><span class="p">()</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IConnection</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="nx">r</span><span class="p">.</span><span class="nx">conn</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="p">(</span><span class="nx">r</span> <span class="o">*</span><span class="nx">Request</span><span class="p">)</span> <span class="nf">GetData</span><span class="p">()</span> <span class="p">[]</span><span class="kt">byte</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="nx">r</span><span class="p">.</span><span class="nx">data</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Request</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 已经和客户端建立好的链接
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">conn</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IConnection</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 客户端请求的数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">data</span> <span class="p">[]</span><span class="kt">byte</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">r</span> <span class="o">*</span><span class="nx">Request</span><span class="p">)</span> <span class="nf">GetConnection</span><span class="p">()</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IConnection</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">r</span><span class="p">.</span><span class="nx">conn</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">r</span> <span class="o">*</span><span class="nx">Request</span><span class="p">)</span> <span class="nf">GetData</span><span class="p">()</span> <span class="p">[]</span><span class="kt">byte</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">r</span><span class="p">.</span><span class="nx">data</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>request</code>相关的封装好了，接下来是配置 <code>Router</code>层，目的是为了在router里面携带服务要处理的业务</p>
 <h3 id="创建抽象的irouter层" class="headerLink">
@@ -273,19 +273,19 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// IRouter 路由抽象接口
-</span><span class="c1">// 路由里的数据都是IRequest
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">IRouter</span> <span class="kd">interface</span> <span class="p">{</span>
-	<span class="c1">// 在处理conn业务之前的钩子方法Hook
-</span><span class="c1"></span>	<span class="nf">PreHandle</span><span class="p">(</span><span class="nx">request</span> <span class="nx">IRequest</span><span class="p">)</span>
-
-	<span class="c1">// 在处理conn业务的主方法Hook
-</span><span class="c1"></span>	<span class="nf">Handle</span><span class="p">(</span><span class="nx">request</span> <span class="nx">IRequest</span><span class="p">)</span>
-
-	<span class="c1">// 在处理conn业务之后的钩子方法Hook
-</span><span class="c1"></span>	<span class="nf">PostHandle</span><span class="p">(</span><span class="nx">request</span> <span class="nx">IRequest</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// IRouter 路由抽象接口
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 路由里的数据都是IRequest
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">IRouter</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 在处理conn业务之前的钩子方法Hook
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">PreHandle</span><span class="p">(</span><span class="nx">request</span> <span class="nx">IRequest</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 在处理conn业务的主方法Hook
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">Handle</span><span class="p">(</span><span class="nx">request</span> <span class="nx">IRequest</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 在处理conn业务之后的钩子方法Hook
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">PostHandle</span><span class="p">(</span><span class="nx">request</span> <span class="nx">IRequest</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="创建实体router层" class="headerLink">
     <a href="#%e5%88%9b%e5%bb%ba%e5%ae%9e%e4%bd%93router%e5%b1%82" class="header-mark"></a>创建实体Router层</h3><div class="highlight"><div class="chroma">
@@ -308,23 +308,23 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">BaseRouter</span> <span class="kd">struct</span><span class="p">{}</span>
-
-<span class="c1">// PreHandle 在处理conn业务之前的钩子方法Hook
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">br</span> <span class="o">*</span><span class="nx">BaseRouter</span><span class="p">)</span> <span class="nf">PreHandle</span><span class="p">(</span><span class="nx">request</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRequest</span><span class="p">)</span> <span class="p">{</span>
-
-<span class="p">}</span>
-
-<span class="c1">// Handle 在处理conn业务的主方法Hook
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">br</span> <span class="o">*</span><span class="nx">BaseRouter</span><span class="p">)</span> <span class="nf">Handle</span><span class="p">(</span><span class="nx">request</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRequest</span><span class="p">)</span> <span class="p">{</span>
-
-<span class="p">}</span>
-
-<span class="c1">// PostHandle 在处理conn业务之后的钩子方法Hook
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">br</span> <span class="o">*</span><span class="nx">BaseRouter</span><span class="p">)</span> <span class="nf">PostHandle</span><span class="p">(</span><span class="nx">request</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRequest</span><span class="p">)</span> <span class="p">{</span>
-
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">BaseRouter</span> <span class="kd">struct</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// PreHandle 在处理conn业务之前的钩子方法Hook
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">br</span> <span class="o">*</span><span class="nx">BaseRouter</span><span class="p">)</span> <span class="nf">PreHandle</span><span class="p">(</span><span class="nx">request</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRequest</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Handle 在处理conn业务的主方法Hook
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">br</span> <span class="o">*</span><span class="nx">BaseRouter</span><span class="p">)</span> <span class="nf">Handle</span><span class="p">(</span><span class="nx">request</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRequest</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// PostHandle 在处理conn业务之后的钩子方法Hook
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">br</span> <span class="o">*</span><span class="nx">BaseRouter</span><span class="p">)</span> <span class="nf">PostHandle</span><span class="p">(</span><span class="nx">request</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRequest</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>我们注意到了，在实体的Router层里我们写了空的结构体 <code>BaseRouter</code> ，这里讲一下目的。在实现router时，我们要基于 <code>BaseRouter</code> ，也就是面向对象中的继承基类，继承之后就可以对这个基类的方法进行重写。
 举个例子，有的router没有前置或后置处理业务，在继承基类后，有需要写的就直接重写方法即可，不需要的直接忽略即可。</p>
@@ -345,17 +345,17 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">IServer</span> <span class="kd">interface</span> <span class="p">{</span>
-	<span class="c1">// 启动
-</span><span class="c1"></span>	<span class="nf">Start</span><span class="p">()</span>
-	<span class="c1">// 结束
-</span><span class="c1"></span>	<span class="nf">Stop</span><span class="p">()</span>
-	<span class="c1">// 运行
-</span><span class="c1"></span>	<span class="nf">Serve</span><span class="p">()</span>
-	<span class="c1">// 路由功能，给当前的服务注册一个路由方法
-</span><span class="c1"></span>	<span class="nf">AddRouter</span><span class="p">(</span><span class="nx">router</span> <span class="nx">IRouter</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">IServer</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 启动
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">Start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 结束
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">Stop</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 运行
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">Serve</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 路由功能，给当前的服务注册一个路由方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">AddRouter</span><span class="p">(</span><span class="nx">router</span> <span class="nx">IRouter</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="server中添加router成员" class="headerLink">
     <a href="#server%e4%b8%ad%e6%b7%bb%e5%8a%a0router%e6%88%90%e5%91%98" class="header-mark"></a>Server中添加Router成员</h3><p>在 <code>zinx/znet/server.go</code> 修改如下：</p>
@@ -372,16 +372,16 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">Server</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">Name</span>      <span class="kt">string</span>
-	<span class="nx">IPVersion</span> <span class="kt">string</span>
-	<span class="nx">IP</span>        <span class="kt">string</span>
-	<span class="nx">Port</span>      <span class="kt">int</span>
-
-	<span class="c1">// 给当前的Server添加一个router，Server注册的链接对应的处理业务
-</span><span class="c1"></span>	<span class="nx">Router</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRouter</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Server</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Name</span>      <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">IPVersion</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">IP</span>        <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Port</span>      <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 给当前的Server添加一个router，Server注册的链接对应的处理业务
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">Router</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRouter</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在初始化 <code>NewServer()</code> 方法中也要添加一个初始化成员</p>
 <div class="highlight"><div class="chroma">
@@ -397,16 +397,16 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">NewServer</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IServer</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">Server</span><span class="p">{</span>
-		<span class="nx">Name</span><span class="p">:</span>      <span class="nx">name</span><span class="p">,</span>
-		<span class="nx">IPVersion</span><span class="p">:</span> <span class="s">&#34;tcp4&#34;</span><span class="p">,</span>
-		<span class="nx">IP</span><span class="p">:</span>        <span class="s">&#34;0.0.0.0&#34;</span><span class="p">,</span>
-		<span class="nx">Port</span><span class="p">:</span>      <span class="mi">8999</span><span class="p">,</span>
-		<span class="nx">Router</span><span class="p">:</span>    <span class="kc">nil</span><span class="p">,</span> <span class="c1">// 初始化为nil
-</span><span class="c1"></span>	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">NewServer</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IServer</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">Server</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Name</span><span class="p">:</span>      <span class="nx">name</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">IPVersion</span><span class="p">:</span> <span class="s">&#34;tcp4&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">IP</span><span class="p">:</span>        <span class="s">&#34;0.0.0.0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Port</span><span class="p">:</span>      <span class="mi">8999</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Router</span><span class="p">:</span>    <span class="kc">nil</span><span class="p">,</span> <span class="c1">// 初始化为nil
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>还记得在之前临时在 <code>Connection</code> 中添加了一个 <code>handleAPI ziface.HandleFunc</code> ，目的是为了直接在业务处理方法，如今我们封装了Router，就是为了在Router中携带业务方法，所以可以删掉了，然后添加处理的 <code>Router</code> 对象，如下：</p>
 <div class="highlight"><div class="chroma">
@@ -426,20 +426,20 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// 链接模块
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Connection</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="c1">// 当前链接的socket TCP套接字
-</span><span class="c1"></span>	<span class="nx">Conn</span> <span class="o">*</span><span class="nx">net</span><span class="p">.</span><span class="nx">TCPConn</span>
-	<span class="c1">// 链接的ID
-</span><span class="c1"></span>	<span class="nx">ConnID</span> <span class="kt">uint32</span>
-	<span class="c1">// 当前的链接状态
-</span><span class="c1"></span>	<span class="nx">isClosed</span> <span class="kt">bool</span>
-	<span class="c1">// 告知当前链接已经退出/停止的 channel
-</span><span class="c1"></span>	<span class="nx">ExitChan</span> <span class="kd">chan</span> <span class="kt">bool</span>
-	<span class="c1">// 该链接处理的方法Router
-</span><span class="c1"></span>	<span class="nx">Router</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRouter</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// 链接模块
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">Connection</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 当前链接的socket TCP套接字
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">Conn</span> <span class="o">*</span><span class="nx">net</span><span class="p">.</span><span class="nx">TCPConn</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 链接的ID
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">ConnID</span> <span class="kt">uint32</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 当前的链接状态
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">isClosed</span> <span class="kt">bool</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 告知当前链接已经退出/停止的 channel
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">ExitChan</span> <span class="kd">chan</span> <span class="kt">bool</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 该链接处理的方法Router
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">Router</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRouter</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>然后去实现接口中的 <code>AddRouter</code> 方法</p>
 <div class="highlight"><div class="chroma">
@@ -450,11 +450,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">Server</span><span class="p">)</span> <span class="nf">AddRouter</span><span class="p">(</span><span class="nx">r</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRouter</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">s</span><span class="p">.</span><span class="nx">Router</span> <span class="p">=</span> <span class="nx">r</span>
-	<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Add router success!&#34;</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">Server</span><span class="p">)</span> <span class="nf">AddRouter</span><span class="p">(</span><span class="nx">r</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRouter</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">s</span><span class="p">.</span><span class="nx">Router</span> <span class="p">=</span> <span class="nx">r</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Add router success!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>同样在初始化 <code>NewConnection</code> 中添加router</p>
 <div class="highlight"><div class="chroma">
@@ -471,17 +471,17 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// 初始化链接模块的方法
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">NewConnection</span><span class="p">(</span><span class="nx">conn</span> <span class="o">*</span><span class="nx">net</span><span class="p">.</span><span class="nx">TCPConn</span><span class="p">,</span> <span class="nx">connID</span> <span class="kt">uint32</span><span class="p">,</span> <span class="nx">router</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRouter</span><span class="p">)</span> <span class="o">*</span><span class="nx">Connection</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">Connection</span><span class="p">{</span>
-		<span class="nx">Conn</span><span class="p">:</span>     <span class="nx">conn</span><span class="p">,</span>
-		<span class="nx">ConnID</span><span class="p">:</span>   <span class="nx">connID</span><span class="p">,</span>
-		<span class="nx">isClosed</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-		<span class="nx">Router</span><span class="p">:</span>   <span class="nx">router</span><span class="p">,</span>
-		<span class="nx">ExitChan</span><span class="p">:</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">bool</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// 初始化链接模块的方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">NewConnection</span><span class="p">(</span><span class="nx">conn</span> <span class="o">*</span><span class="nx">net</span><span class="p">.</span><span class="nx">TCPConn</span><span class="p">,</span> <span class="nx">connID</span> <span class="kt">uint32</span><span class="p">,</span> <span class="nx">router</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRouter</span><span class="p">)</span> <span class="o">*</span><span class="nx">Connection</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">Connection</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Conn</span><span class="p">:</span>     <span class="nx">conn</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">ConnID</span><span class="p">:</span>   <span class="nx">connID</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">isClosed</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Router</span><span class="p">:</span>   <span class="nx">router</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">ExitChan</span><span class="p">:</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">bool</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>接下来当然是去处理之前在 <code>StartReader()</code> 中写的调用 <code>HandleFunc</code> 方法
 删掉：</p>
@@ -493,11 +493,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nf">handleAPI</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">Conn</span><span class="p">,</span> <span class="nx">buf</span><span class="p">,</span> <span class="nx">cnt</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-    <span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;ConnID = &#34;</span><span class="p">,</span> <span class="nx">c</span><span class="p">.</span><span class="nx">ConnID</span><span class="p">,</span> <span class="s">&#34;Handle is error: &#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-    <span class="k">break</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nf">handleAPI</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">Conn</span><span class="p">,</span> <span class="nx">buf</span><span class="p">,</span> <span class="nx">cnt</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;ConnID = &#34;</span><span class="p">,</span> <span class="nx">c</span><span class="p">.</span><span class="nx">ConnID</span><span class="p">,</span> <span class="s">&#34;Handle is error: &#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">break</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>添加：</p>
 <div class="highlight"><div class="chroma">
@@ -515,18 +515,18 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// 从路由中，找到注册绑定的Conn对应的router调用
-</span><span class="c1"></span><span class="nx">req</span> <span class="o">:=</span> <span class="nx">Request</span><span class="p">{</span>
-    <span class="nx">conn</span><span class="p">:</span> <span class="nx">c</span><span class="p">,</span>
-    <span class="nx">data</span><span class="p">:</span> <span class="nx">buf</span><span class="p">,</span>
-<span class="p">}</span>
-<span class="c1">// 执行注册的路由方法
-</span><span class="c1"></span><span class="k">go</span> <span class="kd">func</span><span class="p">(</span><span class="nx">request</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRequest</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">c</span><span class="p">.</span><span class="nx">Router</span><span class="p">.</span><span class="nf">PreHandle</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span>
-    <span class="nx">c</span><span class="p">.</span><span class="nx">Router</span><span class="p">.</span><span class="nf">Handle</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span>
-    <span class="nx">c</span><span class="p">.</span><span class="nx">Router</span><span class="p">.</span><span class="nf">PostHandle</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span>
-<span class="p">}(</span><span class="o">&amp;</span><span class="nx">req</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// 从路由中，找到注册绑定的Conn对应的router调用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">req</span> <span class="o">:=</span> <span class="nx">Request</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">conn</span><span class="p">:</span> <span class="nx">c</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">data</span><span class="p">:</span> <span class="nx">buf</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 执行注册的路由方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">go</span> <span class="kd">func</span><span class="p">(</span><span class="nx">request</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRequest</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">c</span><span class="p">.</span><span class="nx">Router</span><span class="p">.</span><span class="nf">PreHandle</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">c</span><span class="p">.</span><span class="nx">Router</span><span class="p">.</span><span class="nf">Handle</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">c</span><span class="p">.</span><span class="nx">Router</span><span class="p">.</span><span class="nf">PostHandle</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}(</span><span class="o">&amp;</span><span class="nx">req</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
 <p>以上完成了Zinx的路由模块功能，接下来是测试了。
@@ -565,37 +565,37 @@
 </span><span class="lnt">30
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">PingRouter</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">znet</span><span class="p">.</span><span class="nx">BaseRouter</span>
-<span class="p">}</span>
-
-<span class="c1">// PreHandle 在处理conn业务之前的钩子方法Hook
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">PingRouter</span><span class="p">)</span> <span class="nf">PreHandle</span><span class="p">(</span><span class="nx">request</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRequest</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Call Router PreHandle&#34;</span><span class="p">)</span>
-	<span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">request</span><span class="p">.</span><span class="nf">GetConnection</span><span class="p">().</span><span class="nf">GetTCPConnection</span><span class="p">().</span><span class="nf">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&#34;before.ping...\n&#34;</span><span class="p">))</span>
-	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;before ping error is &#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// Handle 在处理conn业务的主方法Hook
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">PingRouter</span><span class="p">)</span> <span class="nf">Handle</span><span class="p">(</span><span class="nx">request</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRequest</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Call Router Handle&#34;</span><span class="p">)</span>
-	<span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">request</span><span class="p">.</span><span class="nf">GetConnection</span><span class="p">().</span><span class="nf">GetTCPConnection</span><span class="p">().</span><span class="nf">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&#34;ping...\n&#34;</span><span class="p">))</span>
-	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;ping error is &#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// PostHandle 在处理conn业务之后的钩子方法Hook
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">PingRouter</span><span class="p">)</span> <span class="nf">PostHandle</span><span class="p">(</span><span class="nx">request</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRequest</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Call Router PostHandle&#34;</span><span class="p">)</span>
-	<span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">request</span><span class="p">.</span><span class="nf">GetConnection</span><span class="p">().</span><span class="nf">GetTCPConnection</span><span class="p">().</span><span class="nf">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&#34;after.ping...\n&#34;</span><span class="p">))</span>
-	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;after ping error is &#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">PingRouter</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">znet</span><span class="p">.</span><span class="nx">BaseRouter</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// PreHandle 在处理conn业务之前的钩子方法Hook
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">PingRouter</span><span class="p">)</span> <span class="nf">PreHandle</span><span class="p">(</span><span class="nx">request</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRequest</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Call Router PreHandle&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">request</span><span class="p">.</span><span class="nf">GetConnection</span><span class="p">().</span><span class="nf">GetTCPConnection</span><span class="p">().</span><span class="nf">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&#34;before.ping...\n&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;before ping error is &#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Handle 在处理conn业务的主方法Hook
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">PingRouter</span><span class="p">)</span> <span class="nf">Handle</span><span class="p">(</span><span class="nx">request</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRequest</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Call Router Handle&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">request</span><span class="p">.</span><span class="nf">GetConnection</span><span class="p">().</span><span class="nf">GetTCPConnection</span><span class="p">().</span><span class="nf">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&#34;ping...\n&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;ping error is &#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// PostHandle 在处理conn业务之后的钩子方法Hook
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">PingRouter</span><span class="p">)</span> <span class="nf">PostHandle</span><span class="p">(</span><span class="nx">request</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IRequest</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Call Router PostHandle&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">request</span><span class="p">.</span><span class="nf">GetConnection</span><span class="p">().</span><span class="nf">GetTCPConnection</span><span class="p">().</span><span class="nf">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&#34;after.ping...\n&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;after ping error is &#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在 <code>main</code> 方法中添加 <code>Router</code> </p>
 <div class="highlight"><div class="chroma">
@@ -610,15 +610,15 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nx">server</span> <span class="o">:=</span> <span class="nx">znet</span><span class="p">.</span><span class="nf">NewServer</span><span class="p">(</span><span class="s">&#34;Zinx v3&#34;</span><span class="p">)</span>
-
-	<span class="c1">// 添加自定义router
-</span><span class="c1"></span>	<span class="nx">server</span><span class="p">.</span><span class="nf">AddRouter</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">PingRouter</span><span class="p">{})</span>
-
-	<span class="nx">server</span><span class="p">.</span><span class="nf">Serve</span><span class="p">()</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">server</span> <span class="o">:=</span> <span class="nx">znet</span><span class="p">.</span><span class="nf">NewServer</span><span class="p">(</span><span class="s">&#34;Zinx v3&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 添加自定义router
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">server</span><span class="p">.</span><span class="nf">AddRouter</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">PingRouter</span><span class="p">{})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">server</span><span class="p">.</span><span class="nf">Serve</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>测试结果如下图：（可以看出三个方法按照链式进行）</p>
 <p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20201227215250.png?imageMogr2/format/webp/interlace/1" title="image" data-thumbnail="https://pic.yqqy.top/blog/20201227215250.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>测试结果</h2><p>image</p>">
@@ -663,7 +663,7 @@
             </noscript></div></article></div>
         </main><footer class="footer">
         <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">
-                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
+                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.93.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank" rel="noopener noreferrer">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
             <div class="footer-line"></div>

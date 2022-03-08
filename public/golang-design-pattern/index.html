@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/yqqy.top\/golang-design-pattern\/"
-        },"genre": "posts","keywords": "Golang","wordcount":  5160 ,
+        },"genre": "posts","keywords": "Golang","wordcount":  5159 ,
         "url": "https:\/\/yqqy.top\/golang-design-pattern\/","datePublished": "2020-04-21T15:00:16+00:00","dateModified": "2020-04-21T15:00:16+00:00","publisher": {
             "@type": "Organization",
             "name": "yqchilde"},"author": {
@@ -165,7 +165,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author">Yqchilde</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/golang/"><i class="far fa-folder fa-fw"></i>Golang</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-04-21">2020-04-21</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2020-04-21">2020-04-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5160 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-04-21">2020-04-21</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2020-04-21">2020-04-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5159 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 11 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -358,54 +358,54 @@
 </span><span class="lnt">47
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">builder</span>
-
-<span class="c1">// 为创建一个Product对象的各个部件指定抽象接口
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Builder</span> <span class="kd">interface</span> <span class="p">{</span>
-	<span class="nf">Build</span><span class="p">()</span>
-<span class="p">}</span>
-
-<span class="c1">// 实现Builder的接口以构造和装配该产品的各个部件
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">ConcreteBuilder</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">built</span> <span class="kt">bool</span>
-<span class="p">}</span>
-
-<span class="c1">// 构造一个使用Builder接口的对象
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Director</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">builder</span> <span class="nx">Builder</span>
-<span class="p">}</span>
-
-<span class="c1">// 表示被构造的复杂对象
-</span><span class="c1">// ConcreteBuilder创建该产品的内部表示并定义它的装配过程
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Product</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">Build</span> <span class="kt">bool</span>
-<span class="p">}</span>
-
-<span class="c1">// 实例化Director对象
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">NewDirector</span><span class="p">(</span><span class="nx">b</span> <span class="nx">Builder</span><span class="p">)</span> <span class="nx">Director</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="nx">Director</span><span class="p">{</span><span class="nx">builder</span><span class="p">:</span> <span class="nx">b</span><span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// 实例化ConcreteBuilder对象
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">NewConcreteBuilder</span><span class="p">()</span> <span class="nx">ConcreteBuilder</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="nx">ConcreteBuilder</span><span class="p">{</span><span class="nx">built</span><span class="p">:</span> <span class="kc">false</span><span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// ConcreteBuilder实现了 Builder 接口的 Build 方法
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">ConcreteBuilder</span><span class="p">)</span> <span class="nf">Build</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nx">c</span><span class="p">.</span><span class="nx">built</span> <span class="p">=</span> <span class="kc">true</span>
-<span class="p">}</span>
-
-<span class="c1">// 构造了一个使用Builder接口的对象
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">Director</span><span class="p">)</span> <span class="nf">Construct</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nx">d</span><span class="p">.</span><span class="nx">builder</span><span class="p">.</span><span class="nf">Build</span><span class="p">()</span>
-<span class="p">}</span>
-
-<span class="c1">// 通过ConcreteBuilder 获取 Product 的结果
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">ConcreteBuilder</span><span class="p">)</span> <span class="nf">GetResult</span><span class="p">()</span> <span class="nx">Product</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="nx">Product</span><span class="p">{</span><span class="nx">Build</span><span class="p">:</span> <span class="nx">c</span><span class="p">.</span><span class="nx">built</span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">builder</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 为创建一个Product对象的各个部件指定抽象接口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">Builder</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">Build</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 实现Builder的接口以构造和装配该产品的各个部件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">ConcreteBuilder</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">built</span> <span class="kt">bool</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 构造一个使用Builder接口的对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">Director</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">builder</span> <span class="nx">Builder</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 表示被构造的复杂对象
+</span></span></span><span class="line"><span class="cl"><span class="c1">// ConcreteBuilder创建该产品的内部表示并定义它的装配过程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">Product</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Build</span> <span class="kt">bool</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 实例化Director对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">NewDirector</span><span class="p">(</span><span class="nx">b</span> <span class="nx">Builder</span><span class="p">)</span> <span class="nx">Director</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">Director</span><span class="p">{</span><span class="nx">builder</span><span class="p">:</span> <span class="nx">b</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 实例化ConcreteBuilder对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">NewConcreteBuilder</span><span class="p">()</span> <span class="nx">ConcreteBuilder</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">ConcreteBuilder</span><span class="p">{</span><span class="nx">built</span><span class="p">:</span> <span class="kc">false</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ConcreteBuilder实现了 Builder 接口的 Build 方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">ConcreteBuilder</span><span class="p">)</span> <span class="nf">Build</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">c</span><span class="p">.</span><span class="nx">built</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 构造了一个使用Builder接口的对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">Director</span><span class="p">)</span> <span class="nf">Construct</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">d</span><span class="p">.</span><span class="nx">builder</span><span class="p">.</span><span class="nf">Build</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 通过ConcreteBuilder 获取 Product 的结果
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">ConcreteBuilder</span><span class="p">)</span> <span class="nf">GetResult</span><span class="p">()</span> <span class="nx">Product</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">Product</span><span class="p">{</span><span class="nx">Build</span><span class="p">:</span> <span class="nx">c</span><span class="p">.</span><span class="nx">built</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>单元测试</p>
@@ -438,31 +438,31 @@
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">builder</span>
-
-<span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&#34;fmt&#34;</span>
-	<span class="s">&#34;testing&#34;</span>
-<span class="p">)</span>
-
-<span class="kd">func</span> <span class="nf">TestConcreteBuilder_GetResult</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
-	<span class="c1">// 具体建造者，实现一个完成Builder接口的对象
-</span><span class="c1"></span>	<span class="nx">builder</span> <span class="o">:=</span> <span class="nf">NewConcreteBuilder</span><span class="p">()</span>
-	<span class="c1">// 指挥具体建造者操作
-</span><span class="c1"></span>	<span class="nx">director</span> <span class="o">:=</span> <span class="nf">NewDirector</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">builder</span><span class="p">)</span>
-	<span class="c1">// 指挥具体建造者去做建造工作
-</span><span class="c1"></span>	<span class="nx">director</span><span class="p">.</span><span class="nf">Construct</span><span class="p">()</span>
-	<span class="c1">// 建造完成的结果
-</span><span class="c1"></span>	<span class="nx">result</span> <span class="o">:=</span> <span class="nx">builder</span><span class="p">.</span><span class="nf">GetResult</span><span class="p">()</span>
-
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">Build</span><span class="p">)</span>
-<span class="p">}</span>
-<span class="c1">// result
-</span><span class="c1"></span><span class="o">==</span><span class="p">=</span> <span class="nx">RUN</span>   <span class="nx">TestConcreteBuilder_GetResult</span>
-<span class="kc">true</span>
-<span class="o">---</span> <span class="nx">PASS</span><span class="p">:</span> <span class="nf">TestConcreteBuilder_GetResult</span> <span class="p">(</span><span class="mf">0.00</span><span class="nx">s</span><span class="p">)</span>
-<span class="nx">PASS</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">builder</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;testing&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">TestConcreteBuilder_GetResult</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 具体建造者，实现一个完成Builder接口的对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">builder</span> <span class="o">:=</span> <span class="nf">NewConcreteBuilder</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 指挥具体建造者操作
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">director</span> <span class="o">:=</span> <span class="nf">NewDirector</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">builder</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 指挥具体建造者去做建造工作
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">director</span><span class="p">.</span><span class="nf">Construct</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 建造完成的结果
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">result</span> <span class="o">:=</span> <span class="nx">builder</span><span class="p">.</span><span class="nf">GetResult</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">Build</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// result
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">==</span><span class="p">=</span> <span class="nx">RUN</span>   <span class="nx">TestConcreteBuilder_GetResult</span>
+</span></span><span class="line"><span class="cl"><span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="o">---</span> <span class="nx">PASS</span><span class="p">:</span> <span class="nf">TestConcreteBuilder_GetResult</span> <span class="p">(</span><span class="mf">0.00</span><span class="nx">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">PASS</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="工厂模式" class="headerLink">
     <a href="#%e5%b7%a5%e5%8e%82%e6%a8%a1%e5%bc%8f" class="header-mark"></a>工厂模式</h3><p><strong>简单工程模式</strong></p>
@@ -510,36 +510,36 @@
 </span><span class="lnt">29
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">simple_factory</span>
-
-<span class="c1">// 实现接口
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">API</span> <span class="kd">interface</span> <span class="p">{</span>
-	<span class="nf">say</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">string</span>
-<span class="p">}</span>
-
-<span class="kd">type</span> <span class="nx">Chinese</span> <span class="kd">struct</span><span class="p">{}</span>
-<span class="kd">type</span> <span class="nx">English</span> <span class="kd">struct</span><span class="p">{}</span>
-
-<span class="c1">// 实现方法
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">NewAPI</span><span class="p">(</span><span class="nx">lang</span> <span class="kt">string</span><span class="p">)</span> <span class="nx">API</span> <span class="p">{</span>
-	<span class="k">switch</span> <span class="nx">lang</span> <span class="p">{</span>
-	<span class="k">case</span> <span class="s">&#34;ch&#34;</span><span class="p">:</span>
-		<span class="k">return</span> <span class="o">&amp;</span><span class="nx">Chinese</span><span class="p">{}</span>
-	<span class="k">case</span> <span class="s">&#34;en&#34;</span><span class="p">:</span>
-		<span class="k">return</span> <span class="o">&amp;</span><span class="nx">English</span><span class="p">{}</span>
-	<span class="k">default</span><span class="p">:</span>
-		<span class="k">return</span> <span class="kc">nil</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="p">(</span><span class="o">*</span><span class="nx">Chinese</span><span class="p">)</span> <span class="nf">say</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="s">&#34;你好&#34;</span> <span class="o">+</span> <span class="nx">name</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="p">(</span><span class="o">*</span><span class="nx">English</span><span class="p">)</span> <span class="nf">say</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="s">&#34;Hello&#34;</span> <span class="o">+</span> <span class="nx">name</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">simple_factory</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 实现接口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">API</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">say</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Chinese</span> <span class="kd">struct</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">English</span> <span class="kd">struct</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 实现方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">NewAPI</span><span class="p">(</span><span class="nx">lang</span> <span class="kt">string</span><span class="p">)</span> <span class="nx">API</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">switch</span> <span class="nx">lang</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">case</span> <span class="s">&#34;ch&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="o">&amp;</span><span class="nx">Chinese</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">case</span> <span class="s">&#34;en&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="o">&amp;</span><span class="nx">English</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">default</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="o">*</span><span class="nx">Chinese</span><span class="p">)</span> <span class="nf">say</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="s">&#34;你好&#34;</span> <span class="o">+</span> <span class="nx">name</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="o">*</span><span class="nx">English</span><span class="p">)</span> <span class="nf">say</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="s">&#34;Hello&#34;</span> <span class="o">+</span> <span class="nx">name</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>单元测试</p>
@@ -570,29 +570,29 @@
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">simple_factory</span>
-
-<span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&#34;fmt&#34;</span>
-	<span class="s">&#34;testing&#34;</span>
-<span class="p">)</span>
-
-<span class="kd">func</span> <span class="nf">TestNewAPI</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">apiCh</span> <span class="o">:=</span> <span class="nf">NewAPI</span><span class="p">(</span><span class="s">&#34;ch&#34;</span><span class="p">)</span>
-	<span class="nx">say1</span> <span class="o">:=</span> <span class="nx">apiCh</span><span class="p">.</span><span class="nf">say</span><span class="p">(</span><span class="s">&#34;张&#34;</span><span class="p">)</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">say1</span><span class="p">)</span>
-
-	<span class="nx">apiEn</span> <span class="o">:=</span> <span class="nf">NewAPI</span><span class="p">(</span><span class="s">&#34;en&#34;</span><span class="p">)</span>
-	<span class="nx">say2</span> <span class="o">:=</span> <span class="nx">apiEn</span><span class="p">.</span><span class="nf">say</span><span class="p">(</span><span class="s">&#34;Tom&#34;</span><span class="p">)</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">say2</span><span class="p">)</span>
-<span class="p">}</span>
-<span class="c1">// result
-</span><span class="c1"></span><span class="o">==</span><span class="p">=</span> <span class="nx">RUN</span>   <span class="nx">TestNewAPI</span>
-<span class="nx">你好张</span>
-<span class="nx">HelloTom</span>
-<span class="o">---</span> <span class="nx">PASS</span><span class="p">:</span> <span class="nf">TestNewAPI</span> <span class="p">(</span><span class="mf">0.00</span><span class="nx">s</span><span class="p">)</span>
-<span class="nx">PASS</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">simple_factory</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;testing&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">TestNewAPI</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">apiCh</span> <span class="o">:=</span> <span class="nf">NewAPI</span><span class="p">(</span><span class="s">&#34;ch&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">say1</span> <span class="o">:=</span> <span class="nx">apiCh</span><span class="p">.</span><span class="nf">say</span><span class="p">(</span><span class="s">&#34;张&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">say1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">apiEn</span> <span class="o">:=</span> <span class="nf">NewAPI</span><span class="p">(</span><span class="s">&#34;en&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">say2</span> <span class="o">:=</span> <span class="nx">apiEn</span><span class="p">.</span><span class="nf">say</span><span class="p">(</span><span class="s">&#34;Tom&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">say2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// result
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">==</span><span class="p">=</span> <span class="nx">RUN</span>   <span class="nx">TestNewAPI</span>
+</span></span><span class="line"><span class="cl"><span class="nx">你好张</span>
+</span></span><span class="line"><span class="cl"><span class="nx">HelloTom</span>
+</span></span><span class="line"><span class="cl"><span class="o">---</span> <span class="nx">PASS</span><span class="p">:</span> <span class="nf">TestNewAPI</span> <span class="p">(</span><span class="mf">0.00</span><span class="nx">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">PASS</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>复杂工厂模式</strong></p>
 <blockquote>
@@ -649,53 +649,53 @@
 </span><span class="lnt">46
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">factory</span>
-
-<span class="kd">type</span> <span class="nx">Operator</span> <span class="kd">interface</span> <span class="p">{</span>
-	<span class="nf">SetLeft</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
-	<span class="nf">SetRight</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
-	<span class="nf">Result</span><span class="p">()</span> <span class="kt">int</span>
-<span class="p">}</span>
-
-<span class="c1">// factory pattern
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">OperatorFactory</span> <span class="kd">interface</span> <span class="p">{</span>
-	<span class="nf">Create</span><span class="p">()</span> <span class="nx">Operator</span>
-<span class="p">}</span>
-
-<span class="c1">// operator base
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">OperatorBase</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">left</span><span class="p">,</span> <span class="nx">right</span> <span class="kt">int</span>
-<span class="p">}</span>
-
-<span class="c1">// 赋值
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">o</span> <span class="o">*</span><span class="nx">OperatorBase</span><span class="p">)</span> <span class="nf">SetLeft</span><span class="p">(</span><span class="nx">left</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">o</span><span class="p">.</span><span class="nx">left</span> <span class="p">=</span> <span class="nx">left</span>
-<span class="p">}</span>
-
-<span class="c1">// 赋值
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">o</span> <span class="o">*</span><span class="nx">OperatorBase</span><span class="p">)</span> <span class="nf">SetRight</span><span class="p">(</span><span class="nx">right</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">o</span><span class="p">.</span><span class="nx">right</span> <span class="p">=</span> <span class="nx">right</span>
-<span class="p">}</span>
-
-<span class="c1">// 操作数
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">SubOperator</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="o">*</span><span class="nx">OperatorBase</span>
-<span class="p">}</span>
-
-<span class="c1">// 减法工厂
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">SubOperatorFactory</span> <span class="kd">struct</span><span class="p">{}</span>
-
-<span class="c1">// 实际操作
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">o</span> <span class="nx">SubOperator</span><span class="p">)</span> <span class="nf">Result</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="nx">o</span><span class="p">.</span><span class="nx">left</span> <span class="o">-</span> <span class="nx">o</span><span class="p">.</span><span class="nx">right</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="p">(</span><span class="nx">o</span> <span class="nx">SubOperatorFactory</span><span class="p">)</span> <span class="nf">Create</span><span class="p">()</span> <span class="nx">Operator</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">SubOperator</span><span class="p">{</span>
-		<span class="o">&amp;</span><span class="nx">OperatorBase</span><span class="p">{},</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">factory</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Operator</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">SetLeft</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">SetRight</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">Result</span><span class="p">()</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// factory pattern
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">OperatorFactory</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">Create</span><span class="p">()</span> <span class="nx">Operator</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// operator base
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">OperatorBase</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">left</span><span class="p">,</span> <span class="nx">right</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 赋值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">o</span> <span class="o">*</span><span class="nx">OperatorBase</span><span class="p">)</span> <span class="nf">SetLeft</span><span class="p">(</span><span class="nx">left</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">o</span><span class="p">.</span><span class="nx">left</span> <span class="p">=</span> <span class="nx">left</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 赋值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">o</span> <span class="o">*</span><span class="nx">OperatorBase</span><span class="p">)</span> <span class="nf">SetRight</span><span class="p">(</span><span class="nx">right</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">o</span><span class="p">.</span><span class="nx">right</span> <span class="p">=</span> <span class="nx">right</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 操作数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">SubOperator</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="o">*</span><span class="nx">OperatorBase</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 减法工厂
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">SubOperatorFactory</span> <span class="kd">struct</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 实际操作
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">o</span> <span class="nx">SubOperator</span><span class="p">)</span> <span class="nf">Result</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">o</span><span class="p">.</span><span class="nx">left</span> <span class="o">-</span> <span class="nx">o</span><span class="p">.</span><span class="nx">right</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">o</span> <span class="nx">SubOperatorFactory</span><span class="p">)</span> <span class="nf">Create</span><span class="p">()</span> <span class="nx">Operator</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">SubOperator</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="o">&amp;</span><span class="nx">OperatorBase</span><span class="p">{},</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>单元测试</p>
@@ -725,28 +725,28 @@
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">factory</span>
-
-<span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&#34;fmt&#34;</span>
-	<span class="s">&#34;testing&#34;</span>
-<span class="p">)</span>
-
-<span class="kd">func</span> <span class="nf">TestSubOperator_Result</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
-	<span class="kd">var</span> <span class="nx">fac</span> <span class="nx">OperatorFactory</span>
-	<span class="nx">fac</span> <span class="p">=</span> <span class="nx">SubOperatorFactory</span><span class="p">{}</span>
-
-	<span class="nx">op</span> <span class="o">:=</span> <span class="nx">fac</span><span class="p">.</span><span class="nf">Create</span><span class="p">()</span>
-	<span class="nx">op</span><span class="p">.</span><span class="nf">SetLeft</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-	<span class="nx">op</span><span class="p">.</span><span class="nf">SetRight</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">op</span><span class="p">.</span><span class="nf">Result</span><span class="p">())</span>
-<span class="p">}</span>
-<span class="c1">// result
-</span><span class="c1"></span><span class="o">==</span><span class="p">=</span> <span class="nx">RUN</span>   <span class="nx">TestSubOperator_Result</span>
-<span class="o">-</span><span class="mi">10</span>
-<span class="o">---</span> <span class="nx">PASS</span><span class="p">:</span> <span class="nf">TestSubOperator_Result</span> <span class="p">(</span><span class="mf">0.00</span><span class="nx">s</span><span class="p">)</span>
-<span class="nx">PASS</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">factory</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;testing&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">TestSubOperator_Result</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">fac</span> <span class="nx">OperatorFactory</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fac</span> <span class="p">=</span> <span class="nx">SubOperatorFactory</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">op</span> <span class="o">:=</span> <span class="nx">fac</span><span class="p">.</span><span class="nf">Create</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">op</span><span class="p">.</span><span class="nf">SetLeft</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">op</span><span class="p">.</span><span class="nf">SetRight</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">op</span><span class="p">.</span><span class="nf">Result</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// result
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">==</span><span class="p">=</span> <span class="nx">RUN</span>   <span class="nx">TestSubOperator_Result</span>
+</span></span><span class="line"><span class="cl"><span class="o">-</span><span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="o">---</span> <span class="nx">PASS</span><span class="p">:</span> <span class="nf">TestSubOperator_Result</span> <span class="p">(</span><span class="mf">0.00</span><span class="nx">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">PASS</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="抽象工厂" class="headerLink">
     <a href="#%e6%8a%bd%e8%b1%a1%e5%b7%a5%e5%8e%82" class="header-mark"></a>抽象工厂</h3><h2 id="结构型" class="headerLink">
@@ -798,38 +798,38 @@
 </span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">decorator</span>
-
-<span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
-
-<span class="c1">// 定义一个组件接口带有一个计算属性
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Component</span> <span class="kd">interface</span> <span class="p">{</span>
-	<span class="nf">Calc</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="kd">interface</span><span class="p">{}</span>
-<span class="p">}</span>
-
-<span class="c1">// 定义一个计算正方形面积组件模型
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">SquareAreaComponent</span> <span class="kd">struct</span><span class="p">{}</span>
-
-<span class="c1">// 计算面积
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">SquareAreaComponent</span><span class="p">)</span> <span class="nf">Calc</span><span class="p">(</span><span class="nx">sideLen</span> <span class="kt">int</span><span class="p">)</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="nx">sideLen</span> <span class="o">*</span> <span class="nx">sideLen</span>
-<span class="p">}</span>
-
-<span class="c1">// 定义修饰器
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">SignDecorator</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">component</span> <span class="nx">Component</span>
-<span class="p">}</span>
-
-<span class="c1">// 实例修饰器
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">WarpMulDecorator</span><span class="p">(</span><span class="nx">c</span> <span class="nx">Component</span><span class="p">)</span> <span class="nx">Component</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">SignDecorator</span><span class="p">{</span><span class="nx">component</span><span class="p">:</span> <span class="nx">c</span><span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// 用修饰器返回特定内容
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">SignDecorator</span><span class="p">)</span> <span class="nf">Calc</span><span class="p">(</span><span class="nx">sideLen</span> <span class="kt">int</span><span class="p">)</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;边长为 %v 的正方形面积为 %v&#34;</span><span class="p">,</span> <span class="nx">sideLen</span><span class="p">,</span> <span class="nx">sideLen</span><span class="o">*</span><span class="nx">sideLen</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">decorator</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 定义一个组件接口带有一个计算属性
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">Component</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">Calc</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="kd">interface</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 定义一个计算正方形面积组件模型
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">SquareAreaComponent</span> <span class="kd">struct</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 计算面积
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">SquareAreaComponent</span><span class="p">)</span> <span class="nf">Calc</span><span class="p">(</span><span class="nx">sideLen</span> <span class="kt">int</span><span class="p">)</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">sideLen</span> <span class="o">*</span> <span class="nx">sideLen</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 定义修饰器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">SignDecorator</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">component</span> <span class="nx">Component</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 实例修饰器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">WarpMulDecorator</span><span class="p">(</span><span class="nx">c</span> <span class="nx">Component</span><span class="p">)</span> <span class="nx">Component</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">SignDecorator</span><span class="p">{</span><span class="nx">component</span><span class="p">:</span> <span class="nx">c</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 用修饰器返回特定内容
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">SignDecorator</span><span class="p">)</span> <span class="nf">Calc</span><span class="p">(</span><span class="nx">sideLen</span> <span class="kt">int</span><span class="p">)</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;边长为 %v 的正方形面积为 %v&#34;</span><span class="p">,</span> <span class="nx">sideLen</span><span class="p">,</span> <span class="nx">sideLen</span><span class="o">*</span><span class="nx">sideLen</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>单元测试</p>
@@ -861,30 +861,30 @@
 </span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">decorator</span>
-
-<span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&#34;fmt&#34;</span>
-	<span class="s">&#34;testing&#34;</span>
-<span class="p">)</span>
-
-<span class="kd">func</span> <span class="nf">TestCall</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// 普通方法
-</span><span class="c1"></span>	<span class="nx">s</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">SquareAreaComponent</span><span class="p">{}</span>
-	<span class="nx">ret</span> <span class="o">:=</span> <span class="nx">s</span><span class="p">.</span><span class="nf">Calc</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">ret</span><span class="p">)</span>
-
-    <span class="c1">// 用修饰器调用
-</span><span class="c1"></span>	<span class="nx">decorator</span> <span class="o">:=</span> <span class="nf">WarpMulDecorator</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">decorator</span><span class="p">.</span><span class="nf">Calc</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
-<span class="p">}</span>
-<span class="c1">// result
-</span><span class="c1"></span><span class="o">==</span><span class="p">=</span> <span class="nx">RUN</span>   <span class="nx">TestCall</span>
-<span class="mi">100</span>
-<span class="nx">边长为</span> <span class="mi">10</span> <span class="nx">的正方形面积为</span> <span class="mi">100</span>
-<span class="o">---</span> <span class="nx">PASS</span><span class="p">:</span> <span class="nf">TestCall</span> <span class="p">(</span><span class="mf">0.00</span><span class="nx">s</span><span class="p">)</span>
-<span class="nx">PASS</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">decorator</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;testing&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">TestCall</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 普通方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">s</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">SquareAreaComponent</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">ret</span> <span class="o">:=</span> <span class="nx">s</span><span class="p">.</span><span class="nf">Calc</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">ret</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 用修饰器调用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">decorator</span> <span class="o">:=</span> <span class="nf">WarpMulDecorator</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">decorator</span><span class="p">.</span><span class="nf">Calc</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// result
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">==</span><span class="p">=</span> <span class="nx">RUN</span>   <span class="nx">TestCall</span>
+</span></span><span class="line"><span class="cl"><span class="mi">100</span>
+</span></span><span class="line"><span class="cl"><span class="nx">边长为</span> <span class="mi">10</span> <span class="nx">的正方形面积为</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl"><span class="o">---</span> <span class="nx">PASS</span><span class="p">:</span> <span class="nf">TestCall</span> <span class="p">(</span><span class="mf">0.00</span><span class="nx">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">PASS</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="行为型" class="headerLink">
     <a href="#%e8%a1%8c%e4%b8%ba%e5%9e%8b" class="header-mark"></a>行为型</h2><h3 id="迭代器模式" class="headerLink">
@@ -940,42 +940,42 @@
 </span><span class="lnt">35
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">iterator</span>
-
-<span class="kd">type</span> <span class="nx">Iterator</span> <span class="kd">interface</span> <span class="p">{</span>
-	<span class="nf">Idx</span><span class="p">()</span> <span class="kt">int</span>         <span class="c1">// 索引
-</span><span class="c1"></span>	<span class="nf">Val</span><span class="p">()</span> <span class="kd">interface</span><span class="p">{}</span> <span class="c1">// 值
-</span><span class="c1"></span>	<span class="nf">HasNext</span><span class="p">()</span> <span class="kt">bool</span>    <span class="c1">// 是否还有下一个值
-</span><span class="c1"></span>	<span class="nf">Next</span><span class="p">()</span>            <span class="c1">// 下一个
-</span><span class="c1"></span><span class="p">}</span>
-
-<span class="kd">type</span> <span class="nx">ArrayIterator</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">array</span> <span class="p">[]</span><span class="kd">interface</span><span class="p">{}</span>
-	<span class="nx">index</span> <span class="o">*</span><span class="kt">int</span>
-<span class="p">}</span>
-
-<span class="c1">// return idx
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="o">*</span><span class="nx">ArrayIterator</span><span class="p">)</span> <span class="nf">Idx</span><span class="p">()</span> <span class="o">*</span><span class="kt">int</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="nx">a</span><span class="p">.</span><span class="nx">index</span>
-<span class="p">}</span>
-
-<span class="c1">// return val
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="o">*</span><span class="nx">ArrayIterator</span><span class="p">)</span> <span class="nf">Val</span><span class="p">()</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="nx">a</span><span class="p">.</span><span class="nx">array</span><span class="p">[</span><span class="o">*</span><span class="nx">a</span><span class="p">.</span><span class="nx">index</span><span class="p">]</span>
-<span class="p">}</span>
-
-<span class="c1">// return is next
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="o">*</span><span class="nx">ArrayIterator</span><span class="p">)</span> <span class="nf">HasNext</span><span class="p">()</span> <span class="kt">bool</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">array</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="o">*</span><span class="nx">a</span><span class="p">.</span><span class="nx">index</span><span class="o">+</span><span class="mi">1</span>
-<span class="p">}</span>
-
-<span class="c1">// return next
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="o">*</span><span class="nx">ArrayIterator</span><span class="p">)</span> <span class="nf">Next</span><span class="p">()</span> <span class="p">{</span>
-	<span class="k">if</span> <span class="nx">a</span><span class="p">.</span><span class="nf">HasNext</span><span class="p">()</span> <span class="p">{</span>
-		<span class="o">*</span><span class="nx">a</span><span class="p">.</span><span class="nx">index</span><span class="o">++</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">iterator</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Iterator</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">Idx</span><span class="p">()</span> <span class="kt">int</span>         <span class="c1">// 索引
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">Val</span><span class="p">()</span> <span class="kd">interface</span><span class="p">{}</span> <span class="c1">// 值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">HasNext</span><span class="p">()</span> <span class="kt">bool</span>    <span class="c1">// 是否还有下一个值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">Next</span><span class="p">()</span>            <span class="c1">// 下一个
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">ArrayIterator</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">array</span> <span class="p">[]</span><span class="kd">interface</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">index</span> <span class="o">*</span><span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// return idx
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="o">*</span><span class="nx">ArrayIterator</span><span class="p">)</span> <span class="nf">Idx</span><span class="p">()</span> <span class="o">*</span><span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">a</span><span class="p">.</span><span class="nx">index</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// return val
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="o">*</span><span class="nx">ArrayIterator</span><span class="p">)</span> <span class="nf">Val</span><span class="p">()</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">a</span><span class="p">.</span><span class="nx">array</span><span class="p">[</span><span class="o">*</span><span class="nx">a</span><span class="p">.</span><span class="nx">index</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// return is next
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="o">*</span><span class="nx">ArrayIterator</span><span class="p">)</span> <span class="nf">HasNext</span><span class="p">()</span> <span class="kt">bool</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">array</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="o">*</span><span class="nx">a</span><span class="p">.</span><span class="nx">index</span><span class="o">+</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// return next
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="o">*</span><span class="nx">ArrayIterator</span><span class="p">)</span> <span class="nf">Next</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">a</span><span class="p">.</span><span class="nf">HasNext</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="o">*</span><span class="nx">a</span><span class="p">.</span><span class="nx">index</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>单元测试</p>
@@ -1012,35 +1012,35 @@
 </span><span class="lnt">28
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">iterator</span>
-
-<span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&#34;fmt&#34;</span>
-	<span class="s">&#34;testing&#34;</span>
-<span class="p">)</span>
-
-<span class="kd">func</span> <span class="nf">TestArrayIterator</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">arr</span> <span class="o">:=</span> <span class="p">[]</span><span class="kd">interface</span><span class="p">{}{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">}</span>
-	<span class="nx">idx</span> <span class="o">:=</span> <span class="mi">0</span>
-	<span class="nx">interator</span> <span class="o">:=</span> <span class="nx">ArrayIterator</span><span class="p">{</span><span class="nx">array</span><span class="p">:</span> <span class="nx">arr</span><span class="p">,</span> <span class="nx">index</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">idx</span><span class="p">}</span>
-	<span class="k">for</span> <span class="nx">it</span> <span class="o">:=</span> <span class="nx">interator</span><span class="p">;</span> <span class="nx">it</span><span class="p">.</span><span class="nf">HasNext</span><span class="p">();</span> <span class="nx">it</span><span class="p">.</span><span class="nf">Next</span><span class="p">()</span> <span class="p">{</span>
-		<span class="nx">idx</span><span class="p">,</span> <span class="nx">val</span> <span class="o">:=</span> <span class="nx">it</span><span class="p">.</span><span class="nf">Idx</span><span class="p">(),</span> <span class="nx">it</span><span class="p">.</span><span class="nf">Val</span><span class="p">().(</span><span class="kt">int</span><span class="p">)</span>
-		<span class="k">for</span> <span class="nx">val</span> <span class="o">!=</span> <span class="nx">arr</span><span class="p">[</span><span class="o">*</span><span class="nx">idx</span><span class="p">]</span> <span class="p">{</span>
-			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;err&#34;</span><span class="p">)</span>
-		<span class="p">}</span>
-		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="o">*</span><span class="nx">idx</span><span class="p">,</span> <span class="nx">val</span><span class="p">)</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-<span class="c1">// result
-</span><span class="c1"></span><span class="o">==</span><span class="p">=</span> <span class="nx">RUN</span>   <span class="nx">TestArrayIterator</span>
-<span class="mi">0</span> <span class="mi">1</span>
-<span class="mi">1</span> <span class="mi">3</span>
-<span class="mi">2</span> <span class="mi">5</span>
-<span class="mi">3</span> <span class="mi">7</span>
-<span class="mi">4</span> <span class="mi">9</span>
-<span class="o">---</span> <span class="nx">PASS</span><span class="p">:</span> <span class="nf">TestArrayIterator</span> <span class="p">(</span><span class="mf">0.00</span><span class="nx">s</span><span class="p">)</span>
-<span class="nx">PASS</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">iterator</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;testing&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">TestArrayIterator</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">arr</span> <span class="o">:=</span> <span class="p">[]</span><span class="kd">interface</span><span class="p">{}{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">idx</span> <span class="o">:=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">interator</span> <span class="o">:=</span> <span class="nx">ArrayIterator</span><span class="p">{</span><span class="nx">array</span><span class="p">:</span> <span class="nx">arr</span><span class="p">,</span> <span class="nx">index</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">idx</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">it</span> <span class="o">:=</span> <span class="nx">interator</span><span class="p">;</span> <span class="nx">it</span><span class="p">.</span><span class="nf">HasNext</span><span class="p">();</span> <span class="nx">it</span><span class="p">.</span><span class="nf">Next</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">idx</span><span class="p">,</span> <span class="nx">val</span> <span class="o">:=</span> <span class="nx">it</span><span class="p">.</span><span class="nf">Idx</span><span class="p">(),</span> <span class="nx">it</span><span class="p">.</span><span class="nf">Val</span><span class="p">().(</span><span class="kt">int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="nx">val</span> <span class="o">!=</span> <span class="nx">arr</span><span class="p">[</span><span class="o">*</span><span class="nx">idx</span><span class="p">]</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;err&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="o">*</span><span class="nx">idx</span><span class="p">,</span> <span class="nx">val</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// result
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">==</span><span class="p">=</span> <span class="nx">RUN</span>   <span class="nx">TestArrayIterator</span>
+</span></span><span class="line"><span class="cl"><span class="mi">0</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="mi">1</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="mi">2</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl"><span class="mi">3</span> <span class="mi">7</span>
+</span></span><span class="line"><span class="cl"><span class="mi">4</span> <span class="mi">9</span>
+</span></span><span class="line"><span class="cl"><span class="o">---</span> <span class="nx">PASS</span><span class="p">:</span> <span class="nf">TestArrayIterator</span> <span class="p">(</span><span class="mf">0.00</span><span class="nx">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">PASS</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="命令模式" class="headerLink">
     <a href="#%e5%91%bd%e4%bb%a4%e6%a8%a1%e5%bc%8f" class="header-mark"></a>命令模式</h3><blockquote>
@@ -1125,67 +1125,67 @@
 </span><span class="lnt">60
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">command</span>
-
-<span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
-
-<span class="c1">// 定义一个Person，他有名字，他有动作且可以传递
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Person</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">name</span> <span class="kt">string</span>
-	<span class="nx">cmd</span>  <span class="nx">Command</span>
-<span class="p">}</span>
-
-<span class="c1">// 定义一个动作，他有执行者的名字，有具体操作的方法
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Command</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">person</span> <span class="o">*</span><span class="nx">Person</span>
-	<span class="nx">method</span> <span class="kd">func</span><span class="p">()</span>
-<span class="p">}</span>
-
-<span class="c1">// 实例化动作
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">NewCommand</span><span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Person</span><span class="p">,</span> <span class="nx">method</span> <span class="kd">func</span><span class="p">())</span> <span class="nx">Command</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="nx">Command</span><span class="p">{</span>
-		<span class="nx">person</span><span class="p">:</span> <span class="nx">p</span><span class="p">,</span>
-		<span class="nx">method</span><span class="p">:</span> <span class="nx">method</span><span class="p">,</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// execute
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Command</span><span class="p">)</span> <span class="nf">Execute</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nx">c</span><span class="p">.</span><span class="nf">method</span><span class="p">()</span>
-<span class="p">}</span>
-
-<span class="c1">// 实例化Person
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">NewPerson</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">cmd</span> <span class="nx">Command</span><span class="p">)</span> <span class="nx">Person</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="nx">Person</span><span class="p">{</span>
-		<span class="nx">name</span><span class="p">:</span> <span class="nx">name</span><span class="p">,</span>
-		<span class="nx">cmd</span><span class="p">:</span>  <span class="nx">cmd</span><span class="p">,</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="nf">Buy</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%s is buying&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">name</span><span class="p">))</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="nf">Cook</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%s is cooking&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">name</span><span class="p">))</span>
-	<span class="nx">p</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nf">Execute</span><span class="p">()</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="nf">Wash</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%s is washing&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">name</span><span class="p">))</span>
-	<span class="nx">p</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nf">Execute</span><span class="p">()</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="nf">Listen</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%s is Listening&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">name</span><span class="p">))</span>
-	<span class="nx">p</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nf">Execute</span><span class="p">()</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="nf">Talk</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%s is Talking&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">name</span><span class="p">))</span>
-	<span class="nx">p</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nf">Execute</span><span class="p">()</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">command</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 定义一个Person，他有名字，他有动作且可以传递
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">Person</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">name</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">cmd</span>  <span class="nx">Command</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 定义一个动作，他有执行者的名字，有具体操作的方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">Command</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">person</span> <span class="o">*</span><span class="nx">Person</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">method</span> <span class="kd">func</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 实例化动作
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">NewCommand</span><span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Person</span><span class="p">,</span> <span class="nx">method</span> <span class="kd">func</span><span class="p">())</span> <span class="nx">Command</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">Command</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">person</span><span class="p">:</span> <span class="nx">p</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">method</span><span class="p">:</span> <span class="nx">method</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// execute
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Command</span><span class="p">)</span> <span class="nf">Execute</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">c</span><span class="p">.</span><span class="nf">method</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 实例化Person
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">NewPerson</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">cmd</span> <span class="nx">Command</span><span class="p">)</span> <span class="nx">Person</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">Person</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">name</span><span class="p">:</span> <span class="nx">name</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">cmd</span><span class="p">:</span>  <span class="nx">cmd</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="nf">Buy</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%s is buying&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">name</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="nf">Cook</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%s is cooking&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">name</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">p</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nf">Execute</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="nf">Wash</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%s is washing&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">name</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">p</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nf">Execute</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="nf">Listen</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%s is Listening&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">name</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">p</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nf">Execute</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Person</span><span class="p">)</span> <span class="nf">Talk</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%s is Talking&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">name</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">p</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nf">Execute</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>单元测试</p>
@@ -1217,30 +1217,30 @@
 </span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">command</span>
-
-<span class="kn">import</span> <span class="s">&#34;testing&#34;</span>
-
-<span class="kd">func</span> <span class="nf">TestCommand_Execute</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// 依次调用
-</span><span class="c1"></span>	<span class="nx">zhangsan</span> <span class="o">:=</span> <span class="nf">NewPerson</span><span class="p">(</span><span class="s">&#34;zhangsan&#34;</span><span class="p">,</span> <span class="nf">NewCommand</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="kc">nil</span><span class="p">))</span>
-	<span class="nx">lisi</span> <span class="o">:=</span> <span class="nf">NewPerson</span><span class="p">(</span><span class="s">&#34;lisi&#34;</span><span class="p">,</span> <span class="nf">NewCommand</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">zhangsan</span><span class="p">,</span> <span class="nx">zhangsan</span><span class="p">.</span><span class="nx">Buy</span><span class="p">))</span>
-	<span class="nx">wangwu</span> <span class="o">:=</span> <span class="nf">NewPerson</span><span class="p">(</span><span class="s">&#34;wangwu&#34;</span><span class="p">,</span> <span class="nf">NewCommand</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lisi</span><span class="p">,</span> <span class="nx">lisi</span><span class="p">.</span><span class="nx">Cook</span><span class="p">))</span>
-	<span class="nx">zhaoliu</span> <span class="o">:=</span> <span class="nf">NewPerson</span><span class="p">(</span><span class="s">&#34;zhaoliu&#34;</span><span class="p">,</span> <span class="nf">NewCommand</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">wangwu</span><span class="p">,</span> <span class="nx">wangwu</span><span class="p">.</span><span class="nx">Listen</span><span class="p">))</span>
-	<span class="nx">sunqi</span> <span class="o">:=</span> <span class="nf">NewPerson</span><span class="p">(</span><span class="s">&#34;sunqi&#34;</span><span class="p">,</span> <span class="nf">NewCommand</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">zhaoliu</span><span class="p">,</span> <span class="nx">zhaoliu</span><span class="p">.</span><span class="nx">Wash</span><span class="p">))</span>
-
-	<span class="nx">sunqi</span><span class="p">.</span><span class="nf">Talk</span><span class="p">()</span>
-<span class="p">}</span>
-<span class="c1">// result
-</span><span class="c1"></span><span class="o">==</span><span class="p">=</span> <span class="nx">RUN</span>   <span class="nx">TestCommand_Execute</span>
-<span class="nx">sunqi</span> <span class="nx">is</span> <span class="nx">Talking</span>
-<span class="nx">zhaoliu</span> <span class="nx">is</span> <span class="nx">washing</span>
-<span class="nx">wangwu</span> <span class="nx">is</span> <span class="nx">Listening</span>
-<span class="nx">lisi</span> <span class="nx">is</span> <span class="nx">cooking</span>
-<span class="nx">zhangsan</span> <span class="nx">is</span> <span class="nx">buying</span>
-<span class="o">---</span> <span class="nx">PASS</span><span class="p">:</span> <span class="nf">TestCommand_Execute</span> <span class="p">(</span><span class="mf">0.00</span><span class="nx">s</span><span class="p">)</span>
-<span class="nx">PASS</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">command</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;testing&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">TestCommand_Execute</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 依次调用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">zhangsan</span> <span class="o">:=</span> <span class="nf">NewPerson</span><span class="p">(</span><span class="s">&#34;zhangsan&#34;</span><span class="p">,</span> <span class="nf">NewCommand</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="kc">nil</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">lisi</span> <span class="o">:=</span> <span class="nf">NewPerson</span><span class="p">(</span><span class="s">&#34;lisi&#34;</span><span class="p">,</span> <span class="nf">NewCommand</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">zhangsan</span><span class="p">,</span> <span class="nx">zhangsan</span><span class="p">.</span><span class="nx">Buy</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">wangwu</span> <span class="o">:=</span> <span class="nf">NewPerson</span><span class="p">(</span><span class="s">&#34;wangwu&#34;</span><span class="p">,</span> <span class="nf">NewCommand</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lisi</span><span class="p">,</span> <span class="nx">lisi</span><span class="p">.</span><span class="nx">Cook</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">zhaoliu</span> <span class="o">:=</span> <span class="nf">NewPerson</span><span class="p">(</span><span class="s">&#34;zhaoliu&#34;</span><span class="p">,</span> <span class="nf">NewCommand</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">wangwu</span><span class="p">,</span> <span class="nx">wangwu</span><span class="p">.</span><span class="nx">Listen</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">sunqi</span> <span class="o">:=</span> <span class="nf">NewPerson</span><span class="p">(</span><span class="s">&#34;sunqi&#34;</span><span class="p">,</span> <span class="nf">NewCommand</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">zhaoliu</span><span class="p">,</span> <span class="nx">zhaoliu</span><span class="p">.</span><span class="nx">Wash</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">sunqi</span><span class="p">.</span><span class="nf">Talk</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// result
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">==</span><span class="p">=</span> <span class="nx">RUN</span>   <span class="nx">TestCommand_Execute</span>
+</span></span><span class="line"><span class="cl"><span class="nx">sunqi</span> <span class="nx">is</span> <span class="nx">Talking</span>
+</span></span><span class="line"><span class="cl"><span class="nx">zhaoliu</span> <span class="nx">is</span> <span class="nx">washing</span>
+</span></span><span class="line"><span class="cl"><span class="nx">wangwu</span> <span class="nx">is</span> <span class="nx">Listening</span>
+</span></span><span class="line"><span class="cl"><span class="nx">lisi</span> <span class="nx">is</span> <span class="nx">cooking</span>
+</span></span><span class="line"><span class="cl"><span class="nx">zhangsan</span> <span class="nx">is</span> <span class="nx">buying</span>
+</span></span><span class="line"><span class="cl"><span class="o">---</span> <span class="nx">PASS</span><span class="p">:</span> <span class="nf">TestCommand_Execute</span> <span class="p">(</span><span class="mf">0.00</span><span class="nx">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">PASS</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="责任链模式" class="headerLink">
     <a href="#%e8%b4%a3%e4%bb%bb%e9%93%be%e6%a8%a1%e5%bc%8f" class="header-mark"></a>责任链模式</h3><blockquote>
@@ -1296,45 +1296,45 @@
 </span><span class="lnt">38
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">Responsibillity_Chain</span>
-
-<span class="kn">import</span> <span class="s">&#34;strconv&#34;</span>
-
-<span class="c1">// 定义一个接口 里面是处理方法
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Handler</span> <span class="kd">interface</span> <span class="p">{</span>
-	<span class="nf">Handler</span><span class="p">(</span><span class="nx">handlerID</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">string</span>
-<span class="p">}</span>
-
-<span class="c1">// 这个处理方法有一些参数，例如执行者的名字，ID以及他可以管理的下级
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">handler</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">name</span>      <span class="kt">string</span>
-	<span class="nx">next</span>      <span class="nx">Handler</span>
-	<span class="nx">handlerId</span> <span class="kt">int</span>
-<span class="p">}</span>
-
-<span class="c1">// 实例化这个处理方法
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">NewHandler</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">next</span> <span class="nx">Handler</span><span class="p">,</span> <span class="nx">handlerID</span> <span class="kt">int</span><span class="p">)</span> <span class="o">*</span><span class="nx">handler</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">handler</span><span class="p">{</span>
-		<span class="nx">name</span><span class="p">:</span>      <span class="nx">name</span><span class="p">,</span>
-		<span class="nx">next</span><span class="p">:</span>      <span class="nx">next</span><span class="p">,</span>
-		<span class="nx">handlerId</span><span class="p">:</span> <span class="nx">handlerID</span><span class="p">,</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// 定义处理方法
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">h</span> <span class="o">*</span><span class="nx">handler</span><span class="p">)</span> <span class="nf">Handler</span><span class="p">(</span><span class="nx">handlerID</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
-	<span class="c1">// 如果是自己执行，是可以的
-</span><span class="c1"></span>	<span class="k">if</span> <span class="nx">h</span><span class="p">.</span><span class="nx">handlerId</span> <span class="o">==</span> <span class="nx">handlerID</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="nx">h</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s">&#34; handled &#34;</span> <span class="o">+</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">Itoa</span><span class="p">(</span><span class="nx">handlerID</span><span class="p">)</span>
-	<span class="p">}</span>
-	<span class="c1">// 如果自己已经是一串责任链中的最后一个人，即代表后面没有，那就返回
-</span><span class="c1"></span>	<span class="k">if</span> <span class="nx">h</span><span class="p">.</span><span class="nx">next</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="s">&#34;&#34;</span>
-	<span class="p">}</span>
-	<span class="c1">// 否则就继续给下个人执行
-</span><span class="c1"></span>	<span class="k">return</span> <span class="nx">h</span><span class="p">.</span><span class="nx">next</span><span class="p">.</span><span class="nf">Handler</span><span class="p">(</span><span class="nx">handlerID</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">Responsibillity_Chain</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;strconv&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 定义一个接口 里面是处理方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">Handler</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">Handler</span><span class="p">(</span><span class="nx">handlerID</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 这个处理方法有一些参数，例如执行者的名字，ID以及他可以管理的下级
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">handler</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">name</span>      <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">next</span>      <span class="nx">Handler</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">handlerId</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 实例化这个处理方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">NewHandler</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">next</span> <span class="nx">Handler</span><span class="p">,</span> <span class="nx">handlerID</span> <span class="kt">int</span><span class="p">)</span> <span class="o">*</span><span class="nx">handler</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">handler</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">name</span><span class="p">:</span>      <span class="nx">name</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">next</span><span class="p">:</span>      <span class="nx">next</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">handlerId</span><span class="p">:</span> <span class="nx">handlerID</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 定义处理方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">h</span> <span class="o">*</span><span class="nx">handler</span><span class="p">)</span> <span class="nf">Handler</span><span class="p">(</span><span class="nx">handlerID</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 如果是自己执行，是可以的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span> <span class="nx">h</span><span class="p">.</span><span class="nx">handlerId</span> <span class="o">==</span> <span class="nx">handlerID</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">h</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s">&#34; handled &#34;</span> <span class="o">+</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">Itoa</span><span class="p">(</span><span class="nx">handlerID</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 如果自己已经是一串责任链中的最后一个人，即代表后面没有，那就返回
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span> <span class="nx">h</span><span class="p">.</span><span class="nx">next</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="s">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 否则就继续给下个人执行
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">return</span> <span class="nx">h</span><span class="p">.</span><span class="nx">next</span><span class="p">.</span><span class="nf">Handler</span><span class="p">(</span><span class="nx">handlerID</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>单元测试</p>
@@ -1369,33 +1369,33 @@
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">Responsibillity_Chain</span>
-
-<span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&#34;fmt&#34;</span>
-	<span class="s">&#34;testing&#34;</span>
-<span class="p">)</span>
-
-<span class="kd">func</span> <span class="nf">TestHandler_Handle</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
-	<span class="c1">// 李四是大领导 张三是小领导 李四管着张三
-</span><span class="c1"></span>	<span class="nx">zhangsan</span> <span class="o">:=</span> <span class="nf">NewHandler</span><span class="p">(</span><span class="s">&#34;zhangsan&#34;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-	<span class="nx">lisi</span> <span class="o">:=</span> <span class="nf">NewHandler</span><span class="p">(</span><span class="s">&#34;lisi&#34;</span><span class="p">,</span> <span class="nx">zhangsan</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-
-	<span class="c1">// 李四可以自己处理，当然也可以叫下级处理
-</span><span class="c1"></span>	<span class="nx">task</span> <span class="o">:=</span> <span class="nx">lisi</span><span class="p">.</span><span class="nf">Handler</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-	<span class="c1">//task := lisi.Handler(1)
-</span><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">task</span><span class="p">)</span>
-	<span class="c1">// 张三只能处理自己的，处理不了的还需要给上级
-</span><span class="c1"></span>	<span class="nx">task</span> <span class="p">=</span> <span class="nx">zhangsan</span><span class="p">.</span><span class="nf">Handler</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">task</span><span class="p">)</span>
-<span class="p">}</span>
-<span class="c1">// result
-</span><span class="c1"></span><span class="o">==</span><span class="p">=</span> <span class="nx">RUN</span>   <span class="nx">TestHandler_Handle</span>
-<span class="nx">lisi</span> <span class="nx">handled</span> <span class="mi">2</span>
-<span class="nx">zhangsan</span> <span class="nx">handled</span> <span class="mi">1</span>
-<span class="o">---</span> <span class="nx">PASS</span><span class="p">:</span> <span class="nf">TestHandler_Handle</span> <span class="p">(</span><span class="mf">0.00</span><span class="nx">s</span><span class="p">)</span>
-<span class="nx">PASS</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">Responsibillity_Chain</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;testing&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">TestHandler_Handle</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 李四是大领导 张三是小领导 李四管着张三
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">zhangsan</span> <span class="o">:=</span> <span class="nf">NewHandler</span><span class="p">(</span><span class="s">&#34;zhangsan&#34;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">lisi</span> <span class="o">:=</span> <span class="nf">NewHandler</span><span class="p">(</span><span class="s">&#34;lisi&#34;</span><span class="p">,</span> <span class="nx">zhangsan</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 李四可以自己处理，当然也可以叫下级处理
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">task</span> <span class="o">:=</span> <span class="nx">lisi</span><span class="p">.</span><span class="nf">Handler</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//task := lisi.Handler(1)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">task</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 张三只能处理自己的，处理不了的还需要给上级
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">task</span> <span class="p">=</span> <span class="nx">zhangsan</span><span class="p">.</span><span class="nf">Handler</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">task</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// result
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">==</span><span class="p">=</span> <span class="nx">RUN</span>   <span class="nx">TestHandler_Handle</span>
+</span></span><span class="line"><span class="cl"><span class="nx">lisi</span> <span class="nx">handled</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="nx">zhangsan</span> <span class="nx">handled</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="o">---</span> <span class="nx">PASS</span><span class="p">:</span> <span class="nf">TestHandler_Handle</span> <span class="p">(</span><span class="mf">0.00</span><span class="nx">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">PASS</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="观察者模式" class="headerLink">
     <a href="#%e8%a7%82%e5%af%9f%e8%80%85%e6%a8%a1%e5%bc%8f" class="header-mark"></a>观察者模式</h3><blockquote>
@@ -1485,85 +1485,83 @@
 </span><span class="lnt">72
 </span><span class="lnt">73
 </span><span class="lnt">74
-</span><span class="lnt">75
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">Observer</span>
-
-<span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&#34;fmt&#34;</span>
-	<span class="s">&#34;sync&#34;</span>
-	<span class="s">&#34;time&#34;</span>
-<span class="p">)</span>
-
-<span class="c1">// 定义事件，用于通知
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Event</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">Data</span> <span class="kt">int</span>
-<span class="p">}</span>
-
-<span class="c1">// 定义观察者接口，通知回馈
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Observer</span> <span class="kd">interface</span> <span class="p">{</span>
-	<span class="nf">NotifyCallback</span><span class="p">(</span><span class="nx">event</span> <span class="nx">Event</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="c1">// 定义主题接口，实现添加监听，移除监听，通知三个方法
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Subject</span> <span class="kd">interface</span> <span class="p">{</span>
-	<span class="nf">AddListener</span><span class="p">(</span><span class="nx">observer</span> <span class="nx">Observer</span><span class="p">)</span>
-	<span class="nf">RemoveListener</span><span class="p">(</span><span class="nx">observer</span> <span class="nx">Observer</span><span class="p">)</span>
-	<span class="nf">Notify</span><span class="p">(</span><span class="nx">event</span> <span class="nx">Event</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="c1">// 确保观察者唯一
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">eventObserver</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">ID</span>   <span class="kt">int</span>
-	<span class="nx">Time</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span>
-<span class="p">}</span>
-
-<span class="c1">// 方法体
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">eventSubject</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">Observers</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">Map</span>
-<span class="p">}</span>
-
-<span class="c1">// NotifyCallback
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">eventObserver</span><span class="p">)</span> <span class="nf">NotifyCallback</span><span class="p">(</span><span class="nx">event</span> <span class="nx">Event</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Recieved: %d after %v\n&#34;</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Data</span><span class="p">,</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Since</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">Time</span><span class="p">))</span>
-<span class="p">}</span>
-
-<span class="c1">// AddListener
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">eventSubject</span><span class="p">)</span> <span class="nf">AddListener</span><span class="p">(</span><span class="nx">obs</span> <span class="nx">Observer</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">e</span><span class="p">.</span><span class="nx">Observers</span><span class="p">.</span><span class="nf">Store</span><span class="p">(</span><span class="nx">obs</span><span class="p">,</span> <span class="kd">struct</span><span class="p">{}{})</span>
-<span class="p">}</span>
-
-<span class="c1">// RemoveListener
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">eventSubject</span><span class="p">)</span> <span class="nf">RemoveListener</span><span class="p">(</span><span class="nx">obs</span> <span class="nx">Observer</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">e</span><span class="p">.</span><span class="nx">Observers</span><span class="p">.</span><span class="nf">Delete</span><span class="p">(</span><span class="nx">obs</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="c1">// Notify
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">eventSubject</span><span class="p">)</span> <span class="nf">Notify</span><span class="p">(</span><span class="nx">event</span> <span class="nx">Event</span><span class="p">)</span> <span class="p">{</span>
-	<span class="c1">// 范围依次调用映射中的每个键和值，如果f返回false，则range停止迭代
-</span><span class="c1"></span>	<span class="nx">e</span><span class="p">.</span><span class="nx">Observers</span><span class="p">.</span><span class="nf">Range</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span> <span class="kd">interface</span><span class="p">{})</span> <span class="kt">bool</span> <span class="p">{</span>
-		<span class="k">if</span> <span class="nx">key</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
-			<span class="k">return</span> <span class="kc">false</span>
-		<span class="p">}</span>
-		<span class="nx">key</span><span class="p">.(</span><span class="nx">Observer</span><span class="p">).</span><span class="nf">NotifyCallback</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span>
-		<span class="k">return</span> <span class="kc">true</span>
-	<span class="p">})</span>
-<span class="p">}</span>
-
-<span class="c1">// 输出fib序列数
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">Fib</span><span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">)</span> <span class="kd">chan</span> <span class="kt">int</span> <span class="p">{</span>
-	<span class="nx">out</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">)</span>
-	<span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
-		<span class="k">defer</span> <span class="nb">close</span><span class="p">(</span><span class="nx">out</span><span class="p">)</span>
-		<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="p">=</span> <span class="nx">i</span><span class="o">+</span><span class="nx">j</span><span class="p">,</span> <span class="nx">i</span> <span class="p">{</span>
-			<span class="nx">out</span> <span class="o">&lt;-</span> <span class="nx">i</span>
-		<span class="p">}</span>
-	<span class="p">}()</span>
-	<span class="k">return</span> <span class="nx">out</span>
-<span class="p">}</span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">Observer</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;sync&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;time&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 定义事件，用于通知
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">Event</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Data</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 定义观察者接口，通知回馈
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">Observer</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">NotifyCallback</span><span class="p">(</span><span class="nx">event</span> <span class="nx">Event</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 定义主题接口，实现添加监听，移除监听，通知三个方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">Subject</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">AddListener</span><span class="p">(</span><span class="nx">observer</span> <span class="nx">Observer</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">RemoveListener</span><span class="p">(</span><span class="nx">observer</span> <span class="nx">Observer</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">Notify</span><span class="p">(</span><span class="nx">event</span> <span class="nx">Event</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 确保观察者唯一
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">eventObserver</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">ID</span>   <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Time</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 方法体
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">eventSubject</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Observers</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">Map</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// NotifyCallback
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">eventObserver</span><span class="p">)</span> <span class="nf">NotifyCallback</span><span class="p">(</span><span class="nx">event</span> <span class="nx">Event</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Recieved: %d after %v\n&#34;</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">Data</span><span class="p">,</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Since</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">Time</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// AddListener
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">eventSubject</span><span class="p">)</span> <span class="nf">AddListener</span><span class="p">(</span><span class="nx">obs</span> <span class="nx">Observer</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">e</span><span class="p">.</span><span class="nx">Observers</span><span class="p">.</span><span class="nf">Store</span><span class="p">(</span><span class="nx">obs</span><span class="p">,</span> <span class="kd">struct</span><span class="p">{}{})</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// RemoveListener
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">eventSubject</span><span class="p">)</span> <span class="nf">RemoveListener</span><span class="p">(</span><span class="nx">obs</span> <span class="nx">Observer</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">e</span><span class="p">.</span><span class="nx">Observers</span><span class="p">.</span><span class="nf">Delete</span><span class="p">(</span><span class="nx">obs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Notify
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">eventSubject</span><span class="p">)</span> <span class="nf">Notify</span><span class="p">(</span><span class="nx">event</span> <span class="nx">Event</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 范围依次调用映射中的每个键和值，如果f返回false，则range停止迭代
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">e</span><span class="p">.</span><span class="nx">Observers</span><span class="p">.</span><span class="nf">Range</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span> <span class="kd">interface</span><span class="p">{})</span> <span class="kt">bool</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">key</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">key</span><span class="p">.(</span><span class="nx">Observer</span><span class="p">).</span><span class="nf">NotifyCallback</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">	<span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 输出fib序列数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">Fib</span><span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">)</span> <span class="kd">chan</span> <span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">out</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">defer</span> <span class="nb">close</span><span class="p">(</span><span class="nx">out</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="p">=</span> <span class="nx">i</span><span class="o">+</span><span class="nx">j</span><span class="p">,</span> <span class="nx">i</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">out</span> <span class="o">&lt;-</span> <span class="nx">i</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}()</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">out</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>单元测试</p>
@@ -1612,47 +1610,47 @@
 </span><span class="lnt">40
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">Observer</span>
-
-<span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&#34;sync&#34;</span>
-	<span class="s">&#34;testing&#34;</span>
-	<span class="s">&#34;time&#34;</span>
-<span class="p">)</span>
-
-<span class="kd">func</span> <span class="nf">TestFib</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
-	<span class="c1">// 实例化主题对象
-</span><span class="c1"></span>	<span class="nx">subject</span> <span class="o">:=</span> <span class="nx">eventSubject</span><span class="p">{</span><span class="nx">Observers</span><span class="p">:</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">Map</span><span class="p">{}}</span>
-	<span class="c1">// 绑定观察者ID
-</span><span class="c1"></span>	<span class="nx">obs1</span> <span class="o">:=</span> <span class="nx">eventObserver</span><span class="p">{</span><span class="nx">ID</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">Time</span><span class="p">:</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">()}</span>
-	<span class="nx">obs2</span> <span class="o">:=</span> <span class="nx">eventObserver</span><span class="p">{</span><span class="nx">ID</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">Time</span><span class="p">:</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">()}</span>
-	<span class="c1">// 添加监听
-</span><span class="c1"></span>	<span class="nx">subject</span><span class="p">.</span><span class="nf">AddListener</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">obs1</span><span class="p">)</span>
-	<span class="nx">subject</span><span class="p">.</span><span class="nf">AddListener</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">obs2</span><span class="p">)</span>
-
-	<span class="k">for</span> <span class="nx">k</span> <span class="o">:=</span> <span class="k">range</span> <span class="nf">Fib</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
-		<span class="nx">subject</span><span class="p">.</span><span class="nf">Notify</span><span class="p">(</span><span class="nx">Event</span><span class="p">{</span><span class="nx">Data</span><span class="p">:</span> <span class="nx">k</span><span class="p">})</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-<span class="c1">// result
-</span><span class="c1"></span><span class="o">==</span><span class="p">=</span> <span class="nx">RUN</span>   <span class="nx">TestFib</span>
-<span class="nx">Recieved</span><span class="p">:</span> <span class="mi">0</span> <span class="nx">after</span> <span class="mi">0</span><span class="nx">s</span>
-<span class="nx">Recieved</span><span class="p">:</span> <span class="mi">0</span> <span class="nx">after</span> <span class="mi">0</span><span class="nx">s</span>
-<span class="nx">Recieved</span><span class="p">:</span> <span class="mi">1</span> <span class="nx">after</span> <span class="mi">0</span><span class="nx">s</span>
-<span class="nx">Recieved</span><span class="p">:</span> <span class="mi">1</span> <span class="nx">after</span> <span class="mi">0</span><span class="nx">s</span>
-<span class="nx">Recieved</span><span class="p">:</span> <span class="mi">1</span> <span class="nx">after</span> <span class="mi">0</span><span class="nx">s</span>
-<span class="nx">Recieved</span><span class="p">:</span> <span class="mi">1</span> <span class="nx">after</span> <span class="mi">0</span><span class="nx">s</span>
-<span class="nx">Recieved</span><span class="p">:</span> <span class="mi">2</span> <span class="nx">after</span> <span class="mi">0</span><span class="nx">s</span>
-<span class="nx">Recieved</span><span class="p">:</span> <span class="mi">2</span> <span class="nx">after</span> <span class="mi">0</span><span class="nx">s</span>
-<span class="nx">Recieved</span><span class="p">:</span> <span class="mi">3</span> <span class="nx">after</span> <span class="mi">0</span><span class="nx">s</span>
-<span class="nx">Recieved</span><span class="p">:</span> <span class="mi">3</span> <span class="nx">after</span> <span class="mi">0</span><span class="nx">s</span>
-<span class="nx">Recieved</span><span class="p">:</span> <span class="mi">5</span> <span class="nx">after</span> <span class="mf">962.3</span><span class="nx">µs</span>
-<span class="nx">Recieved</span><span class="p">:</span> <span class="mi">5</span> <span class="nx">after</span> <span class="mf">962.3</span><span class="nx">µs</span>
-<span class="nx">Recieved</span><span class="p">:</span> <span class="mi">8</span> <span class="nx">after</span> <span class="mf">962.3</span><span class="nx">µs</span>
-<span class="nx">Recieved</span><span class="p">:</span> <span class="mi">8</span> <span class="nx">after</span> <span class="mf">962.3</span><span class="nx">µs</span>
-<span class="o">---</span> <span class="nx">PASS</span><span class="p">:</span> <span class="nf">TestFib</span> <span class="p">(</span><span class="mf">0.00</span><span class="nx">s</span><span class="p">)</span>
-<span class="nx">PASS</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">Observer</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;sync&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;testing&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;time&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">TestFib</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 实例化主题对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">subject</span> <span class="o">:=</span> <span class="nx">eventSubject</span><span class="p">{</span><span class="nx">Observers</span><span class="p">:</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">Map</span><span class="p">{}}</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 绑定观察者ID
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">obs1</span> <span class="o">:=</span> <span class="nx">eventObserver</span><span class="p">{</span><span class="nx">ID</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">Time</span><span class="p">:</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">()}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">obs2</span> <span class="o">:=</span> <span class="nx">eventObserver</span><span class="p">{</span><span class="nx">ID</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">Time</span><span class="p">:</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">()}</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 添加监听
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">subject</span><span class="p">.</span><span class="nf">AddListener</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">obs1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">subject</span><span class="p">.</span><span class="nf">AddListener</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">obs2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">k</span> <span class="o">:=</span> <span class="k">range</span> <span class="nf">Fib</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">subject</span><span class="p">.</span><span class="nf">Notify</span><span class="p">(</span><span class="nx">Event</span><span class="p">{</span><span class="nx">Data</span><span class="p">:</span> <span class="nx">k</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// result
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">==</span><span class="p">=</span> <span class="nx">RUN</span>   <span class="nx">TestFib</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Recieved</span><span class="p">:</span> <span class="mi">0</span> <span class="nx">after</span> <span class="mi">0</span><span class="nx">s</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Recieved</span><span class="p">:</span> <span class="mi">0</span> <span class="nx">after</span> <span class="mi">0</span><span class="nx">s</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Recieved</span><span class="p">:</span> <span class="mi">1</span> <span class="nx">after</span> <span class="mi">0</span><span class="nx">s</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Recieved</span><span class="p">:</span> <span class="mi">1</span> <span class="nx">after</span> <span class="mi">0</span><span class="nx">s</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Recieved</span><span class="p">:</span> <span class="mi">1</span> <span class="nx">after</span> <span class="mi">0</span><span class="nx">s</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Recieved</span><span class="p">:</span> <span class="mi">1</span> <span class="nx">after</span> <span class="mi">0</span><span class="nx">s</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Recieved</span><span class="p">:</span> <span class="mi">2</span> <span class="nx">after</span> <span class="mi">0</span><span class="nx">s</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Recieved</span><span class="p">:</span> <span class="mi">2</span> <span class="nx">after</span> <span class="mi">0</span><span class="nx">s</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Recieved</span><span class="p">:</span> <span class="mi">3</span> <span class="nx">after</span> <span class="mi">0</span><span class="nx">s</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Recieved</span><span class="p">:</span> <span class="mi">3</span> <span class="nx">after</span> <span class="mi">0</span><span class="nx">s</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Recieved</span><span class="p">:</span> <span class="mi">5</span> <span class="nx">after</span> <span class="mf">962.3</span><span class="nx">µs</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Recieved</span><span class="p">:</span> <span class="mi">5</span> <span class="nx">after</span> <span class="mf">962.3</span><span class="nx">µs</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Recieved</span><span class="p">:</span> <span class="mi">8</span> <span class="nx">after</span> <span class="mf">962.3</span><span class="nx">µs</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Recieved</span><span class="p">:</span> <span class="mi">8</span> <span class="nx">after</span> <span class="mf">962.3</span><span class="nx">µs</span>
+</span></span><span class="line"><span class="cl"><span class="o">---</span> <span class="nx">PASS</span><span class="p">:</span> <span class="nf">TestFib</span> <span class="p">(</span><span class="mf">0.00</span><span class="nx">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">PASS</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="参考" class="headerLink">
     <a href="#%e5%8f%82%e8%80%83" class="header-mark"></a>参考</h2><ul>
@@ -1698,7 +1696,7 @@
             </noscript></div></article></div>
         </main><footer class="footer">
         <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">
-                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
+                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.93.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank" rel="noopener noreferrer">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
             <div class="footer-line"></div>

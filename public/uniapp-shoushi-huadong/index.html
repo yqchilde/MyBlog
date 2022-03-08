@@ -193,16 +193,16 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
-	<span class="p">&lt;</span><span class="nt">view</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;page&#34;</span> <span class="err">@</span><span class="na">touchmove</span><span class="o">=</span><span class="s">&#34;touchRight&#34;</span> <span class="err">@</span><span class="na">touchstart</span><span class="o">=</span><span class="s">&#34;touchStart&#34;</span> <span class="err">@</span><span class="na">touchend</span><span class="o">=</span><span class="s">&#34;touchEnd&#34;</span><span class="p">&gt;</span>
-		<span class="p">&lt;</span><span class="nt">uni-drawer</span> <span class="na">:visible</span><span class="o">=</span><span class="s">&#34;showLeft&#34;</span> <span class="na">mode</span><span class="o">=</span><span class="s">&#34;left&#34;</span> <span class="err">@</span><span class="na">close</span><span class="o">=</span><span class="s">&#34;closeDrawer(&#39;left&#39;)&#34;</span><span class="p">&gt;</span> <span class="c">&lt;!-- @close=&#34;closeDrawer(&#39;left&#39;)&#34; --&gt;</span>
-			<span class="p">&lt;</span><span class="nt">uni-list-item</span> <span class="na">title</span><span class="o">=</span><span class="s">&#34;Item1&#34;</span> <span class="p">/&gt;</span>
-			<span class="p">&lt;</span><span class="nt">uni-list-item</span> <span class="na">title</span><span class="o">=</span><span class="s">&#34;Item2&#34;</span> <span class="p">/&gt;</span>
-			<span class="p">&lt;</span><span class="nt">uni-list-item</span> <span class="na">:show-badge</span><span class="o">=</span><span class="s">&#34;true&#34;</span> <span class="na">title</span><span class="o">=</span><span class="s">&#34;Item3&#34;</span> <span class="na">badge-text</span><span class="o">=</span><span class="s">&#34;12&#34;</span> <span class="p">/&gt;</span>
-		<span class="p">&lt;/</span><span class="nt">uni-drawer</span><span class="p">&gt;</span>
-	<span class="p">&lt;/</span><span class="nt">view</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">&lt;</span><span class="nt">view</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;page&#34;</span> <span class="err">@</span><span class="na">touchmove</span><span class="o">=</span><span class="s">&#34;touchRight&#34;</span> <span class="err">@</span><span class="na">touchstart</span><span class="o">=</span><span class="s">&#34;touchStart&#34;</span> <span class="err">@</span><span class="na">touchend</span><span class="o">=</span><span class="s">&#34;touchEnd&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">&lt;</span><span class="nt">uni-drawer</span> <span class="na">:visible</span><span class="o">=</span><span class="s">&#34;showLeft&#34;</span> <span class="na">mode</span><span class="o">=</span><span class="s">&#34;left&#34;</span> <span class="err">@</span><span class="na">close</span><span class="o">=</span><span class="s">&#34;closeDrawer(&#39;left&#39;)&#34;</span><span class="p">&gt;</span> <span class="c">&lt;!-- @close=&#34;closeDrawer(&#39;left&#39;)&#34; --&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;</span><span class="nt">uni-list-item</span> <span class="na">title</span><span class="o">=</span><span class="s">&#34;Item1&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;</span><span class="nt">uni-list-item</span> <span class="na">title</span><span class="o">=</span><span class="s">&#34;Item2&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">&lt;</span><span class="nt">uni-list-item</span> <span class="na">:show-badge</span><span class="o">=</span><span class="s">&#34;true&#34;</span> <span class="na">title</span><span class="o">=</span><span class="s">&#34;Item3&#34;</span> <span class="na">badge-text</span><span class="o">=</span><span class="s">&#34;12&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">&lt;/</span><span class="nt">uni-drawer</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">&lt;/</span><span class="nt">view</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -305,104 +305,104 @@
 </span><span class="lnt">97
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
-	<span class="kr">import</span> <span class="nx">uniDrawer</span> <span class="nx">from</span> <span class="s2">&#34;@/components/uni-drawer/uni-drawer.vue&#34;</span>
-	<span class="kr">import</span> <span class="nx">uniList</span> <span class="nx">from</span> <span class="s1">&#39;@/components/uni-list/uni-list.vue&#39;</span>
-	<span class="kr">import</span> <span class="nx">uniListItem</span> <span class="nx">from</span> <span class="s1">&#39;@/components/uni-list-item/uni-list-item.vue&#39;</span>
-	<span class="kd">var</span> <span class="nx">that</span><span class="p">;</span>
-	
-	<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
-		<span class="nx">components</span><span class="o">:</span> <span class="p">{</span>
-			<span class="nx">uniDrawer</span><span class="p">,</span>
-			<span class="nx">uniList</span><span class="p">,</span>
-			<span class="nx">uniListItem</span>
-		<span class="p">},</span>
-		<span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
-			<span class="k">return</span> <span class="p">{</span>
-				<span class="nx">showLeft</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-				<span class="nx">flag</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-				<span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-				<span class="nx">lastX</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-				<span class="nx">lastY</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-			<span class="p">}</span>
-		<span class="p">},</span>
-		<span class="nx">onLoad</span><span class="p">()</span> <span class="p">{</span>
-			<span class="nx">that</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
-		<span class="p">},</span>
-		<span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
-			<span class="nx">showDrawer</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-				<span class="k">if</span> <span class="p">(</span><span class="nx">e</span> <span class="o">===</span> <span class="s1">&#39;left&#39;</span><span class="p">)</span> <span class="p">{</span>
-					<span class="nx">that</span><span class="p">.</span><span class="nx">showLeft</span> <span class="o">=</span> <span class="kc">true</span>
-				<span class="p">}</span>
-			<span class="p">},</span>
-			<span class="nx">closeDrawer</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-				<span class="k">if</span> <span class="p">(</span><span class="nx">e</span> <span class="o">===</span> <span class="s1">&#39;left&#39;</span><span class="p">)</span> <span class="p">{</span>
-					<span class="nx">that</span><span class="p">.</span><span class="nx">showLeft</span> <span class="o">=</span> <span class="kc">false</span>
-				<span class="p">}</span>
-			<span class="p">},</span>
-			<span class="nx">touchRight</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 向右移动
-</span><span class="c1"></span>				<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;移动中&#34;</span><span class="p">);</span>
-				<span class="k">if</span> <span class="p">(</span><span class="nx">that</span><span class="p">.</span><span class="nx">flag</span> <span class="o">!==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-					<span class="k">return</span><span class="p">;</span>
-				<span class="p">}</span>
-				<span class="kd">let</span> <span class="nx">currentX</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">touches</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">pageX</span><span class="p">;</span>
-				<span class="kd">let</span> <span class="nx">currentY</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">touches</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">pageY</span><span class="p">;</span>
-				<span class="kd">let</span> <span class="nx">tx</span> <span class="o">=</span> <span class="nx">currentX</span> <span class="o">-</span> <span class="nx">that</span><span class="p">.</span><span class="nx">lastX</span><span class="p">;</span>
-				<span class="kd">let</span> <span class="nx">ty</span> <span class="o">=</span> <span class="nx">currentY</span> <span class="o">-</span> <span class="nx">that</span><span class="p">.</span><span class="nx">laseY</span><span class="p">;</span>
-				<span class="kd">let</span> <span class="nx">text</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
-				<span class="nx">that</span><span class="p">.</span><span class="nx">mindex</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-				<span class="c1">//左右方向滑动
-</span><span class="c1"></span>				<span class="k">if</span> <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">tx</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">ty</span><span class="p">))</span> <span class="p">{</span>
-					<span class="k">if</span> <span class="p">(</span><span class="nx">tx</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-						<span class="nx">text</span> <span class="o">=</span> <span class="s1">&#39;向左滑动&#39;</span><span class="p">;</span>
-						<span class="nx">that</span><span class="p">.</span><span class="nx">flag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-						<span class="c1">// that.closeDrawer(&#39;left&#39;);
-</span><span class="c1"></span>						<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
-					<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">tx</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-						<span class="nx">text</span> <span class="o">=</span> <span class="s1">&#39;向右滑动&#39;</span><span class="p">;</span>
-						<span class="nx">that</span><span class="p">.</span><span class="nx">flag</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-						<span class="nx">that</span><span class="p">.</span><span class="nx">showDrawer</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">);</span>
-						<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
-					<span class="p">}</span>
-				<span class="p">}</span>
-			<span class="p">},</span>
-			<span class="c1">// touchTop: function(e) { // 上下移动
-</span><span class="c1"></span>            <span class="c1">//     if (that.flag !== 0) {
-</span><span class="c1"></span>            <span class="c1">//         return;
-</span><span class="c1"></span>            <span class="c1">//     }
-</span><span class="c1"></span>            <span class="c1">//     let currentX = e.touches[0].pageX;
-</span><span class="c1"></span>            <span class="c1">//     let currentY = e.touches[0].pageY;8
-</span><span class="c1"></span>            <span class="c1">//     let tx = currentX - that.lastX;
-</span><span class="c1"></span>            <span class="c1">//     let ty = currentY - that.laseY;
-</span><span class="c1"></span>            <span class="c1">//     that.mindex = -1;
-</span><span class="c1"></span>            <span class="c1">//     if (Math.abs(tx) &lt;= Math.abs(ty)) { //上下方向滑动
-</span><span class="c1"></span>            <span class="c1">//         if (ty &lt; 0) { //向上滑动
-</span><span class="c1"></span>            <span class="c1">//             this.flag = 1;
-</span><span class="c1"></span>            <span class="c1">//             this.floatButton = &#39;inline&#39;;
-</span><span class="c1"></span>            <span class="c1">//         } else if (ty &gt; 0) { // 向下滑动
-</span><span class="c1"></span>            <span class="c1">//             this.flag = 2;
-</span><span class="c1"></span>            <span class="c1">//             this.floatButton = &#39;none&#39;
-</span><span class="c1"></span>            <span class="c1">//         }
-</span><span class="c1"></span>            <span class="c1">//     }
-</span><span class="c1"></span>            <span class="c1">//     
-</span><span class="c1"></span>            <span class="c1">//     this.lastX = currentX;
-</span><span class="c1"></span>            <span class="c1">//     this.lastY = currentY;
-</span><span class="c1"></span>            <span class="c1">// },
-</span><span class="c1"></span>			<span class="nx">touchStart</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//开始移动
-</span><span class="c1"></span>				<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;开始移动&#34;</span><span class="p">);</span>
-				<span class="c1">// that.showDrawer(&#39;left&#39;);
-</span><span class="c1"></span>				<span class="nx">that</span><span class="p">.</span><span class="nx">lastX</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">touches</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">pageX</span><span class="p">;</span>
-				<span class="nx">that</span><span class="p">.</span><span class="nx">laseY</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">touches</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">pageY</span><span class="p">;</span>
-			<span class="p">},</span>
-			<span class="nx">touchEnd</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 结束移动
-</span><span class="c1"></span>				<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;结束移动&#34;</span><span class="p">);</span>
-				<span class="nx">that</span><span class="p">.</span><span class="nx">flag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-				<span class="nx">that</span><span class="p">.</span><span class="nx">text</span> <span class="o">=</span> <span class="s2">&#34;没有滑动&#34;</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-<span class="o">&lt;</span><span class="err">/script&gt;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="kr">import</span> <span class="nx">uniDrawer</span> <span class="nx">from</span> <span class="s2">&#34;@/components/uni-drawer/uni-drawer.vue&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="kr">import</span> <span class="nx">uniList</span> <span class="nx">from</span> <span class="s1">&#39;@/components/uni-list/uni-list.vue&#39;</span>
+</span></span><span class="line"><span class="cl">	<span class="kr">import</span> <span class="nx">uniListItem</span> <span class="nx">from</span> <span class="s1">&#39;@/components/uni-list-item/uni-list-item.vue&#39;</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">that</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">components</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">uniDrawer</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">uniList</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">uniListItem</span>
+</span></span><span class="line"><span class="cl">		<span class="p">},</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">showLeft</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">flag</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">lastX</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">lastY</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">},</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">onLoad</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">that</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="p">},</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">showDrawer</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="k">if</span> <span class="p">(</span><span class="nx">e</span> <span class="o">===</span> <span class="s1">&#39;left&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">that</span><span class="p">.</span><span class="nx">showLeft</span> <span class="o">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="p">},</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">closeDrawer</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="k">if</span> <span class="p">(</span><span class="nx">e</span> <span class="o">===</span> <span class="s1">&#39;left&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">that</span><span class="p">.</span><span class="nx">showLeft</span> <span class="o">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="p">},</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">touchRight</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 向右移动
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;移动中&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">				<span class="k">if</span> <span class="p">(</span><span class="nx">that</span><span class="p">.</span><span class="nx">flag</span> <span class="o">!==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="kd">let</span> <span class="nx">currentX</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">touches</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">pageX</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="kd">let</span> <span class="nx">currentY</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">touches</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">pageY</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="kd">let</span> <span class="nx">tx</span> <span class="o">=</span> <span class="nx">currentX</span> <span class="o">-</span> <span class="nx">that</span><span class="p">.</span><span class="nx">lastX</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="kd">let</span> <span class="nx">ty</span> <span class="o">=</span> <span class="nx">currentY</span> <span class="o">-</span> <span class="nx">that</span><span class="p">.</span><span class="nx">laseY</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="kd">let</span> <span class="nx">text</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">that</span><span class="p">.</span><span class="nx">mindex</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="c1">//左右方向滑动
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="k">if</span> <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">tx</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">ty</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="k">if</span> <span class="p">(</span><span class="nx">tx</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">						<span class="nx">text</span> <span class="o">=</span> <span class="s1">&#39;向左滑动&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">						<span class="nx">that</span><span class="p">.</span><span class="nx">flag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">						<span class="c1">// that.closeDrawer(&#39;left&#39;);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>						<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">					<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">tx</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">						<span class="nx">text</span> <span class="o">=</span> <span class="s1">&#39;向右滑动&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">						<span class="nx">that</span><span class="p">.</span><span class="nx">flag</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">						<span class="nx">that</span><span class="p">.</span><span class="nx">showDrawer</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">						<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">					<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="p">},</span>
+</span></span><span class="line"><span class="cl">			<span class="c1">// touchTop: function(e) { // 上下移动
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">//     if (that.flag !== 0) {
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">//         return;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">//     }
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">//     let currentX = e.touches[0].pageX;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">//     let currentY = e.touches[0].pageY;8
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">//     let tx = currentX - that.lastX;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">//     let ty = currentY - that.laseY;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">//     that.mindex = -1;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">//     if (Math.abs(tx) &lt;= Math.abs(ty)) { //上下方向滑动
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">//         if (ty &lt; 0) { //向上滑动
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">//             this.flag = 1;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">//             this.floatButton = &#39;inline&#39;;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">//         } else if (ty &gt; 0) { // 向下滑动
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">//             this.flag = 2;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">//             this.floatButton = &#39;none&#39;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">//         }
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">//     }
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">//     
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">//     this.lastX = currentX;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">//     this.lastY = currentY;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// },
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="nx">touchStart</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//开始移动
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;开始移动&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">				<span class="c1">// that.showDrawer(&#39;left&#39;);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="nx">that</span><span class="p">.</span><span class="nx">lastX</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">touches</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">pageX</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">that</span><span class="p">.</span><span class="nx">laseY</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">touches</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">pageY</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">},</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">touchEnd</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 结束移动
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;结束移动&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">that</span><span class="p">.</span><span class="nx">flag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">that</span><span class="p">.</span><span class="nx">text</span> <span class="o">=</span> <span class="s2">&#34;没有滑动&#34;</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/script&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div>
 
@@ -437,7 +437,7 @@
             </noscript></div></article></div>
         </main><footer class="footer">
         <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">
-                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
+                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.93.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank" rel="noopener noreferrer">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
             <div class="footer-line"></div>

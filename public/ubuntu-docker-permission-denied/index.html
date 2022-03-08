@@ -193,18 +193,18 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">1. 添加docker用户组
-sudo groupadd docker
-
-2. 检测当前用户是否已经在docker用户组中，其中XXX为系统用户名
-sudo gpasswd -a <span class="nv">$XXX</span> docker
-
-3. 将当前用户添加至docker用户组
-sudo gpasswd -a <span class="nv">$USER</span> docker
-
-4. 更新docker用户组
-newgrp docker
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">1. 添加docker用户组
+</span></span><span class="line"><span class="cl">sudo groupadd docker
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">2. 检测当前用户是否已经在docker用户组中，其中XXX为系统用户名
+</span></span><span class="line"><span class="cl">sudo gpasswd -a <span class="nv">$XXX</span> docker
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">3. 将当前用户添加至docker用户组
+</span></span><span class="line"><span class="cl">sudo gpasswd -a <span class="nv">$USER</span> docker
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">4. 更新docker用户组
+</span></span><span class="line"><span class="cl">newgrp docker
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20201111081918.png?imageMogr2/format/webp/interlace/1" title="image-20201111081917641" data-thumbnail="https://pic.yqqy.top/blog/20201111081918.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>解决方案</h2><p>image-20201111081917641</p>">
         <img
@@ -253,7 +253,7 @@ newgrp docker
             </noscript></div></article></div>
         </main><footer class="footer">
         <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">
-                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
+                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.93.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank" rel="noopener noreferrer">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
             <div class="footer-line"></div>

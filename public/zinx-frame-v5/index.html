@@ -200,22 +200,22 @@
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// IMessage 将去请求的消息封装起来
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">IMessage</span> <span class="kd">interface</span> <span class="p">{</span>
-	<span class="c1">// 获取消息数据段长度
-</span><span class="c1"></span>	<span class="nf">GetDataLen</span><span class="p">()</span> <span class="kt">uint32</span>
-	<span class="c1">// 获取消息ID
-</span><span class="c1"></span>	<span class="nf">GetMsgId</span><span class="p">()</span> <span class="kt">uint32</span>
-	<span class="c1">// 获取消息内容
-</span><span class="c1"></span>	<span class="nf">GetData</span><span class="p">()</span> <span class="p">[]</span><span class="kt">byte</span>
-	<span class="c1">// 设置消息ID
-</span><span class="c1"></span>	<span class="nf">SetMsgId</span><span class="p">(</span><span class="kt">uint32</span><span class="p">)</span>
-	<span class="c1">// 设置消息内容
-</span><span class="c1"></span>	<span class="nf">SetData</span><span class="p">([]</span><span class="kt">byte</span><span class="p">)</span>
-	<span class="c1">// 设置消息数据段长度
-</span><span class="c1"></span>	<span class="nf">SetDataLen</span><span class="p">(</span><span class="kt">uint32</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// IMessage 将去请求的消息封装起来
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">IMessage</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 获取消息数据段长度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">GetDataLen</span><span class="p">()</span> <span class="kt">uint32</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 获取消息ID
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">GetMsgId</span><span class="p">()</span> <span class="kt">uint32</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 获取消息内容
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">GetData</span><span class="p">()</span> <span class="p">[]</span><span class="kt">byte</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 设置消息ID
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">SetMsgId</span><span class="p">(</span><span class="kt">uint32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 设置消息内容
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">SetData</span><span class="p">([]</span><span class="kt">byte</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 设置消息数据段长度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">SetDataLen</span><span class="p">(</span><span class="kt">uint32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="消息实体及初始化" class="headerLink">
     <a href="#%e6%b6%88%e6%81%af%e5%ae%9e%e4%bd%93%e5%8f%8a%e5%88%9d%e5%a7%8b%e5%8c%96" class="header-mark"></a>消息实体及初始化</h3><p>这一块没有太多难度，直接贴代码了。</p>
@@ -271,55 +271,55 @@
 </span><span class="lnt">48
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// Message 包含消息的属性
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">Message</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="c1">// 消息ID
-</span><span class="c1"></span>	<span class="nx">ID</span> <span class="kt">uint32</span>
-	<span class="c1">// 消息长度
-</span><span class="c1"></span>	<span class="nx">DataLen</span> <span class="kt">uint32</span>
-	<span class="c1">// 消息内容
-</span><span class="c1"></span>	<span class="nx">Data</span> <span class="p">[]</span><span class="kt">byte</span>
-<span class="p">}</span>
-
-<span class="c1">// NewMsgPackage 初始化消息包
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">NewMsgPackage</span><span class="p">(</span><span class="nx">id</span> <span class="kt">uint32</span><span class="p">,</span> <span class="nx">data</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="o">*</span><span class="nx">Message</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">Message</span><span class="p">{</span>
-		<span class="nx">ID</span><span class="p">:</span>      <span class="nx">id</span><span class="p">,</span>
-		<span class="nx">DataLen</span><span class="p">:</span> <span class="nb">uint32</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nx">data</span><span class="p">)),</span>
-		<span class="nx">Data</span><span class="p">:</span>    <span class="nx">data</span><span class="p">,</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">//获取消息数据段长度
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">msg</span> <span class="o">*</span><span class="nx">Message</span><span class="p">)</span> <span class="nf">GetDataLen</span><span class="p">()</span> <span class="kt">uint32</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">DataLen</span>
-<span class="p">}</span>
-
-<span class="c1">//获取消息ID
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">msg</span> <span class="o">*</span><span class="nx">Message</span><span class="p">)</span> <span class="nf">GetMsgId</span><span class="p">()</span> <span class="kt">uint32</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">ID</span>
-<span class="p">}</span>
-
-<span class="c1">//获取消息内容
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">msg</span> <span class="o">*</span><span class="nx">Message</span><span class="p">)</span> <span class="nf">GetData</span><span class="p">()</span> <span class="p">[]</span><span class="kt">byte</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">Data</span>
-<span class="p">}</span>
-
-<span class="c1">//设置消息数据段长度
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">msg</span> <span class="o">*</span><span class="nx">Message</span><span class="p">)</span> <span class="nf">SetDataLen</span><span class="p">(</span><span class="nx">len</span> <span class="kt">uint32</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">msg</span><span class="p">.</span><span class="nx">DataLen</span> <span class="p">=</span> <span class="nx">len</span>
-<span class="p">}</span>
-
-<span class="c1">//设计消息ID
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">msg</span> <span class="o">*</span><span class="nx">Message</span><span class="p">)</span> <span class="nf">SetMsgId</span><span class="p">(</span><span class="nx">msgId</span> <span class="kt">uint32</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">msg</span><span class="p">.</span><span class="nx">ID</span> <span class="p">=</span> <span class="nx">msgId</span>
-<span class="p">}</span>
-
-<span class="c1">//设计消息内容
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">msg</span> <span class="o">*</span><span class="nx">Message</span><span class="p">)</span> <span class="nf">SetData</span><span class="p">(</span><span class="nx">data</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">msg</span><span class="p">.</span><span class="nx">Data</span> <span class="p">=</span> <span class="nx">data</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// Message 包含消息的属性
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">Message</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 消息ID
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">ID</span> <span class="kt">uint32</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 消息长度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">DataLen</span> <span class="kt">uint32</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 消息内容
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">Data</span> <span class="p">[]</span><span class="kt">byte</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// NewMsgPackage 初始化消息包
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">NewMsgPackage</span><span class="p">(</span><span class="nx">id</span> <span class="kt">uint32</span><span class="p">,</span> <span class="nx">data</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="o">*</span><span class="nx">Message</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">Message</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">ID</span><span class="p">:</span>      <span class="nx">id</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">DataLen</span><span class="p">:</span> <span class="nb">uint32</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nx">data</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Data</span><span class="p">:</span>    <span class="nx">data</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//获取消息数据段长度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">msg</span> <span class="o">*</span><span class="nx">Message</span><span class="p">)</span> <span class="nf">GetDataLen</span><span class="p">()</span> <span class="kt">uint32</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">DataLen</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//获取消息ID
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">msg</span> <span class="o">*</span><span class="nx">Message</span><span class="p">)</span> <span class="nf">GetMsgId</span><span class="p">()</span> <span class="kt">uint32</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">ID</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//获取消息内容
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">msg</span> <span class="o">*</span><span class="nx">Message</span><span class="p">)</span> <span class="nf">GetData</span><span class="p">()</span> <span class="p">[]</span><span class="kt">byte</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">Data</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//设置消息数据段长度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">msg</span> <span class="o">*</span><span class="nx">Message</span><span class="p">)</span> <span class="nf">SetDataLen</span><span class="p">(</span><span class="nx">len</span> <span class="kt">uint32</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">msg</span><span class="p">.</span><span class="nx">DataLen</span> <span class="p">=</span> <span class="nx">len</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//设计消息ID
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">msg</span> <span class="o">*</span><span class="nx">Message</span><span class="p">)</span> <span class="nf">SetMsgId</span><span class="p">(</span><span class="nx">msgId</span> <span class="kt">uint32</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">msg</span><span class="p">.</span><span class="nx">ID</span> <span class="p">=</span> <span class="nx">msgId</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//设计消息内容
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">msg</span> <span class="o">*</span><span class="nx">Message</span><span class="p">)</span> <span class="nf">SetData</span><span class="p">(</span><span class="nx">data</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">msg</span><span class="p">.</span><span class="nx">Data</span> <span class="p">=</span> <span class="nx">data</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="消息的封包与拆包" class="headerLink">
     <a href="#%e6%b6%88%e6%81%af%e7%9a%84%e5%b0%81%e5%8c%85%e4%b8%8e%e6%8b%86%e5%8c%85" class="header-mark"></a>消息的封包与拆包</h3><p>Zinx框架使用经典的 <strong>TLV(Type-Len-Value)</strong> 封包格式来解决TCP黏包问题。</p>
@@ -343,15 +343,15 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">IDataPack</span> <span class="kd">interface</span> <span class="p">{</span>
-	<span class="c1">// 头部长度
-</span><span class="c1"></span>	<span class="nf">GetHeadLen</span><span class="p">()</span> <span class="kt">uint32</span>
-	<span class="c1">// 封包方法
-</span><span class="c1"></span>	<span class="nf">Pack</span><span class="p">(</span><span class="nx">msg</span> <span class="nx">IMessage</span><span class="p">)</span> <span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
-	<span class="c1">// 拆包方法
-</span><span class="c1"></span>	<span class="nf">UnPack</span><span class="p">([]</span><span class="kt">byte</span><span class="p">)</span> <span class="p">(</span><span class="nx">IMessage</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">IDataPack</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 头部长度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">GetHeadLen</span><span class="p">()</span> <span class="kt">uint32</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 封包方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">Pack</span><span class="p">(</span><span class="nx">msg</span> <span class="nx">IMessage</span><span class="p">)</span> <span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 拆包方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">UnPack</span><span class="p">([]</span><span class="kt">byte</span><span class="p">)</span> <span class="p">(</span><span class="nx">IMessage</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>创建 <code>zinx/znet/datapack.go</code> 文件，实现<strong>IDataPack</strong>中的全部方法：</p>
 <div class="highlight"><div class="chroma">
@@ -416,65 +416,65 @@
 </span><span class="lnt">58
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// DataPack 封包拆包类对象
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">DataPack</span> <span class="kd">struct</span><span class="p">{}</span>
-
-<span class="c1">// NewDataPack 封包拆包实例初始化方法
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">NewDataPack</span><span class="p">()</span> <span class="o">*</span><span class="nx">DataPack</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">DataPack</span><span class="p">{}</span>
-<span class="p">}</span>
-
-<span class="c1">// GetHeadLen 获取包头长度方法
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">DataPack</span><span class="p">)</span> <span class="nf">GetHeadLen</span><span class="p">()</span> <span class="kt">uint32</span> <span class="p">{</span>
-	<span class="c1">// DataLen uint32(4) + MsgID uint32(4)
-</span><span class="c1"></span>	<span class="k">return</span> <span class="mi">8</span>
-<span class="p">}</span>
-
-<span class="c1">// Pack 封包方法
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">DataPack</span><span class="p">)</span> <span class="nf">Pack</span><span class="p">(</span><span class="nx">msg</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IMessage</span><span class="p">)</span> <span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">dataBuff</span> <span class="o">:=</span> <span class="nx">bytes</span><span class="p">.</span><span class="nf">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{})</span>
-
-	<span class="c1">// 写DataLen
-</span><span class="c1"></span>	<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">binary</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="nx">dataBuff</span><span class="p">,</span> <span class="nx">binary</span><span class="p">.</span><span class="nx">LittleEndian</span><span class="p">,</span> <span class="nx">msg</span><span class="p">.</span><span class="nf">GetDataLen</span><span class="p">());</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
-	<span class="p">}</span>
-
-	<span class="c1">// 写MsgID
-</span><span class="c1"></span>	<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">binary</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="nx">dataBuff</span><span class="p">,</span> <span class="nx">binary</span><span class="p">.</span><span class="nx">LittleEndian</span><span class="p">,</span> <span class="nx">msg</span><span class="p">.</span><span class="nf">GetMsgId</span><span class="p">());</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
-	<span class="p">}</span>
-
-	<span class="c1">// 写Data数据
-</span><span class="c1"></span>	<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">binary</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="nx">dataBuff</span><span class="p">,</span> <span class="nx">binary</span><span class="p">.</span><span class="nx">LittleEndian</span><span class="p">,</span> <span class="nx">msg</span><span class="p">.</span><span class="nf">GetData</span><span class="p">());</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
-	<span class="p">}</span>
-
-	<span class="k">return</span> <span class="nx">dataBuff</span><span class="p">.</span><span class="nf">Bytes</span><span class="p">(),</span> <span class="kc">nil</span>
-<span class="p">}</span>
-
-<span class="c1">// UnPack 拆包方法
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">DataPack</span><span class="p">)</span> <span class="nf">UnPack</span><span class="p">(</span><span class="nx">binaryData</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="p">(</span><span class="nx">ziface</span><span class="p">.</span><span class="nx">IMessage</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">dataBuff</span> <span class="o">:=</span> <span class="nx">bytes</span><span class="p">.</span><span class="nf">NewReader</span><span class="p">(</span><span class="nx">binaryData</span><span class="p">)</span>
-	<span class="nx">msg</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">Message</span><span class="p">)</span>
-
-	<span class="c1">// 读DataLen
-</span><span class="c1"></span>	<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">binary</span><span class="p">.</span><span class="nf">Read</span><span class="p">(</span><span class="nx">dataBuff</span><span class="p">,</span> <span class="nx">binary</span><span class="p">.</span><span class="nx">LittleEndian</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">msg</span><span class="p">.</span><span class="nx">DataLen</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
-	<span class="p">}</span>
-
-	<span class="c1">// 读MsgID
-</span><span class="c1"></span>	<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">binary</span><span class="p">.</span><span class="nf">Read</span><span class="p">(</span><span class="nx">dataBuff</span><span class="p">,</span> <span class="nx">binary</span><span class="p">.</span><span class="nx">LittleEndian</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">msg</span><span class="p">.</span><span class="nx">ID</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
-	<span class="p">}</span>
-
-	<span class="c1">// 判断DataLen是否合法
-</span><span class="c1"></span>	<span class="k">if</span> <span class="nx">utils</span><span class="p">.</span><span class="nx">GlobalObject</span><span class="p">.</span><span class="nx">MaxPacketSize</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">DataLen</span> <span class="p">&gt;</span> <span class="nx">utils</span><span class="p">.</span><span class="nx">GlobalObject</span><span class="p">.</span><span class="nx">MaxPacketSize</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;Too large msg data received &#34;</span><span class="p">)</span>
-	<span class="p">}</span>
-
-	<span class="k">return</span> <span class="nx">msg</span><span class="p">,</span> <span class="kc">nil</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// DataPack 封包拆包类对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">DataPack</span> <span class="kd">struct</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// NewDataPack 封包拆包实例初始化方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">NewDataPack</span><span class="p">()</span> <span class="o">*</span><span class="nx">DataPack</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">DataPack</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// GetHeadLen 获取包头长度方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">DataPack</span><span class="p">)</span> <span class="nf">GetHeadLen</span><span class="p">()</span> <span class="kt">uint32</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// DataLen uint32(4) + MsgID uint32(4)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">return</span> <span class="mi">8</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Pack 封包方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">DataPack</span><span class="p">)</span> <span class="nf">Pack</span><span class="p">(</span><span class="nx">msg</span> <span class="nx">ziface</span><span class="p">.</span><span class="nx">IMessage</span><span class="p">)</span> <span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">dataBuff</span> <span class="o">:=</span> <span class="nx">bytes</span><span class="p">.</span><span class="nf">NewBuffer</span><span class="p">([]</span><span class="kt">byte</span><span class="p">{})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 写DataLen
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">binary</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="nx">dataBuff</span><span class="p">,</span> <span class="nx">binary</span><span class="p">.</span><span class="nx">LittleEndian</span><span class="p">,</span> <span class="nx">msg</span><span class="p">.</span><span class="nf">GetDataLen</span><span class="p">());</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 写MsgID
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">binary</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="nx">dataBuff</span><span class="p">,</span> <span class="nx">binary</span><span class="p">.</span><span class="nx">LittleEndian</span><span class="p">,</span> <span class="nx">msg</span><span class="p">.</span><span class="nf">GetMsgId</span><span class="p">());</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 写Data数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">binary</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="nx">dataBuff</span><span class="p">,</span> <span class="nx">binary</span><span class="p">.</span><span class="nx">LittleEndian</span><span class="p">,</span> <span class="nx">msg</span><span class="p">.</span><span class="nf">GetData</span><span class="p">());</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">dataBuff</span><span class="p">.</span><span class="nf">Bytes</span><span class="p">(),</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// UnPack 拆包方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">DataPack</span><span class="p">)</span> <span class="nf">UnPack</span><span class="p">(</span><span class="nx">binaryData</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="p">(</span><span class="nx">ziface</span><span class="p">.</span><span class="nx">IMessage</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">dataBuff</span> <span class="o">:=</span> <span class="nx">bytes</span><span class="p">.</span><span class="nf">NewReader</span><span class="p">(</span><span class="nx">binaryData</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">msg</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">Message</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 读DataLen
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">binary</span><span class="p">.</span><span class="nf">Read</span><span class="p">(</span><span class="nx">dataBuff</span><span class="p">,</span> <span class="nx">binary</span><span class="p">.</span><span class="nx">LittleEndian</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">msg</span><span class="p">.</span><span class="nx">DataLen</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 读MsgID
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">binary</span><span class="p">.</span><span class="nf">Read</span><span class="p">(</span><span class="nx">dataBuff</span><span class="p">,</span> <span class="nx">binary</span><span class="p">.</span><span class="nx">LittleEndian</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">msg</span><span class="p">.</span><span class="nx">ID</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 判断DataLen是否合法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span> <span class="nx">utils</span><span class="p">.</span><span class="nx">GlobalObject</span><span class="p">.</span><span class="nx">MaxPacketSize</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">DataLen</span> <span class="p">&gt;</span> <span class="nx">utils</span><span class="p">.</span><span class="nx">GlobalObject</span><span class="p">.</span><span class="nx">MaxPacketSize</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;Too large msg data received &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">msg</span><span class="p">,</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="测试封包拆包" class="headerLink">
     <a href="#%e6%b5%8b%e8%af%95%e5%b0%81%e5%8c%85%e6%8b%86%e5%8c%85" class="header-mark"></a>测试封包拆包</h3><p>构建单元测试 <code>zinx/znet/datapack_test.go</code> 文件，代码如下：</p>
@@ -567,92 +567,92 @@
 </span><span class="lnt">85
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">TestDataPack</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
-	<span class="c1">// 模拟Server端
-</span><span class="c1"></span>	<span class="c1">// 1. 创建 socketTCP
-</span><span class="c1"></span>	<span class="nx">listener</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">Listen</span><span class="p">(</span><span class="s">&#34;tcp&#34;</span><span class="p">,</span> <span class="s">&#34;127.0.0.1:7777&#34;</span><span class="p">)</span>
-	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="nx">t</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">&#34;Server listener err: &#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-		<span class="k">return</span>
-	<span class="p">}</span>
-
-	<span class="c1">// 负责处理客户端业务
-</span><span class="c1"></span>	<span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
-		<span class="k">for</span> <span class="p">{</span>
-			<span class="c1">// 2. 从客户端读取数据，拆包处理
-</span><span class="c1"></span>			<span class="nx">conn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">listener</span><span class="p">.</span><span class="nf">Accept</span><span class="p">()</span>
-			<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-				<span class="nx">t</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">&#34;Server accept err: &#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-			<span class="p">}</span>
-
-			<span class="k">go</span> <span class="kd">func</span><span class="p">(</span><span class="nx">conn</span> <span class="nx">net</span><span class="p">.</span><span class="nx">Conn</span><span class="p">)</span> <span class="p">{</span>
-				<span class="c1">// 处理客户端的请求
-</span><span class="c1"></span>				<span class="nx">dp</span> <span class="o">:=</span> <span class="nf">NewDataPack</span><span class="p">()</span>
-				<span class="k">for</span> <span class="p">{</span>
-					<span class="c1">// 2.1 第一次从conn读，把包的head读出来
-</span><span class="c1"></span>					<span class="nx">headData</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="nx">dp</span><span class="p">.</span><span class="nf">GetHeadLen</span><span class="p">())</span>
-					<span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">io</span><span class="p">.</span><span class="nf">ReadFull</span><span class="p">(</span><span class="nx">conn</span><span class="p">,</span> <span class="nx">headData</span><span class="p">)</span>
-					<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-						<span class="nx">t</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">&#34;Read head err: &#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-						<span class="k">break</span>
-					<span class="p">}</span>
-					<span class="c1">// 2.2 拆包
-</span><span class="c1"></span>					<span class="nx">msgHead</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">dp</span><span class="p">.</span><span class="nf">UnPack</span><span class="p">(</span><span class="nx">headData</span><span class="p">)</span>
-					<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-						<span class="nx">t</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">&#34;Server unpack err: &#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-						<span class="k">return</span>
-					<span class="p">}</span>
-					<span class="c1">// 2.3 第二次从conn读，根据head中dataLen去拿data
-</span><span class="c1"></span>					<span class="k">if</span> <span class="nx">msgHead</span><span class="p">.</span><span class="nf">GetDataLen</span><span class="p">()</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
-						<span class="nx">msg</span> <span class="o">:=</span> <span class="nx">msgHead</span><span class="p">.(</span><span class="o">*</span><span class="nx">Message</span><span class="p">)</span>
-						<span class="nx">msg</span><span class="p">.</span><span class="nx">Data</span> <span class="p">=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="nx">msg</span><span class="p">.</span><span class="nf">GetDataLen</span><span class="p">())</span>
-
-						<span class="c1">// 偏移DataLen后拿数据
-</span><span class="c1"></span>						<span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">io</span><span class="p">.</span><span class="nf">ReadFull</span><span class="p">(</span><span class="nx">conn</span><span class="p">,</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">Data</span><span class="p">)</span>
-						<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-							<span class="nx">t</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">&#34;Server unpack data err: &#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-							<span class="k">return</span>
-						<span class="p">}</span>
-
-						<span class="nx">t</span><span class="p">.</span><span class="nf">Logf</span><span class="p">(</span><span class="s">&#34;MsgID: %d, ReceiveLen: %d, data: %s&#34;</span><span class="p">,</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">ID</span><span class="p">,</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">DataLen</span><span class="p">,</span> <span class="nb">string</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">Data</span><span class="p">))</span>
-					<span class="p">}</span>
-				<span class="p">}</span>
-			<span class="p">}(</span><span class="nx">conn</span><span class="p">)</span>
-		<span class="p">}</span>
-	<span class="p">}()</span>
-
-	<span class="c1">// 模拟Client端
-</span><span class="c1"></span>	<span class="nx">conn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">Dial</span><span class="p">(</span><span class="s">&#34;tcp&#34;</span><span class="p">,</span> <span class="s">&#34;127.0.0.1:7777&#34;</span><span class="p">)</span>
-	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="nx">t</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">&#34;Client dial err: &#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-		<span class="k">return</span>
-	<span class="p">}</span>
-
-	<span class="c1">// 创建一个封包对象
-</span><span class="c1"></span>	<span class="nx">dp</span> <span class="o">:=</span> <span class="nf">NewDataPack</span><span class="p">()</span>
-
-	<span class="c1">// 模拟黏包过程，封装两个msg一同发送
-</span><span class="c1"></span>	<span class="nx">msg1</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">Message</span><span class="p">{</span>
-		<span class="nx">ID</span><span class="p">:</span>      <span class="mi">1</span><span class="p">,</span>
-		<span class="nx">DataLen</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-		<span class="nx">Data</span><span class="p">:</span>    <span class="p">[]</span><span class="kt">byte</span><span class="p">{</span><span class="sc">&#39;Z&#39;</span><span class="p">,</span> <span class="sc">&#39;i&#39;</span><span class="p">,</span> <span class="sc">&#39;n&#39;</span><span class="p">,</span> <span class="sc">&#39;x&#39;</span><span class="p">},</span>
-	<span class="p">}</span>
-	<span class="nx">sendData1</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">dp</span><span class="p">.</span><span class="nf">Pack</span><span class="p">(</span><span class="nx">msg1</span><span class="p">)</span>
-
-	<span class="nx">msg2</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">Message</span><span class="p">{</span>
-		<span class="nx">ID</span><span class="p">:</span>      <span class="mi">2</span><span class="p">,</span>
-		<span class="nx">DataLen</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
-		<span class="nx">Data</span><span class="p">:</span>    <span class="p">[]</span><span class="kt">byte</span><span class="p">{</span><span class="sc">&#39;n&#39;</span><span class="p">,</span> <span class="sc">&#39;i&#39;</span><span class="p">,</span> <span class="sc">&#39;h&#39;</span><span class="p">,</span> <span class="sc">&#39;a&#39;</span><span class="p">,</span> <span class="sc">&#39;o&#39;</span><span class="p">,</span> <span class="sc">&#39;!&#39;</span><span class="p">},</span>
-	<span class="p">}</span>
-	<span class="nx">sendData2</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">dp</span><span class="p">.</span><span class="nf">Pack</span><span class="p">(</span><span class="nx">msg2</span><span class="p">)</span>
-
-	<span class="nx">sendData1</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">sendData1</span><span class="p">,</span> <span class="nx">sendData2</span><span class="o">...</span><span class="p">)</span>
-	<span class="nx">_</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="nx">sendData1</span><span class="p">)</span>
-
-	<span class="c1">// 客户端阻塞
-</span><span class="c1"></span>	<span class="k">select</span> <span class="p">{}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">TestDataPack</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 模拟Server端
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// 1. 创建 socketTCP
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">listener</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">Listen</span><span class="p">(</span><span class="s">&#34;tcp&#34;</span><span class="p">,</span> <span class="s">&#34;127.0.0.1:7777&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">t</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">&#34;Server listener err: &#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 负责处理客户端业务
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="c1">// 2. 从客户端读取数据，拆包处理
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="nx">conn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">listener</span><span class="p">.</span><span class="nf">Accept</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">t</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">&#34;Server accept err: &#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="k">go</span> <span class="kd">func</span><span class="p">(</span><span class="nx">conn</span> <span class="nx">net</span><span class="p">.</span><span class="nx">Conn</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="c1">// 处理客户端的请求
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="nx">dp</span> <span class="o">:=</span> <span class="nf">NewDataPack</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">				<span class="k">for</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="c1">// 2.1 第一次从conn读，把包的head读出来
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>					<span class="nx">headData</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="nx">dp</span><span class="p">.</span><span class="nf">GetHeadLen</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">io</span><span class="p">.</span><span class="nf">ReadFull</span><span class="p">(</span><span class="nx">conn</span><span class="p">,</span> <span class="nx">headData</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">					<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">						<span class="nx">t</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">&#34;Read head err: &#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">						<span class="k">break</span>
+</span></span><span class="line"><span class="cl">					<span class="p">}</span>
+</span></span><span class="line"><span class="cl">					<span class="c1">// 2.2 拆包
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>					<span class="nx">msgHead</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">dp</span><span class="p">.</span><span class="nf">UnPack</span><span class="p">(</span><span class="nx">headData</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">					<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">						<span class="nx">t</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">&#34;Server unpack err: &#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">						<span class="k">return</span>
+</span></span><span class="line"><span class="cl">					<span class="p">}</span>
+</span></span><span class="line"><span class="cl">					<span class="c1">// 2.3 第二次从conn读，根据head中dataLen去拿data
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>					<span class="k">if</span> <span class="nx">msgHead</span><span class="p">.</span><span class="nf">GetDataLen</span><span class="p">()</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">						<span class="nx">msg</span> <span class="o">:=</span> <span class="nx">msgHead</span><span class="p">.(</span><span class="o">*</span><span class="nx">Message</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">						<span class="nx">msg</span><span class="p">.</span><span class="nx">Data</span> <span class="p">=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="nx">msg</span><span class="p">.</span><span class="nf">GetDataLen</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">						<span class="c1">// 偏移DataLen后拿数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>						<span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">io</span><span class="p">.</span><span class="nf">ReadFull</span><span class="p">(</span><span class="nx">conn</span><span class="p">,</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">Data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">						<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">							<span class="nx">t</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">&#34;Server unpack data err: &#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">							<span class="k">return</span>
+</span></span><span class="line"><span class="cl">						<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">						<span class="nx">t</span><span class="p">.</span><span class="nf">Logf</span><span class="p">(</span><span class="s">&#34;MsgID: %d, ReceiveLen: %d, data: %s&#34;</span><span class="p">,</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">ID</span><span class="p">,</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">DataLen</span><span class="p">,</span> <span class="nb">string</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">Data</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">					<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}(</span><span class="nx">conn</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 模拟Client端
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">conn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">Dial</span><span class="p">(</span><span class="s">&#34;tcp&#34;</span><span class="p">,</span> <span class="s">&#34;127.0.0.1:7777&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">t</span><span class="p">.</span><span class="nf">Log</span><span class="p">(</span><span class="s">&#34;Client dial err: &#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 创建一个封包对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">dp</span> <span class="o">:=</span> <span class="nf">NewDataPack</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 模拟黏包过程，封装两个msg一同发送
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">msg1</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">Message</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">ID</span><span class="p">:</span>      <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">DataLen</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Data</span><span class="p">:</span>    <span class="p">[]</span><span class="kt">byte</span><span class="p">{</span><span class="sc">&#39;Z&#39;</span><span class="p">,</span> <span class="sc">&#39;i&#39;</span><span class="p">,</span> <span class="sc">&#39;n&#39;</span><span class="p">,</span> <span class="sc">&#39;x&#39;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">sendData1</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">dp</span><span class="p">.</span><span class="nf">Pack</span><span class="p">(</span><span class="nx">msg1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">msg2</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">Message</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">ID</span><span class="p">:</span>      <span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">DataLen</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Data</span><span class="p">:</span>    <span class="p">[]</span><span class="kt">byte</span><span class="p">{</span><span class="sc">&#39;n&#39;</span><span class="p">,</span> <span class="sc">&#39;i&#39;</span><span class="p">,</span> <span class="sc">&#39;h&#39;</span><span class="p">,</span> <span class="sc">&#39;a&#39;</span><span class="p">,</span> <span class="sc">&#39;o&#39;</span><span class="p">,</span> <span class="sc">&#39;!&#39;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">sendData2</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">dp</span><span class="p">.</span><span class="nf">Pack</span><span class="p">(</span><span class="nx">msg2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">sendData1</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">sendData1</span><span class="p">,</span> <span class="nx">sendData2</span><span class="o">...</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">_</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="nx">sendData1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 客户端阻塞
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">select</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>测试结果如下：</strong></p>
 <p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20210102233439.png?imageMogr2/format/webp/interlace/1" title="img" data-thumbnail="https://pic.yqqy.top/blog/20210102233439.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>测试</h2><p>img</p>">
@@ -696,7 +696,7 @@
             </noscript></div></article></div>
         </main><footer class="footer">
         <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">
-                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
+                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.93.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank" rel="noopener noreferrer">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
             <div class="footer-line"></div>

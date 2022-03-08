@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/yqqy.top\/point-in-polygon-for-golang\/"
-        },"genre": "posts","keywords": "Golang, 几何","wordcount":  574 ,
+        },"genre": "posts","keywords": "Golang, 几何","wordcount":  573 ,
         "url": "https:\/\/yqqy.top\/point-in-polygon-for-golang\/","datePublished": "2021-11-25T08:34:13+08:00","dateModified": "2021-11-25T08:34:13+08:00","publisher": {
             "@type": "Organization",
             "name": "yqchilde"},"author": {
@@ -136,7 +136,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author">Yqchilde</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/golang/"><i class="far fa-folder fa-fw"></i>Golang</a>&nbsp;<a href="/categories/%E5%87%A0%E4%BD%95/"><i class="far fa-folder fa-fw"></i>几何</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-25">2021-11-25</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-11-25">2021-11-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 574 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-25">2021-11-25</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-11-25">2021-11-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 573 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -266,101 +266,99 @@
 </span><span class="lnt">88
 </span><span class="lnt">89
 </span><span class="lnt">90
-</span><span class="lnt">91
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
-
-<span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&#34;fmt&#34;</span>
-	<span class="s">&#34;math&#34;</span>
-<span class="p">)</span>
-
-<span class="kd">type</span> <span class="nx">Point</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">X</span> <span class="kt">float64</span>
-	<span class="nx">Y</span> <span class="kt">float64</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="nf">IfPointsInPolygon</span><span class="p">(</span><span class="nx">point</span> <span class="nx">Point</span><span class="p">,</span> <span class="nx">area</span> <span class="p">[]</span><span class="nx">Point</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
-	<span class="c1">// 目标点的x, y坐标
-</span><span class="c1"></span>	<span class="nx">x</span> <span class="o">:=</span> <span class="nx">point</span><span class="p">.</span><span class="nx">X</span>
-	<span class="nx">y</span> <span class="o">:=</span> <span class="nx">point</span><span class="p">.</span><span class="nx">Y</span>
-
-	<span class="c1">// 多边形的点数
-</span><span class="c1"></span>	<span class="nx">count</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">area</span><span class="p">)</span>
-
-	<span class="c1">// 点是否在多边形中
-</span><span class="c1"></span>	<span class="kd">var</span> <span class="nx">inInside</span> <span class="kt">bool</span>
-
-	<span class="c1">// 浮点类型计算与0的容差
-</span><span class="c1"></span>	<span class="nx">precision</span> <span class="o">:=</span> <span class="mf">2e-10</span>
-
-	<span class="c1">// 依次计算每条边，根据每边两端点和目标点的状态栏判断
-</span><span class="c1"></span>	<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">count</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">count</span><span class="p">;</span> <span class="nx">j</span><span class="p">,</span> <span class="nx">i</span> <span class="p">=</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">i</span><span class="o">+</span><span class="mi">1</span> <span class="p">{</span>
-		<span class="c1">// 记录每条边上的两个点坐标
-</span><span class="c1"></span>		<span class="nx">x1</span> <span class="o">:=</span> <span class="nx">area</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">X</span>
-		<span class="nx">y1</span> <span class="o">:=</span> <span class="nx">area</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">Y</span>
-		<span class="nx">x2</span> <span class="o">:=</span> <span class="nx">area</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">X</span>
-		<span class="nx">y2</span> <span class="o">:=</span> <span class="nx">area</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">Y</span>
-
-		<span class="c1">// 判断点与多边形顶点是否重合
-</span><span class="c1"></span>		<span class="k">if</span> <span class="p">(</span><span class="nx">x1</span> <span class="o">==</span> <span class="nx">x</span> <span class="o">&amp;&amp;</span> <span class="nx">y1</span> <span class="o">==</span> <span class="nx">y</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="nx">x2</span> <span class="o">==</span> <span class="nx">x</span> <span class="o">&amp;&amp;</span> <span class="nx">y2</span> <span class="o">==</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
-			<span class="k">return</span> <span class="kc">true</span>
-		<span class="p">}</span>
-
-    <span class="c1">// 判断点是否在水平直线上
-</span><span class="c1"></span>		<span class="k">if</span> <span class="p">(</span><span class="nx">y</span> <span class="o">==</span> <span class="nx">y1</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">y</span> <span class="o">==</span> <span class="nx">y2</span><span class="p">)</span> <span class="p">{</span>
-			<span class="k">return</span> <span class="kc">true</span>
-		<span class="p">}</span>
-
-		<span class="c1">// 判断线段两端点是否在射线两侧
-</span><span class="c1"></span>		<span class="k">if</span> <span class="p">(</span><span class="nx">y</span> <span class="p">&gt;</span> <span class="nx">y1</span> <span class="o">&amp;&amp;</span> <span class="nx">y</span> <span class="p">&lt;</span> <span class="nx">y2</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="nx">y</span> <span class="p">&lt;</span> <span class="nx">y1</span> <span class="o">&amp;&amp;</span> <span class="nx">y</span> <span class="p">&gt;</span> <span class="nx">y2</span><span class="p">)</span> <span class="p">{</span>
-			<span class="c1">// 斜率
-</span><span class="c1"></span>			<span class="nx">k</span> <span class="o">:=</span> <span class="p">(</span><span class="nx">x2</span> <span class="o">-</span> <span class="nx">x1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="nx">y2</span> <span class="o">-</span> <span class="nx">y1</span><span class="p">)</span>
-
-			<span class="c1">// 相交点的 x 坐标
-</span><span class="c1"></span>			<span class="nx">_x</span> <span class="o">:=</span> <span class="nx">x1</span> <span class="o">+</span> <span class="nx">k</span><span class="o">*</span><span class="p">(</span><span class="nx">y</span><span class="o">-</span><span class="nx">y1</span><span class="p">)</span>
-
-			<span class="c1">// 点在多边形的边上
-</span><span class="c1"></span>			<span class="k">if</span> <span class="nx">_x</span> <span class="o">==</span> <span class="nx">x</span> <span class="p">{</span>
-				<span class="k">return</span> <span class="kc">true</span>
-			<span class="p">}</span>
-
-			<span class="c1">// 浮点类型计算容差
-</span><span class="c1"></span>			<span class="k">if</span> <span class="nx">math</span><span class="p">.</span><span class="nf">Abs</span><span class="p">(</span><span class="nx">_x</span><span class="o">-</span><span class="nx">x</span><span class="p">)</span> <span class="p">&lt;</span> <span class="nx">precision</span> <span class="p">{</span>
-				<span class="k">return</span> <span class="kc">true</span>
-			<span class="p">}</span>
-
-			<span class="c1">// 射线穿过多边形的边
-</span><span class="c1"></span>			<span class="k">if</span> <span class="nx">_x</span> <span class="p">&gt;</span> <span class="nx">x</span> <span class="p">{</span>
-				<span class="nx">inInside</span> <span class="p">=</span> <span class="p">!</span><span class="nx">inInside</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-
-	<span class="k">return</span> <span class="nx">inInside</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nx">area</span> <span class="o">:=</span> <span class="p">[]</span><span class="nx">Point</span><span class="p">{{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">},</span> <span class="p">{</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">},</span> <span class="p">{</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">},</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">}}</span>
-
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">IfPointsInPolygon</span><span class="p">(</span><span class="nx">Point</span><span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">},</span> <span class="nx">area</span><span class="p">))</span> <span class="c1">// false
-</span><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">IfPointsInPolygon</span><span class="p">(</span><span class="nx">Point</span><span class="p">{</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">},</span> <span class="nx">area</span><span class="p">))</span> <span class="c1">// true
-</span><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">IfPointsInPolygon</span><span class="p">(</span><span class="nx">Point</span><span class="p">{</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">},</span> <span class="nx">area</span><span class="p">))</span> <span class="c1">// true
-</span><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">IfPointsInPolygon</span><span class="p">(</span><span class="nx">Point</span><span class="p">{</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">},</span> <span class="nx">area</span><span class="p">))</span> <span class="c1">// true
-</span><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">IfPointsInPolygon</span><span class="p">(</span><span class="nx">Point</span><span class="p">{</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">},</span> <span class="nx">area</span><span class="p">))</span> <span class="c1">// true
-</span><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">IfPointsInPolygon</span><span class="p">(</span><span class="nx">Point</span><span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="nx">area</span><span class="p">))</span> <span class="c1">// true
-</span><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">IfPointsInPolygon</span><span class="p">(</span><span class="nx">Point</span><span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="nx">area</span><span class="p">))</span> <span class="c1">// true
-</span><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">IfPointsInPolygon</span><span class="p">(</span><span class="nx">Point</span><span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">},</span> <span class="nx">area</span><span class="p">))</span> <span class="c1">// true
-</span><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">IfPointsInPolygon</span><span class="p">(</span><span class="nx">Point</span><span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span> <span class="nx">area</span><span class="p">))</span> <span class="c1">// true
-</span><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">IfPointsInPolygon</span><span class="p">(</span><span class="nx">Point</span><span class="p">{</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span> <span class="nx">area</span><span class="p">))</span> <span class="c1">// true
-</span><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">IfPointsInPolygon</span><span class="p">(</span><span class="nx">Point</span><span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="nx">area</span><span class="p">))</span> <span class="c1">// false
-</span><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">IfPointsInPolygon</span><span class="p">(</span><span class="nx">Point</span><span class="p">{</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">},</span> <span class="nx">area</span><span class="p">))</span> <span class="c1">// false
-</span><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">IfPointsInPolygon</span><span class="p">(</span><span class="nx">Point</span><span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">},</span> <span class="nx">area</span><span class="p">))</span> <span class="c1">// false
-</span><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">IfPointsInPolygon</span><span class="p">(</span><span class="nx">Point</span><span class="p">{</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">},</span> <span class="nx">area</span><span class="p">))</span> <span class="c1">// true
-</span><span class="c1"></span><span class="p">}</span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;math&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Point</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">X</span> <span class="kt">float64</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Y</span> <span class="kt">float64</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">IfPointsInPolygon</span><span class="p">(</span><span class="nx">point</span> <span class="nx">Point</span><span class="p">,</span> <span class="nx">area</span> <span class="p">[]</span><span class="nx">Point</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 目标点的x, y坐标
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">x</span> <span class="o">:=</span> <span class="nx">point</span><span class="p">.</span><span class="nx">X</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">y</span> <span class="o">:=</span> <span class="nx">point</span><span class="p">.</span><span class="nx">Y</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 多边形的点数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">count</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">area</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 点是否在多边形中
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kd">var</span> <span class="nx">inInside</span> <span class="kt">bool</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 浮点类型计算与0的容差
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">precision</span> <span class="o">:=</span> <span class="mf">2e-10</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 依次计算每条边，根据每边两端点和目标点的状态栏判断
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">count</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">count</span><span class="p">;</span> <span class="nx">j</span><span class="p">,</span> <span class="nx">i</span> <span class="p">=</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">i</span><span class="o">+</span><span class="mi">1</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 记录每条边上的两个点坐标
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">x1</span> <span class="o">:=</span> <span class="nx">area</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">X</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">y1</span> <span class="o">:=</span> <span class="nx">area</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">Y</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">x2</span> <span class="o">:=</span> <span class="nx">area</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">X</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">y2</span> <span class="o">:=</span> <span class="nx">area</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">Y</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">// 判断点与多边形顶点是否重合
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">if</span> <span class="p">(</span><span class="nx">x1</span> <span class="o">==</span> <span class="nx">x</span> <span class="o">&amp;&amp;</span> <span class="nx">y1</span> <span class="o">==</span> <span class="nx">y</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="nx">x2</span> <span class="o">==</span> <span class="nx">x</span> <span class="o">&amp;&amp;</span> <span class="nx">y2</span> <span class="o">==</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 判断点是否在水平直线上
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">if</span> <span class="p">(</span><span class="nx">y</span> <span class="o">==</span> <span class="nx">y1</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">y</span> <span class="o">==</span> <span class="nx">y2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">// 判断线段两端点是否在射线两侧
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">if</span> <span class="p">(</span><span class="nx">y</span> <span class="p">&gt;</span> <span class="nx">y1</span> <span class="o">&amp;&amp;</span> <span class="nx">y</span> <span class="p">&lt;</span> <span class="nx">y2</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="nx">y</span> <span class="p">&lt;</span> <span class="nx">y1</span> <span class="o">&amp;&amp;</span> <span class="nx">y</span> <span class="p">&gt;</span> <span class="nx">y2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="c1">// 斜率
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="nx">k</span> <span class="o">:=</span> <span class="p">(</span><span class="nx">x2</span> <span class="o">-</span> <span class="nx">x1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="nx">y2</span> <span class="o">-</span> <span class="nx">y1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="c1">// 相交点的 x 坐标
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="nx">_x</span> <span class="o">:=</span> <span class="nx">x1</span> <span class="o">+</span> <span class="nx">k</span><span class="o">*</span><span class="p">(</span><span class="nx">y</span><span class="o">-</span><span class="nx">y1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="c1">// 点在多边形的边上
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="k">if</span> <span class="nx">_x</span> <span class="o">==</span> <span class="nx">x</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="k">return</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="c1">// 浮点类型计算容差
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="k">if</span> <span class="nx">math</span><span class="p">.</span><span class="nf">Abs</span><span class="p">(</span><span class="nx">_x</span><span class="o">-</span><span class="nx">x</span><span class="p">)</span> <span class="p">&lt;</span> <span class="nx">precision</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="k">return</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="c1">// 射线穿过多边形的边
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="k">if</span> <span class="nx">_x</span> <span class="p">&gt;</span> <span class="nx">x</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">inInside</span> <span class="p">=</span> <span class="p">!</span><span class="nx">inInside</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">inInside</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">area</span> <span class="o">:=</span> <span class="p">[]</span><span class="nx">Point</span><span class="p">{{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">},</span> <span class="p">{</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">},</span> <span class="p">{</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">},</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">IfPointsInPolygon</span><span class="p">(</span><span class="nx">Point</span><span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">},</span> <span class="nx">area</span><span class="p">))</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">IfPointsInPolygon</span><span class="p">(</span><span class="nx">Point</span><span class="p">{</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">},</span> <span class="nx">area</span><span class="p">))</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">IfPointsInPolygon</span><span class="p">(</span><span class="nx">Point</span><span class="p">{</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">},</span> <span class="nx">area</span><span class="p">))</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">IfPointsInPolygon</span><span class="p">(</span><span class="nx">Point</span><span class="p">{</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">},</span> <span class="nx">area</span><span class="p">))</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">IfPointsInPolygon</span><span class="p">(</span><span class="nx">Point</span><span class="p">{</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">},</span> <span class="nx">area</span><span class="p">))</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">IfPointsInPolygon</span><span class="p">(</span><span class="nx">Point</span><span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="nx">area</span><span class="p">))</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">IfPointsInPolygon</span><span class="p">(</span><span class="nx">Point</span><span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="nx">area</span><span class="p">))</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">IfPointsInPolygon</span><span class="p">(</span><span class="nx">Point</span><span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">},</span> <span class="nx">area</span><span class="p">))</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">IfPointsInPolygon</span><span class="p">(</span><span class="nx">Point</span><span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span> <span class="nx">area</span><span class="p">))</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">IfPointsInPolygon</span><span class="p">(</span><span class="nx">Point</span><span class="p">{</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span> <span class="nx">area</span><span class="p">))</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">IfPointsInPolygon</span><span class="p">(</span><span class="nx">Point</span><span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">},</span> <span class="nx">area</span><span class="p">))</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">IfPointsInPolygon</span><span class="p">(</span><span class="nx">Point</span><span class="p">{</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">},</span> <span class="nx">area</span><span class="p">))</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">IfPointsInPolygon</span><span class="p">(</span><span class="nx">Point</span><span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">},</span> <span class="nx">area</span><span class="p">))</span> <span class="c1">// false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nf">IfPointsInPolygon</span><span class="p">(</span><span class="nx">Point</span><span class="p">{</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">},</span> <span class="nx">area</span><span class="p">))</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="参考文章" class="headerLink">
     <a href="#%e5%8f%82%e8%80%83%e6%96%87%e7%ab%a0" class="header-mark"></a>参考文章</h2><ul>
@@ -398,7 +396,7 @@
             </noscript></div></article></div>
         </main><footer class="footer">
         <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">
-                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
+                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.93.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank" rel="noopener noreferrer">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
             <div class="footer-line"></div>

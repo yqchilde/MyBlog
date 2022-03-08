@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/yqqy.top\/golang-makefile-and-additional\/"
-        },"genre": "posts","keywords": "Golang, Makefile","wordcount":  1834 ,
+        },"genre": "posts","keywords": "Golang, Makefile","wordcount":  1831 ,
         "url": "https:\/\/yqqy.top\/golang-makefile-and-additional\/","datePublished": "2021-04-21T22:44:20+08:00","dateModified": "2021-04-21T22:44:20+08:00","publisher": {
             "@type": "Organization",
             "name": "yqchilde"},"author": {
@@ -142,7 +142,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author">Yqchilde</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/golang/"><i class="far fa-folder fa-fw"></i>Golang</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-04-21">2021-04-21</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-04-21">2021-04-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1834 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-04-21">2021-04-21</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-04-21">2021-04-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1831 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -224,61 +224,57 @@
 </span><span class="lnt">46
 </span><span class="lnt">47
 </span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="nf">.PHONY</span><span class="o">:</span>  <span class="n">clean</span> <span class="n">build</span>
-
-<span class="c"># Binary name
-</span><span class="c"></span><span class="nv">BINARY</span><span class="o">=</span>jd-cli
-
-<span class="c"># Builds the project
-</span><span class="c"></span><span class="nf">build</span><span class="o">:</span>
-<span class="c"># 		@echo ${BINARY}; \
-</span><span class="c"></span>		@for project in <span class="nv">$$</span><span class="o">(</span>ls cmd<span class="o">)</span><span class="p">;</span> <span class="se">\
-</span><span class="se"></span>		<span class="k">do</span> <span class="se">\
-</span><span class="se"></span>			go build -ldflags <span class="s2">&#34;-w -s -X main.Version=</span><span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span><span class="s2">&#34;</span> <span class="s2">&#34;./cmd/</span><span class="nv">$$</span><span class="s2">project&#34;</span><span class="p">;</span> <span class="se">\
-</span><span class="se"></span>			upx <span class="s2">&#34;./</span><span class="nv">$$</span><span class="s2">project&#34;</span><span class="p">;</span> <span class="se">\
-</span><span class="se"></span>		<span class="k">done</span>
-
-
-<span class="nf">release</span><span class="o">:</span>
-		<span class="c1"># Clean</span>
-		go clean
-		rm -rf *.gz
-
-		<span class="c1"># Build for mac</span>
-		@for project in <span class="nv">$$</span><span class="o">(</span>ls cmd<span class="o">)</span><span class="p">;</span> <span class="se">\
-</span><span class="se"></span>		<span class="k">do</span> <span class="se">\
-</span><span class="se"></span>			<span class="nv">GO111MODULE</span><span class="o">=</span>on go build -ldflags <span class="s2">&#34;-w -s -X main.Version=</span><span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span><span class="s2">&#34;</span> <span class="s2">&#34;./cmd/</span><span class="nv">$$</span><span class="s2">project&#34;</span><span class="p">;</span> <span class="se">\
-</span><span class="se"></span>			upx <span class="s2">&#34;./</span><span class="nv">$$</span><span class="s2">project&#34;</span><span class="p">;</span> <span class="se">\
-</span><span class="se"></span>			tar czvf <span class="nv">$$</span>project-darwin-amd64.tar.gz ./<span class="nv">$$</span>project<span class="p">;</span> <span class="se">\
-</span><span class="se"></span>		<span class="k">done</span>
-
-
-		<span class="c1"># Build for linux</span>
-		go clean
-		@for project in <span class="nv">$$</span><span class="o">(</span>ls cmd<span class="o">)</span><span class="p">;</span> <span class="se">\
-</span><span class="se"></span>		<span class="k">do</span> <span class="se">\
-</span><span class="se"></span>			<span class="nv">CGO_ENABLED</span><span class="o">=</span><span class="m">0</span> <span class="nv">GOOS</span><span class="o">=</span>linux <span class="nv">GOARCH</span><span class="o">=</span>amd64 <span class="nv">GO111MODULE</span><span class="o">=</span>on go build -ldflags <span class="s2">&#34;-w -s -X main.Version=</span><span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span><span class="s2">&#34;</span> <span class="s2">&#34;./cmd/</span><span class="nv">$$</span><span class="s2">project&#34;</span><span class="p">;</span> <span class="se">\
-</span><span class="se"></span>			upx <span class="s2">&#34;./</span><span class="nv">$$</span><span class="s2">project&#34;</span><span class="p">;</span> <span class="se">\
-</span><span class="se"></span>			tar czvf <span class="nv">$$</span>project-linux-amd64.tar.gz ./<span class="nv">$$</span>project<span class="p">;</span> <span class="se">\
-</span><span class="se"></span>		<span class="k">done</span>
-
-		go clean
-
-<span class="c"># Cleans our projects: deletes binaries
-</span><span class="c"></span><span class="nf">clean</span><span class="o">:</span>
-		@for project in <span class="nv">$$</span><span class="o">(</span>ls cmd<span class="o">)</span><span class="p">;</span> <span class="se">\
-</span><span class="se"></span>		<span class="k">do</span> <span class="se">\
-</span><span class="se"></span>			rm -rf <span class="nv">$$</span>project<span class="p">;</span> <span class="se">\
-</span><span class="se"></span>		<span class="k">done</span>
-		go clean
-		rm -rf *.gz
-
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="line"><span class="cl"><span class="nf">.PHONY</span><span class="o">:</span>  <span class="n">clean</span> <span class="n">build</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Binary name
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nv">BINARY</span><span class="o">=</span>jd-cli
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Builds the project
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nf">build</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl"><span class="c"># 		@echo ${BINARY}; \
+</span></span></span><span class="line"><span class="cl"><span class="c"></span>		@for project in <span class="nv">$$</span><span class="o">(</span>ls cmd<span class="o">)</span><span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>		<span class="k">do</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>			go build -ldflags <span class="s2">&#34;-w -s -X main.Version=</span><span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span><span class="s2">&#34;</span> <span class="s2">&#34;./cmd/</span><span class="nv">$$</span><span class="s2">project&#34;</span><span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>			upx <span class="s2">&#34;./</span><span class="nv">$$</span><span class="s2">project&#34;</span><span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>		<span class="k">done</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">release</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">		<span class="c1"># Clean</span>
+</span></span><span class="line"><span class="cl">		go clean
+</span></span><span class="line"><span class="cl">		rm -rf *.gz
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1"># Build for mac</span>
+</span></span><span class="line"><span class="cl">		@for project in <span class="nv">$$</span><span class="o">(</span>ls cmd<span class="o">)</span><span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>		<span class="k">do</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>			<span class="nv">GO111MODULE</span><span class="o">=</span>on go build -ldflags <span class="s2">&#34;-w -s -X main.Version=</span><span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span><span class="s2">&#34;</span> <span class="s2">&#34;./cmd/</span><span class="nv">$$</span><span class="s2">project&#34;</span><span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>			upx <span class="s2">&#34;./</span><span class="nv">$$</span><span class="s2">project&#34;</span><span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>			tar czvf <span class="nv">$$</span>project-darwin-amd64.tar.gz ./<span class="nv">$$</span>project<span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>		<span class="k">done</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1"># Build for linux</span>
+</span></span><span class="line"><span class="cl">		go clean
+</span></span><span class="line"><span class="cl">		@for project in <span class="nv">$$</span><span class="o">(</span>ls cmd<span class="o">)</span><span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>		<span class="k">do</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>			<span class="nv">CGO_ENABLED</span><span class="o">=</span><span class="m">0</span> <span class="nv">GOOS</span><span class="o">=</span>linux <span class="nv">GOARCH</span><span class="o">=</span>amd64 <span class="nv">GO111MODULE</span><span class="o">=</span>on go build -ldflags <span class="s2">&#34;-w -s -X main.Version=</span><span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span><span class="s2">&#34;</span> <span class="s2">&#34;./cmd/</span><span class="nv">$$</span><span class="s2">project&#34;</span><span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>			upx <span class="s2">&#34;./</span><span class="nv">$$</span><span class="s2">project&#34;</span><span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>			tar czvf <span class="nv">$$</span>project-linux-amd64.tar.gz ./<span class="nv">$$</span>project<span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>		<span class="k">done</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		go clean
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Cleans our projects: deletes binaries
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nf">clean</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">		@for project in <span class="nv">$$</span><span class="o">(</span>ls cmd<span class="o">)</span><span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>		<span class="k">do</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>			rm -rf <span class="nv">$$</span>project<span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>		<span class="k">done</span>
+</span></span><span class="line"><span class="cl">		go clean
+</span></span><span class="line"><span class="cl">		rm -rf *.gz
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="逐行解释" class="headerLink">
     <a href="#%e9%80%90%e8%a1%8c%e8%a7%a3%e9%87%8a" class="header-mark"></a>逐行解释</h3><ul>
@@ -326,30 +322,28 @@
 </span><span class="lnt">17
 </span><span class="lnt">18
 </span><span class="lnt">19
-</span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
-
-<span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&#34;flag&#34;</span>
-	<span class="s">&#34;fmt&#34;</span>
-<span class="p">)</span>
-
-<span class="kd">var</span> <span class="nx">Version</span> <span class="kt">string</span>
-
-<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nx">v</span> <span class="o">:=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">Bool</span><span class="p">(</span><span class="s">&#34;v&#34;</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="s">&#34;version&#34;</span><span class="p">)</span>
-	<span class="nx">flag</span><span class="p">.</span><span class="nf">Parse</span><span class="p">()</span>
-
-	<span class="k">if</span> <span class="o">*</span><span class="nx">v</span> <span class="p">{</span>
-		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;当前版本: &#34;</span> <span class="o">+</span> <span class="nx">Version</span><span class="p">)</span>
-		<span class="k">return</span>
-	<span class="p">}</span>
-
-<span class="p">}</span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;flag&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">Version</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">v</span> <span class="o">:=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">Bool</span><span class="p">(</span><span class="s">&#34;v&#34;</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="s">&#34;version&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">flag</span><span class="p">.</span><span class="nf">Parse</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="o">*</span><span class="nx">v</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;当前版本: &#34;</span> <span class="o">+</span> <span class="nx">Version</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>使用 <code>go build main.go</code>，运行结果为 <code>当前版本:</code></p>
 <p>再使用 <code>go build -ldflags &quot;-X main.Version=1.0.0&quot; main.go</code>，运行结果为 <code>当前版本: 1.0.0</code>。我们可以基于此功能写入到Makefile中，就是上面的Makefile</p>
@@ -475,121 +469,121 @@ Github 开放了 <a href="https://docs.github.com/en/rest/reference/repos" targe
 </span><span class="lnt">114
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
-
-<span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&#34;bufio&#34;</span>
-	<span class="s">&#34;context&#34;</span>
-	<span class="s">&#34;flag&#34;</span>
-	<span class="s">&#34;fmt&#34;</span>
-	<span class="s">&#34;io&#34;</span>
-	<span class="s">&#34;log&#34;</span>
-	<span class="s">&#34;net/http&#34;</span>
-	<span class="s">&#34;os&#34;</span>
-	<span class="s">&#34;path/filepath&#34;</span>
-	<span class="s">&#34;runtime&#34;</span>
-	<span class="s">&#34;strconv&#34;</span>
-	<span class="s">&#34;time&#34;</span>
-
-	<span class="s">&#34;github.com/cheggaaa/pb/v3&#34;</span>
-	<span class="s">&#34;github.com/google/go-github/v35/github&#34;</span>
-
-	<span class="s">&#34;TelegramBot/internal&#34;</span>
-<span class="p">)</span>
-
-<span class="kd">var</span> <span class="p">(</span>
-	<span class="nx">Version</span> <span class="p">=</span> <span class="s">&#34;&#34;</span>
-	<span class="nx">Project</span> <span class="p">=</span> <span class="s">&#34;jd-cli&#34;</span>
-<span class="p">)</span>
-
-<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nx">v</span> <span class="o">:=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">Bool</span><span class="p">(</span><span class="s">&#34;v&#34;</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="s">&#34;version&#34;</span><span class="p">)</span>
-	<span class="nx">flag</span><span class="p">.</span><span class="nf">Parse</span><span class="p">()</span>
-
-	<span class="k">if</span> <span class="o">*</span><span class="nx">v</span> <span class="p">{</span>
-		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;当前版本: &#34;</span> <span class="o">+</span> <span class="nx">Version</span><span class="p">)</span>
-		<span class="k">return</span>
-	<span class="p">}</span>
-
-	<span class="c1">// 检查是否有更新
-</span><span class="c1"></span>	<span class="nx">ctx</span> <span class="o">:=</span> <span class="nx">context</span><span class="p">.</span><span class="nf">Background</span><span class="p">()</span>
-	<span class="nx">client</span> <span class="o">:=</span> <span class="nx">github</span><span class="p">.</span><span class="nf">NewClient</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span>
-	<span class="nx">release</span><span class="p">,</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">Repositories</span><span class="p">.</span><span class="nf">GetLatestRelease</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="s">&#34;yqchilde&#34;</span><span class="p">,</span> <span class="s">&#34;scripts&#34;</span><span class="p">)</span>
-
-	<span class="k">if</span> <span class="nx">Version</span> <span class="o">!=</span> <span class="nx">release</span><span class="p">.</span><span class="nf">GetTagName</span><span class="p">()</span> <span class="p">{</span>
-		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">release</span><span class="p">.</span><span class="nf">GetBody</span><span class="p">())</span>
-		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Print</span><span class="p">(</span><span class="s">&#34;发现新版本，是否要更新到&#34;</span><span class="p">,</span> <span class="nx">release</span><span class="p">.</span><span class="nf">GetTagName</span><span class="p">(),</span> <span class="s">&#34; (y/n): &#34;</span><span class="p">)</span>
-		<span class="nx">input</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">bufio</span><span class="p">.</span><span class="nf">NewReader</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdin</span><span class="p">).</span><span class="nf">ReadString</span><span class="p">(</span><span class="sc">&#39;\n&#39;</span><span class="p">)</span>
-		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="o">||</span> <span class="p">(</span><span class="nx">input</span> <span class="o">!=</span> <span class="s">&#34;y\n&#34;</span> <span class="o">&amp;&amp;</span> <span class="nx">input</span> <span class="o">!=</span> <span class="s">&#34;n\n&#34;</span><span class="p">)</span> <span class="o">||</span> <span class="nx">input</span> <span class="o">==</span> <span class="s">&#34;n\n&#34;</span> <span class="p">{</span>
-			<span class="nx">internal</span><span class="p">.</span><span class="nf">ClearTerminal</span><span class="p">(</span><span class="nx">runtime</span><span class="p">.</span><span class="nx">GOOS</span><span class="p">)</span>
-		<span class="p">}</span>
-
-		<span class="k">if</span> <span class="nx">input</span> <span class="o">==</span> <span class="s">&#34;y\n&#34;</span> <span class="p">{</span>
-			<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">asset</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">release</span><span class="p">.</span><span class="nx">Assets</span> <span class="p">{</span>
-				<span class="nx">sourceName</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;jd-cli-%s-%s.tar.gz&#34;</span><span class="p">,</span> <span class="nx">runtime</span><span class="p">.</span><span class="nx">GOOS</span><span class="p">,</span> <span class="nx">runtime</span><span class="p">.</span><span class="nx">GOARCH</span><span class="p">)</span>
-				<span class="k">if</span> <span class="nx">asset</span><span class="p">.</span><span class="nf">GetName</span><span class="p">()</span> <span class="o">==</span> <span class="nx">sourceName</span> <span class="p">{</span>
-					<span class="nf">ToUpdateProgram</span><span class="p">(</span><span class="nx">asset</span><span class="p">.</span><span class="nf">GetBrowserDownloadURL</span><span class="p">())</span>
-					<span class="k">return</span>
-				<span class="p">}</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="nf">ToUpdateProgram</span><span class="p">(</span><span class="nx">url</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
-	<span class="c1">// 拿到压缩包文件名
-</span><span class="c1"></span>	<span class="nx">tarGzFileName</span> <span class="o">:=</span> <span class="nx">filepath</span><span class="p">.</span><span class="nf">Base</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span>
-
-	<span class="nx">client</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">DefaultClient</span>
-	<span class="nx">client</span><span class="p">.</span><span class="nx">Timeout</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">10</span>
-	<span class="nx">resp</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">client</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span>
-	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-	<span class="p">}</span>
-
-	<span class="k">if</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">StatusCode</span> <span class="o">==</span> <span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span> <span class="p">{</span>
-		<span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;[INFO] 正在更新: [%s]&#34;</span><span class="p">,</span> <span class="nx">Project</span><span class="p">)</span>
-		<span class="nx">downFile</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="nx">tarGzFileName</span><span class="p">)</span>
-		<span class="nx">internal</span><span class="p">.</span><span class="nf">CheckIfError</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-		<span class="k">defer</span> <span class="nx">downFile</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
-
-		<span class="c1">// 获取下载文件的大小
-</span><span class="c1"></span>		<span class="nx">contentLength</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">Atoi</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">Header</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;Content-Length&#34;</span><span class="p">))</span>
-		<span class="nx">sourceSiz</span> <span class="o">:=</span> <span class="nb">int64</span><span class="p">(</span><span class="nx">contentLength</span><span class="p">)</span>
-		<span class="nx">source</span> <span class="o">:=</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span>
-
-		<span class="c1">// 创建一个进度条
-</span><span class="c1"></span>		<span class="nx">bar</span> <span class="o">:=</span> <span class="nx">pb</span><span class="p">.</span><span class="nx">Full</span><span class="p">.</span><span class="nf">Start64</span><span class="p">(</span><span class="nx">sourceSiz</span><span class="p">)</span>
-		<span class="nx">bar</span><span class="p">.</span><span class="nf">SetMaxWidth</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-		<span class="nx">barReader</span> <span class="o">:=</span> <span class="nx">bar</span><span class="p">.</span><span class="nf">NewProxyReader</span><span class="p">(</span><span class="nx">source</span><span class="p">)</span>
-		<span class="nx">writer</span> <span class="o">:=</span> <span class="nx">io</span><span class="p">.</span><span class="nf">MultiWriter</span><span class="p">(</span><span class="nx">downFile</span><span class="p">)</span>
-		<span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">io</span><span class="p">.</span><span class="nf">Copy</span><span class="p">(</span><span class="nx">writer</span><span class="p">,</span> <span class="nx">barReader</span><span class="p">)</span>
-		<span class="nx">bar</span><span class="p">.</span><span class="nf">Finish</span><span class="p">()</span>
-
-		<span class="c1">// 检查文件大小
-</span><span class="c1"></span>		<span class="nx">stat</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Stat</span><span class="p">(</span><span class="nx">tarGzFileName</span><span class="p">)</span>
-		<span class="k">if</span> <span class="nx">stat</span><span class="p">.</span><span class="nf">Size</span><span class="p">()</span> <span class="o">!=</span> <span class="nb">int64</span><span class="p">(</span><span class="nx">contentLength</span><span class="p">)</span> <span class="p">{</span>
-			<span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;[ERROR] [%s]更新失败&#34;</span><span class="p">,</span> <span class="nx">Project</span><span class="p">)</span>
-			<span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Remove</span><span class="p">(</span><span class="nx">tarGzFileName</span><span class="p">)</span>
-			<span class="nx">internal</span><span class="p">.</span><span class="nf">CheckIfError</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-			<span class="k">return</span>
-		<span class="p">}</span>
-
-		<span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;[INFO] [%s]更新成功&#34;</span><span class="p">,</span> <span class="nx">Project</span><span class="p">)</span>
-		<span class="nx">err</span> <span class="p">=</span> <span class="nx">internal</span><span class="p">.</span><span class="nf">TarGzDeCompress</span><span class="p">(</span><span class="nx">tarGzFileName</span><span class="p">,</span> <span class="s">&#34;./&#34;</span><span class="p">)</span>
-		<span class="nx">internal</span><span class="p">.</span><span class="nf">CheckIfError</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-
-		<span class="nx">_</span> <span class="p">=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Remove</span><span class="p">(</span><span class="nx">tarGzFileName</span><span class="p">)</span>
-		<span class="nx">_</span> <span class="p">=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Chmod</span><span class="p">(</span><span class="nx">Project</span><span class="p">,</span> <span class="nx">os</span><span class="p">.</span><span class="nx">ModePerm</span><span class="p">)</span>
-
-		<span class="nx">internal</span><span class="p">.</span><span class="nf">ClearTerminal</span><span class="p">(</span><span class="nx">runtime</span><span class="p">.</span><span class="nx">GOOS</span><span class="p">)</span>
-		<span class="nx">_</span> <span class="p">=</span> <span class="nx">internal</span><span class="p">.</span><span class="nf">RestartProcess</span><span class="p">(</span><span class="s">&#34;./&#34;</span> <span class="o">+</span> <span class="nx">Project</span><span class="p">)</span>
-	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-		<span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;[ERROR] [%s]更新失败&#34;</span><span class="p">,</span> <span class="nx">Project</span><span class="p">)</span>
-		<span class="nx">_</span> <span class="p">=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Remove</span><span class="p">(</span><span class="nx">tarGzFileName</span><span class="p">)</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;bufio&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;context&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;flag&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;io&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;log&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;net/http&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;os&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;path/filepath&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;runtime&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;strconv&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;time&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/cheggaaa/pb/v3&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/google/go-github/v35/github&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;TelegramBot/internal&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Version</span> <span class="p">=</span> <span class="s">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Project</span> <span class="p">=</span> <span class="s">&#34;jd-cli&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">v</span> <span class="o">:=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">Bool</span><span class="p">(</span><span class="s">&#34;v&#34;</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="s">&#34;version&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">flag</span><span class="p">.</span><span class="nf">Parse</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="o">*</span><span class="nx">v</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;当前版本: &#34;</span> <span class="o">+</span> <span class="nx">Version</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 检查是否有更新
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">ctx</span> <span class="o">:=</span> <span class="nx">context</span><span class="p">.</span><span class="nf">Background</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">client</span> <span class="o">:=</span> <span class="nx">github</span><span class="p">.</span><span class="nf">NewClient</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">release</span><span class="p">,</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">Repositories</span><span class="p">.</span><span class="nf">GetLatestRelease</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="s">&#34;yqchilde&#34;</span><span class="p">,</span> <span class="s">&#34;scripts&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">Version</span> <span class="o">!=</span> <span class="nx">release</span><span class="p">.</span><span class="nf">GetTagName</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">release</span><span class="p">.</span><span class="nf">GetBody</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Print</span><span class="p">(</span><span class="s">&#34;发现新版本，是否要更新到&#34;</span><span class="p">,</span> <span class="nx">release</span><span class="p">.</span><span class="nf">GetTagName</span><span class="p">(),</span> <span class="s">&#34; (y/n): &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">input</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">bufio</span><span class="p">.</span><span class="nf">NewReader</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdin</span><span class="p">).</span><span class="nf">ReadString</span><span class="p">(</span><span class="sc">&#39;\n&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="o">||</span> <span class="p">(</span><span class="nx">input</span> <span class="o">!=</span> <span class="s">&#34;y\n&#34;</span> <span class="o">&amp;&amp;</span> <span class="nx">input</span> <span class="o">!=</span> <span class="s">&#34;n\n&#34;</span><span class="p">)</span> <span class="o">||</span> <span class="nx">input</span> <span class="o">==</span> <span class="s">&#34;n\n&#34;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">internal</span><span class="p">.</span><span class="nf">ClearTerminal</span><span class="p">(</span><span class="nx">runtime</span><span class="p">.</span><span class="nx">GOOS</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">input</span> <span class="o">==</span> <span class="s">&#34;y\n&#34;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">asset</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">release</span><span class="p">.</span><span class="nx">Assets</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">sourceName</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;jd-cli-%s-%s.tar.gz&#34;</span><span class="p">,</span> <span class="nx">runtime</span><span class="p">.</span><span class="nx">GOOS</span><span class="p">,</span> <span class="nx">runtime</span><span class="p">.</span><span class="nx">GOARCH</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="k">if</span> <span class="nx">asset</span><span class="p">.</span><span class="nf">GetName</span><span class="p">()</span> <span class="o">==</span> <span class="nx">sourceName</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="nf">ToUpdateProgram</span><span class="p">(</span><span class="nx">asset</span><span class="p">.</span><span class="nf">GetBrowserDownloadURL</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">					<span class="k">return</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">ToUpdateProgram</span><span class="p">(</span><span class="nx">url</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 拿到压缩包文件名
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">tarGzFileName</span> <span class="o">:=</span> <span class="nx">filepath</span><span class="p">.</span><span class="nf">Base</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">client</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">DefaultClient</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">client</span><span class="p">.</span><span class="nx">Timeout</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">resp</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">client</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">StatusCode</span> <span class="o">==</span> <span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;[INFO] 正在更新: [%s]&#34;</span><span class="p">,</span> <span class="nx">Project</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">downFile</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="nx">tarGzFileName</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">internal</span><span class="p">.</span><span class="nf">CheckIfError</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">defer</span> <span class="nx">downFile</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">// 获取下载文件的大小
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">contentLength</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">Atoi</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">Header</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;Content-Length&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">sourceSiz</span> <span class="o">:=</span> <span class="nb">int64</span><span class="p">(</span><span class="nx">contentLength</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">source</span> <span class="o">:=</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">// 创建一个进度条
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">bar</span> <span class="o">:=</span> <span class="nx">pb</span><span class="p">.</span><span class="nx">Full</span><span class="p">.</span><span class="nf">Start64</span><span class="p">(</span><span class="nx">sourceSiz</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">bar</span><span class="p">.</span><span class="nf">SetMaxWidth</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">barReader</span> <span class="o">:=</span> <span class="nx">bar</span><span class="p">.</span><span class="nf">NewProxyReader</span><span class="p">(</span><span class="nx">source</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">writer</span> <span class="o">:=</span> <span class="nx">io</span><span class="p">.</span><span class="nf">MultiWriter</span><span class="p">(</span><span class="nx">downFile</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">io</span><span class="p">.</span><span class="nf">Copy</span><span class="p">(</span><span class="nx">writer</span><span class="p">,</span> <span class="nx">barReader</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">bar</span><span class="p">.</span><span class="nf">Finish</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">// 检查文件大小
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">stat</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Stat</span><span class="p">(</span><span class="nx">tarGzFileName</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">stat</span><span class="p">.</span><span class="nf">Size</span><span class="p">()</span> <span class="o">!=</span> <span class="nb">int64</span><span class="p">(</span><span class="nx">contentLength</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;[ERROR] [%s]更新失败&#34;</span><span class="p">,</span> <span class="nx">Project</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Remove</span><span class="p">(</span><span class="nx">tarGzFileName</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">internal</span><span class="p">.</span><span class="nf">CheckIfError</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;[INFO] [%s]更新成功&#34;</span><span class="p">,</span> <span class="nx">Project</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">err</span> <span class="p">=</span> <span class="nx">internal</span><span class="p">.</span><span class="nf">TarGzDeCompress</span><span class="p">(</span><span class="nx">tarGzFileName</span><span class="p">,</span> <span class="s">&#34;./&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">internal</span><span class="p">.</span><span class="nf">CheckIfError</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="nx">_</span> <span class="p">=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Remove</span><span class="p">(</span><span class="nx">tarGzFileName</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">_</span> <span class="p">=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Chmod</span><span class="p">(</span><span class="nx">Project</span><span class="p">,</span> <span class="nx">os</span><span class="p">.</span><span class="nx">ModePerm</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="nx">internal</span><span class="p">.</span><span class="nf">ClearTerminal</span><span class="p">(</span><span class="nx">runtime</span><span class="p">.</span><span class="nx">GOOS</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">_</span> <span class="p">=</span> <span class="nx">internal</span><span class="p">.</span><span class="nf">RestartProcess</span><span class="p">(</span><span class="s">&#34;./&#34;</span> <span class="o">+</span> <span class="nx">Project</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;[ERROR] [%s]更新失败&#34;</span><span class="p">,</span> <span class="nx">Project</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">_</span> <span class="p">=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Remove</span><span class="p">(</span><span class="nx">tarGzFileName</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>internal包</p>
 <div class="highlight"><div class="chroma">
@@ -680,91 +674,91 @@ Github 开放了 <a href="https://docs.github.com/en/rest/reference/repos" targe
 </span><span class="lnt">84
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">internal</span>
-
-<span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&#34;archive/tar&#34;</span>
-	<span class="s">&#34;compress/gzip&#34;</span>
-	<span class="s">&#34;fmt&#34;</span>
-	<span class="s">&#34;io&#34;</span>
-	<span class="s">&#34;os&#34;</span>
-	<span class="s">&#34;os/exec&#34;</span>
-	<span class="s">&#34;strings&#34;</span>
-	<span class="s">&#34;syscall&#34;</span>
-<span class="p">)</span>
-
-<span class="c1">// CheckIfError ...
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">CheckIfError</span><span class="p">(</span><span class="nx">err</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">if</span> <span class="nx">err</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="k">return</span>
-	<span class="p">}</span>
-
-	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;\x1b[31;1m%s\x1b[0m\n&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;error: %s&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">))</span>
-	<span class="nx">os</span><span class="p">.</span><span class="nf">Exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="c1">// ClearTerminal 清空终端控制台
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">ClearTerminal</span><span class="p">(</span><span class="nx">goos</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">switch</span> <span class="nx">goos</span> <span class="p">{</span>
-	<span class="k">case</span> <span class="s">&#34;darwin&#34;</span><span class="p">:</span>
-		<span class="nx">cmd</span> <span class="o">:=</span> <span class="nx">exec</span><span class="p">.</span><span class="nf">Command</span><span class="p">(</span><span class="s">&#34;clear&#34;</span><span class="p">)</span>
-		<span class="nx">cmd</span><span class="p">.</span><span class="nx">Stdout</span> <span class="p">=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span>
-		<span class="nx">_</span> <span class="p">=</span> <span class="nx">cmd</span><span class="p">.</span><span class="nf">Run</span><span class="p">()</span>
-	<span class="k">case</span> <span class="s">&#34;linux&#34;</span><span class="p">:</span>
-		<span class="nx">cmd</span> <span class="o">:=</span> <span class="nx">exec</span><span class="p">.</span><span class="nf">Command</span><span class="p">(</span><span class="s">&#34;clear&#34;</span><span class="p">)</span>
-		<span class="nx">cmd</span><span class="p">.</span><span class="nx">Stdout</span> <span class="p">=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span>
-		<span class="nx">_</span> <span class="p">=</span> <span class="nx">cmd</span><span class="p">.</span><span class="nf">Run</span><span class="p">()</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// TarGzDeCompress tar.gz解压函数
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">TarGzDeCompress</span><span class="p">(</span><span class="nx">tarFile</span><span class="p">,</span> <span class="nx">dest</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
-	<span class="nx">srcFile</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Open</span><span class="p">(</span><span class="nx">tarFile</span><span class="p">)</span>
-	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="nx">err</span>
-	<span class="p">}</span>
-	<span class="k">defer</span> <span class="nx">srcFile</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
-	<span class="nx">gr</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">gzip</span><span class="p">.</span><span class="nf">NewReader</span><span class="p">(</span><span class="nx">srcFile</span><span class="p">)</span>
-	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="nx">err</span>
-	<span class="p">}</span>
-	<span class="k">defer</span> <span class="nx">gr</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
-	<span class="nx">tr</span> <span class="o">:=</span> <span class="nx">tar</span><span class="p">.</span><span class="nf">NewReader</span><span class="p">(</span><span class="nx">gr</span><span class="p">)</span>
-	<span class="k">for</span> <span class="p">{</span>
-		<span class="nx">hdr</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">tr</span><span class="p">.</span><span class="nf">Next</span><span class="p">()</span>
-		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-			<span class="k">if</span> <span class="nx">err</span> <span class="o">==</span> <span class="nx">io</span><span class="p">.</span><span class="nx">EOF</span> <span class="p">{</span>
-				<span class="k">break</span>
-			<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-				<span class="k">return</span> <span class="nx">err</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-		<span class="nx">filename</span> <span class="o">:=</span> <span class="nx">dest</span> <span class="o">+</span> <span class="nx">hdr</span><span class="p">.</span><span class="nx">Name</span>
-
-		<span class="nx">err</span> <span class="p">=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">MkdirAll</span><span class="p">(</span><span class="nb">string</span><span class="p">([]</span><span class="nb">rune</span><span class="p">(</span><span class="nx">filename</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="nx">strings</span><span class="p">.</span><span class="nf">LastIndex</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span> <span class="s">&#34;/&#34;</span><span class="p">)]),</span> <span class="mo">0755</span><span class="p">)</span>
-		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-			<span class="k">return</span> <span class="nx">err</span>
-		<span class="p">}</span>
-
-		<span class="nx">file</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span>
-		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-			<span class="k">return</span> <span class="nx">err</span>
-		<span class="p">}</span>
-		<span class="nx">io</span><span class="p">.</span><span class="nf">Copy</span><span class="p">(</span><span class="nx">file</span><span class="p">,</span> <span class="nx">tr</span><span class="p">)</span>
-	<span class="p">}</span>
-	<span class="k">return</span> <span class="kc">nil</span>
-<span class="p">}</span>
-
-<span class="c1">// RestartProcess 重启进程
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">RestartProcess</span><span class="p">(</span><span class="nx">proName</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
-	<span class="nx">argv0</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">exec</span><span class="p">.</span><span class="nf">LookPath</span><span class="p">(</span><span class="nx">proName</span><span class="p">)</span>
-	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="nx">err</span>
-	<span class="p">}</span>
-
-	<span class="k">return</span> <span class="nx">syscall</span><span class="p">.</span><span class="nf">Exec</span><span class="p">(</span><span class="nx">argv0</span><span class="p">,</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Args</span><span class="p">,</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Environ</span><span class="p">())</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">internal</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;archive/tar&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;compress/gzip&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;io&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;os&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;os/exec&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;strings&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;syscall&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// CheckIfError ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">CheckIfError</span><span class="p">(</span><span class="nx">err</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;\x1b[31;1m%s\x1b[0m\n&#34;</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;error: %s&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">os</span><span class="p">.</span><span class="nf">Exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ClearTerminal 清空终端控制台
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">ClearTerminal</span><span class="p">(</span><span class="nx">goos</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">switch</span> <span class="nx">goos</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">case</span> <span class="s">&#34;darwin&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">cmd</span> <span class="o">:=</span> <span class="nx">exec</span><span class="p">.</span><span class="nf">Command</span><span class="p">(</span><span class="s">&#34;clear&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">cmd</span><span class="p">.</span><span class="nx">Stdout</span> <span class="p">=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">_</span> <span class="p">=</span> <span class="nx">cmd</span><span class="p">.</span><span class="nf">Run</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="k">case</span> <span class="s">&#34;linux&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">cmd</span> <span class="o">:=</span> <span class="nx">exec</span><span class="p">.</span><span class="nf">Command</span><span class="p">(</span><span class="s">&#34;clear&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">cmd</span><span class="p">.</span><span class="nx">Stdout</span> <span class="p">=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">_</span> <span class="p">=</span> <span class="nx">cmd</span><span class="p">.</span><span class="nf">Run</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// TarGzDeCompress tar.gz解压函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">TarGzDeCompress</span><span class="p">(</span><span class="nx">tarFile</span><span class="p">,</span> <span class="nx">dest</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">srcFile</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Open</span><span class="p">(</span><span class="nx">tarFile</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">defer</span> <span class="nx">srcFile</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">gr</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">gzip</span><span class="p">.</span><span class="nf">NewReader</span><span class="p">(</span><span class="nx">srcFile</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">defer</span> <span class="nx">gr</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">tr</span> <span class="o">:=</span> <span class="nx">tar</span><span class="p">.</span><span class="nf">NewReader</span><span class="p">(</span><span class="nx">gr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">hdr</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">tr</span><span class="p">.</span><span class="nf">Next</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="nx">err</span> <span class="o">==</span> <span class="nx">io</span><span class="p">.</span><span class="nx">EOF</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="k">break</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="k">return</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">filename</span> <span class="o">:=</span> <span class="nx">dest</span> <span class="o">+</span> <span class="nx">hdr</span><span class="p">.</span><span class="nx">Name</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="nx">err</span> <span class="p">=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">MkdirAll</span><span class="p">(</span><span class="nb">string</span><span class="p">([]</span><span class="nb">rune</span><span class="p">(</span><span class="nx">filename</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="nx">strings</span><span class="p">.</span><span class="nf">LastIndex</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span> <span class="s">&#34;/&#34;</span><span class="p">)]),</span> <span class="mo">0755</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="nx">file</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">io</span><span class="p">.</span><span class="nf">Copy</span><span class="p">(</span><span class="nx">file</span><span class="p">,</span> <span class="nx">tr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// RestartProcess 重启进程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">RestartProcess</span><span class="p">(</span><span class="nx">proName</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">argv0</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">exec</span><span class="p">.</span><span class="nf">LookPath</span><span class="p">(</span><span class="nx">proName</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">syscall</span><span class="p">.</span><span class="nf">Exec</span><span class="p">(</span><span class="nx">argv0</span><span class="p">,</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Args</span><span class="p">,</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Environ</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>效果如下：</p>
 <p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20210421224216.gif?imageMogr2/format/webp/interlace/1" title="gif" data-thumbnail="https://pic.yqqy.top/blog/20210421224216.gif?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>效果图</h2><p>gif</p>">
@@ -815,7 +809,7 @@ Github 开放了 <a href="https://docs.github.com/en/rest/reference/repos" targe
             </noscript></div></article></div>
         </main><footer class="footer">
         <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">
-                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
+                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.93.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank" rel="noopener noreferrer">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
             <div class="footer-line"></div>

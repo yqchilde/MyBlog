@@ -188,8 +188,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="p">^((</span><span class="err">?</span><span class="p">=.</span><span class="o">*</span><span class="err">\</span><span class="nx">d</span><span class="p">)|(</span><span class="err">?</span><span class="p">=.</span><span class="o">*</span><span class="p">[</span><span class="err">\\\</span><span class="p">^</span><span class="err">\$\</span><span class="p">.</span><span class="err">\</span><span class="o">*</span><span class="err">\</span><span class="o">+</span><span class="err">\?\</span><span class="p">{</span><span class="err">\</span><span class="p">}</span><span class="err">\</span><span class="p">(</span><span class="err">\</span><span class="p">)</span><span class="err">\</span><span class="p">[</span><span class="err">\</span><span class="p">]</span><span class="err">\</span><span class="p">|]</span><span class="o">+</span><span class="p">))(</span><span class="err">?</span><span class="p">=.</span><span class="o">*</span><span class="p">[</span><span class="nx">a</span><span class="o">-</span><span class="nx">z</span><span class="p">])(</span><span class="err">?</span><span class="p">=.</span><span class="o">*</span><span class="p">[</span><span class="nx">A</span><span class="o">-</span><span class="nx">Z</span><span class="p">]).{</span><span class="mi">6</span><span class="p">,</span> <span class="mi">14</span><span class="p">}</span><span class="err">$</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">^((</span><span class="err">?</span><span class="p">=.</span><span class="o">*</span><span class="err">\</span><span class="nx">d</span><span class="p">)|(</span><span class="err">?</span><span class="p">=.</span><span class="o">*</span><span class="p">[</span><span class="err">\\\</span><span class="p">^</span><span class="err">\$\</span><span class="p">.</span><span class="err">\</span><span class="o">*</span><span class="err">\</span><span class="o">+</span><span class="err">\?\</span><span class="p">{</span><span class="err">\</span><span class="p">}</span><span class="err">\</span><span class="p">(</span><span class="err">\</span><span class="p">)</span><span class="err">\</span><span class="p">[</span><span class="err">\</span><span class="p">]</span><span class="err">\</span><span class="p">|]</span><span class="o">+</span><span class="p">))(</span><span class="err">?</span><span class="p">=.</span><span class="o">*</span><span class="p">[</span><span class="nx">a</span><span class="o">-</span><span class="nx">z</span><span class="p">])(</span><span class="err">?</span><span class="p">=.</span><span class="o">*</span><span class="p">[</span><span class="nx">A</span><span class="o">-</span><span class="nx">Z</span><span class="p">]).{</span><span class="mi">6</span><span class="p">,</span> <span class="mi">14</span><span class="p">}</span><span class="err">$</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/image-20200915220733612.png?imageMogr2/format/webp/interlace/1" title="image-20200915220733612" data-thumbnail="https://pic.yqqy.top/blog/image-20200915220733612.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>匹配结果</h2><p>image-20200915220733612</p>">
         <img
@@ -215,16 +215,16 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nx">reg</span> <span class="o">:=</span> <span class="s">`^((?=.*\d)|(?=.*[\\\^\$\.\*\+\?\{\}\(\)\[\]\|]+))(?=.*[a-z])(?=.*[A-Z]).{6, 14}$`</span>
-
-	<span class="nx">matchString</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">regexp</span><span class="p">.</span><span class="nf">MatchString</span><span class="p">(</span><span class="nx">reg</span><span class="p">,</span> <span class="s">&#34;123456&#34;</span><span class="p">)</span>
-	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;err is &#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-	<span class="p">}</span>
-	<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Res is &#34;</span><span class="p">,</span> <span class="nx">matchString</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">reg</span> <span class="o">:=</span> <span class="s">`^((?=.*\d)|(?=.*[\\\^\$\.\*\+\?\{\}\(\)\[\]\|]+))(?=.*[a-z])(?=.*[A-Z]).{6, 14}$`</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">matchString</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">regexp</span><span class="p">.</span><span class="nf">MatchString</span><span class="p">(</span><span class="nx">reg</span><span class="p">,</span> <span class="s">&#34;123456&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;err is &#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Res is &#34;</span><span class="p">,</span> <span class="nx">matchString</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>报错如下</p>
 <div class="highlight"><div class="chroma">
@@ -232,8 +232,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">2020/09/15 21:51:46 err is  error parsing regexp: invalid or unsupported Perl syntax: <span class="sb">`</span><span class="o">(</span>?<span class="o">=</span><span class="sb">`</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">2020/09/15 21:51:46 err is  error parsing regexp: invalid or unsupported Perl syntax: <span class="sb">`</span><span class="o">(</span>?<span class="o">=</span><span class="sb">`</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>拿着该问题去google一下，发现官方并不支持正则中的 <code>环视（lookaround）</code>，说是不符合Go的风格，因为它的复杂度相对比较高，毕竟是要全局去搜一下的</p>
 <p>The go regexp package uses RE2 syntax, not PCRE <a href="https://github.com/google/re2/wiki/Syntax" target="_blank" rel="noopener noreffer">github.com/google/re2/wiki/Syntax</a></p>
@@ -274,38 +274,38 @@
 </span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">VerifyPasswordRule</span><span class="p">(</span><span class="nx">str</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">minLen</span><span class="p">,</span> <span class="nx">maxLen</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
-	<span class="kd">var</span> <span class="p">(</span>
-		<span class="nx">isUpper</span>   <span class="p">=</span> <span class="kc">false</span>
-		<span class="nx">isLower</span>   <span class="p">=</span> <span class="kc">false</span>
-		<span class="nx">isNumber</span>  <span class="p">=</span> <span class="kc">false</span>
-		<span class="nx">isSpecial</span> <span class="p">=</span> <span class="kc">false</span>
-	<span class="p">)</span>
-
-	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">&lt;</span> <span class="nx">minLen</span> <span class="o">||</span> <span class="nb">len</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">&gt;</span> <span class="nx">maxLen</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;The password must contain uppercase and lowercase letters, numbers or punctuation, and must be 6-14 digits long. &#34;</span><span class="p">)</span>
-	<span class="p">}</span>
-
-	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">s</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">str</span> <span class="p">{</span>
-		<span class="k">switch</span> <span class="p">{</span>
-		<span class="k">case</span> <span class="nx">unicode</span><span class="p">.</span><span class="nf">IsUpper</span><span class="p">(</span><span class="nx">s</span><span class="p">):</span>
-			<span class="nx">isUpper</span> <span class="p">=</span> <span class="kc">true</span>
-		<span class="k">case</span> <span class="nx">unicode</span><span class="p">.</span><span class="nf">IsLower</span><span class="p">(</span><span class="nx">s</span><span class="p">):</span>
-			<span class="nx">isLower</span> <span class="p">=</span> <span class="kc">true</span>
-		<span class="k">case</span> <span class="nx">unicode</span><span class="p">.</span><span class="nf">IsNumber</span><span class="p">(</span><span class="nx">s</span><span class="p">):</span>
-			<span class="nx">isNumber</span> <span class="p">=</span> <span class="kc">true</span>
-		<span class="k">case</span> <span class="nx">unicode</span><span class="p">.</span><span class="nf">IsPunct</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="o">||</span> <span class="nx">unicode</span><span class="p">.</span><span class="nf">IsSymbol</span><span class="p">(</span><span class="nx">s</span><span class="p">):</span>
-			<span class="nx">isSpecial</span> <span class="p">=</span> <span class="kc">true</span>
-		<span class="k">default</span><span class="p">:</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-
-	<span class="k">if</span> <span class="p">(</span><span class="nx">isUpper</span> <span class="o">&amp;&amp;</span> <span class="nx">isLower</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">isNumber</span> <span class="o">||</span> <span class="nx">isSpecial</span><span class="p">)</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="kc">nil</span>
-	<span class="p">}</span>
-	<span class="k">return</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;The password must contain uppercase and lowercase letters, numbers or punctuation, and must be 6-14 digits long. &#34;</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">VerifyPasswordRule</span><span class="p">(</span><span class="nx">str</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">minLen</span><span class="p">,</span> <span class="nx">maxLen</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">isUpper</span>   <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">isLower</span>   <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">isNumber</span>  <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">isSpecial</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">	<span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">&lt;</span> <span class="nx">minLen</span> <span class="o">||</span> <span class="nb">len</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">&gt;</span> <span class="nx">maxLen</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;The password must contain uppercase and lowercase letters, numbers or punctuation, and must be 6-14 digits long. &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">s</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">str</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">switch</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="nx">unicode</span><span class="p">.</span><span class="nf">IsUpper</span><span class="p">(</span><span class="nx">s</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">isUpper</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="nx">unicode</span><span class="p">.</span><span class="nf">IsLower</span><span class="p">(</span><span class="nx">s</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">isLower</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="nx">unicode</span><span class="p">.</span><span class="nf">IsNumber</span><span class="p">(</span><span class="nx">s</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">isNumber</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">		<span class="k">case</span> <span class="nx">unicode</span><span class="p">.</span><span class="nf">IsPunct</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="o">||</span> <span class="nx">unicode</span><span class="p">.</span><span class="nf">IsSymbol</span><span class="p">(</span><span class="nx">s</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">isSpecial</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">		<span class="k">default</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="nx">isUpper</span> <span class="o">&amp;&amp;</span> <span class="nx">isLower</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">isNumber</span> <span class="o">||</span> <span class="nx">isSpecial</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;The password must contain uppercase and lowercase letters, numbers or punctuation, and must be 6-14 digits long. &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="了解环视" class="headerLink">
     <a href="#%e4%ba%86%e8%a7%a3%e7%8e%af%e8%a7%86" class="header-mark"></a>了解环视</h2><p>环视是什么，环视是正则中的一个难点，但是在实际应用起来真的很方面，比如去寻找一个串中是否出现过的这种情况就十分方便，但是由于全局去遍历也就导致了他的复杂度上来。环视不匹配文本中的任何字符，只匹配文本中的特定位置。环视类似于定位符 <code>^</code>, <code>$</code>, <code>\b</code>，不会占用字符</p>
@@ -387,12 +387,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// 正序环视
-</span><span class="c1"></span><span class="p">(</span><span class="err">?</span><span class="o">&lt;=</span><span class="err">\</span><span class="nx">d</span><span class="p">)(</span><span class="err">?</span><span class="p">=(</span><span class="err">\</span><span class="nx">d</span><span class="p">{</span><span class="mi">3</span><span class="p">})</span><span class="o">+</span><span class="err">$</span><span class="p">)</span>
-
-<span class="c1">// 逆序环视
-</span><span class="c1"></span><span class="p">(</span><span class="err">?</span><span class="p">=(</span><span class="err">\</span><span class="nx">d</span><span class="p">{</span><span class="mi">3</span><span class="p">})</span><span class="o">+</span><span class="err">$</span><span class="p">)(</span><span class="err">?</span><span class="o">&lt;=</span><span class="err">\</span><span class="nx">d</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// 正序环视
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">(</span><span class="err">?</span><span class="o">&lt;=</span><span class="err">\</span><span class="nx">d</span><span class="p">)(</span><span class="err">?</span><span class="p">=(</span><span class="err">\</span><span class="nx">d</span><span class="p">{</span><span class="mi">3</span><span class="p">})</span><span class="o">+</span><span class="err">$</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 逆序环视
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">(</span><span class="err">?</span><span class="p">=(</span><span class="err">\</span><span class="nx">d</span><span class="p">{</span><span class="mi">3</span><span class="p">})</span><span class="o">+</span><span class="err">$</span><span class="p">)(</span><span class="err">?</span><span class="o">&lt;=</span><span class="err">\</span><span class="nx">d</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>用以上的表达式匹配位置替换为逗号即可</p></div>
 
@@ -427,7 +427,7 @@
             </noscript></div></article></div>
         </main><footer class="footer">
         <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">
-                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
+                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.93.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank" rel="noopener noreferrer">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
             <div class="footer-line"></div>

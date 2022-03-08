@@ -234,64 +234,64 @@
 </span><span class="lnt">57
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">tool</span>
-
-<span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&#34;github.com/gin-gonic/gin&#34;</span>
-	<span class="s">&#34;github.com/mojocn/base64Captcha&#34;</span>
-	<span class="s">&#34;image/color&#34;</span>
-<span class="p">)</span>
-
-<span class="kd">type</span> <span class="nx">CaptchaResult</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">Id</span>          <span class="kt">string</span> <span class="s">`json:&#34;id&#34;`</span>
-	<span class="nx">Base64Blob</span>  <span class="kt">string</span> <span class="s">`json:&#34;base_64_blob&#34;`</span>
-	<span class="nx">VerifyValue</span> <span class="kt">string</span> <span class="s">`json:&#34;code&#34;`</span>
-<span class="p">}</span>
-
-<span class="c1">// 设置自带的store
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">store</span> <span class="p">=</span> <span class="nx">base64Captcha</span><span class="p">.</span><span class="nx">DefaultMemStore</span>
-
-<span class="c1">// 生成图形化验证码
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">GenerateCaptcha</span><span class="p">(</span><span class="nx">ctx</span> <span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span> <span class="p">{</span>
-	<span class="kd">var</span> <span class="nx">driver</span> <span class="nx">base64Captcha</span><span class="p">.</span><span class="nx">Driver</span>
-	<span class="kd">var</span> <span class="nx">driverString</span> <span class="nx">base64Captcha</span><span class="p">.</span><span class="nx">DriverString</span>
-
-	<span class="c1">// 配置验证码信息
-</span><span class="c1"></span>	<span class="nx">captchaConfig</span> <span class="o">:=</span> <span class="nx">base64Captcha</span><span class="p">.</span><span class="nx">DriverString</span><span class="p">{</span>
-		<span class="nx">Height</span><span class="p">:</span>          <span class="mi">30</span><span class="p">,</span>
-		<span class="nx">Width</span><span class="p">:</span>           <span class="mi">60</span><span class="p">,</span>
-		<span class="nx">NoiseCount</span><span class="p">:</span>      <span class="mi">0</span><span class="p">,</span>
-		<span class="nx">ShowLineOptions</span><span class="p">:</span> <span class="mi">2</span> <span class="p">|</span> <span class="mi">4</span><span class="p">,</span>
-		<span class="nx">Length</span><span class="p">:</span>          <span class="mi">4</span><span class="p">,</span>
-		<span class="nx">Source</span><span class="p">:</span>          <span class="s">&#34;1234567890qwertyuioplkjhgfdsazxcvbnm&#34;</span><span class="p">,</span>
-		<span class="nx">BgColor</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">color</span><span class="p">.</span><span class="nx">RGBA</span><span class="p">{</span>
-			<span class="nx">R</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-			<span class="nx">G</span><span class="p">:</span> <span class="mi">102</span><span class="p">,</span>
-			<span class="nx">B</span><span class="p">:</span> <span class="mi">214</span><span class="p">,</span>
-			<span class="nx">A</span><span class="p">:</span> <span class="mi">125</span><span class="p">,</span>
-		<span class="p">},</span>
-		<span class="nx">Fonts</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;wqy-microhei.ttc&#34;</span><span class="p">},</span>
-	<span class="p">}</span>
-
-	<span class="c1">// 自定义配置，如果不需要自定义配置，则上面的结构体和下面这行代码不用写
-</span><span class="c1"></span>	<span class="nx">driverString</span> <span class="p">=</span> <span class="nx">captchaConfig</span>
-	<span class="nx">driver</span> <span class="p">=</span> <span class="nx">driverString</span><span class="p">.</span><span class="nf">ConvertFonts</span><span class="p">()</span>
-
-	<span class="nx">captcha</span> <span class="o">:=</span> <span class="nx">base64Captcha</span><span class="p">.</span><span class="nf">NewCaptcha</span><span class="p">(</span><span class="nx">driver</span><span class="p">,</span> <span class="nx">store</span><span class="p">)</span>
-	<span class="nx">id</span><span class="p">,</span> <span class="nx">b64s</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">captcha</span><span class="p">.</span><span class="nf">Generate</span><span class="p">()</span>
-	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="nf">Failed</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
-	<span class="p">}</span>
-	<span class="nx">captchaResult</span> <span class="o">:=</span> <span class="nx">CaptchaResult</span><span class="p">{</span>
-		<span class="nx">Id</span><span class="p">:</span>         <span class="nx">id</span><span class="p">,</span>
-		<span class="nx">Base64Blob</span><span class="p">:</span> <span class="nx">b64s</span><span class="p">,</span>
-	<span class="p">}</span>
-
-	<span class="nf">Success</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">gin</span><span class="p">.</span><span class="nx">H</span><span class="p">{</span>
-		<span class="s">&#34;captcha_result&#34;</span><span class="p">:</span> <span class="nx">captchaResult</span><span class="p">,</span>
-	<span class="p">})</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">tool</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/gin-gonic/gin&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/mojocn/base64Captcha&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;image/color&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">CaptchaResult</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Id</span>          <span class="kt">string</span> <span class="s">`json:&#34;id&#34;`</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Base64Blob</span>  <span class="kt">string</span> <span class="s">`json:&#34;base_64_blob&#34;`</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">VerifyValue</span> <span class="kt">string</span> <span class="s">`json:&#34;code&#34;`</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 设置自带的store
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">store</span> <span class="p">=</span> <span class="nx">base64Captcha</span><span class="p">.</span><span class="nx">DefaultMemStore</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 生成图形化验证码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">GenerateCaptcha</span><span class="p">(</span><span class="nx">ctx</span> <span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">driver</span> <span class="nx">base64Captcha</span><span class="p">.</span><span class="nx">Driver</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">driverString</span> <span class="nx">base64Captcha</span><span class="p">.</span><span class="nx">DriverString</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 配置验证码信息
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">captchaConfig</span> <span class="o">:=</span> <span class="nx">base64Captcha</span><span class="p">.</span><span class="nx">DriverString</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Height</span><span class="p">:</span>          <span class="mi">30</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Width</span><span class="p">:</span>           <span class="mi">60</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">NoiseCount</span><span class="p">:</span>      <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">ShowLineOptions</span><span class="p">:</span> <span class="mi">2</span> <span class="p">|</span> <span class="mi">4</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Length</span><span class="p">:</span>          <span class="mi">4</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Source</span><span class="p">:</span>          <span class="s">&#34;1234567890qwertyuioplkjhgfdsazxcvbnm&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">BgColor</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">color</span><span class="p">.</span><span class="nx">RGBA</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">R</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">G</span><span class="p">:</span> <span class="mi">102</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">B</span><span class="p">:</span> <span class="mi">214</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">A</span><span class="p">:</span> <span class="mi">125</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="p">},</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Fonts</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;wqy-microhei.ttc&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 自定义配置，如果不需要自定义配置，则上面的结构体和下面这行代码不用写
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">driverString</span> <span class="p">=</span> <span class="nx">captchaConfig</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">driver</span> <span class="p">=</span> <span class="nx">driverString</span><span class="p">.</span><span class="nf">ConvertFonts</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">captcha</span> <span class="o">:=</span> <span class="nx">base64Captcha</span><span class="p">.</span><span class="nf">NewCaptcha</span><span class="p">(</span><span class="nx">driver</span><span class="p">,</span> <span class="nx">store</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">id</span><span class="p">,</span> <span class="nx">b64s</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">captcha</span><span class="p">.</span><span class="nf">Generate</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">Failed</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">captchaResult</span> <span class="o">:=</span> <span class="nx">CaptchaResult</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Id</span><span class="p">:</span>         <span class="nx">id</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Base64Blob</span><span class="p">:</span> <span class="nx">b64s</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nf">Success</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">gin</span><span class="p">.</span><span class="nx">H</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="s">&#34;captcha_result&#34;</span><span class="p">:</span> <span class="nx">captchaResult</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这样子输出的就是一条json，放在项目里面就是这样的</p>
 <p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20200207/uIYagTxvi3FE.png?imageMogr2/format/webp/interlace/1" title="mark" data-thumbnail="https://pic.yqqy.top/blog/20200207/uIYagTxvi3FE.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>效果图</h2><p>mark</p>">
@@ -335,7 +335,7 @@
             </noscript></div></article></div>
         </main><footer class="footer">
         <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">
-                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
+                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.93.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank" rel="noopener noreferrer">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
             <div class="footer-line"></div>
