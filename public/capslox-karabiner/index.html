@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">如何使用 Karabiner 来代替 Capslox 的体验 - Yqchilde</title><meta name="Description" content="写本文之前已经使用了新方案有 3 个多月了，今日突然想到记录一下，故才有了这篇水文。在寻找替代软件之前一直在使用 Capslox 软件，使用 Capslox 工具都要归结于一把 61 键位的键盘，随着 Capslox 正式版的发布，它收费了，而且不是买断制，迫于口袋空空这才去调研新方案，本文将介绍新方案的使用。"><meta property="og:title" content="如何使用 Karabiner 来代替 Capslox 的体验" />
+<meta property="og:description" content="写本文之前已经使用了新方案有 3 个多月了，今日突然想到记录一下，故才有了这篇水文。在寻找替代软件之前一直在使用 Capslox 软件，使用 Capslox 工具都要归结于一把 61 键位的键盘，随着 Capslox 正式版的发布，它收费了，而且不是买断制，迫于口袋空空这才去调研新方案，本文将介绍新方案的使用。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yqqy.top/capslox-karabiner/" /><meta property="og:image" content="https://yqqy.top/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-03-17T10:32:50+08:00" />
+<meta property="article:modified_time" content="2022-03-17T10:32:50+08:00" /><meta property="og:site_name" content="yqchilde" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://yqqy.top/logo.png"/>
+
+<meta name="twitter:title" content="如何使用 Karabiner 来代替 Capslox 的体验"/>
+<meta name="twitter:description" content="写本文之前已经使用了新方案有 3 个多月了，今日突然想到记录一下，故才有了这篇水文。在寻找替代软件之前一直在使用 Capslox 软件，使用 Capslox 工具都要归结于一把 61 键位的键盘，随着 Capslox 正式版的发布，它收费了，而且不是买断制，迫于口袋空空这才去调研新方案，本文将介绍新方案的使用。"/>
+<meta name="application-name" content="Yqchilde">
+<meta name="apple-mobile-web-app-title" content="Yqchilde">
+
+<meta name="theme-color" content="#f8f8f8"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://yqqy.top/capslox-karabiner/" /><link rel="prev" href="https://yqqy.top/uninstall-docker-on-macos/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.df04ac6c2b2cb2ddbb8dd064524dc5d726926f909f7e63f1cd11b8704aad1094.css" integrity="sha256-3wSsbCssst27jdBkUk3F1yaSb5CffmPxzRG4cEqtEJQ="><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "如何使用 Karabiner 来代替 Capslox 的体验",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/yqqy.top\/capslox-karabiner\/"
+        },"genre": "posts","keywords": "Karabiner","wordcount":  1076 ,
+        "url": "https:\/\/yqqy.top\/capslox-karabiner\/","datePublished": "2022-03-17T10:32:50+08:00","dateModified": "2022-03-17T10:32:50+08:00","publisher": {
+            "@type": "Organization",
+            "name": "yqchilde"},"author": {
+                "@type": "Person",
+                "name": "Yqchilde"
+            },"description": "写本文之前已经使用了新方案有 3 个多月了，今日突然想到记录一下，故才有了这篇水文。在寻找替代软件之前一直在使用 Capslox 软件，使用 Capslox 工具都要归结于一把 61 键位的键盘，随着 Capslox 正式版的发布，它收费了，而且不是买断制，迫于口袋空空这才去调研新方案，本文将介绍新方案的使用。"
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let metaColors = {'light': '#f8f8f8','dark': '#252627','black': '#000000'}
+        getMeta('theme-color').content = metaColors[document.body.getAttribute('theme')];
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Yqchilde"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Yqchilde</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/links/"> 友链 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/yqchilde" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" onclick="return false;" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="#" onclick="return false;" class="menu-item theme-select" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                    <select class="color-theme-select" id="theme-select-desktop" title="切换主题">
+                        <option value="light">浅色</option>
+                        <option value="dark">深色</option>
+                        <option value="black">黑色</option>
+                        <option value="auto">跟随系统</option>
+                    </select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Yqchilde"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Yqchilde</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" onclick="return false;" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="#" onclick="return false;" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/links/" title="">友链</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/yqchilde" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="#" onclick="return false;" class="menu-item theme-select" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+                <select class="color-theme-select" id="theme-select-mobile" title="切换主题">
+                    <option value="light">浅色</option>
+                    <option value="dark">深色</option>
+                    <option value="black">黑色</option>
+                    <option value="auto">跟随系统</option>
+                </select>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+            <div class="container"><div class="toc" id="toc-auto">
+        <h2 class="toc-title">目录</h2>
+        <div class="toc-content" id="toc-content-auto"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#项目地址">项目地址</a></li>
+    <li><a href="#项目描述">项目描述</a></li>
+    <li><a href="#安装">安装</a></li>
+    <li><a href="#认识键盘符号">认识键盘符号</a></li>
+    <li><a href="#用法">用法</a>
+      <ul>
+        <li><a href="#capslock赋能">Capslock赋能</a></li>
+        <li><a href="#光标移动">光标移动</a></li>
+        <li><a href="#光标选中">光标选中</a></li>
+        <li><a href="#文本删除">文本删除</a></li>
+        <li><a href="#鼠标操作">鼠标操作</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考项目">参考项目</a></li>
+  </ul>
+</nav></div>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">如何使用 Karabiner 来代替 Capslox 的体验</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author">Yqchilde</a>
+                </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/karabiner/"><i class="far fa-folder fa-fw"></i>Karabiner</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-17">2022-03-17</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-03-17">2022-03-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1076 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#项目地址">项目地址</a></li>
+    <li><a href="#项目描述">项目描述</a></li>
+    <li><a href="#安装">安装</a></li>
+    <li><a href="#认识键盘符号">认识键盘符号</a></li>
+    <li><a href="#用法">用法</a>
+      <ul>
+        <li><a href="#capslock赋能">Capslock赋能</a></li>
+        <li><a href="#光标移动">光标移动</a></li>
+        <li><a href="#光标选中">光标选中</a></li>
+        <li><a href="#文本删除">文本删除</a></li>
+        <li><a href="#鼠标操作">鼠标操作</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考项目">参考项目</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><blockquote>
+<p>写本文之前已经使用了新方案有 3 个多月了，今日突然想到记录一下，故才有了这篇水文。在寻找替代软件之前一直在使用 Capslox 软件，使用 Capslox 工具都要归结于一把 61 键位的键盘，随着 Capslox 正式版的发布，它收费了，而且不是买断制，迫于口袋空空这才去调研新方案，本文将介绍新方案的使用。</p>
+</blockquote>
+<h2 id="项目地址" class="headerLink">
+    <a href="#%e9%a1%b9%e7%9b%ae%e5%9c%b0%e5%9d%80" class="header-mark"></a>项目地址</h2><p><a href="https://github.com/yqchilde/capslox-karabiner" target="_blank" rel="noopener noreffer">https://github.com/yqchilde/capslox-karabiner</a></p>
+<h2 id="项目描述" class="headerLink">
+    <a href="#%e9%a1%b9%e7%9b%ae%e6%8f%8f%e8%bf%b0" class="header-mark"></a>项目描述</h2><p>本项目是基于 Karabiner 实现替代 <a href="https://capslox.com" target="_blank" rel="noopener noreffer">Capslox软件</a> 部分功能的配置，由于在内测阶段一直使用 Capslox，且仅使用了基础热键，故没有参与付费购买，当然 Capslox 不得不说是一款在 Mac 上非常好用的软件。</p>
+<h2 id="安装" class="headerLink">
+    <a href="#%e5%ae%89%e8%a3%85" class="header-mark"></a>安装</h2><ol>
+<li>
+<p>下载 <a href="https://karabiner-elements.pqrs.org/" target="_blank" rel="noopener noreffer">Karabiner-Elements</a> 并安装好</p>
+</li>
+<li>
+<p>在默认浏览中输入下面网址，并回车</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">karabiner://karabiner/assets/complex_modifications/import?url<span class="o">=</span>https://raw.githubusercontent.com/yqchilde/capslox-karabiner/main/capslox-karabiner.json
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>跳转至Karabiner-Elements并导入</p>
+</li>
+<li>
+<p>在软件菜单项 <code>Complex modifications</code> 中点击左下角 <code>Add rule</code> 启用该项目全部功能</p>
+</li>
+</ol>
+<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/202112231454280.jpg?imageMogr2" title="img" data-thumbnail="https://pic.yqqy.top/blog/202112231454280.jpg?imageMogr2" data-sub-html="<h2>效果图1</h2><p>img</p>">
+        <img
+            class="lazyload"
+            data-src="https://pic.yqqy.top/blog/202112231454280.jpg?imageMogr2"
+            data-srcset="https://pic.yqqy.top/blog/202112231454280.jpg?imageMogr2, https://pic.yqqy.top/blog/202112231454280.jpg?imageMogr2 1.5x, https://pic.yqqy.top/blog/202112231454280.jpg?imageMogr2 2x"
+            data-sizes="auto"
+            alt="https://pic.yqqy.top/blog/202112231454280.jpg?imageMogr2">
+    </a><figcaption class="image-caption">效果图1</figcaption>
+    </figure></p>
+<p><strong>注意：</strong></p>
+<p>如果要外接键盘，需要将command键位与option键位互换，如下：</p>
+<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/202112231505410.jpg" title="img" data-thumbnail="https://pic.yqqy.top/blog/202112231505410.jpg" data-sub-html="<h2>效果图2</h2><p>img</p>">
+        <img
+            class="lazyload"
+            data-src="https://pic.yqqy.top/blog/202112231505410.jpg"
+            data-srcset="https://pic.yqqy.top/blog/202112231505410.jpg, https://pic.yqqy.top/blog/202112231505410.jpg 1.5x, https://pic.yqqy.top/blog/202112231505410.jpg 2x"
+            data-sizes="auto"
+            alt="https://pic.yqqy.top/blog/202112231505410.jpg">
+    </a><figcaption class="image-caption">效果图2</figcaption>
+    </figure></p>
+<h2 id="认识键盘符号" class="headerLink">
+    <a href="#%e8%ae%a4%e8%af%86%e9%94%ae%e7%9b%98%e7%ac%a6%e5%8f%b7" class="header-mark"></a>认识键盘符号</h2><p>下文将用以下符号来表示按键位及映射键位，其代表释义如下：</p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>Name</th>
+<th>符号</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>⇪</code></td>
+<td>Capslock</td>
+<td><code>↖</code></td>
+<td>Home</td>
+</tr>
+<tr>
+<td><code>⎋</code></td>
+<td>Escape</td>
+<td><code>↘</code></td>
+<td>End</td>
+</tr>
+<tr>
+<td><code>⌘</code></td>
+<td>Command</td>
+<td><code>⇞</code></td>
+<td>Page Up</td>
+</tr>
+<tr>
+<td><code>⌥</code></td>
+<td>Option</td>
+<td><code>⇟</code></td>
+<td>Page Down</td>
+</tr>
+<tr>
+<td><code>⌃</code></td>
+<td>Control</td>
+<td><code>🖱️</code> <code>L</code></td>
+<td>鼠标左击</td>
+</tr>
+<tr>
+<td><code>⇧</code></td>
+<td>Shift</td>
+<td><code>🖱️</code> <code>R</code></td>
+<td>鼠标右击</td>
+</tr>
+<tr>
+<td><code>⌫</code></td>
+<td>Delete</td>
+<td><code>🖱️</code> <code>F</code></td>
+<td>鼠标前进</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><code>🖱️</code> <code>B</code></td>
+<td>鼠标后退</td>
+</tr>
+</tbody>
+</table>
+<h2 id="用法" class="headerLink">
+    <a href="#%e7%94%a8%e6%b3%95" class="header-mark"></a>用法</h2><h3 id="capslock赋能" class="headerLink">
+    <a href="#capslock%e8%b5%8b%e8%83%bd" class="header-mark"></a>Capslock赋能</h3><p>将Capslock赋能为一个全新的功能修饰键 <strong>✱ Hyper</strong> ，类似于同时按下 <code>⇧</code> <code>⌃</code> <code>⌥</code> <code>⌘</code></p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>映射为</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>⇪ 点击</code></td>
+<td><code>⎋</code> Escape</td>
+<td>单击Capslock发送ESC</td>
+</tr>
+<tr>
+<td><code>⇪ 按住</code></td>
+<td><code>✱</code> Hyper</td>
+<td>按住Capslock启用Hyper</td>
+</tr>
+<tr>
+<td><code>✱</code> <code>⎋</code></td>
+<td><code>⇪</code> Capslock</td>
+<td>单击ESC切换大写锁定</td>
+</tr>
+<tr>
+<td><code>✱</code> <code>␣</code></td>
+<td><code>⌃</code> <code>␣</code></td>
+<td>单击空格切换输入法</td>
+</tr>
+</tbody>
+</table>
+<h3 id="光标移动" class="headerLink">
+    <a href="#%e5%85%89%e6%a0%87%e7%a7%bb%e5%8a%a8" class="header-mark"></a>光标移动</h3><p>长按 <strong>Capslock (✱ Hyper) 键</strong> 配合进行操作</p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>映射为</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>⇪</code> <code>E</code></td>
+<td><code>↑</code></td>
+<td>向上移动</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>D</code></td>
+<td><code>↓</code></td>
+<td>向下移动</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>S</code></td>
+<td><code>←</code></td>
+<td>向左移动</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>F</code></td>
+<td><code>→</code></td>
+<td>向右移动</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>A</code></td>
+<td><code>⌥</code> <code>←</code></td>
+<td>向左移动一个单词</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>G</code></td>
+<td><code>⌥</code> <code>→</code></td>
+<td>向右移动一个单词</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>P</code></td>
+<td><code>⌘</code> <code>←</code></td>
+<td>移动至行首</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>;</code></td>
+<td><code>⌘</code> <code>→</code></td>
+<td>移动至行尾</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>⌥</code> <code>P</code></td>
+<td><code>⌃</code> <code>A</code></td>
+<td>移动至行首增强</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>⌥</code> <code>;</code></td>
+<td><code>⌃</code> <code>E</code></td>
+<td>移动至行尾增强</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>⌘</code> <code>P</code></td>
+<td><code>⇞</code></td>
+<td>移动至页首</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>⌘</code> <code>;</code></td>
+<td><code>⇟</code></td>
+<td>移动至页尾</td>
+</tr>
+</tbody>
+</table>
+<h3 id="光标选中" class="headerLink">
+    <a href="#%e5%85%89%e6%a0%87%e9%80%89%e4%b8%ad" class="header-mark"></a>光标选中</h3><table>
+<thead>
+<tr>
+<th>按键</th>
+<th>映射为</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>⇪</code> <code>I</code></td>
+<td><code>⇧</code> <code>↑</code></td>
+<td>向上选中</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>K</code></td>
+<td><code>⇧</code> <code>↓</code></td>
+<td>向下选中</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>J</code></td>
+<td><code>⇧</code> <code>←</code></td>
+<td>向左选中</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>L</code></td>
+<td><code>⇧</code> <code>→</code></td>
+<td>向右选中</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>H</code></td>
+<td><code>⇧</code> <code>⌥</code> <code>←</code></td>
+<td>向左选中一个单词</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>N</code></td>
+<td><code>⇧</code> <code>⌥</code> <code>→</code></td>
+<td>向右选中一个单词</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>Y</code></td>
+<td><code>⌥</code> <code>↑</code></td>
+<td>向外括选区域</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>B</code></td>
+<td><code>⌥</code> <code>下</code></td>
+<td>向内缩减区域</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>U</code></td>
+<td><code>↖</code> <code>←</code></td>
+<td>选中至行首</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>O</code></td>
+<td><code>↘</code> <code>→</code></td>
+<td>选中至行尾</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>⌘</code> <code>U</code></td>
+<td><code>⌥</code> <code>⇞</code></td>
+<td>选中至页首</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>⌘</code> <code>O</code></td>
+<td><code>⌥</code> <code>⇟</code></td>
+<td>选中至页尾</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>,</code></td>
+<td><code>⌥</code> <code>←</code>  +  <code>⇧</code> <code>⌥</code> <code>→</code></td>
+<td>选中当前单词</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>⌘</code> <code>,</code></td>
+<td><code>↖</code>  +  <code>↘</code> <code>→</code></td>
+<td>选中当前行</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>⌘</code> <code>I</code></td>
+<td><code>⇧</code> <code>⌥</code> <code>↑</code></td>
+<td>选中的行向上移动</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>⌘</code> <code>K</code></td>
+<td><code>⇧</code> <code>⌥</code> <code>↓</code></td>
+<td>选中的行向下移动</td>
+</tr>
+</tbody>
+</table>
+<h3 id="文本删除" class="headerLink">
+    <a href="#%e6%96%87%e6%9c%ac%e5%88%a0%e9%99%a4" class="header-mark"></a>文本删除</h3><table>
+<thead>
+<tr>
+<th>按键</th>
+<th>映射为</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>⇪</code> <code>W</code></td>
+<td><code>⌫</code></td>
+<td>向左删除</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>R</code></td>
+<td><code>fn</code> <code>⌫</code></td>
+<td>向右删除</td>
+</tr>
+<tr>
+<td><code>⌘</code> <code>⇪</code> <code>W</code></td>
+<td><code>⌥</code> <code>⌫</code></td>
+<td>向左删除一个单词</td>
+</tr>
+<tr>
+<td><code>⌘</code> <code>⇪</code> <code>R</code></td>
+<td><code>⌥</code> <code>fn</code> <code>⌫</code></td>
+<td>向右删除一个单词</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>[</code></td>
+<td><code>↖</code> <code>←</code>  +  <code>⌫</code></td>
+<td>删除至行首</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>/</code></td>
+<td><code>↘</code> <code>→</code>  +  <code>⌫</code></td>
+<td>删除至行尾</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>⌫</code></td>
+<td><code>⌘</code> <code>⌫</code></td>
+<td>删除当前行</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>⌘</code> <code>⌫</code></td>
+<td><code>⌘</code> <code>A</code>  +  <code>⌫</code></td>
+<td>删除全部内容</td>
+</tr>
+</tbody>
+</table>
+<h3 id="鼠标操作" class="headerLink">
+    <a href="#%e9%bc%a0%e6%a0%87%e6%93%8d%e4%bd%9c" class="header-mark"></a>鼠标操作</h3><table>
+<thead>
+<tr>
+<th>按键</th>
+<th>映射为</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>⇪</code> <code>🖱️</code> <code>L</code></td>
+<td><code>🖱️</code> <code>F</code></td>
+<td>鼠标前进</td>
+</tr>
+<tr>
+<td><code>⇪</code> <code>🖱️</code> <code>R</code></td>
+<td><code>🖱️</code> <code>B</code></td>
+<td>鼠标后退</td>
+</tr>
+</tbody>
+</table>
+<h2 id="参考项目" class="headerLink">
+    <a href="#%e5%8f%82%e8%80%83%e9%a1%b9%e7%9b%ae" class="header-mark"></a>参考项目</h2><ul>
+<li><a href="https://github.com/BryanHoo/Capslock-Plus" target="_blank" rel="noopener noreffer">https://github.com/BryanHoo/Capslock-Plus</a></li>
+<li><a href="https://github.com/Vonng/Capslock" target="_blank" rel="noopener noreffer">https://github.com/Vonng/Capslock</a></li>
+</ul></div>
+
+        <div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-03-17</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/karabiner/">Karabiner</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/uninstall-docker-on-macos/" class="prev" rel="prev" title="在Mac上彻底卸载Docker"><i class="fas fa-angle-left fa-fw"></i>在Mac上彻底卸载Docker</a></div>
+</div>
+<div id="comments"><div id="giscus"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app/">giscus</a>.
+            </noscript></div></article></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">
+                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.94.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank" rel="noopener noreferrer">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
+            <div class="footer-line"></div>
+            <div class="footer-line">
+            </div>
+        </div></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div id="cookieconsent-container"></div><div class="assets"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.0/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/src/tablesort.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/topbar@1.0.1/topbar.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@sliphua/pjax@2.4.0/dist/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js" defer></script></div>
+
+<div class="pjax-assets"><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":150},"comment":{"giscus":{"darkTheme":"dark","dataCategory":"Announcements","dataCategoryId":"DIC_kwDOG6yFo84CBXMG","dataEmitMetadata":"0","dataInputPosition":"bottom","dataLang":"zh-CN","dataMapping":"pathname","dataReactionsEnabled":"1","dataRepo":"yqchilde/blogComment","dataRepoId":"R_kgDOG6yFow","lightTheme":"light"}},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":50,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"table":{"sort":true}};</script><script type="text/javascript" src="/js/giscus.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.3.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script><script type="text/javascript" src="/js/cookieconsent.min.js" defer></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.0/dist/css/lightgallery.min.css"></div>
+</body>
+
+</html>
