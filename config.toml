@@ -378,7 +378,7 @@ theme = "DoIt"
     #  第三方库配置
     [params.page.library]
       [params.page.library.css]
-        # someCSS = "some.css"
+        someCSS = "links.css"
         #  更多第三方库配置
         # [params.page.library.css.someOtherCSS]
         #   src = "someOther.css"
