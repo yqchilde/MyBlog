@@ -4,7 +4,14 @@
         <link>https://yqqy.top/tags/golang/</link>
         <description>Golang - 标签 - Yqchilde</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Mon, 29 Nov 2021 10:25:30 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/tags/golang/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Sun, 17 Apr 2022 22:38:34 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/tags/golang/" rel="self" type="application/rss+xml" /><item>
+    <title>go mod 添加 gitlab 私有仓库</title>
+    <link>https://yqqy.top/go-mod-private-repo/</link>
+    <pubDate>Sun, 17 Apr 2022 22:38:34 &#43;0800</pubDate><author>
+        <name>Yqchilde</name>
+    </author><guid>https://yqqy.top/go-mod-private-repo/</guid>
+    <description><![CDATA[本篇记载了如何添加 gitlab 私有仓库到 go mod 中使用，并且可以使用 go get 命令获取到私有仓库的依赖。]]></description>
+</item><item>
     <title>在Ubuntu上安装指定版本的Go语言</title>
     <link>https://yqqy.top/ubuntu-install-golang/</link>
     <pubDate>Mon, 29 Nov 2021 10:25:30 &#43;0800</pubDate><author>
@@ -67,12 +74,5 @@
         <name>作者</name>
     </author><guid>https://yqqy.top/zinx-frame-v2/</guid>
     <description><![CDATA[Zinx是一个轻量级TCP服务框架，会跟着课程开始做一些笔记，基础链接封装和业务绑定模块模块是将v1中直接在start方法中的功能抽象出一个Connection，该Connection又有业务绑定功能。]]></description>
-</item><item>
-    <title>Zinx学习之基础Server模块</title>
-    <link>https://yqqy.top/zinx-frame-v1/</link>
-    <pubDate>Sun, 27 Dec 2020 21:00:09 &#43;0800</pubDate><author>
-        <name>作者</name>
-    </author><guid>https://yqqy.top/zinx-frame-v1/</guid>
-    <description><![CDATA[Zinx是一个轻量级TCP服务框架，会跟着课程开始做一些笔记，Server模块是快速实现Zinx最小版本的一个基础模块。]]></description>
 </item></channel>
 </rss>

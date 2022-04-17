@@ -4,7 +4,21 @@
         <link>https://yqqy.top/posts/</link>
         <description>所有文章 | Yqchilde</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Thu, 17 Mar 2022 10:32:50 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Sun, 17 Apr 2022 22:38:34 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>go mod 添加 gitlab 私有仓库</title>
+    <link>https://yqqy.top/go-mod-private-repo/</link>
+    <pubDate>Sun, 17 Apr 2022 22:38:34 &#43;0800</pubDate><author>
+        <name>Yqchilde</name>
+    </author><guid>https://yqqy.top/go-mod-private-repo/</guid>
+    <description><![CDATA[本篇记载了如何添加 gitlab 私有仓库到 go mod 中使用，并且可以使用 go get 命令获取到私有仓库的依赖。]]></description>
+</item><item>
+    <title>Ubuntu 下关于 Netplan 的一次报错</title>
+    <link>https://yqqy.top/ubuntu-netplan/</link>
+    <pubDate>Sun, 17 Apr 2022 19:30:38 &#43;0800</pubDate><author>
+        <name>Yqchilde</name>
+    </author><guid>https://yqqy.top/ubuntu-netplan/</guid>
+    <description><![CDATA[一次错把 netplan 当做 netplan.io 使用时发生的报错。]]></description>
+</item><item>
     <title>如何使用 Karabiner 来代替 Capslox 的体验</title>
     <link>https://yqqy.top/capslox-karabiner/</link>
     <pubDate>Thu, 17 Mar 2022 10:32:50 &#43;0800</pubDate><author>
@@ -60,19 +74,5 @@
         <name>作者</name>
     </author><guid>https://yqqy.top/golang-makefile-and-additional/</guid>
     <description><![CDATA[本文记载如何编写一个简单的适用于Golang交叉编译的Makefile，并且记载了在编译时如何通过动态注入变量来给二进制文件增加版本号，同时利用github releases进行版本更新检测、覆盖更新等。]]></description>
-</item><item>
-    <title>Go的template模板关于range换行和crontab的简单正则表达式</title>
-    <link>https://yqqy.top/template-range-crontab-regex/</link>
-    <pubDate>Sun, 04 Apr 2021 17:39:04 &#43;0800</pubDate><author>
-        <name>作者</name>
-    </author><guid>https://yqqy.top/template-range-crontab-regex/</guid>
-    <description><![CDATA[1. 在使用Go的Template时，在end后下方出现了一行空白的坑，很影响强迫症心情。<br>2. 记录一个简单的crontab正则表达式如何编写。]]></description>
-</item><item>
-    <title>docker-compose使用env处理环境变量妙用</title>
-    <link>https://yqqy.top/docker-compose-env-file/</link>
-    <pubDate>Sat, 13 Mar 2021 12:49:58 &#43;0800</pubDate><author>
-        <name>作者</name>
-    </author><guid>https://yqqy.top/docker-compose-env-file/</guid>
-    <description><![CDATA[记录在docker-compose中对环境变量抽离，使用env文件嵌套变量使用的方法。]]></description>
 </item></channel>
 </rss>

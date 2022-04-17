@@ -4,7 +4,14 @@
         <link>https://yqqy.top/categories/ubuntu/</link>
         <description>Ubuntu - 分类 - Yqchilde</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Mon, 29 Nov 2021 10:25:30 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/categories/ubuntu/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Sun, 17 Apr 2022 19:30:38 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/categories/ubuntu/" rel="self" type="application/rss+xml" /><item>
+    <title>Ubuntu 下关于 Netplan 的一次报错</title>
+    <link>https://yqqy.top/ubuntu-netplan/</link>
+    <pubDate>Sun, 17 Apr 2022 19:30:38 &#43;0800</pubDate><author>
+        <name>Yqchilde</name>
+    </author><guid>https://yqqy.top/ubuntu-netplan/</guid>
+    <description><![CDATA[一次错把 netplan 当做 netplan.io 使用时发生的报错。]]></description>
+</item><item>
     <title>在Ubuntu上安装指定版本的Go语言</title>
     <link>https://yqqy.top/ubuntu-install-golang/</link>
     <pubDate>Mon, 29 Nov 2021 10:25:30 &#43;0800</pubDate><author>
