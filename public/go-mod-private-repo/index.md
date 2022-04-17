@@ -46,10 +46,10 @@ $ git config --global url."git@gitlab.xxx.cn".insteadOf "https://gitlab.xxx.cn"
 machine gitlab.xxx.cn login 用户名 password 上面设置的秘钥
 ```
 
-使用该步骤还可以解决掉一个 `gitlab` 的一个不能拉取子组库的bug: [Go get fails with the usage of subgroups](https://gitlab.com/gitlab-org/gitlab-foss/-/issues/30785)，比如：
+使用该步骤还可以解决掉一个 `gitlab` 的一个不能拉取子组库的问题: [Go get fails with the usage of subgroups](https://gitlab.com/gitlab-org/gitlab-foss/-/issues/30785)，比如：
 
 ```bash
 # 如下拉取命令如果不使用步骤4的话就会报错 
-# 因为由于gitlab的限制，最多只能拉取到一个层级，及 gitlab.xxx.cn/a/b.git
+# 因为由于gitlab的限制，最多只能拉取到一个层级，即 gitlab.xxx.cn/a/b.git
 $ go get -u gitlab.xxx.cn/a/b/c.git
 ```
