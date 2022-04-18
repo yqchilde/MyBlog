@@ -4,9 +4,16 @@
         <link>https://yqqy.top/</link>
         <description>yqchilde,程序员,Gopher,热爱技术,中度强迫症,熬夜达人</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Sun, 17 Apr 2022 22:38:34 &#43;0800</lastBuildDate>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Mon, 18 Apr 2022 15:03:51 &#43;0800</lastBuildDate>
             <atom:link href="https://yqqy.top/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>解决在 Apple M1 上使用 Parallels 安装 Windows 后无法使用 OpenVPN 的问题</title>
+    <link>https://yqqy.top/macos-parallels-miss-tap-windows/</link>
+    <pubDate>Mon, 18 Apr 2022 15:03:51 &#43;0800</pubDate><author>
+        <name>Yqchilde</name>
+    </author><guid>https://yqqy.top/macos-parallels-miss-tap-windows/</guid>
+    <description><![CDATA[由于工作需要，我在 macOS 上安装 Windows，但是在 Windows 上却无法使用 OpenVPN。]]></description>
+</item><item>
     <title>go mod 添加 gitlab 私有仓库</title>
     <link>https://yqqy.top/go-mod-private-repo/</link>
     <pubDate>Sun, 17 Apr 2022 22:38:34 &#43;0800</pubDate><author>
@@ -69,12 +76,5 @@
         <name>作者</name>
     </author><guid>https://yqqy.top/macos-remove-freespace/</guid>
     <description><![CDATA[本文记载如果将一个APFS容器删除，并将与其剩余空间合并。]]></description>
-</item><item>
-    <title>Golang交叉编译Makefile，通过Github release版本检测覆盖更新</title>
-    <link>https://yqqy.top/golang-makefile-and-additional/</link>
-    <pubDate>Wed, 21 Apr 2021 22:44:20 &#43;0800</pubDate><author>
-        <name>作者</name>
-    </author><guid>https://yqqy.top/golang-makefile-and-additional/</guid>
-    <description><![CDATA[本文记载如何编写一个简单的适用于Golang交叉编译的Makefile，并且记载了在编译时如何通过动态注入变量来给二进制文件增加版本号，同时利用github releases进行版本更新检测、覆盖更新等。]]></description>
 </item></channel>
 </rss>
