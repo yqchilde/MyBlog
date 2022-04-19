@@ -1,29 +1,5 @@
----
-title: "在算能盒子 (BMNN) 上使用gocv"
-subtitle: ""
-date: 2022-04-19T17:29:34+08:00
-lastmod: 2022-04-19T17:29:34+08:00
-draft: false
-authors: []
-description: "本文记录了在算能盒子 (BMNN) 上使用gocv的过程，本文将描述使用期间走过的坑，以及如何解决这些坑。"
+# 在算能盒子 (BMNN) 上使用gocv
 
-tags: ["Golang","OpenCV"]
-categories: ["Golang", "OpenCV"]
-series: []
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
-
-featuredImage: ""
-featuredImagePreview: ""
-
-toc:
-  enable: true
-math:
-  enable: false
-lightgallery: false
-license: ""
----
 
 <!--more-->
 

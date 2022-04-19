@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">在算能盒子 (BMNN) 上使用gocv - Yqchilde</title><meta name="Description" content="本文记录了在算能盒子 (BMNN) 上使用gocv的过程，本文将描述使用期间走过的坑，以及如何解决这些坑。"><meta property="og:title" content="在算能盒子 (BMNN) 上使用gocv" />
+<meta property="og:description" content="本文记录了在算能盒子 (BMNN) 上使用gocv的过程，本文将描述使用期间走过的坑，以及如何解决这些坑。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yqqy.top/sophon-linaro-opencv-gocv/" /><meta property="og:image" content="https://yqqy.top/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-04-19T17:29:34+08:00" />
+<meta property="article:modified_time" content="2022-04-19T17:29:34+08:00" /><meta property="og:site_name" content="yqchilde" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://yqqy.top/logo.png"/>
+
+<meta name="twitter:title" content="在算能盒子 (BMNN) 上使用gocv"/>
+<meta name="twitter:description" content="本文记录了在算能盒子 (BMNN) 上使用gocv的过程，本文将描述使用期间走过的坑，以及如何解决这些坑。"/>
+<meta name="application-name" content="Yqchilde">
+<meta name="apple-mobile-web-app-title" content="Yqchilde">
+
+<meta name="theme-color" content="#f8f8f8"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://yqqy.top/sophon-linaro-opencv-gocv/" /><link rel="prev" href="https://yqqy.top/macos-parallels-miss-tap-windows/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.8d562f729248093252213c90d851344c0d1f4d574cb940d1b87af31dbbc7294a.css" integrity="sha256-jVYvcpJICTJSITyQ2FE0TA0fTVdMuUDRuHrzHbvHKUo="><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "在算能盒子 (BMNN) 上使用gocv",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/yqqy.top\/sophon-linaro-opencv-gocv\/"
+        },"genre": "posts","keywords": "Golang, OpenCV","wordcount":  1324 ,
+        "url": "https:\/\/yqqy.top\/sophon-linaro-opencv-gocv\/","datePublished": "2022-04-19T17:29:34+08:00","dateModified": "2022-04-19T17:29:34+08:00","publisher": {
+            "@type": "Organization",
+            "name": "yqchilde"},"author": {
+                "@type": "Person",
+                "name": "Yqchilde"
+            },"description": "本文记录了在算能盒子 (BMNN) 上使用gocv的过程，本文将描述使用期间走过的坑，以及如何解决这些坑。"
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme); document.documentElement.style.setProperty('color-scheme', theme === 'light' ? 'light' : 'dark');}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let metaColors = {'light': '#f8f8f8','dark': '#252627','black': '#000000'}
+        getMeta('theme-color').content = metaColors[document.body.getAttribute('theme')];
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Yqchilde"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Yqchilde</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/links/"> 友链 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/yqchilde" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" onclick="return false;" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="#" onclick="return false;" class="menu-item theme-select" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                    <select class="color-theme-select" id="theme-select-desktop" title="切换主题">
+                        <option value="light">浅色</option>
+                        <option value="dark">深色</option>
+                        <option value="black">黑色</option>
+                        <option value="auto">跟随系统</option>
+                    </select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Yqchilde"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Yqchilde</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" onclick="return false;" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="#" onclick="return false;" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/links/" title="">友链</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/yqchilde" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="#" onclick="return false;" class="menu-item theme-select" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+                <select class="color-theme-select" id="theme-select-mobile" title="切换主题">
+                    <option value="light">浅色</option>
+                    <option value="dark">深色</option>
+                    <option value="black">黑色</option>
+                    <option value="auto">跟随系统</option>
+                </select>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+            <div class="container"><div class="toc" id="toc-auto">
+        <h2 class="toc-title">目录</h2>
+        <div class="toc-content" id="toc-content-auto"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#初遇---golang-编译">初遇 - Golang 编译</a></li>
+    <li><a href="#浅尝---尝试使用自带的opencv">浅尝 - 尝试使用自带的opencv</a></li>
+    <li><a href="#所悟---自行编译opencv">所悟 - 自行编译opencv</a></li>
+    <li><a href="#终章---再次使用golang编译">终章 - 再次使用Golang编译</a></li>
+  </ul>
+</nav></div>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">在算能盒子 (BMNN) 上使用gocv</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author">Yqchilde</a>
+                </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/golang/"><i class="far fa-folder fa-fw"></i>Golang</a>&nbsp;<a href="/categories/opencv/"><i class="far fa-folder fa-fw"></i>OpenCV</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-04-19">2022-04-19</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-04-19">2022-04-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1324 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#初遇---golang-编译">初遇 - Golang 编译</a></li>
+    <li><a href="#浅尝---尝试使用自带的opencv">浅尝 - 尝试使用自带的opencv</a></li>
+    <li><a href="#所悟---自行编译opencv">所悟 - 自行编译opencv</a></li>
+    <li><a href="#终章---再次使用golang编译">终章 - 再次使用Golang编译</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><blockquote>
+<p><em>本文的背景是基于一台 <strong>AI微服务器SE5-8</strong> （以下简称AI盒子）上进行开发，SOPHON AI微服务器SE5-8是一款高性能、低功耗边缘计算产品，搭载算能自主研发的第三代TPU芯片BM1684，INT8算力高达10.6TOPS，可同时处理8路高清视频，支持8路全高清视频硬件解码与1路编码。</em></p>
+</blockquote>
+<h2 id="初遇---golang-编译" class="headerLink">
+    <a href="#%e5%88%9d%e9%81%87---golang-%e7%bc%96%e8%af%91" class="header-mark"></a>初遇 - Golang 编译</h2><p>首先我们准备如下一段代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">_</span> <span class="s">&#34;gocv.io/x/gocv&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Hello, World!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>我们根据 <code>gocv.io</code> 的文档，先要确保安装了 <code>opencv</code>，在这台 AI盒子 上已经存在了一个 <code>opencv</code> 的编译包，其目录在 <code>/system/lib</code> 目录下。我们先进行一下 <code>go build</code>，结果如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ go build
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># pkg-config --cflags  -- opencv4</span>
+</span></span><span class="line"><span class="cl">Package opencv4 was not found in the pkg-config search path.
+</span></span><span class="line"><span class="cl">Perhaps you should add the directory containing <span class="sb">`</span>opencv4.pc<span class="s1">&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">to the PKG_CONFIG_PATH environment variable
+</span></span></span><span class="line"><span class="cl"><span class="s1">No package &#39;</span>opencv4<span class="err">&#39;</span> found
+</span></span><span class="line"><span class="cl">pkg-config: <span class="nb">exit</span> status <span class="m">1</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="浅尝---尝试使用自带的opencv" class="headerLink">
+    <a href="#%e6%b5%85%e5%b0%9d---%e5%b0%9d%e8%af%95%e4%bd%bf%e7%94%a8%e8%87%aa%e5%b8%a6%e7%9a%84opencv" class="header-mark"></a>浅尝 - 尝试使用自带的opencv</h2><p>根据上文报错信息看，是因为我们没有按照 <code>gocv</code> 指定的依赖路径存放opencv编译包，所以我们需要指定一个路径，做如下处理：</p>
+<ol>
+<li>创建opencv4.pc文件</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ vim /system/lib/pkgconfig/opencv4.pc
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>在文件中添加如下内容：</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Package Information for pkg-config</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">prefix</span><span class="o">=</span>/system
+</span></span><span class="line"><span class="cl"><span class="nv">exec_prefix</span><span class="o">=</span><span class="si">${</span><span class="nv">prefix</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl"><span class="nv">libdir</span><span class="o">=</span><span class="si">${</span><span class="nv">exec_prefix</span><span class="si">}</span>/lib
+</span></span><span class="line"><span class="cl"><span class="nv">includedir</span><span class="o">=</span><span class="si">${</span><span class="nv">prefix</span><span class="si">}</span>/include/opencv/opencv4
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Name: OpenCV
+</span></span><span class="line"><span class="cl">Description: Open Source Computer Vision Library
+</span></span><span class="line"><span class="cl">Version: 4.1
+</span></span><span class="line"><span class="cl">Libs: -L<span class="si">${</span><span class="nv">exec_prefix</span><span class="si">}</span>/lib -lopencv_gapi -lopencv_stitching -lopencv_alphamat -lopencv_aruco -lopencv_barcode -lopencv_bgsegm -lopencv_bioinspired -lopencv_ccalib -lopencv_dnn_objdetect -lopencv_dnn_superres -lopencv_dpm -lopencv_face -lopencv_freetype -lopencv_fuzzy -lopencv_hfs -lopencv_img_hash -lopencv_intensity_transform -lopencv_line_descriptor -lopencv_mcc -lopencv_quality -lopencv_rapid -lopencv_reg -lopencv_rgbd -lopencv_saliency -lopencv_stereo -lopencv_structured_light -lopencv_phase_unwrapping -lopencv_superres -lopencv_optflow -lopencv_surface_matching -lopencv_tracking -lopencv_highgui -lopencv_datasets -lopencv_text -lopencv_plot -lopencv_videostab -lopencv_videoio -lopencv_wechat_qrcode -lopencv_xfeatures2d -lopencv_shape -lopencv_ml -lopencv_ximgproc -lopencv_video -lopencv_dnn -lopencv_xobjdetect -lopencv_objdetect -lopencv_calib3d -lopencv_imgcodecs -lopencv_features2d -lopencv_flann -lopencv_xphoto -lopencv_photo -lopencv_imgproc -lopencv_core
+</span></span><span class="line"><span class="cl">Libs.private: -ldl -lm -lpthread -lrt
+</span></span><span class="line"><span class="cl">Cflags: -I<span class="si">${</span><span class="nv">includedir</span><span class="si">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>设置环境变量指定 <code>opencv4.pc</code> 的路径，不指定时默认找的是 <code>/usr/local/lib/pkgconfig/opencv4.pc</code></li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ <span class="nb">export</span> <span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span><span class="s2">&#34;/system/lib/pkgconfig&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="4">
+<li>再次进行编译</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ go build
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># gocv.io/x/gocv</span>
+</span></span><span class="line"><span class="cl">highgui.cpp: In <span class="k">function</span> ‘void Window_New<span class="o">(</span>const char*, int<span class="o">)</span>’:
+</span></span><span class="line"><span class="cl">highgui.cpp:5:5: error: ‘namedWindow’ is not a member of ‘cv’
+</span></span><span class="line"><span class="cl">     cv::namedWindow<span class="o">(</span>winname, flags<span class="o">)</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">     ^~
+</span></span><span class="line"><span class="cl">highgui.cpp: In <span class="k">function</span> ‘void Window_Close<span class="o">(</span>const char*<span class="o">)</span>’:
+</span></span><span class="line"><span class="cl">highgui.cpp:9:5: error: ‘destroyWindow’ is not a member of ‘cv’
+</span></span><span class="line"><span class="cl">     cv::destroyWindow<span class="o">(</span>winname<span class="o">)</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">     ^~
+</span></span><span class="line"><span class="cl">highgui.cpp: In <span class="k">function</span> ‘void Window_IMShow<span class="o">(</span>const char*, Mat<span class="o">)</span>’:
+</span></span><span class="line"><span class="cl">highgui.cpp:13:5: error: ‘imshow’ is not a member of ‘cv’
+</span></span><span class="line"><span class="cl">     cv::imshow<span class="o">(</span>winname, *mat<span class="o">)</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">     ^~
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">... 省略很多错误
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>发现编译还是报了很多错误，出现这个原因是因为我所使用的这台 AI盒子 ，不支持显示即可视化，那么就意味着用不来了自带的优化好的 opencv 了，而且这里要说，自带的 opencv 是4.1的，如果要使用 <code>gocv</code> 最近的几个版本，其中很多方法，可能在编译好的opencv库里并没有，这就意味着我们要想办法自行编译 <code>opencv</code>。</p>
+<h2 id="所悟---自行编译opencv" class="headerLink">
+    <a href="#%e6%89%80%e6%82%9f---%e8%87%aa%e8%a1%8c%e7%bc%96%e8%af%91opencv" class="header-mark"></a>所悟 - 自行编译opencv</h2><ol>
+<li>进入gocv mod中的文件夹</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ <span class="nb">cd</span> <span class="nv">$GOPATH</span>/pkg/mod/gocv.io/x/gocv<span class="se">\@</span>v0.30.0/
+</span></span><span class="line"><span class="cl">$ sudo chmod u+x Makefile
+</span></span><span class="line"><span class="cl">$ sudo make install
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>鉴于 AI盒子 性能考虑，可以<strong>不选用</strong>方式1，而是在官方提供的 <strong>docker镜像</strong> 内完成编译</li>
+</ol>
+<p>下载指定版本 <a href="https://github.com/opencv/opencv/archive/4.5.3.zip" target="_blank" rel="noopener noreffer">opencv</a> , <a href="https://github.com/opencv/opencv_contrib/archive/4.5.3.zip" target="_blank" rel="noopener noreffer">opencv_contrib</a> 源码解压，这俩放在同一目录，进入 <code>opencv-x.x.x/platforms/linux</code> 目录下修改文件 <code>aarch64-gnu.toolchain.cmake</code>，内容如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">set<span class="o">(</span>CMAKE_SYSTEM_PROCESSOR aarch64<span class="o">)</span>
+</span></span><span class="line"><span class="cl">set<span class="o">(</span>GCC_COMPILER_VERSION <span class="s2">&#34;&#34;</span> CACHE STRING <span class="s2">&#34;GCC Compiler version&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">set<span class="o">(</span>GNU_MACHINE <span class="s2">&#34;aarch64-linux-gnu&#34;</span> CACHE STRING <span class="s2">&#34;GNU compiler triple&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">set<span class="o">(</span>CMAKE_C_COMPILER /data/release/toolchains/gcc/gcc-linaro-6.3.1-2017.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc <span class="o">)</span>
+</span></span><span class="line"><span class="cl">set<span class="o">(</span>CMAKE_CXX_COMPILER /data/release/toolchains/gcc/gcc-linaro-6.3.1-2017.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-g++ <span class="o">)</span>
+</span></span><span class="line"><span class="cl">set<span class="o">(</span>ARM_LINUX_SYSROOT /data/release/toolchains/gcc/gcc-linaro-6.3.1-2017.05-x86_64_aarch64-linux-gnu/ CACHE PATH <span class="s2">&#34;ARM cross compile system root&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">include<span class="o">(</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">CMAKE_CURRENT_LIST_DIR</span><span class="si">}</span><span class="s2">/arm.toolchain.cmake&#34;</span><span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在 <code>opencv-x.x.x/platforms/linux</code> 目录下执行 <code>mkdir build &amp;&amp; cd build &amp;&amp; mkdir opencv_install</code>，执行 <code>cmake</code> 生成 <code>Makefile</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">cmake -DCMAKE_INSTALL_PREFIX<span class="o">=</span>./opencv_install/ -DCMAKE_TOOLCHAIN_FILE<span class="o">=</span>../aarch64-gnu.toolchain.cmake <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      -DOPENCV_EXTRA_MODULES_PATH<span class="o">=</span>/root/opencv/opencv_contrib-4.5.3/modules -DBUILD_opencv_videoio<span class="o">=</span>OFF -DBUILD_opencv_highgui<span class="o">=</span>OFF  ../../..
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>执行 <code>make -j $(nproc --all)</code> 进行编译，执行 <code>make install</code> 安装编译后文件到 <code>opencv_install</code> 目录，拷贝 <code>lib</code> 和 <code>include</code> 目录内文件到盒子相关目录</p>
+<h2 id="终章---再次使用golang编译" class="headerLink">
+    <a href="#%e7%bb%88%e7%ab%a0---%e5%86%8d%e6%ac%a1%e4%bd%bf%e7%94%a8golang%e7%bc%96%e8%af%91" class="header-mark"></a>终章 - 再次使用Golang编译</h2><ol>
+<li>删除和gui相关的文件</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ <span class="nb">cd</span> <span class="nv">$GOPATH</span>/pkg/mod/gocv.io/x/gocv<span class="se">\@</span>v0.30.0/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ sudo rm -rf highgui* videoio* photo*
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>改变 <code>opencv4.pc</code> 的路径，不指定时默认找的是 <code>/usr/local/lib/pkgconfig/opencv4.pc</code>，由于上面切到了 <code>/system/lib/pkgconfig</code> 里，这里再切回来</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ <span class="nb">export</span> <span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span><span class="s2">&#34;/usr/local/lib/pkgconfig&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>修改 <code>opencv4.pc</code> 的内容，其中第 11 行后面指定的是需要依赖的so库，内容如下：</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Package Information for pkg-config</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">prefix</span><span class="o">=</span>/usr/local
+</span></span><span class="line"><span class="cl"><span class="nv">exec_prefix</span><span class="o">=</span><span class="si">${</span><span class="nv">prefix</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl"><span class="nv">libdir</span><span class="o">=</span><span class="si">${</span><span class="nv">exec_prefix</span><span class="si">}</span>/lib
+</span></span><span class="line"><span class="cl"><span class="nv">includedir</span><span class="o">=</span><span class="si">${</span><span class="nv">prefix</span><span class="si">}</span>/include/opencv4
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Name: OpenCV
+</span></span><span class="line"><span class="cl">Description: Open Source Computer Vision Library
+</span></span><span class="line"><span class="cl">Version: 4.5.3
+</span></span><span class="line"><span class="cl">Libs: -L<span class="si">${</span><span class="nv">exec_prefix</span><span class="si">}</span>/lib -lopencv_core -lopencv_imgcodecs -lopencv_objdetect -lopencv_features2d -lopencv_video -lopencv_dnn -lopencv_imgproc -lopencv_xfeatures2d -lopencv_calib3d
+</span></span><span class="line"><span class="cl">Libs.private: -ldl -lm -lpthread -lrt
+</span></span><span class="line"><span class="cl">Cflags: -I<span class="si">${</span><span class="nv">includedir</span><span class="si">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="4">
+<li>再次 <code>go build</code> 发现成功编译</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ go build
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Hello, World!
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+
+        <div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-04-19</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/golang/">Golang</a>,&nbsp;<a href="/tags/opencv/">OpenCV</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/macos-parallels-miss-tap-windows/" class="prev" rel="prev" title="解决在 Apple M1 上使用 Parallels 安装 Windows 后无法使用 OpenVPN 的问题"><i class="fas fa-angle-left fa-fw"></i>解决在 Apple M1 上使用 Parallels 安装 Windows 后无法使用 OpenVPN 的问题</a></div>
+</div>
+<div id="comments"><div id="giscus"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app/">giscus</a>.
+            </noscript></div></article></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">
+                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.97.1">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank" rel="noopener noreferrer">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
+            <div class="footer-line"></div>
+            <div class="footer-line">
+            </div>
+        </div></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div id="cookieconsent-container"></div><div class="assets"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="/links.2e187481dd821ae032b4d0ce632afc8524c61131b0011886359dda46cce8cd2d.css" integrity="sha256-Lhh0gd2CGuAytNDOYyr8hSTGETGwARiGNZ3aRszozS0="><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.0/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/tablesort@5.3.0/src/tablesort.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/topbar@1.0.1/topbar.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@sliphua/pjax@2.4.0/dist/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js" defer></script></div>
+
+<div class="pjax-assets"><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":150},"comment":{"giscus":{"darkTheme":"dark","dataCategory":"Announcements","dataCategoryId":"DIC_kwDOG6yFo84CBXMG","dataEmitMetadata":"0","dataInputPosition":"bottom","dataLang":"zh-CN","dataMapping":"pathname","dataReactionsEnabled":"1","dataRepo":"yqchilde/blogComment","dataRepoId":"R_kgDOG6yFow","lightTheme":"light"}},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":50,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"table":{"sort":true}};</script><script type="text/javascript" src="/js/giscus.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script><script type="text/javascript" src="/js/cookieconsent.min.js" defer></script></div>
+</body>
+
+</html>

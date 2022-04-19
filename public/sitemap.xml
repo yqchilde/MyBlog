@@ -2,16 +2,19 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://yqqy.top/categories/</loc><lastmod>2022-04-18T15:03:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/posts/</loc><lastmod>2022-04-18T15:03:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/tags/</loc><lastmod>2022-04-18T15:03:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/categories/</loc><lastmod>2022-04-19T17:29:34&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/tags/golang/</loc><lastmod>2022-04-19T17:29:34&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/categories/golang/</loc><lastmod>2022-04-19T17:29:34&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/tags/opencv/</loc><lastmod>2022-04-19T17:29:34&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/categories/opencv/</loc><lastmod>2022-04-19T17:29:34&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/posts/</loc><lastmod>2022-04-19T17:29:34&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/tags/</loc><lastmod>2022-04-19T17:29:34&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/</loc><lastmod>2022-04-19T17:29:34&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yqqy.top/sophon-linaro-opencv-gocv/</loc><lastmod>2022-04-19T17:29:34&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://yqqy.top/tags/vpn/</loc><lastmod>2022-04-18T15:03:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://yqqy.top/categories/vpn/</loc><lastmod>2022-04-18T15:03:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/</loc><lastmod>2022-04-18T15:03:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://yqqy.top/macos-parallels-miss-tap-windows/</loc><lastmod>2022-04-18T15:03:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://yqqy.top/go-mod-private-repo/</loc><lastmod>2022-04-17T22:38:34&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/tags/golang/</loc><lastmod>2022-04-17T22:38:34&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://yqqy.top/categories/golang/</loc><lastmod>2022-04-17T22:38:34&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://yqqy.top/tags/ubuntu/</loc><lastmod>2022-04-17T19:30:38&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://yqqy.top/categories/ubuntu/</loc><lastmod>2022-04-17T19:30:38&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://yqqy.top/ubuntu-netplan/</loc><lastmod>2022-04-17T19:30:38&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>

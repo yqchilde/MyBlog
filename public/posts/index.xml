@@ -4,7 +4,14 @@
         <link>https://yqqy.top/posts/</link>
         <description>所有文章 | Yqchilde</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Mon, 18 Apr 2022 15:03:51 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Tue, 19 Apr 2022 17:29:34 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>在算能盒子 (BMNN) 上使用gocv</title>
+    <link>https://yqqy.top/sophon-linaro-opencv-gocv/</link>
+    <pubDate>Tue, 19 Apr 2022 17:29:34 &#43;0800</pubDate><author>
+        <name>Yqchilde</name>
+    </author><guid>https://yqqy.top/sophon-linaro-opencv-gocv/</guid>
+    <description><![CDATA[本文记录了在算能盒子 (BMNN) 上使用gocv的过程，本文将描述使用期间走过的坑，以及如何解决这些坑。]]></description>
+</item><item>
     <title>解决在 Apple M1 上使用 Parallels 安装 Windows 后无法使用 OpenVPN 的问题</title>
     <link>https://yqqy.top/macos-parallels-miss-tap-windows/</link>
     <pubDate>Mon, 18 Apr 2022 15:03:51 &#43;0800</pubDate><author>
@@ -67,12 +74,5 @@
         <name>作者</name>
     </author><guid>https://yqqy.top/nginx-configuration/</guid>
     <description><![CDATA[记录一些Nginx常用配置项及说明。]]></description>
-</item><item>
-    <title>MacOS-如何删除Free Space，使得APFS容器将Free Space占用</title>
-    <link>https://yqqy.top/macos-remove-freespace/</link>
-    <pubDate>Sat, 09 Oct 2021 08:02:40 &#43;0800</pubDate><author>
-        <name>作者</name>
-    </author><guid>https://yqqy.top/macos-remove-freespace/</guid>
-    <description><![CDATA[本文记载如果将一个APFS容器删除，并将与其剩余空间合并。]]></description>
 </item></channel>
 </rss>

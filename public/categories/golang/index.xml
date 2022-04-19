@@ -4,7 +4,14 @@
         <link>https://yqqy.top/categories/golang/</link>
         <description>Golang - 分类 - Yqchilde</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Sun, 17 Apr 2022 22:38:34 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/categories/golang/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Tue, 19 Apr 2022 17:29:34 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/categories/golang/" rel="self" type="application/rss+xml" /><item>
+    <title>在算能盒子 (BMNN) 上使用gocv</title>
+    <link>https://yqqy.top/sophon-linaro-opencv-gocv/</link>
+    <pubDate>Tue, 19 Apr 2022 17:29:34 &#43;0800</pubDate><author>
+        <name>Yqchilde</name>
+    </author><guid>https://yqqy.top/sophon-linaro-opencv-gocv/</guid>
+    <description><![CDATA[本文记录了在算能盒子 (BMNN) 上使用gocv的过程，本文将描述使用期间走过的坑，以及如何解决这些坑。]]></description>
+</item><item>
     <title>go mod 添加 gitlab 私有仓库</title>
     <link>https://yqqy.top/go-mod-private-repo/</link>
     <pubDate>Sun, 17 Apr 2022 22:38:34 &#43;0800</pubDate><author>
@@ -67,12 +74,5 @@
         <name>作者</name>
     </author><guid>https://yqqy.top/zinx-frame-v3/</guid>
     <description><![CDATA[Zinx是一个轻量级TCP服务框架，会跟着课程开始做一些笔记，Router模块主要封装了Request接口和Router接口，用于实现通过路由请求数据，并且通过路由调用链接功能，v3是单路由模式。]]></description>
-</item><item>
-    <title>Zinx学习之基础链接封装和业务绑定模块</title>
-    <link>https://yqqy.top/zinx-frame-v2/</link>
-    <pubDate>Sun, 27 Dec 2020 21:00:23 &#43;0800</pubDate><author>
-        <name>作者</name>
-    </author><guid>https://yqqy.top/zinx-frame-v2/</guid>
-    <description><![CDATA[Zinx是一个轻量级TCP服务框架，会跟着课程开始做一些笔记，基础链接封装和业务绑定模块模块是将v1中直接在start方法中的功能抽象出一个Connection，该Connection又有业务绑定功能。]]></description>
 </item></channel>
 </rss>
