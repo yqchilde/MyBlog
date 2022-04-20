@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/yqqy.top\/sophon-linaro-opencv-gocv\/"
-        },"genre": "posts","keywords": "Golang, OpenCV","wordcount":  1324 ,
+        },"genre": "posts","keywords": "Golang, OpenCV","wordcount":  1479 ,
         "url": "https:\/\/yqqy.top\/sophon-linaro-opencv-gocv\/","datePublished": "2022-04-19T17:29:34+08:00","dateModified": "2022-04-19T17:29:34+08:00","publisher": {
             "@type": "Organization",
             "name": "yqchilde"},"author": {
@@ -132,13 +132,14 @@
     <li><a href="#浅尝---尝试使用自带的opencv">浅尝 - 尝试使用自带的opencv</a></li>
     <li><a href="#所悟---自行编译opencv">所悟 - 自行编译opencv</a></li>
     <li><a href="#终章---再次使用golang编译">终章 - 再次使用Golang编译</a></li>
+    <li><a href="#总结---撒花">总结 - 撒花</a></li>
   </ul>
 </nav></div>
     </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">在算能盒子 (BMNN) 上使用gocv</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author">Yqchilde</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/golang/"><i class="far fa-folder fa-fw"></i>Golang</a>&nbsp;<a href="/categories/opencv/"><i class="far fa-folder fa-fw"></i>OpenCV</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-04-19">2022-04-19</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-04-19">2022-04-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1324 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-04-19">2022-04-19</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-04-19">2022-04-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1479 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -151,6 +152,7 @@
     <li><a href="#浅尝---尝试使用自带的opencv">浅尝 - 尝试使用自带的opencv</a></li>
     <li><a href="#所悟---自行编译opencv">所悟 - 自行编译opencv</a></li>
     <li><a href="#终章---再次使用golang编译">终章 - 再次使用Golang编译</a></li>
+    <li><a href="#总结---撒花">总结 - 撒花</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><blockquote>
@@ -443,7 +445,12 @@
 </span></span><span class="line"><span class="cl">Hello, World!
 </span></span></code></pre></td></tr></table>
 </div>
-</div></div>
+</div><h2 id="总结---撒花" class="headerLink">
+    <a href="#%e6%80%bb%e7%bb%93---%e6%92%92%e8%8a%b1" class="header-mark"></a>总结 - 撒花</h2><ol>
+<li>如果没有按照 <code>gocv</code> 指定的 <code>opencv</code> 编译方式去编译，那需要自己指定 <code>opencv4.pc</code> 的位置</li>
+<li>如果编译过程中报了某些依赖库( .so 库)的错，要么去想办法解决掉那些库，编译过程中实在用不到的，要在 <code>gocv</code> 源码中删掉对应的文件</li>
+<li><code>gocv</code> 当前对 <code>opencv</code> 的实现有些许不全， 但是两边得对上， <code>gocv</code> 里面 <code>cpp</code> 有的 <code>opencvlib</code> 也得有，<code>opencvlib</code> 没有的 删了 <code>gocv</code> 里面的相关 <code>cpp文件</code> 就行了</li>
+</ol></div>
 
         <div class="post-footer" id="post-footer">
     <div class="post-info">
