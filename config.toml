@@ -447,9 +447,9 @@ theme = "DoIt"
     enable = false
     # Google Analytics
     [params.analytics.google]
-      id = ""
+      id = "312150688"
       # 是否匿名化用户 IP
-      anonymizeIP = true
+      anonymizeIP = false
     # Fathom Analytics
     [params.analytics.fathom]
       id = ""
