@@ -31,7 +31,7 @@ license: ""
 官方文档上面只有说支持 `touchmove` 但是却没给一个demo
 
 ### 效果图
-![mark](https://pic.yqqy.top/blog/2017uniapphuadong.gif?imageMogr2/format/webp "效果图")
+![mark](https://pic.yqqy.top/blog/2017uniapphuadong.gif "效果图")
 
 ### 代码如下
 

@@ -9,11 +9,11 @@
 
 1. 在终端输入 `sudo cat/etc/mysql/debian.cnf`，如下图
 
-![image-20201110235553156](https://pic.yqqy.top/blog/20201110235555.png?imageMogr2/format/webp/interlace/1 "debian.cnf")
+![image-20201110235553156](https://pic.yqqy.top/blog/20201110235555.png "debian.cnf")
 
 2. 用上面的`user` 和 `password` 登录mysql，如图
 
-![image-20201110235713406](https://pic.yqqy.top/blog/20201110235714.png?imageMogr2/format/webp/interlace/1 "登录成功")
+![image-20201110235713406](https://pic.yqqy.top/blog/20201110235714.png "登录成功")
 
 3. 登录进来之后，就可以修改mysql的密码了，使用到的命令如下，也可以参考之前的 [MySQL5.7修改root密码](https://yqqy.top/mysql5.7-update-password/)
 
@@ -36,7 +36,7 @@ quit;
 
 操作如图所示：
 
-![image-20201111080453889](https://pic.yqqy.top/blog/20201111080455.png?imageMogr2/format/webp/interlace/1 "修改密码")
+![image-20201111080453889](https://pic.yqqy.top/blog/20201111080455.png "修改密码")
 
 4. 重启MySQL服务
 

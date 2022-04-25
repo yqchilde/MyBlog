@@ -12,18 +12,18 @@
 
 - 和笔记一一样，先布局两个按钮，进行跳转操作
 
-![mark](https://pic.yqqy.top/blog/20200111/jetgHAj72S1U.png?imageMogr2/format/webp/interlace/1 "演示图1")
-![mark](https://pic.yqqy.top/blog/20200111/yFwbIlsCl6Qy.png?imageMogr2/format/webp/interlace/1 "演示图2")
+![mark](https://pic.yqqy.top/blog/20200111/jetgHAj72S1U.png "演示图1")
+![mark](https://pic.yqqy.top/blog/20200111/yFwbIlsCl6Qy.png "演示图2")
 
 #### 先说滚动布局吧
 
 - 创建一个新的新的activity，命名为 `HorRecyclerViewActivity`，刚刚的recycleviewActivity就是跳转到这里，同理待会的网格布局也是一样，命名为 `GridRecyclerViewActivity` 两者相同，不同的地方会特别写出来
 
-![mark](https://pic.yqqy.top/blog/20200111/2mXraNXjbthH.png?imageMogr2/format/webp/interlace/1 "GridRecyclerViewActivity")
+![mark](https://pic.yqqy.top/blog/20200111/2mXraNXjbthH.png "GridRecyclerViewActivity")
 
 - ctrl + 左键 点进去，进行布局，也就是在 `activity_hor_recycler_view.xml` 文件中布局，布局如下：
 
-![mark](https://pic.yqqy.top/blog/20200111/FxIqVleNxx3D.png?imageMogr2/format/webp/interlace/1 "activity_hor_recycler_view.xml")
+![mark](https://pic.yqqy.top/blog/20200111/FxIqVleNxx3D.png "activity_hor_recycler_view.xml")
 
 - 引入RecycleView,是v7包中的，笔记一有记录
 
@@ -86,11 +86,11 @@ public class HorRecyclerViewActivity extends AppCompatActivity {
 
 - 我们只需要改其中的布局就行，创建一个对应的adapter布局，将其命名为 `layout_hor_item.xml`，布局如下：
 
-![mark](https://pic.yqqy.top/blog/20200111/4sEHIQ2eJuV7.png?imageMogr2/format/webp/interlace/1 "layout_hor_item.xml")
+![mark](https://pic.yqqy.top/blog/20200111/4sEHIQ2eJuV7.png "layout_hor_item.xml")
 
 - 将其刚刚复制的HorAdapter中的布局修改为这个布局引用
 
-![mark](https://pic.yqqy.top/blog/20200111/6JT2hc3syeg8.png?imageMogr2/format/webp/interlace/1 "HorAdapter")
+![mark](https://pic.yqqy.top/blog/20200111/6JT2hc3syeg8.png "HorAdapter")
 
 - HorAdapter代码：
 
@@ -160,18 +160,18 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.LinearViewHold
 
 - 然后看下水平滚动的布局效果：
 
-![mark](https://pic.yqqy.top/blog/20200111/1Ldh7myKuIhq.png?imageMogr2/format/webp/interlace/1 "水平滚动布局效果")
+![mark](https://pic.yqqy.top/blog/20200111/1Ldh7myKuIhq.png "水平滚动布局效果")
 
 #### 接着说下网格布局
 
 - 只需要变更一下这里，其他都按水平滚动布局来写就行，注意文件截图位置，下面截图有
 
-![mark](https://pic.yqqy.top/blog/20200111/3r6qKNMH4WSL.png?imageMogr2/format/webp/interlace/1 "变更文件")
+![mark](https://pic.yqqy.top/blog/20200111/3r6qKNMH4WSL.png "变更文件")
 
 - 看下网格布局的效果：
 
-![mark](https://pic.yqqy.top/blog/20200111/8lUlFKK1FiyY.png?imageMogr2/format/webp/interlace/1 "网格布局效果")
+![mark](https://pic.yqqy.top/blog/20200111/8lUlFKK1FiyY.png "网格布局效果")
 
 - 笔记三记录一下很多的瀑布流布局，自己感觉笔记二写的比笔记三写的顺畅多了，看来记笔记加深理解真管用。
 
-![mark](https://pic.yqqy.top/blog/20200111/2jxpneu8IOzJ.png?imageMogr2/format/webp/interlace/1)
+![mark](https://pic.yqqy.top/blog/20200111/2jxpneu8IOzJ.png)

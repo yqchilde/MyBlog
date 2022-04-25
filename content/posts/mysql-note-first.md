@@ -94,32 +94,32 @@ key 此处代表是字段名，value此处代表是值
 
 ### 连表查询
 
-![mark](https://pic.yqqy.top/blog/20200111/nTNkInm0gFrq.png?imageMogr2/format/webp/interlace/1)
+![mark](https://pic.yqqy.top/blog/20200111/nTNkInm0gFrq.png)
 
 ### 带查询条件的连表查询
 
-![mark](https://pic.yqqy.top/blog/20200111/TabvY2r2bO3m.png?imageMogr2/format/webp/interlace/1)
+![mark](https://pic.yqqy.top/blog/20200111/TabvY2r2bO3m.png)
 
 ### as 修改连表查询的名称
 
-![mark](https://pic.yqqy.top/blog/20200111/A96dgJljR56U.png?imageMogr2/format/webp/interlace/1)
+![mark](https://pic.yqqy.top/blog/20200111/A96dgJljR56U.png)
 
 ### 多表之间的join连接 ansi方式
 
-![mark](https://pic.yqqy.top/blog/20200111/fVs48IobMr4F.png?imageMogr2/format/webp/interlace/1)
+![mark](https://pic.yqqy.top/blog/20200111/fVs48IobMr4F.png)
 
 ### 多表之间的连接方式
 
-![mark](https://pic.yqqy.top/blog/20200111/eGKmc2yOLmfA.png?imageMogr2/format/webp/interlace/1)
+![mark](https://pic.yqqy.top/blog/20200111/eGKmc2yOLmfA.png)
 
 ### 三表联合查询的方法
 1. 最笨的办法 依次查询
 
-![mark](https://pic.yqqy.top/blog/20200111/sFXqc8hddS8k.png?imageMogr2/format/webp/interlace/1)
+![mark](https://pic.yqqy.top/blog/20200111/sFXqc8hddS8k.png)
 
 2. 外连接方法 （左连接方法）
 
-![mark](https://pic.yqqy.top/blog/20200111/Qt5NzFGTJa4r.png?imageMogr2/format/webp/interlace/1)
+![mark](https://pic.yqqy.top/blog/20200111/Qt5NzFGTJa4r.png)
 
 **我们发现这个地方比普通方法多了一条数据，原因是普通方法如果出现null就查不到**
 
@@ -129,23 +129,23 @@ key 此处代表是字段名，value此处代表是值
 
 后面的select是一般的查询语句就行，此处是三个表联合查询
 
-![mark](https://pic.yqqy.top/blog/20200111/fo3IFUew2x3K.png?imageMogr2/format/webp/interlace/1)
+![mark](https://pic.yqqy.top/blog/20200111/fo3IFUew2x3K.png)
 
 ### 查询视图 
 
 `show tables`
 
-![mark](https://pic.yqqy.top/blog/20200111/47gm7AWUzaev.png?imageMogr2/format/webp/interlace/1)
+![mark](https://pic.yqqy.top/blog/20200111/47gm7AWUzaev.png)
 
 ### 导出数据库 （在cmd窗口）
 
 `mysqldump -u 账号 -p 数据库名字 > 路径`
 
-![mark](https://pic.yqqy.top/blog/20200111/TSTvaEuifJS6.png?imageMogr2/format/webp/interlace/1)
+![mark](https://pic.yqqy.top/blog/20200111/TSTvaEuifJS6.png)
 
 ### 导入数据库 (在cmd窗口)
 
 `mysql -u 账号 -p 数据库名字 < 路径`
 
-![mark](https://pic.yqqy.top/blog/20200111/YOCRu0NY9fgg.png?imageMogr2/format/webp/interlace/1)
+![mark](https://pic.yqqy.top/blog/20200111/YOCRu0NY9fgg.png)
 

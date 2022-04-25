@@ -37,4 +37,4 @@ license: ""
 
 `在 public/.htaccess中修改`加一个 “？”号
 
-![mark](https://pic.yqqy.top/blog/20200111/5DPOlNW9fp45.png?imageMogr2/format/webp/interlace/1)
+![mark](https://pic.yqqy.top/blog/20200111/5DPOlNW9fp45.png)

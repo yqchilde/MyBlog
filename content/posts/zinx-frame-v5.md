@@ -25,7 +25,7 @@ license: ""
 ---
 <!--more-->
 
-![img](https://pic.yqqy.top/blog/20210102233301.png?imageMogr2/format/webp/interlace/1 "消息封装脑图")
+![img](https://pic.yqqy.top/blog/20210102233301.png "消息封装脑图")
 
 ### 封装消息接口
 
@@ -287,4 +287,4 @@ func TestDataPack(t *testing.T) {
 
 **测试结果如下：**
 
-![img](https://pic.yqqy.top/blog/20210102233439.png?imageMogr2/format/webp/interlace/1 "测试")
+![img](https://pic.yqqy.top/blog/20210102233439.png "测试")

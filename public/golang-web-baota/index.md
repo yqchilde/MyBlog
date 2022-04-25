@@ -11,7 +11,7 @@
 1. 发挥golang的交叉编译功能，我服务器是linux，那我们先编译成linux
 
 2. 先去查看一下我们服务器的型号 `uname -a`，确认是amd64
-   ![mark](https://pic.yqqy.top/blog/20200111/fwo1S6NLmwub.png?imageMogr2/format/webp/interlace/1 "确认编译类型")
+   ![mark](https://pic.yqqy.top/blog/20200111/fwo1S6NLmwub.png "确认编译类型")
 
 3. GOOS：目标平台的操作系统（darwin、freebsd、linux、windows） 
    GOARCH：目标平台的体系架构（386、amd64、arm） 
@@ -26,13 +26,13 @@
 
 5. 打包完之后有一个`main`程序，没有后缀
 
-   ![mark](https://pic.yqqy.top/blog/20200111/GxH2poCkqRq6.png?imageMogr2/format/webp/interlace/1 "编译后文件")
+   ![mark](https://pic.yqqy.top/blog/20200111/GxH2poCkqRq6.png "编译后文件")
 
 6. 在宝塔面板文件中创建一个文件夹，将这个文件上传上去
 
 7. 我们在终端中进入这个文件目录，然后`./main`就可以跑起来了
 
-   ![mark](https://pic.yqqy.top/blog/20200111/ttqcIXyxsRIS.png?imageMogr2/format/webp/interlace/1 "服务器")
+   ![mark](https://pic.yqqy.top/blog/20200111/ttqcIXyxsRIS.png "服务器")
 
 8. 注意：golang的http已经开启了一个端口，那我们需要去开启安全组对应的端口，之后跑起来就可以用`ip:port`来访问了
 
@@ -41,7 +41,7 @@
    * 宝塔面板有傻瓜式设置反向代理
    * 设置完了之后就可以通过域名访问了
 
-   ![mark](https://pic.yqqy.top/blog/20200111/UiqC3zNM6KBK.png?imageMogr2/format/webp/interlace/1 "宝塔设置代理")
+   ![mark](https://pic.yqqy.top/blog/20200111/UiqC3zNM6KBK.png "宝塔设置代理")
 
 ## 如何保持程序在linux中后台运行
 
@@ -87,4 +87,4 @@
 
    
 
-![mark](https://pic.yqqy.top/blog/20200111/ym3qOaGiSJIL.png?imageMogr2/format/webp/interlace/1 "运行图")
+![mark](https://pic.yqqy.top/blog/20200111/ym3qOaGiSJIL.png "运行图")

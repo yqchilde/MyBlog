@@ -2,7 +2,7 @@
 
 <!--more-->
 
-![img](https://pic.yqqy.top/blog/20200406233702.png?imageMogr2/format/webp/interlace/1)
+![img](https://pic.yqqy.top/blog/20200406233702.png)
 
 > 复习，慢慢写吧。。。
 

@@ -53,7 +53,7 @@
 
 B+Tree结构
 
-![img1](https://pic.yqqy.top/blog/20211121205415.png?imageMogr2/format/webp/interlace/1 "图1")
+![img1](https://pic.yqqy.top/blog/20211121205415.png "图1")
 
 查找8和9的路径为：
 

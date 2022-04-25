@@ -29,7 +29,7 @@ license: ""
 
 在开发过程中，经常会出现表单出错而返回页面的时候填写的信息全部丢失的情况。正好碰到帮别人写表单多次提交之后，返回时候提示确认重新提交表单，如图
 
-![mark](https://pic.yqqy.top/blog/20200111/EVfKpdQI2Fcg.png?imageMogr2/format/webp/interlace/1 "问题")
+![mark](https://pic.yqqy.top/blog/20200111/EVfKpdQI2Fcg.png "问题")
 
 ## 方案
 
@@ -43,7 +43,7 @@ license: ""
 
 ## 相关缓存指令
 
-![mark](https://pic.yqqy.top/blog/20200111/kfpwwGrVl50x.png?imageMogr2/format/webp/interlace/1 "指令")
+![mark](https://pic.yqqy.top/blog/20200111/kfpwwGrVl50x.png "指令")
 
 ## 搬砖地址
 

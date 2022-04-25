@@ -25,7 +25,7 @@ license: ""
 ---
 <!--more-->
 
-![img](https://pic.yqqy.top/blog/20200516223624.jpeg?imageMogr2/format/webp/interlace/1)
+![img](https://pic.yqqy.top/blog/20200516223624.jpeg)
 
 ### 普通序列化
 

@@ -44,13 +44,13 @@ END //
 DELIMITER;
 ```
 
-![mark](https://pic.yqqy.top/blog/20200111/uNYFhQTsm6j5.png?imageMogr2/format/webp/interlace/1)
+![mark](https://pic.yqqy.top/blog/20200111/uNYFhQTsm6j5.png)
 
 ### 调用存储过程
 
 `call p_stu1("zhangsan", "mysql");`
 
-![mark](https://pic.yqqy.top/blog/20200111/jNIFq3jhSLtX.png?imageMogr2/format/webp/interlace/1)
+![mark](https://pic.yqqy.top/blog/20200111/jNIFq3jhSLtX.png)
 
 ### 创建数据库用户
 

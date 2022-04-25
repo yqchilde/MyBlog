@@ -40,9 +40,9 @@ git config --global http.proxy socks5://127.0.0.1:2081
 2. 不需要设置 https.proxy ，仅设置 http.proxy就可以了
 3. 端口需要看本地的socks端口，不是固定
 
-![mark](https://pic.yqqy.top/blog/20200201/efIkpyjqj5Ju.png?imageMogr2/format/webp/interlace/1)
+![mark](https://pic.yqqy.top/blog/20200201/efIkpyjqj5Ju.png)
 
-![mark](https://pic.yqqy.top/blog/20200201/GC449AV9djFA.png?imageMogr2/format/webp/interlace/1)
+![mark](https://pic.yqqy.top/blog/20200201/GC449AV9djFA.png)
 
 ### 取消代理
 

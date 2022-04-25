@@ -2,7 +2,7 @@
 
 <!--more-->
 
-![img](https://pic.yqqy.top/blog/20210102233220.png?imageMogr2/format/webp/interlace/1 "全局配置脑图")
+![img](https://pic.yqqy.top/blog/20210102233220.png "全局配置脑图")
 
 ### 配置文件
 
@@ -99,4 +99,4 @@ fmt.Printf("[START] Server name: %s,listenner at IP: %s, Port %d is starting\n",
 ### 测试
 
 拷贝v3中的代码到v4，在v4目录下创建 `conf/zinx.json` ，将上面的zinx.json内容复制进去，分别运行server.go和client.go即可看到服务日志开始打印。
-![img](https://pic.yqqy.top/blog/20210102232931.png?imageMogr2/format/webp/interlace/1 "测试")
+![img](https://pic.yqqy.top/blog/20210102232931.png "测试")

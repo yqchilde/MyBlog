@@ -42,7 +42,7 @@ license: ""
 ^((?=.*\d)|(?=.*[\\\^\$\.\*\+\?\{\}\(\)\[\]\|]+))(?=.*[a-z])(?=.*[A-Z]).{6, 14}$
 ```
 
-![image-20200915220733612](https://pic.yqqy.top/blog/image-20200915220733612.png?imageMogr2/format/webp/interlace/1 "匹配结果")
+![image-20200915220733612](https://pic.yqqy.top/blog/image-20200915220733612.png "匹配结果")
 
 可以看到图片，该正则是可以正确判断的
 
@@ -123,7 +123,7 @@ func VerifyPasswordRule(str string, minLen, maxLen int) error {
 
 顺序环视会检查子表达式 `exp` 能否匹配成功，且只寻找子表达式匹配成功时左侧位置，即子表达式能够匹配右侧文本
 
-![image-20200915225541491](https://pic.yqqy.top/blog/image-20200915225541491.png?imageMogr2/format/webp/interlace/1 "顺序环视")
+![image-20200915225541491](https://pic.yqqy.top/blog/image-20200915225541491.png "顺序环视")
 
 ### 逆序环视
 
@@ -134,7 +134,7 @@ func VerifyPasswordRule(str string, minLen, maxLen int) error {
 
 逆序环视同样会检查字表达式子 `exp`的匹配，这次匹配的是左侧文本
 
-![image-20200915225506021](https://pic.yqqy.top/blog/image-20200915225506021.png?imageMogr2/format/webp/interlace/1 "逆序环视")
+![image-20200915225506021](https://pic.yqqy.top/blog/image-20200915225506021.png "逆序环视")
 
 ### 例子
 

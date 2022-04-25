@@ -5,9 +5,9 @@
 
 ## 情况一：可以打开 Docker Desktop
 
-直接在 Mac 上打开 Docker Desktop，然后点击troubleshoot ![](https://pic.yqqy.top/blog/202203081550197.png?imageMogr2/format/webp/interlace/1) 进入后再点击 uninstall。
+直接在 Mac 上打开 Docker Desktop，然后点击troubleshoot ![](https://pic.yqqy.top/blog/202203081550197.png) 进入后再点击 uninstall。
 
-![img](https://pic.yqqy.top/blog/202203081544328.png?imageMogr2/format/webp/interlace/1 "img1")
+![img](https://pic.yqqy.top/blog/202203081544328.png "img1")
 
 ## 情况二：打不开 Docker Desktop
 

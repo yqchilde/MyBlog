@@ -43,13 +43,13 @@ license: ""
 
 前面我们已经提到先将Hugo生成的public文件夹整体推到了Github，接下来就是创建 `GitHub Actions`
 
-![img](https://pic.yqqy.top/blog/1.png?imageMogr2/format/webp/interlace/1 "创建Actions")
+![img](https://pic.yqqy.top/blog/1.png "创建Actions")
 
 ## 配置文件
 
 连接SSH的选择一个Star比较多的，如下图
 
-![img](https://pic.yqqy.top/blog/2.png?imageMogr2/format/webp/interlace/1 "选择市场插件")
+![img](https://pic.yqqy.top/blog/2.png "选择市场插件")
 
 这边我贴一下我配置好的：
 
@@ -108,7 +108,7 @@ ${{ secrets.ALIYUN_PATH }} 博客运行目录
 
 ### 删除远端目录
 
-![img](https://pic.yqqy.top/blog/20200830210144.png?imageMogr2/format/webp/interlace/1 "删除远端目录")
+![img](https://pic.yqqy.top/blog/20200830210144.png "删除远端目录")
 
 ```bash
 if [ ! -d "远端目录" ];then
@@ -120,13 +120,13 @@ fi
 
 ### secrets添加
 
-![img](https://pic.yqqy.top/blog/20200830204924.png?imageMogr2/format/webp/interlace/1 "secrets添加位置")
+![img](https://pic.yqqy.top/blog/20200830204924.png "secrets添加位置")
 
 ## 推送
 
 点击右上角保存即可，这样每次只需要在本地将文章推到GitHub就可以自动部署到服务器了。
 
-![img](https://pic.yqqy.top/blog/20200830205650.png?imageMogr2/format/webp/interlace/1 "运行日志")
+![img](https://pic.yqqy.top/blog/20200830205650.png "运行日志")
 
 ## 补充
 
@@ -163,7 +163,7 @@ fi
 
 {{< /admonition >}}
 
-![img](https://pic.yqqy.top/blog/20200901074049.png?imageMogr2/format/webp/interlace/1 "完美执行")
+![img](https://pic.yqqy.top/blog/20200901074049.png "完美执行")
 
 > 2020/09/016补充 放弃SCP，使用RSync
 
@@ -250,7 +250,7 @@ fi
 echo "publish success!"
 ```
 
-![img](https://pic.yqqy.top/blog/20200916082539.png?imageMogr2/format/webp/interlace/1 "效果图")
+![img](https://pic.yqqy.top/blog/20200916082539.png "效果图")
 
 ## 结束
 

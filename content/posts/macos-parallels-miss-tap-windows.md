@@ -41,8 +41,8 @@ There are no TAP-Windows adapters on this system.  You should be able to create 
 
 1. 下载 [OpenVPN](https://www.aliyundrive.com/s/9ZjEohW4JTs) 客户端 (提取码 4f5c)，并安装，安装好后再次查看网络适配器，应该有 `TAP-Windows Adapter V9` 适配器，如下：
 
-![](https://pic.yqqy.top/blog/202204181522517.png?imageMogr2/format/webp/interlace/1)
+![](https://pic.yqqy.top/blog/202204181522517.png)
 
 2. 再次进行测试连接
 
-![](https://pic.yqqy.top/blog/202204181529411.png?imageMogr2/format/webp/interlace/1)
+![](https://pic.yqqy.top/blog/202204181529411.png)

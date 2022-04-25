@@ -25,7 +25,7 @@ license: ""
 ---
 <!--more-->
 
-![img](https://pic.yqqy.top/blog/20200406234011.png?imageMogr2/format/webp/interlace/1)
+![img](https://pic.yqqy.top/blog/20200406234011.png)
 
 > 本文将以二进制计算作为例子实现
 
@@ -86,11 +86,11 @@ func addBinary(a string, b string) string {
 
 XOR 操作得到两个数字无进位相加的结果。
 
-![](https://pic.yqqy.top/blog/20200402161845.png?imageMogr2/format/webp/interlace/1 "图1")
+![](https://pic.yqqy.top/blog/20200402161845.png "图1")
 
 进位和两个数字与操作结果左移一位对应。
 
-![](https://pic.yqqy.top/blog/20200402161907.png?imageMogr2/format/webp/interlace/1 "图2")
+![](https://pic.yqqy.top/blog/20200402161907.png "图2")
 
 首先计算两个数字的无进位相加结果和进位，然后计算无进位相加结果与进位之和。同理求和问题又可以转换成上一步，直到进位为 0 结束。
 

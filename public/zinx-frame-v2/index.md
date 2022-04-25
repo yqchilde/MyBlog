@@ -2,7 +2,7 @@
 
 <!--more-->
 
-![img](https://pic.yqqy.top/blog/20201227215136.png?imageMogr2/format/webp/interlace/1 "基础链接封装和业务绑定模块脑图")
+![img](https://pic.yqqy.top/blog/20201227215136.png "基础链接封装和业务绑定模块脑图")
 
 v1版本已经实现了一个基础的Server框架，现在我们需要对客户端链接和不同的客户端链接所处理的不同业务在做一层接口封装。在ziface下创建一个链接的接口文件 `iconnection.go` ，以及在znet目录下的实现文件 `connection.go` 。
 

@@ -137,6 +137,6 @@ if ($sendRes == false) {
 
 ### 然后直接调用第四步方法就可以成功发信
 
-![mark](https://pic.yqqy.top/blog/20200111/8TGarEu0hX9E.png?imageMogr2/format/webp/interlace/1 "收到邮件")
+![mark](https://pic.yqqy.top/blog/20200111/8TGarEu0hX9E.png "收到邮件")
 
-![mark](https://pic.yqqy.top/blog/20200111/024PtSRickMk.png?imageMogr2/format/webp/interlace/1 "发送邮件")
+![mark](https://pic.yqqy.top/blog/20200111/024PtSRickMk.png "发送邮件")

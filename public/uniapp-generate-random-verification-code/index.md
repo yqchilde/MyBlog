@@ -50,7 +50,7 @@ getRandomCode: function() { // 生成验证码
 ```
 **注意：** 不转化为base64的话图片是
 
-![mark](https://pic.yqqy.top/blog/20200111/6B1C0MqdMPD3.png?imageMogr2/format/webp/interlace/1 "未转base64")
+![mark](https://pic.yqqy.top/blog/20200111/6B1C0MqdMPD3.png "未转base64")
 
 ## php端代码
 
@@ -175,4 +175,4 @@ class verifyImage {
 
 ## 看一下最后的样子
 
-![mark](https://pic.yqqy.top/blog/20200111/jNEimhVRAk2K.png?imageMogr2/format/webp/interlace/1 "效果图")
+![mark](https://pic.yqqy.top/blog/20200111/jNEimhVRAk2K.png "效果图")

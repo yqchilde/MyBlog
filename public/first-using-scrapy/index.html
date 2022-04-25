@@ -173,48 +173,48 @@
                 </div>
             </div><p>实操python的Scrapy库，也就是爬虫很强大的一个库</p>
 <p>今天要练习的是一个新闻网，如下</p>
-<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20200111/z3PT5NqUlXla.png?imageMogr2/format/webp/interlace/1" title="mark" data-thumbnail="https://pic.yqqy.top/blog/20200111/z3PT5NqUlXla.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>网站</h2><p>mark</p>">
+<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20200111/z3PT5NqUlXla.png" title="mark" data-thumbnail="https://pic.yqqy.top/blog/20200111/z3PT5NqUlXla.png" data-sub-html="<h2>网站</h2><p>mark</p>">
         <img
             class="lazyload"
-            data-src="https://pic.yqqy.top/blog/20200111/z3PT5NqUlXla.png?imageMogr2/format/webp/interlace/1"
-            data-srcset="https://pic.yqqy.top/blog/20200111/z3PT5NqUlXla.png?imageMogr2/format/webp/interlace/1, https://pic.yqqy.top/blog/20200111/z3PT5NqUlXla.png?imageMogr2/format/webp/interlace/1 1.5x, https://pic.yqqy.top/blog/20200111/z3PT5NqUlXla.png?imageMogr2/format/webp/interlace/1 2x"
+            data-src="https://pic.yqqy.top/blog/20200111/z3PT5NqUlXla.png"
+            data-srcset="https://pic.yqqy.top/blog/20200111/z3PT5NqUlXla.png, https://pic.yqqy.top/blog/20200111/z3PT5NqUlXla.png 1.5x, https://pic.yqqy.top/blog/20200111/z3PT5NqUlXla.png 2x"
             data-sizes="auto"
-            alt="https://pic.yqqy.top/blog/20200111/z3PT5NqUlXla.png?imageMogr2/format/webp/interlace/1">
+            alt="https://pic.yqqy.top/blog/20200111/z3PT5NqUlXla.png">
     </a><figcaption class="image-caption">网站</figcaption>
     </figure></p>
 <h2 id="创建项目" class="headerLink">
     <a href="#%e5%88%9b%e5%bb%ba%e9%a1%b9%e7%9b%ae" class="header-mark"></a>创建项目</h2><p>首先我们先在控制台创建一个 <code>Scrapy</code> 项目</p>
 <p><code>scrapy startproject 项目名称</code></p>
-<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20200111/MO65fedlEQ2U.png?imageMogr2/format/webp/interlace/1" title="mark" data-thumbnail="https://pic.yqqy.top/blog/20200111/MO65fedlEQ2U.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>创建项目</h2><p>mark</p>">
+<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20200111/MO65fedlEQ2U.png" title="mark" data-thumbnail="https://pic.yqqy.top/blog/20200111/MO65fedlEQ2U.png" data-sub-html="<h2>创建项目</h2><p>mark</p>">
         <img
             class="lazyload"
-            data-src="https://pic.yqqy.top/blog/20200111/MO65fedlEQ2U.png?imageMogr2/format/webp/interlace/1"
-            data-srcset="https://pic.yqqy.top/blog/20200111/MO65fedlEQ2U.png?imageMogr2/format/webp/interlace/1, https://pic.yqqy.top/blog/20200111/MO65fedlEQ2U.png?imageMogr2/format/webp/interlace/1 1.5x, https://pic.yqqy.top/blog/20200111/MO65fedlEQ2U.png?imageMogr2/format/webp/interlace/1 2x"
+            data-src="https://pic.yqqy.top/blog/20200111/MO65fedlEQ2U.png"
+            data-srcset="https://pic.yqqy.top/blog/20200111/MO65fedlEQ2U.png, https://pic.yqqy.top/blog/20200111/MO65fedlEQ2U.png 1.5x, https://pic.yqqy.top/blog/20200111/MO65fedlEQ2U.png 2x"
             data-sizes="auto"
-            alt="https://pic.yqqy.top/blog/20200111/MO65fedlEQ2U.png?imageMogr2/format/webp/interlace/1">
+            alt="https://pic.yqqy.top/blog/20200111/MO65fedlEQ2U.png">
     </a><figcaption class="image-caption">创建项目</figcaption>
     </figure></p>
 <h2 id="添加爬虫域" class="headerLink">
     <a href="#%e6%b7%bb%e5%8a%a0%e7%88%ac%e8%99%ab%e5%9f%9f" class="header-mark"></a>添加爬虫域</h2><p>我们先用 <code>cd news</code> 进入爬虫文件中，然后再添加爬虫域</p>
 <p><code>scrapy genspider new hxfzzx.com</code></p>
-<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20200111/g2KOWiSHUKCu.png?imageMogr2/format/webp/interlace/1" title="mark" data-thumbnail="https://pic.yqqy.top/blog/20200111/g2KOWiSHUKCu.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>添加爬虫域</h2><p>mark</p>">
+<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20200111/g2KOWiSHUKCu.png" title="mark" data-thumbnail="https://pic.yqqy.top/blog/20200111/g2KOWiSHUKCu.png" data-sub-html="<h2>添加爬虫域</h2><p>mark</p>">
         <img
             class="lazyload"
-            data-src="https://pic.yqqy.top/blog/20200111/g2KOWiSHUKCu.png?imageMogr2/format/webp/interlace/1"
-            data-srcset="https://pic.yqqy.top/blog/20200111/g2KOWiSHUKCu.png?imageMogr2/format/webp/interlace/1, https://pic.yqqy.top/blog/20200111/g2KOWiSHUKCu.png?imageMogr2/format/webp/interlace/1 1.5x, https://pic.yqqy.top/blog/20200111/g2KOWiSHUKCu.png?imageMogr2/format/webp/interlace/1 2x"
+            data-src="https://pic.yqqy.top/blog/20200111/g2KOWiSHUKCu.png"
+            data-srcset="https://pic.yqqy.top/blog/20200111/g2KOWiSHUKCu.png, https://pic.yqqy.top/blog/20200111/g2KOWiSHUKCu.png 1.5x, https://pic.yqqy.top/blog/20200111/g2KOWiSHUKCu.png 2x"
             data-sizes="auto"
-            alt="https://pic.yqqy.top/blog/20200111/g2KOWiSHUKCu.png?imageMogr2/format/webp/interlace/1">
+            alt="https://pic.yqqy.top/blog/20200111/g2KOWiSHUKCu.png">
     </a><figcaption class="image-caption">添加爬虫域</figcaption>
     </figure></p>
 <h2 id="目录结构" class="headerLink">
     <a href="#%e7%9b%ae%e5%bd%95%e7%bb%93%e6%9e%84" class="header-mark"></a>目录结构</h2><p>看下一下scrapy的代码目录结构</p>
-<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20200111/4IUhxuhN2rsO.png?imageMogr2/format/webp/interlace/1" title="mark" data-thumbnail="https://pic.yqqy.top/blog/20200111/4IUhxuhN2rsO.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>目录结构</h2><p>mark</p>">
+<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20200111/4IUhxuhN2rsO.png" title="mark" data-thumbnail="https://pic.yqqy.top/blog/20200111/4IUhxuhN2rsO.png" data-sub-html="<h2>目录结构</h2><p>mark</p>">
         <img
             class="lazyload"
-            data-src="https://pic.yqqy.top/blog/20200111/4IUhxuhN2rsO.png?imageMogr2/format/webp/interlace/1"
-            data-srcset="https://pic.yqqy.top/blog/20200111/4IUhxuhN2rsO.png?imageMogr2/format/webp/interlace/1, https://pic.yqqy.top/blog/20200111/4IUhxuhN2rsO.png?imageMogr2/format/webp/interlace/1 1.5x, https://pic.yqqy.top/blog/20200111/4IUhxuhN2rsO.png?imageMogr2/format/webp/interlace/1 2x"
+            data-src="https://pic.yqqy.top/blog/20200111/4IUhxuhN2rsO.png"
+            data-srcset="https://pic.yqqy.top/blog/20200111/4IUhxuhN2rsO.png, https://pic.yqqy.top/blog/20200111/4IUhxuhN2rsO.png 1.5x, https://pic.yqqy.top/blog/20200111/4IUhxuhN2rsO.png 2x"
             data-sizes="auto"
-            alt="https://pic.yqqy.top/blog/20200111/4IUhxuhN2rsO.png?imageMogr2/format/webp/interlace/1">
+            alt="https://pic.yqqy.top/blog/20200111/4IUhxuhN2rsO.png">
     </a><figcaption class="image-caption">目录结构</figcaption>
     </figure></p>
 <ul>
@@ -355,13 +355,13 @@
 </div>
 </div><h2 id="处理数据" class="headerLink">
     <a href="#%e5%a4%84%e7%90%86%e6%95%b0%e6%8d%ae" class="header-mark"></a>处理数据</h2><p>最后在 <code>pipelines.py</code> 这个文件里写数据处理代码，并将其提交到mysql数据库中，mysql中创建的字段如下</p>
-<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20200111/ai77k9J0wLxq.png?imageMogr2/format/webp/interlace/1" title="mark" data-thumbnail="https://pic.yqqy.top/blog/20200111/ai77k9J0wLxq.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>处理数据</h2><p>mark</p>">
+<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20200111/ai77k9J0wLxq.png" title="mark" data-thumbnail="https://pic.yqqy.top/blog/20200111/ai77k9J0wLxq.png" data-sub-html="<h2>处理数据</h2><p>mark</p>">
         <img
             class="lazyload"
-            data-src="https://pic.yqqy.top/blog/20200111/ai77k9J0wLxq.png?imageMogr2/format/webp/interlace/1"
-            data-srcset="https://pic.yqqy.top/blog/20200111/ai77k9J0wLxq.png?imageMogr2/format/webp/interlace/1, https://pic.yqqy.top/blog/20200111/ai77k9J0wLxq.png?imageMogr2/format/webp/interlace/1 1.5x, https://pic.yqqy.top/blog/20200111/ai77k9J0wLxq.png?imageMogr2/format/webp/interlace/1 2x"
+            data-src="https://pic.yqqy.top/blog/20200111/ai77k9J0wLxq.png"
+            data-srcset="https://pic.yqqy.top/blog/20200111/ai77k9J0wLxq.png, https://pic.yqqy.top/blog/20200111/ai77k9J0wLxq.png 1.5x, https://pic.yqqy.top/blog/20200111/ai77k9J0wLxq.png 2x"
             data-sizes="auto"
-            alt="https://pic.yqqy.top/blog/20200111/ai77k9J0wLxq.png?imageMogr2/format/webp/interlace/1">
+            alt="https://pic.yqqy.top/blog/20200111/ai77k9J0wLxq.png">
     </a><figcaption class="image-caption">处理数据</figcaption>
     </figure></p>
 <p><code>pipelines.py</code> 代码如下：</p>
@@ -425,13 +425,13 @@
 </div>
 </div><h2 id="注意" class="headerLink">
     <a href="#%e6%b3%a8%e6%84%8f" class="header-mark"></a>注意</h2><p>注意事项，要在 <code>setting.py</code> 代码中将pipelines的注释打开</p>
-<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20200111/R3SBimNNsB0n.png?imageMogr2/format/webp/interlace/1" title="mark" data-thumbnail="https://pic.yqqy.top/blog/20200111/R3SBimNNsB0n.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>注意事项</h2><p>mark</p>">
+<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20200111/R3SBimNNsB0n.png" title="mark" data-thumbnail="https://pic.yqqy.top/blog/20200111/R3SBimNNsB0n.png" data-sub-html="<h2>注意事项</h2><p>mark</p>">
         <img
             class="lazyload"
-            data-src="https://pic.yqqy.top/blog/20200111/R3SBimNNsB0n.png?imageMogr2/format/webp/interlace/1"
-            data-srcset="https://pic.yqqy.top/blog/20200111/R3SBimNNsB0n.png?imageMogr2/format/webp/interlace/1, https://pic.yqqy.top/blog/20200111/R3SBimNNsB0n.png?imageMogr2/format/webp/interlace/1 1.5x, https://pic.yqqy.top/blog/20200111/R3SBimNNsB0n.png?imageMogr2/format/webp/interlace/1 2x"
+            data-src="https://pic.yqqy.top/blog/20200111/R3SBimNNsB0n.png"
+            data-srcset="https://pic.yqqy.top/blog/20200111/R3SBimNNsB0n.png, https://pic.yqqy.top/blog/20200111/R3SBimNNsB0n.png 1.5x, https://pic.yqqy.top/blog/20200111/R3SBimNNsB0n.png 2x"
             data-sizes="auto"
-            alt="https://pic.yqqy.top/blog/20200111/R3SBimNNsB0n.png?imageMogr2/format/webp/interlace/1">
+            alt="https://pic.yqqy.top/blog/20200111/R3SBimNNsB0n.png">
     </a><figcaption class="image-caption">注意事项</figcaption>
     </figure></p>
 <h2 id="运行" class="headerLink">
@@ -439,13 +439,13 @@
 <p><code>scrapy crawl new</code></p>
 <h2 id="效果" class="headerLink">
     <a href="#%e6%95%88%e6%9e%9c" class="header-mark"></a>效果</h2><p>效果如下：</p>
-<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20171011444.gif?imageMogr2/format/webp" title="res.gif" data-thumbnail="https://pic.yqqy.top/blog/20171011444.gif?imageMogr2/format/webp" data-sub-html="<h2>运行效果</h2><p>res.gif</p>">
+<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20171011444.gif" title="res.gif" data-thumbnail="https://pic.yqqy.top/blog/20171011444.gif" data-sub-html="<h2>运行效果</h2><p>res.gif</p>">
         <img
             class="lazyload"
-            data-src="https://pic.yqqy.top/blog/20171011444.gif?imageMogr2/format/webp"
-            data-srcset="https://pic.yqqy.top/blog/20171011444.gif?imageMogr2/format/webp, https://pic.yqqy.top/blog/20171011444.gif?imageMogr2/format/webp 1.5x, https://pic.yqqy.top/blog/20171011444.gif?imageMogr2/format/webp 2x"
+            data-src="https://pic.yqqy.top/blog/20171011444.gif"
+            data-srcset="https://pic.yqqy.top/blog/20171011444.gif, https://pic.yqqy.top/blog/20171011444.gif 1.5x, https://pic.yqqy.top/blog/20171011444.gif 2x"
             data-sizes="auto"
-            alt="https://pic.yqqy.top/blog/20171011444.gif?imageMogr2/format/webp">
+            alt="https://pic.yqqy.top/blog/20171011444.gif">
     </a><figcaption class="image-caption">运行效果</figcaption>
     </figure></p></div>
 

@@ -80,7 +80,7 @@ AV.Cloud.define('self_wake', function(req) {
 
 总所周知，免费服务有限制，比如唤醒只给了15s时间，所以容易启动不了
 
-![image-20200322203850365](https://pic.yqqy.top/blog/20200322204205.png?imageMogr2/format/webp/interlace/1)
+![image-20200322203850365](https://pic.yqqy.top/blog/20200322204205.png)
 
 解决办法：使用 `linux` 的 `Crontab`自行唤醒，即不用Leancloud定时任务唤醒，只用其补发邮件
 
@@ -126,9 +126,9 @@ AV.Cloud.define('self_wake', function(req) {
 
 #### 咦~真香
 
-![image-20200322212144823](https://pic.yqqy.top/blog/20200322212209.png?imageMogr2/format/webp/interlace/1)
+![image-20200322212144823](https://pic.yqqy.top/blog/20200322212209.png)
 
-![image-20200322212204969](https://pic.yqqy.top/blog/20200322212217.png?imageMogr2/format/webp/interlace/1)
+![image-20200322212204969](https://pic.yqqy.top/blog/20200322212217.png)
 
 #### 所需工具
 

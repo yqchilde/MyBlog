@@ -25,7 +25,7 @@ license: ""
 ---
 <!--more-->
 
-![img](https://pic.yqqy.top/blog/20200406232406.png?imageMogr2/format/webp/interlace/1)
+![img](https://pic.yqqy.top/blog/20200406232406.png)
 
 虽然设计模式存在于面向对象的语言中，Golang并不是一门OOP的语言，但是这并代表不能实现设计模式。
 

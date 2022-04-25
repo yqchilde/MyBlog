@@ -16,22 +16,22 @@ links:
   - name: Go 夜读
     desc: 十分值得学习Go的网站
     url: https://talkgo.org
-    avatar: https://pic.yqqy.top/blog/20200318232606.png?imageMogr2/format/webp/interlace/1
+    avatar: https://pic.yqqy.top/blog/20200318232606.png
 
   - name: Leetcode
     desc: 码，码不停题
     url: https://leetcode-cn.com
-    avatar: https://pic.yqqy.top/blog/20200329233923.png?imageMogr2/format/webp/interlace/1
+    avatar: https://pic.yqqy.top/blog/20200329233923.png
 
   - name: 枯藤的Go学习文档
     desc: 制作了关于Go的项目
     url: http://www.topgoer.com
-    avatar: https://pic.yqqy.top/blog/20200416093806.jpg?imageMogr2/format/webp/interlace/1
+    avatar: https://pic.yqqy.top/blog/20200416093806.jpg
 
   - name: 鸟窝
     desc: 一位架构师
     url: https://colobu.com
-    avatar: https://pic.yqqy.top/blog/20200516222433.jpg?imageMogr2/format/webp/interlace/1
+    avatar: https://pic.yqqy.top/blog/20200516222433.jpg
 
   - name: 絷缘的小站
     desc: 如兄如师如友，可解惑可交心

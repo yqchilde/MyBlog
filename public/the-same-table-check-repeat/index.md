@@ -6,11 +6,11 @@
 
 在表 `a` 的 第 `b` 条数据要 `update` 数据的时候，检查这个表中的所有数据中有没有与要更新的数据重复，如果有即不更新，没有即更新，起初是理解错了目的，以为是单一数据不能重复，设置了唯一索引 `unique` 后来和我说不是那样的效果，故改之~~~
 
-![mark](https://pic.yqqy.top/blog/20200111/QhYwX5xHEos6.png?imageMogr2/format/webp/interlace/1)
+![mark](https://pic.yqqy.top/blog/20200111/QhYwX5xHEos6.png)
 
 比如直接写表名，就是这样的错误
 
-![mark](https://pic.yqqy.top/blog/20200111/f0IOHzXgQGyL.png?imageMogr2/format/webp/interlace/1)
+![mark](https://pic.yqqy.top/blog/20200111/f0IOHzXgQGyL.png)
 
 ### 代码如下
 ```sql

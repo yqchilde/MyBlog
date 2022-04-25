@@ -4,7 +4,7 @@
 
 ## 第一章 基础Server
 
-![img](https://pic.yqqy.top/blog/20201227215056.png?imageMogr2/format/webp/interlace/1 "Server脑图")
+![img](https://pic.yqqy.top/blog/20201227215056.png "Server脑图")
 
 ### 创建抽象与实体模块
 

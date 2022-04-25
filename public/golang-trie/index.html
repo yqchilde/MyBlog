@@ -169,11 +169,11 @@
     <a href="#trie" class="header-mark"></a>Trie</h3><p>Trie又称字典树，是N叉树的一种特殊形式。是一种存储大量字符串的树形数据结构，相当于<code>HashMap</code>，在存储单词中又比<code>HashMap</code>节省了很多的内存空间。<code>trie</code>树的根节点不存储内容，内容都在孩子节点上。</p>
 <p><img
         class="lazyload"
-        data-src="https://pic.yqqy.top/blog/20200328174533.png?imageMogr2/format/webp/interlace/1"
-        data-srcset="https://pic.yqqy.top/blog/20200328174533.png?imageMogr2/format/webp/interlace/1, https://pic.yqqy.top/blog/20200328174533.png?imageMogr2/format/webp/interlace/1 1.5x, https://pic.yqqy.top/blog/20200328174533.png?imageMogr2/format/webp/interlace/1 2x"
+        data-src="https://pic.yqqy.top/blog/20200328174533.png"
+        data-srcset="https://pic.yqqy.top/blog/20200328174533.png, https://pic.yqqy.top/blog/20200328174533.png 1.5x, https://pic.yqqy.top/blog/20200328174533.png 2x"
         data-sizes="auto"
-        alt="https://pic.yqqy.top/blog/20200328174533.png?imageMogr2/format/webp/interlace/1"
-        title="https://pic.yqqy.top/blog/20200328174533.png?imageMogr2/format/webp/interlace/1"></p>
+        alt="https://pic.yqqy.top/blog/20200328174533.png"
+        title="https://pic.yqqy.top/blog/20200328174533.png"></p>
 <p>这是一个保存了8个单词的字典树的结构，8个单词分别是&quot;A&quot;, &ldquo;to&rdquo;, &ldquo;tea&rdquo;, &ldquo;ted&rdquo;, &ldquo;ten&rdquo;, &ldquo;i&rdquo;, &ldquo;in&rdquo;, &ldquo;inn&rdquo;。每条从根节点到叶子节点的路径都构成了单词（有的不需要走到叶子节点也是单词，比如<code>i</code>, <code>in</code>），从根节点出发的路径都是给定单词列表的某个/某些单词的前缀，反之如果在某个字符串中没有出现在这棵树的路径上，就说明组不成单词。</p>
 <blockquote>
 <p>通常Trie树也会用在搜索引擎上，就是输入某些词，就会扩展出一些模糊词汇</p>

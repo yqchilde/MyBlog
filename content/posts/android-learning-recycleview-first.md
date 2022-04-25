@@ -39,7 +39,7 @@ license: ""
 
 3. 整体思路如下 LinearAdapter<-LinearRecyclerViewAvtivity<-RecyclerActivity
 
-![mark](https://pic.yqqy.top/blog/20200111/QFELwtBJSEBq.png?imageMogr2/format/webp/interlace/1)
+![mark](https://pic.yqqy.top/blog/20200111/QFELwtBJSEBq.png)
 
 - 首先我们先引入V7包，在build.gradle中写这么一行代码
 
@@ -47,7 +47,7 @@ license: ""
 
 - 然后我们重新创建一个空的 `activity` 并将其命名为 `RecyclerViewActivity.java` 然后我们给其布局一个xml 命名为 `activity_recycler_view.xml` 画一个按钮用来点击跳转到演示页面，界面如下：
 
-![mark](https://pic.yqqy.top/blog/20200111/c3DeNp91sxdb.png?imageMogr2/format/webp/interlace/1 "activity_recycler_view.xml")
+![mark](https://pic.yqqy.top/blog/20200111/c3DeNp91sxdb.png "activity_recycler_view.xml")
 
 代码如下：
 
@@ -84,7 +84,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
 
 - 然后我们在LinearRecyclerViewAvtivity对应的创建其布局文件，命名为 `activity_linear_recycler_view.xml` 布局RecyclerView
 
-![mark](https://pic.yqqy.top/blog/20200111/XhAQAOK9t3Oo.png?imageMogr2/format/webp/interlace/1 "activity_linear_recycler_view.xml")
+![mark](https://pic.yqqy.top/blog/20200111/XhAQAOK9t3Oo.png "activity_linear_recycler_view.xml")
 
 - 回到LinearRecyclerViewAvtivity
 -- 这里介绍一下RecyclerView的两个属性属性
@@ -145,15 +145,15 @@ public class LinearRecyclerViewActivity extends AppCompatActivity {
 
 - 点开继承的类查看方法，发现是一个泛型 继承于 ViewHolder
 
-![mark](https://pic.yqqy.top/blog/20200111/iOyNdjqGSuY1.png?imageMogr2/format/webp/interlace/1 "ViewHolder")
+![mark](https://pic.yqqy.top/blog/20200111/iOyNdjqGSuY1.png "ViewHolder")
 
 - 我们自己写一个类继承 RecyclerView.ViewHolder
 
-![mark](https://pic.yqqy.top/blog/20200111/DaKx6OBeGE7P.png?imageMogr2/format/webp/interlace/1 "自定义")
+![mark](https://pic.yqqy.top/blog/20200111/DaKx6OBeGE7P.png "自定义")
 
 - 然后将泛型传进来
 
-![mark](https://pic.yqqy.top/blog/20200111/anTPlxxGOusC.png?imageMogr2/format/webp/interlace/1 "泛型")
+![mark](https://pic.yqqy.top/blog/20200111/anTPlxxGOusC.png "泛型")
 
 - 这里再记录一下 `LayoutInflater` 的使用
 --LayoutInflater这个类的作用类似于findViewById()。不同点是LayoutInflater是用来找res/layout/下的xml布局文件，并且实例化；而findViewById()是找xml布局文件下的具体widget控件(如Button、TextView等)。
@@ -164,15 +164,15 @@ public class LinearRecyclerViewActivity extends AppCompatActivity {
 
 - 为什么是按照我的理解呢，因为现在这俩参数全部更新了，也就是百度到的都不一样，之前的第二个参数是type，组件类型，现在是i,so,是按照我的理解
 
-![mark](https://pic.yqqy.top/blog/20200111/lVaq553s27gP.png?imageMogr2/format/webp/interlace/1)
+![mark](https://pic.yqqy.top/blog/20200111/lVaq553s27gP.png)
 
 - 在LinearAdapter中返回点击的组件的索引，LinearRecyclerViewActivity接口，并用Toast返回提示信息
 
 - 写一个接口实现回调方法，目的是为了传入我们点击的索引
 
-![mark](https://pic.yqqy.top/blog/20200111/sVYernB0Sdgm.png?imageMogr2/format/webp/interlace/1 "1")
-![mark](https://pic.yqqy.top/blog/20200111/904SALh7V2XE.png?imageMogr2/format/webp/interlace/1 "2")
-![mark](https://pic.yqqy.top/blog/20200111/5D2rSHXQTup9.png?imageMogr2/format/webp/interlace/1 "3")
+![mark](https://pic.yqqy.top/blog/20200111/sVYernB0Sdgm.png "1")
+![mark](https://pic.yqqy.top/blog/20200111/904SALh7V2XE.png "2")
+![mark](https://pic.yqqy.top/blog/20200111/5D2rSHXQTup9.png "3")
 
 - 在 `getItemCount` 方法中先写死，创建30个
 
@@ -244,4 +244,4 @@ public class LinearAdapter extends RecyclerView.Adapter<LinearAdapter.LinearView
 
 看下RecyclerView实现的线性布局效果，下个笔记写水平滚动布局和网格布局
 
-![mark](https://pic.yqqy.top/blog/20200111/t806wb1bRrPV.png?imageMogr2/format/webp/interlace/1 "效果图")
+![mark](https://pic.yqqy.top/blog/20200111/t806wb1bRrPV.png "效果图")

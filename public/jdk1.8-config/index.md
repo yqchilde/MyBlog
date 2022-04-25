@@ -8,11 +8,11 @@
 
 直接在系统环境变量新增jdk的绝对路径就行，如图
 
-![mark](https://pic.yqqy.top/blog/20200111/xmPCAwSdtEKH.png?imageMogr2/format/webp/interlace/1)
+![mark](https://pic.yqqy.top/blog/20200111/xmPCAwSdtEKH.png)
 
 成功如图：
 
-![mark](https://pic.yqqy.top/blog/20200111/1IX3vtwq39BI.png?imageMogr2/format/webp/interlace/1)
+![mark](https://pic.yqqy.top/blog/20200111/1IX3vtwq39BI.png)
 
 ### 1.5以前仍然要配置JAVA_HOME和CLASSPATH
 

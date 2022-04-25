@@ -4,7 +4,7 @@
 
 ### 先看效果图
 
-![mark](https://pic.yqqy.top/blog/2017unishengchengqr.gif?imageMogr2/format/webp "效果图")
+![mark](https://pic.yqqy.top/blog/2017unishengchengqr.gif "效果图")
 
 ### 引入插件
 
@@ -334,7 +334,7 @@ console.log(b); // 3
 
 数组中有6个，我们只想要第一个怎么办？
 
-![mark](https://pic.yqqy.top/blog/20200111/M8J8ONE2V90Y.png?imageMogr2/format/webp/interlace/1 "选择合适的")
+![mark](https://pic.yqqy.top/blog/20200111/M8J8ONE2V90Y.png "选择合适的")
 
 只需要省略掉其他的参数就行
 

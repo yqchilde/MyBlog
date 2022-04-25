@@ -144,7 +144,7 @@ $ docker pull [Registry]/[Repository]/[Image]:[Tag]
 
 ## 过滤镜像
 
-![image-20200909204607924](https://pic.yqqy.top/blog/image-20200909204607924.png?imageMogr2/format/webp/interlace/1 "过滤镜像")
+![image-20200909204607924](https://pic.yqqy.top/blog/image-20200909204607924.png "过滤镜像")
 
 ## 重命名镜像
 

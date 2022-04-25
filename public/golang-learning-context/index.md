@@ -2,7 +2,7 @@
 
 <!--more-->
 
-![img](https://pic.yqqy.top/blog/20200516000510.png?imageMogr2/format/webp/interlace/1)
+![img](https://pic.yqqy.top/blog/20200516000510.png)
 
 > 介绍一下
 

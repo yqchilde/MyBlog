@@ -25,7 +25,7 @@ license: ""
 ---
 <!--more-->
 
-![img](https://pic.yqqy.top/blog/20200508234639.png?imageMogr2/format/webp/interlace/1 "Slice")
+![img](https://pic.yqqy.top/blog/20200508234639.png "Slice")
 
 > 写了很久的slice却没有去想过他的扩容机制，近期面试，去了解了一下，这次也算是彻底明白了，之前只是简单的看了看文章
 
@@ -46,7 +46,7 @@ ints = append(ints, 3, 4, 5)   ---->   至少扩容到 cap = 5 ?
 
 - 当大于扩容后的时，如果大于1024时，预估容量是扩容前容量的1.25倍，即以0.25增加
 
-![image-20200508232208435](https://pic.yqqy.top/blog/20200508232218.png?imageMogr2/format/webp/interlace/1 "扩容规则")
+![image-20200508232208435](https://pic.yqqy.top/blog/20200508232218.png "扩容规则")
 
 ### STEP2 需要多大内存
 

@@ -16,12 +16,12 @@
 
 - 同样我们自定义一个函数 `MyDecoration` 来实现他的分割线，我们给上下左右都加一定的外边距，如下：
 
-![mark](https://pic.yqqy.top/blog/20200111/qWcCNhMHeydf.png?imageMogr2/format/webp/interlace/1 "MyDecoration")
+![mark](https://pic.yqqy.top/blog/20200111/qWcCNhMHeydf.png "MyDecoration")
 
 - 复制一个笔记二中的 `GridAdapter` 将其命名为 `StaggeredGridAdapter` ，稍微改一下代码，如下：
 
-![mark](https://pic.yqqy.top/blog/20200111/bG2uxYdwA0EU.png?imageMogr2/format/webp/interlace/1 "StaggeredGridAdapter")
+![mark](https://pic.yqqy.top/blog/20200111/bG2uxYdwA0EU.png "StaggeredGridAdapter")
 
 - 我们现在来看看瀑布流的效果吧：
 
-![mark](https://pic.yqqy.top/blog/20200111/uEVkV6hinDtE.png?imageMogr2/format/webp/interlace/1 "瀑布流效果")
+![mark](https://pic.yqqy.top/blog/20200111/uEVkV6hinDtE.png "瀑布流效果")

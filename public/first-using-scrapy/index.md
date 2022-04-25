@@ -6,7 +6,7 @@
 
 今天要练习的是一个新闻网，如下
 
-![mark](https://pic.yqqy.top/blog/20200111/z3PT5NqUlXla.png?imageMogr2/format/webp/interlace/1 "网站")
+![mark](https://pic.yqqy.top/blog/20200111/z3PT5NqUlXla.png "网站")
 
 ## 创建项目
 
@@ -14,7 +14,7 @@
 
 `scrapy startproject 项目名称`
 
-![mark](https://pic.yqqy.top/blog/20200111/MO65fedlEQ2U.png?imageMogr2/format/webp/interlace/1 "创建项目")
+![mark](https://pic.yqqy.top/blog/20200111/MO65fedlEQ2U.png "创建项目")
 
 ## 添加爬虫域
 
@@ -22,13 +22,13 @@
 
 `scrapy genspider new hxfzzx.com`
 
-![mark](https://pic.yqqy.top/blog/20200111/g2KOWiSHUKCu.png?imageMogr2/format/webp/interlace/1 "添加爬虫域")
+![mark](https://pic.yqqy.top/blog/20200111/g2KOWiSHUKCu.png "添加爬虫域")
 
 ## 目录结构
 
 看下一下scrapy的代码目录结构
 
-![mark](https://pic.yqqy.top/blog/20200111/4IUhxuhN2rsO.png?imageMogr2/format/webp/interlace/1 "目录结构")
+![mark](https://pic.yqqy.top/blog/20200111/4IUhxuhN2rsO.png "目录结构")
 
 - spiders/: 放置spider代码的目录
 - new.py: 该项目的python模块
@@ -111,7 +111,7 @@ class NewSpider(scrapy.Spider):
 
 最后在 `pipelines.py` 这个文件里写数据处理代码，并将其提交到mysql数据库中，mysql中创建的字段如下
 
-![mark](https://pic.yqqy.top/blog/20200111/ai77k9J0wLxq.png?imageMogr2/format/webp/interlace/1 "处理数据")
+![mark](https://pic.yqqy.top/blog/20200111/ai77k9J0wLxq.png "处理数据")
 
 `pipelines.py` 代码如下：
 
@@ -148,7 +148,7 @@ class NewsPipeline(object):
 
 注意事项，要在 `setting.py` 代码中将pipelines的注释打开
 
-![mark](https://pic.yqqy.top/blog/20200111/R3SBimNNsB0n.png?imageMogr2/format/webp/interlace/1 "注意事项")
+![mark](https://pic.yqqy.top/blog/20200111/R3SBimNNsB0n.png "注意事项")
 
 ## 运行
 
@@ -160,4 +160,4 @@ class NewsPipeline(object):
 
 效果如下：
 
-![res.gif](https://pic.yqqy.top/blog/20171011444.gif?imageMogr2/format/webp "运行效果")
+![res.gif](https://pic.yqqy.top/blog/20171011444.gif "运行效果")

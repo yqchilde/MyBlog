@@ -25,7 +25,7 @@ license: ""
 ---
 <!--more-->
 
-![img](https://pic.yqqy.top/blog/20200508172101.png?imageMogr2/format/webp/interlace/1)
+![img](https://pic.yqqy.top/blog/20200508172101.png)
 
 ### 题目
 
@@ -33,7 +33,7 @@ license: ""
 
 **数据库类图如下：**
 
-![image-20200508171438084](https://pic.yqqy.top/blog/20200508171442.png?imageMogr2/format/webp/interlace/1 "类图")
+![image-20200508171438084](https://pic.yqqy.top/blog/20200508171442.png "类图")
 
 **设计的sql如下：**
 

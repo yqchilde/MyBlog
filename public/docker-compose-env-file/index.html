@@ -216,23 +216,23 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>所以最终想法还是只在同目录用 <code>.env</code> 文件，这样不需要特别声明引入，只需要保证同目录即可，这时候我在 <code>docker-compose.yml</code> 文件中引入了 <code>FRUIT_SHARECODE1</code> 变量，按照我的理解是变量嵌套会间接引入上面的变量，结果变成了下面这个样子。</p>
-<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20210313150914.png?imageMogr2/format/webp/interlace/1" title="https://pic.yqqy.top/blog/20210313150914.png?imageMogr2/format/webp/interlace/1" data-thumbnail="https://pic.yqqy.top/blog/20210313150914.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>图1</h2>">
+<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20210313150914.png" title="https://pic.yqqy.top/blog/20210313150914.png" data-thumbnail="https://pic.yqqy.top/blog/20210313150914.png" data-sub-html="<h2>图1</h2>">
         <img
             class="lazyload"
-            data-src="https://pic.yqqy.top/blog/20210313150914.png?imageMogr2/format/webp/interlace/1"
-            data-srcset="https://pic.yqqy.top/blog/20210313150914.png?imageMogr2/format/webp/interlace/1, https://pic.yqqy.top/blog/20210313150914.png?imageMogr2/format/webp/interlace/1 1.5x, https://pic.yqqy.top/blog/20210313150914.png?imageMogr2/format/webp/interlace/1 2x"
+            data-src="https://pic.yqqy.top/blog/20210313150914.png"
+            data-srcset="https://pic.yqqy.top/blog/20210313150914.png, https://pic.yqqy.top/blog/20210313150914.png 1.5x, https://pic.yqqy.top/blog/20210313150914.png 2x"
             data-sizes="auto"
-            alt="https://pic.yqqy.top/blog/20210313150914.png?imageMogr2/format/webp/interlace/1">
+            alt="https://pic.yqqy.top/blog/20210313150914.png">
     </a><figcaption class="image-caption">图1</figcaption>
     </figure></p>
 <p>难道docker-compose不支持这种写法？还被多加了一个 <code>$</code>变成了 <code>$${}</code> ，随后在自己的本地电脑试了下，是按照我预想的结果输出的，那么问题就好说了，这说明是dockerc-compose版本不对，并不是不支持，当前服务器下的版本是 1.25.4，翻阅版本记录发现在 1.26.0 以后使用了 <code>python-dotenv</code> 管理了env_file，所以至少要使用大于1.26.0以后的版本。</p>
-<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20210313151336.png?imageMogr2/format/webp/interlace/1" title="https://pic.yqqy.top/blog/20210313151336.png?imageMogr2/format/webp/interlace/1" data-thumbnail="https://pic.yqqy.top/blog/20210313151336.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>图2</h2>">
+<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20210313151336.png" title="https://pic.yqqy.top/blog/20210313151336.png" data-thumbnail="https://pic.yqqy.top/blog/20210313151336.png" data-sub-html="<h2>图2</h2>">
         <img
             class="lazyload"
-            data-src="https://pic.yqqy.top/blog/20210313151336.png?imageMogr2/format/webp/interlace/1"
-            data-srcset="https://pic.yqqy.top/blog/20210313151336.png?imageMogr2/format/webp/interlace/1, https://pic.yqqy.top/blog/20210313151336.png?imageMogr2/format/webp/interlace/1 1.5x, https://pic.yqqy.top/blog/20210313151336.png?imageMogr2/format/webp/interlace/1 2x"
+            data-src="https://pic.yqqy.top/blog/20210313151336.png"
+            data-srcset="https://pic.yqqy.top/blog/20210313151336.png, https://pic.yqqy.top/blog/20210313151336.png 1.5x, https://pic.yqqy.top/blog/20210313151336.png 2x"
             data-sizes="auto"
-            alt="https://pic.yqqy.top/blog/20210313151336.png?imageMogr2/format/webp/interlace/1">
+            alt="https://pic.yqqy.top/blog/20210313151336.png">
     </a><figcaption class="image-caption">图2</figcaption>
     </figure></p>
 <p>顺便提一下更新 <code>docker-compose</code>版本步骤</p>
@@ -253,13 +253,13 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>更新之后再看一下效果吧</p>
-<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20210313151938.png?imageMogr2/format/webp/interlace/1" title="https://pic.yqqy.top/blog/20210313151938.png?imageMogr2/format/webp/interlace/1" data-thumbnail="https://pic.yqqy.top/blog/20210313151938.png?imageMogr2/format/webp/interlace/1" data-sub-html="<h2>图三</h2>">
+<p><figure><a class="lightgallery" href="https://pic.yqqy.top/blog/20210313151938.png" title="https://pic.yqqy.top/blog/20210313151938.png" data-thumbnail="https://pic.yqqy.top/blog/20210313151938.png" data-sub-html="<h2>图三</h2>">
         <img
             class="lazyload"
-            data-src="https://pic.yqqy.top/blog/20210313151938.png?imageMogr2/format/webp/interlace/1"
-            data-srcset="https://pic.yqqy.top/blog/20210313151938.png?imageMogr2/format/webp/interlace/1, https://pic.yqqy.top/blog/20210313151938.png?imageMogr2/format/webp/interlace/1 1.5x, https://pic.yqqy.top/blog/20210313151938.png?imageMogr2/format/webp/interlace/1 2x"
+            data-src="https://pic.yqqy.top/blog/20210313151938.png"
+            data-srcset="https://pic.yqqy.top/blog/20210313151938.png, https://pic.yqqy.top/blog/20210313151938.png 1.5x, https://pic.yqqy.top/blog/20210313151938.png 2x"
             data-sizes="auto"
-            alt="https://pic.yqqy.top/blog/20210313151938.png?imageMogr2/format/webp/interlace/1">
+            alt="https://pic.yqqy.top/blog/20210313151938.png">
     </a><figcaption class="image-caption">图三</figcaption>
     </figure></p>
 <h2 id="总结" class="headerLink">

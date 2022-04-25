@@ -29,23 +29,23 @@ license: ""
 
 [点这里下载](http://nginx.org/en/download.html)
 
-![mark](https://pic.yqqy.top/blog/20200111/4E4abJ16o0df.png?imageMogr2/format/webp/interlace/1)
+![mark](https://pic.yqqy.top/blog/20200111/4E4abJ16o0df.png)
 
 ### 解压到指定目录，文件夹内容如下
 
-![mark](https://pic.yqqy.top/blog/20200111/lv1ToWIHSOBx.png?imageMogr2/format/webp/interlace/1)
+![mark](https://pic.yqqy.top/blog/20200111/lv1ToWIHSOBx.png)
 
 ### 启动Nginx
 
-![mark](https://pic.yqqy.top/blog/20200111/VnoVLHwYdhns.png?imageMogr2/format/webp/interlace/1)
+![mark](https://pic.yqqy.top/blog/20200111/VnoVLHwYdhns.png)
 
 查看是否成功运行（在任务管理器->详细信息中找到nginx进程）
 
-![mark](https://pic.yqqy.top/blog/20200111/JRE5KzvQcjin.png?imageMogr2/format/webp/interlace/1)
+![mark](https://pic.yqqy.top/blog/20200111/JRE5KzvQcjin.png)
 
 ### 浏览器运行`127.0.0.1`查看
 
-![mark](https://pic.yqqy.top/blog/20200111/KQPeW6geG0xQ.png?imageMogr2/format/webp/interlace/1)
+![mark](https://pic.yqqy.top/blog/20200111/KQPeW6geG0xQ.png)
 
 ### 日志目录
 
@@ -71,7 +71,7 @@ nginx.exe -s quit   //退出nginx
 
 1. 修改本地`hosts`文件，添加一个代理本地的域名
 
-   ![mark](https://pic.yqqy.top/blog/20200111/C4x03rT0su6y.png?imageMogr2/format/webp/interlace/1)
+   ![mark](https://pic.yqqy.top/blog/20200111/C4x03rT0su6y.png)
 
 2. 我们启用的是golang的服务，启动端口是8080端口，也就是`127.0.0.1:8080`，修改nginx配置，目录地址为`conf/nginx.conf`，删掉原来的`server`，进行重写`server`内容
 

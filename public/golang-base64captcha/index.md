@@ -76,4 +76,4 @@ func GenerateCaptcha(ctx *gin.Context) {
 
 这样子输出的就是一条json，放在项目里面就是这样的
 
-![mark](https://pic.yqqy.top/blog/20200207/uIYagTxvi3FE.png?imageMogr2/format/webp/interlace/1 "效果图")
+![mark](https://pic.yqqy.top/blog/20200207/uIYagTxvi3FE.png "效果图")
