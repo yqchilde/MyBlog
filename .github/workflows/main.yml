@@ -11,23 +11,27 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Check Out
+      - name: 1. check out
         uses: actions/checkout@v2
+
+      - name: 2. zip public folder
+        uses: montudor/action-zip@v1
+        with:
+          args: zip -q -r public.zip public
         
-      - name: rsync deployments
+      - name: 3. rsync to aliyun
         uses: Pendect/action-rsyncer@v1.1.0
         env:
           DEPLOY_KEY: ${{ secrets.ALIYUN_KEY }}
         with:
           flags: '-avzr --delete'
-          src: 'public/'
+          src: './public.zip'
           dest: '${{ secrets.ALIYUN_USER }}@${{ secrets.ALIYUN_HOST }}:${{ secrets.ALIYUN_PATH }}'
           
-      - name: SSH Remote Commands
+      - name: 4. ssh connect to aliyun to execute script
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.ALIYUN_HOST }}
           username: ${{ secrets.ALIYUN_USER }}
-          password: ${{ secrets.ALIYUN_PASSWORD }}
           key: ${{ secrets.ALIYUN_KEY }}
           script: bash /home/script/blog/deploy.sh
