@@ -4,7 +4,14 @@
         <link>https://yqqy.top/posts/</link>
         <description>所有文章 | Yqchilde</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Tue, 19 Apr 2022 17:29:34 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Mon, 29 Aug 2022 08:49:39 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>玩软路由的一些笔记</title>
+    <link>https://yqqy.top/soft-route-notes/</link>
+    <pubDate>Mon, 29 Aug 2022 08:49:39 &#43;0800</pubDate><author>
+        <name>Yqchilde</name>
+    </author><guid>https://yqqy.top/soft-route-notes/</guid>
+    <description><![CDATA[玩软路由也有两个月了，逐渐开始不想折腾了，特此记录一下一些配置，以防止日后生疏忘记。]]></description>
+</item><item>
     <title>在算能盒子 (BMNN) 上使用gocv</title>
     <link>https://yqqy.top/sophon-linaro-opencv-gocv/</link>
     <pubDate>Tue, 19 Apr 2022 17:29:34 &#43;0800</pubDate><author>
@@ -67,12 +74,5 @@
         <name>作者</name>
     </author><guid>https://yqqy.top/mysql-optimization-notes/</guid>
     <description><![CDATA[整理MySQL优化相关的笔记，持续补充 🌈]]></description>
-</item><item>
-    <title>Nginx常用配置</title>
-    <link>https://yqqy.top/nginx-configuration/</link>
-    <pubDate>Tue, 09 Nov 2021 17:31:11 &#43;0800</pubDate><author>
-        <name>作者</name>
-    </author><guid>https://yqqy.top/nginx-configuration/</guid>
-    <description><![CDATA[记录一些Nginx常用配置项及说明。]]></description>
 </item></channel>
 </rss>
