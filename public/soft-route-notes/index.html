@@ -22,7 +22,7 @@
 
 <meta name="theme-color" content="#f8f8f8"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://yqqy.top/soft-route-notes/" /><link rel="prev" href="https://yqqy.top/sophon-linaro-opencv-gocv/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.3def6ab1948b8c7d722cbf8bfcbddccc578e283a30c530d3e0ef6e5dd6bf21e1.css" integrity="sha256-Pe9qsZSLjH1yLL&#43;L/L3czFeOKDowxTDT4O9uXda/IeE="><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="canonical" href="https://yqqy.top/soft-route-notes/" /><link rel="prev" href="https://yqqy.top/sophon-linaro-opencv-gocv/" /><link rel="next" href="https://yqqy.top/soft-route-keepalive/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.3def6ab1948b8c7d722cbf8bfcbddccc578e283a30c530d3e0ef6e5dd6bf21e1.css" integrity="sha256-Pe9qsZSLjH1yLL&#43;L/L3czFeOKDowxTDT4O9uXda/IeE="><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/yqqy.top\/soft-route-notes\/"
-        },"genre": "posts","keywords": "软路由","wordcount":  1532 ,
+        },"genre": "posts","keywords": "软路由","wordcount":  1538 ,
         "url": "https:\/\/yqqy.top\/soft-route-notes\/","datePublished": "2022-08-29T08:49:39+08:00","dateModified": "2022-08-29T08:49:39+08:00","publisher": {
             "@type": "Organization",
             "name": "yqchilde"},"author": {
@@ -158,7 +158,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreffer author" class="author">Yqchilde</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/%E8%BD%AF%E8%B7%AF%E7%94%B1/"><i class="far fa-folder fa-fw"></i>软路由</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-08-29">2022-08-29</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-08-29">2022-08-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1532 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-08-29">2022-08-29</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2022-08-29">2022-08-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1538 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -193,12 +193,22 @@
     <li><a href="#实用的docker服务">实用的Docker服务</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><blockquote>
-<p>本文开始之前要批评一款软路由产品《以N5105这颗CPU制作的软路由成品》，这是一台被一群收了钱吹好评的UP吹起来的机器，博主发自内心的想说一句这玩意是真的垃圾，在发本文时N5105我已经出手卖掉而且仍有不兼容的问题，主要表现在PVE虚拟机上再虚拟化一些服务出来会有概率卡死机问题，以及其他的兼容性问题，售后群里天天都能看到韭菜们吐槽，当然我曾经也是那颗。</p>
-</blockquote>
-<blockquote>
-<p>本文使用的机器是《以奔腾7505这颗CPU制作的软路由成品》，目前用了有一周了，在PVE下第一次感觉到这么的稳定。</p>
-</blockquote>
+            </div><div class="content" id="content"><div class="details admonition danger open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-skull-crossbones fa-fw"></i>吐槽！！！<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">本文开始之前要批评一款软路由产品《以N5105这颗CPU制作的软路由成品》，这是一台被某些UP吹起来的机器，说句垃圾不为过吧毕竟很多人整天为了它心烦，在发本文时N5105我已经出手卖掉而且仍有不兼容的问题，主要表现在PVE虚拟机上再虚拟化一些服务出来会有概率卡死机问题，以及其他的兼容性问题，售后群里天天都能看到吐槽的，大无语了，咸鱼是它最好的归属。</div>
+        </div>
+    </div>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>赞！！！<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">本文使用的机器是《以奔腾7505这颗CPU制作的软路由成品》，目前用了有一周了，在PVE下第一次感觉到这么的稳定。</div>
+        </div>
+    </div>
 <h2 id="虚拟机服务" class="headerLink">
     <a href="#%e8%99%9a%e6%8b%9f%e6%9c%ba%e6%9c%8d%e5%8a%a1" class="header-mark"></a>虚拟机服务</h2><h3 id="ikuai" class="headerLink">
     <a href="#ikuai" class="header-mark"></a>iKuai</h3><h4 id="安装" class="headerLink">
@@ -614,7 +624,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/sophon-linaro-opencv-gocv/" class="prev" rel="prev" title="在算能盒子 (BMNN) 上使用gocv"><i class="fas fa-angle-left fa-fw"></i>在算能盒子 (BMNN) 上使用gocv</a></div>
+    <div class="post-nav"><a href="/sophon-linaro-opencv-gocv/" class="prev" rel="prev" title="在算能盒子 (BMNN) 上使用gocv"><i class="fas fa-angle-left fa-fw"></i>在算能盒子 (BMNN) 上使用gocv</a>
+            <a href="/soft-route-keepalive/" class="next" rel="next" title="Pve上使用keepalive脚本保活虚拟机">Pve上使用keepalive脚本保活虚拟机<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="giscus"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app/">giscus</a>.
