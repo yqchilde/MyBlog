@@ -2,7 +2,7 @@
 title: "Golang交叉编译Makefile，通过Github release版本检测覆盖更新"
 subtitle: ""
 date: 2021-04-21T22:44:20+08:00
-lastmod: 2021-04-21T22:44:20+08:00
+lastmod: 2023-01-05T10:32:32+08:00
 author: ""
 authorLink: ""
 description: "本文记载如何编写一个简单的适用于Golang交叉编译的Makefile，并且记载了在编译时如何通过动态注入变量来给二进制文件增加版本号，同时利用github releases进行版本更新检测、覆盖更新等。"
@@ -129,6 +129,10 @@ func main() {
 使用 `go build main.go`，运行结果为 `当前版本:`
 
 再使用 `go build -ldflags "-X main.Version=1.0.0" main.go`，运行结果为 `当前版本: 1.0.0`。我们可以基于此功能写入到Makefile中，就是上面的Makefile
+
+> 2023-01-05 10:30:55补充
+> 
+> 如果你想在子包中注入变量，请参考 [using-ldflags-to-set-version-information-for-go-applications](https://www.digitalocean.com/community/tutorials/using-ldflags-to-set-version-information-for-go-applications)
 
 ## 基于Github release进行覆盖更新
 
