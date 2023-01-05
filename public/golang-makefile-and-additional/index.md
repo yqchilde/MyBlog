@@ -107,6 +107,10 @@ func main() {
 
 再使用 `go build -ldflags "-X main.Version=1.0.0" main.go`，运行结果为 `当前版本: 1.0.0`。我们可以基于此功能写入到Makefile中，就是上面的Makefile
 
+> 2023-01-05 10:30:55补充
+> 
+> 如果你想在子包中注入变量，请参考 [using-ldflags-to-set-version-information-for-go-applications](https://www.digitalocean.com/community/tutorials/using-ldflags-to-set-version-information-for-go-applications)
+
 ## 基于Github release进行覆盖更新
 
 有了在编译时指定版本的方式，下一步尝试使用Github release来进行软件每次检查更新以及覆盖更新。

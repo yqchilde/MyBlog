@@ -10,7 +10,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yqqy.top/golang-makefile-and-additional/" /><meta property="og:image" content="https://yqqy.top/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-04-21T22:44:20+08:00" />
-<meta property="article:modified_time" content="2021-04-21T22:44:20+08:00" /><meta property="og:site_name" content="yqchilde" />
+<meta property="article:modified_time" content="2023-01-05T10:32:32+08:00" /><meta property="og:site_name" content="yqchilde" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://yqqy.top/logo.png"/>
 
@@ -32,8 +32,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/yqqy.top\/golang-makefile-and-additional\/"
-        },"genre": "posts","keywords": "Golang, Makefile","wordcount":  1824 ,
-        "url": "https:\/\/yqqy.top\/golang-makefile-and-additional\/","datePublished": "2021-04-21T22:44:20+08:00","dateModified": "2021-04-21T22:44:20+08:00","publisher": {
+        },"genre": "posts","keywords": "Golang, Makefile","wordcount":  1852 ,
+        "url": "https:\/\/yqqy.top\/golang-makefile-and-additional\/","datePublished": "2021-04-21T22:44:20+08:00","dateModified": "2023-01-05T10:32:32+08:00","publisher": {
             "@type": "Organization",
             "name": "yqchilde"},"author": {
                 "@type": "Person",
@@ -141,7 +141,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://yqqy.top" title="Author" target="_blank" rel="noopener noreferrer author" class="author">Yqchilde</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/golang/"><i class="far fa-folder fa-fw"></i>Golang</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-04-21">2021-04-21</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-04-21">2021-04-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1824 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-04-21">2021-04-21</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-01-05">2023-01-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1852 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -160,15 +160,7 @@
     <li><a href="#参考文章">参考文章</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><div class="details admonition warning open">
-                <div class="details-summary admonition-title">
-                    <i class="icon fas fa-exclamation-triangle fa-fwwarning"></i>警告<i class="details-icon fas fa-angle-right fa-fw"></i>
-                </div>
-                <div class="details-content">
-                    <div class="admonition-content">
-                        本文最后更新于 <span class="timeago" datetime="2021-04-21T22:44:20" title="April 21, 2021">2021-04-21</span>，文中内容可能已过时。</div>
-                </div>
-            </div><h2 id="makefile" class="headerLink">
+            </div><div class="content" id="content"><h2 id="makefile" class="headerLink">
     <a href="#makefile" class="header-mark"></a>Makefile</h2><blockquote>
 <p>之前一直看到很多开源项目中都有Makefile的存在，博主也是第一次写Makefile，参考了很多文章，特此记录一下关于Golang交叉编译的Makefile</p>
 </blockquote>
@@ -346,6 +338,10 @@
 </div>
 </div><p>使用 <code>go build main.go</code>，运行结果为 <code>当前版本:</code></p>
 <p>再使用 <code>go build -ldflags &quot;-X main.Version=1.0.0&quot; main.go</code>，运行结果为 <code>当前版本: 1.0.0</code>。我们可以基于此功能写入到Makefile中，就是上面的Makefile</p>
+<blockquote>
+<p>2023-01-05 10:30:55补充</p>
+<p>如果你想在子包中注入变量，请参考 <a href="https://www.digitalocean.com/community/tutorials/using-ldflags-to-set-version-information-for-go-applications" target="_blank" rel="noopener noreferrer">using-ldflags-to-set-version-information-for-go-applications</a></p>
+</blockquote>
 <h2 id="基于github-release进行覆盖更新" class="headerLink">
     <a href="#%e5%9f%ba%e4%ba%8egithub-release%e8%bf%9b%e8%a1%8c%e8%a6%86%e7%9b%96%e6%9b%b4%e6%96%b0" class="header-mark"></a>基于Github release进行覆盖更新</h2><p>有了在编译时指定版本的方式，下一步尝试使用Github release来进行软件每次检查更新以及覆盖更新。
 Github 开放了 <a href="https://docs.github.com/en/rest/reference/repos" target="_blank" rel="noopener noreferrer">Github Api v3</a>，也有各种语言的SDK，就是判断版本号是否一致并进行下载解压覆盖重启即可。</p>
@@ -781,7 +777,7 @@ Github 开放了 <a href="https://docs.github.com/en/rest/reference/repos" targe
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-04-21</span>
+                <span>更新于 2023-01-05</span>
             </div>
             <div class="post-info-license"></div>
         </div>
@@ -809,7 +805,7 @@ Github 开放了 <a href="https://docs.github.com/en/rest/reference/repos" targe
         </main><footer class="footer">
         <div class="footer-container"><div class="footer-line"><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?9327590ef57d577af3cebe5a982d84b4"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></div><div class="footer-line">
                     由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.108.0">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank" rel="noopener noreferrer">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://yqqy.top" target="_blank" rel="noopener noreferrer">Yqchilde</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a href="https://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">晋ICP备18003223号-2</a></span></div>
             <div class="footer-line"></div>
             <div class="footer-line">
