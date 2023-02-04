@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>PHP - 标签 - Yqchilde</title>
+        <title>PHP - 标签 - 程序员YY</title>
         <link>https://yqqy.top/tags/php/</link>
-        <description>PHP - 标签 - Yqchilde</description>
+        <description>PHP - 标签 - 程序员YY</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
             <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Thu, 19 Sep 2019 12:34:09 &#43;0000</lastBuildDate><atom:link href="https://yqqy.top/tags/php/" rel="self" type="application/rss+xml" /><item>
     <title>PHPMailer6.0.7如何在类中被调用</title>

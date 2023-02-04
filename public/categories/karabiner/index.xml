@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Karabiner - 分类 - Yqchilde</title>
+        <title>Karabiner - 分类 - 程序员YY</title>
         <link>https://yqqy.top/categories/karabiner/</link>
-        <description>Karabiner - 分类 - Yqchilde</description>
+        <description>Karabiner - 分类 - 程序员YY</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
             <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Thu, 17 Mar 2022 10:32:50 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/categories/karabiner/" rel="self" type="application/rss+xml" /><item>
     <title>如何使用 Karabiner 来代替 Capslox 的体验</title>

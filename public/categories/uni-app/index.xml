@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Uni-App - 分类 - Yqchilde</title>
+        <title>Uni-App - 分类 - 程序员YY</title>
         <link>https://yqqy.top/categories/uni-app/</link>
-        <description>Uni-App - 分类 - Yqchilde</description>
+        <description>Uni-App - 分类 - 程序员YY</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
             <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Thu, 01 Aug 2019 14:21:19 &#43;0000</lastBuildDate><atom:link href="https://yqqy.top/categories/uni-app/" rel="self" type="application/rss+xml" /><item>
     <title>uniapp的Form提交之蛋疼的picker</title>

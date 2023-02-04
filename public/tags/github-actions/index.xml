@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>GitHub Actions - 标签 - Yqchilde</title>
+        <title>GitHub Actions - 标签 - 程序员YY</title>
         <link>https://yqqy.top/tags/github-actions/</link>
-        <description>GitHub Actions - 标签 - Yqchilde</description>
+        <description>GitHub Actions - 标签 - 程序员YY</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
             <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Sun, 30 Aug 2020 19:58:27 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/tags/github-actions/" rel="self" type="application/rss+xml" /><item>
     <title>使用GitHub Actions部署Hugo到阿里云</title>

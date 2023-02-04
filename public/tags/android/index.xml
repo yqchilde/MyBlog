@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Android - 标签 - Yqchilde</title>
+        <title>Android - 标签 - 程序员YY</title>
         <link>https://yqqy.top/tags/android/</link>
-        <description>Android - 标签 - Yqchilde</description>
+        <description>Android - 标签 - 程序员YY</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
             <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Fri, 24 May 2019 00:54:05 &#43;0000</lastBuildDate><atom:link href="https://yqqy.top/tags/android/" rel="self" type="application/rss+xml" /><item>
     <title>Android学习RecyclerView笔记三</title>

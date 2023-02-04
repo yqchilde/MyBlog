@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>ANSI - 标签 - Yqchilde</title>
+        <title>ANSI - 标签 - 程序员YY</title>
         <link>https://yqqy.top/tags/ansi/</link>
-        <description>ANSI - 标签 - Yqchilde</description>
+        <description>ANSI - 标签 - 程序员YY</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
             <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Sat, 11 Jan 2020 10:26:10 &#43;0000</lastBuildDate><atom:link href="https://yqqy.top/tags/ansi/" rel="self" type="application/rss+xml" /><item>
     <title>解决win10的cmd命令行不转义ANSI序列（让cmd输出彩色字体）</title>

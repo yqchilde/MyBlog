@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Notes - 分类 - Yqchilde</title>
+        <title>Notes - 分类 - 程序员YY</title>
         <link>https://yqqy.top/categories/notes/</link>
-        <description>Notes - 分类 - Yqchilde</description>
+        <description>Notes - 分类 - 程序员YY</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
             <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Sun, 08 Nov 2020 18:40:25 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/categories/notes/" rel="self" type="application/rss+xml" /><item>
     <title>win10企业版缺失Microsoft Store及一键切换版本</title>
