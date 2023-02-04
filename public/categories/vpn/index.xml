@@ -1,14 +1,14 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>VPN - 分类 - 程序员YY</title>
+        <title>VPN - 分类 - 程序员YY的开发历程</title>
         <link>https://yqqy.top/categories/vpn/</link>
-        <description>VPN - 分类 - 程序员YY</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Mon, 18 Apr 2022 15:03:51 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/categories/vpn/" rel="self" type="application/rss+xml" /><item>
+        <description>VPN - 分类 - 程序员YY的开发历程</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (程序员YY)</managingEditor>
+            <webMaster>yqchilde@gmail.com (程序员YY)</webMaster><lastBuildDate>Mon, 18 Apr 2022 15:03:51 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/categories/vpn/" rel="self" type="application/rss+xml" /><item>
     <title>解决在 Apple M1 上使用 Parallels 安装 Windows 后无法使用 OpenVPN 的问题</title>
     <link>https://yqqy.top/macos-parallels-miss-tap-windows/</link>
     <pubDate>Mon, 18 Apr 2022 15:03:51 &#43;0800</pubDate><author>
-        <name>Yqchilde</name>
+        <name>程序员YY</name>
     </author><guid>https://yqqy.top/macos-parallels-miss-tap-windows/</guid>
     <description><![CDATA[由于工作需要，我在 macOS 上安装 Windows，但是在 Windows 上却无法使用 OpenVPN。]]></description>
 </item></channel>

@@ -1,21 +1,21 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Golang - 分类 - 程序员YY</title>
+        <title>Golang - 分类 - 程序员YY的开发历程</title>
         <link>https://yqqy.top/categories/golang/</link>
-        <description>Golang - 分类 - 程序员YY</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Tue, 19 Apr 2022 17:29:34 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/categories/golang/" rel="self" type="application/rss+xml" /><item>
+        <description>Golang - 分类 - 程序员YY的开发历程</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (程序员YY)</managingEditor>
+            <webMaster>yqchilde@gmail.com (程序员YY)</webMaster><lastBuildDate>Tue, 19 Apr 2022 17:29:34 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/categories/golang/" rel="self" type="application/rss+xml" /><item>
     <title>在算能盒子 (BMNN) 上使用gocv</title>
     <link>https://yqqy.top/sophon-linaro-opencv-gocv/</link>
     <pubDate>Tue, 19 Apr 2022 17:29:34 &#43;0800</pubDate><author>
-        <name>Yqchilde</name>
+        <name>程序员YY</name>
     </author><guid>https://yqqy.top/sophon-linaro-opencv-gocv/</guid>
     <description><![CDATA[本文记录了在算能盒子 (BMNN) 上使用gocv的过程，本文将描述使用期间走过的坑，以及如何解决这些坑。]]></description>
 </item><item>
     <title>go mod 添加 gitlab 私有仓库</title>
     <link>https://yqqy.top/go-mod-private-repo/</link>
     <pubDate>Sun, 17 Apr 2022 22:38:34 &#43;0800</pubDate><author>
-        <name>Yqchilde</name>
+        <name>程序员YY</name>
     </author><guid>https://yqqy.top/go-mod-private-repo/</guid>
     <description><![CDATA[本篇记载了如何添加 gitlab 私有仓库到 go mod 中使用，并且可以使用 go get 命令获取到私有仓库的依赖。]]></description>
 </item><item>

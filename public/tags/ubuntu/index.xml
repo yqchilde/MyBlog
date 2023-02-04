@@ -1,14 +1,14 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Ubuntu - 标签 - 程序员YY</title>
+        <title>Ubuntu - 标签 - 程序员YY的开发历程</title>
         <link>https://yqqy.top/tags/ubuntu/</link>
-        <description>Ubuntu - 标签 - 程序员YY</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Sun, 17 Apr 2022 19:30:38 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/tags/ubuntu/" rel="self" type="application/rss+xml" /><item>
+        <description>Ubuntu - 标签 - 程序员YY的开发历程</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (程序员YY)</managingEditor>
+            <webMaster>yqchilde@gmail.com (程序员YY)</webMaster><lastBuildDate>Sun, 17 Apr 2022 19:30:38 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/tags/ubuntu/" rel="self" type="application/rss+xml" /><item>
     <title>Ubuntu 下关于 Netplan 的一次报错</title>
     <link>https://yqqy.top/ubuntu-netplan/</link>
     <pubDate>Sun, 17 Apr 2022 19:30:38 &#43;0800</pubDate><author>
-        <name>Yqchilde</name>
+        <name>程序员YY</name>
     </author><guid>https://yqqy.top/ubuntu-netplan/</guid>
     <description><![CDATA[一次错把 netplan 当做 netplan.io 使用时发生的报错。]]></description>
 </item><item>

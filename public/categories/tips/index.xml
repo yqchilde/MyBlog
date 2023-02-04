@@ -1,10 +1,10 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Tips - 分类 - 程序员YY</title>
+        <title>Tips - 分类 - 程序员YY的开发历程</title>
         <link>https://yqqy.top/categories/tips/</link>
-        <description>Tips - 分类 - 程序员YY</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Sun, 30 Aug 2020 19:58:27 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/categories/tips/" rel="self" type="application/rss+xml" /><item>
+        <description>Tips - 分类 - 程序员YY的开发历程</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (程序员YY)</managingEditor>
+            <webMaster>yqchilde@gmail.com (程序员YY)</webMaster><lastBuildDate>Sun, 30 Aug 2020 19:58:27 &#43;0800</lastBuildDate><atom:link href="https://yqqy.top/categories/tips/" rel="self" type="application/rss+xml" /><item>
     <title>使用GitHub Actions部署Hugo到阿里云</title>
     <link>https://yqqy.top/hugo-github-actions-aliyun/</link>
     <pubDate>Sun, 30 Aug 2020 19:58:27 &#43;0800</pubDate><author>

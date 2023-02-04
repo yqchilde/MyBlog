@@ -1,10 +1,10 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Git - 标签 - 程序员YY</title>
+        <title>Git - 标签 - 程序员YY的开发历程</title>
         <link>https://yqqy.top/tags/git/</link>
-        <description>Git - 标签 - 程序员YY</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (Yqchilde)</managingEditor>
-            <webMaster>yqchilde@gmail.com (Yqchilde)</webMaster><lastBuildDate>Sun, 05 Jul 2020 13:22:44 &#43;0000</lastBuildDate><atom:link href="https://yqqy.top/tags/git/" rel="self" type="application/rss+xml" /><item>
+        <description>Git - 标签 - 程序员YY的开发历程</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yqchilde@gmail.com (程序员YY)</managingEditor>
+            <webMaster>yqchilde@gmail.com (程序员YY)</webMaster><lastBuildDate>Sun, 05 Jul 2020 13:22:44 &#43;0000</lastBuildDate><atom:link href="https://yqqy.top/tags/git/" rel="self" type="application/rss+xml" /><item>
     <title>Git常用命令速查表</title>
     <link>https://yqqy.top/git-command-quick-check/</link>
     <pubDate>Sun, 05 Jul 2020 13:22:44 &#43;0000</pubDate><author>

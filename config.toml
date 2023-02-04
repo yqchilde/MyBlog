@@ -8,7 +8,7 @@ hasCJKLanguage = true
 # 主题目录
 themesDir = "./themes"
 # 主页显示的网站标题
-title = "程序员YY"
+title = "程序员YY的开发历程"
 
 # 更改使用 Hugo 构建网站时使用的默认主题
 theme = "DoIt"
@@ -70,7 +70,7 @@ theme = "DoIt"
   #  DoIt 主题版本
   version = "0.2.X"
   # 网站名称
-  title = "程序员YY"
+  title = "程序员YY的开发历程"
   # 网站描述
   description = "程序员YY,yqchilde,程序员,Gopher,热爱技术,中度强迫症,熬夜达人"
   # 网站关键词
@@ -138,9 +138,9 @@ theme = "DoIt"
       # LOGO 的 URL
       logo = ""
       # 标题名称
-      name = "Yqchilde"
+      name = "程序员YY"
       # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
-      pre = "<i class='far fa-kiss-wink-heart fa-fw'></i>"
+      pre = "<i class='fa fa-spinner'></i>"
       # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
       post = ""
       #  是否为标题显示打字机动画
@@ -527,7 +527,7 @@ theme = "DoIt"
 
 # 作者配置
 [author]
-  name = "Yqchilde"
+  name = "程序员YY"
   email = "yqchilde@gmail.com"
   link = "https://yqqy.top"
   avatar = ""
